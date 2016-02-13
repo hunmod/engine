@@ -1,0 +1,2 @@
+[28-Oct-2015 08:51:18 UTC] PHP Fatal error:  Call to undefined function resolveUrl() in /home/hunmodeu/public_html/scripts/ckfinder/config.php on line 87
+[28-Oct-2015 08:55:37 UTC] PHP Fatal error:  Call to undefined function resolveUrl() in /home/hunmodeu/public_html/scripts/ckfinder/config.php on line 87

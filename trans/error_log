@@ -1,0 +1,3 @@
+[27-Nov-2015 18:08:18 UTC] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : Start tag expected, '&lt;' not found in /home/hunmodeu/public_html/trans/class.yandextranslate.php on line 43
+[27-Nov-2015 18:08:18 UTC] PHP Warning:  simplexml_load_string(): {&quot;code&quot;:200,&quot;lang&quot;:&quot;hu-en&quot;,&quot;text&quot;:[&quot;flour mixture&quot;]} in /home/hunmodeu/public_html/trans/class.yandextranslate.php on line 43
+[27-Nov-2015 18:08:18 UTC] PHP Warning:  simplexml_load_string(): ^ in /home/hunmodeu/public_html/trans/class.yandextranslate.php on line 43

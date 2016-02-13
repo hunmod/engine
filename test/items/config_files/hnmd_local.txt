@@ -1,0 +1,1 @@
+{"db_conf":{"db1_srv":"localhost","db2_db":"elite","db1_db":"hunmod_db","db1_user":"root","db1_pass":"titok"},"homefolder":"\/sajat_publicv","oldalid":"hnmd","prefix":"","prefix_pagesetting":"hnmd_"}

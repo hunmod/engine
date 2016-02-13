@@ -1,0 +1,1 @@
+ALTER TABLE  `shop` ADD  `vat` INT NOT NULL DEFAULT  '0' AFTER  `ar` ;

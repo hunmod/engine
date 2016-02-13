@@ -1,0 +1,2 @@
+[02-Jul-2014 23:33:59 Europe/Berlin] PHP Warning:  file_put_contents() expects parameter 1 to be string, array given in /home/hunmodeu/public_html/test/uploads/fileup.php on line 57
+[02-Jul-2014 23:44:28 Europe/Berlin] PHP Warning:  file_put_contents() expects parameter 1 to be string, array given in /home/hunmodeu/public_html/test/uploads/fileup.php on line 57

@@ -1,0 +1,22 @@
+Options +FollowSymlinks
+RewriteEngine On
+#RewriteBase /engine/
+RewriteBase /
+#RewriteBase /
+
+
+RewriteRule \.(ico|js|swf|css|gif|flv|jpe?g|JPE?G|html|png|pdf|xls|mp3|avi|mge?g|doc|docx|xls|xlsx|tif)$ - [L]
+
+RewriteRule sitemap.xml sitemap.php?mr=1	[QSA]
+RewriteRule sitemap sitemap.php?mr=1	[QSA]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d 
+#RewriteCond %{REQUEST_URI} !^/?styl/$
+
+
+RewriteRule ^(.*)(.*)$ index.php?mr=1&q=$1 [QSA]
+
+
+
+

@@ -1,0 +1,49 @@
+<?php
+$egysor["id"]="users";
+$egysor["nev"]= "Felhasználók";
+$egysor["url"]= $kezdooldal.$separator.$getparams[0]."/users";
+$egysor["status"]= 1;
+$almenu[]=$egysor;
+$egysor["id"]="hirekfriss";
+$egysor["nev"]= "Hírek-beküldött";
+$egysor["url"]= $kezdooldal.$separator.$getparams[0]."/hirek/friss";
+$egysor["status"]= 1;
+$almenu[]=$egysor;
+$egysor["id"]="hirekdel";
+$egysor["nev"]= "Hírek-törölt";
+$egysor["url"]= $kezdooldal.$separator.$getparams[0]."/hirek/torolt";
+$egysor["status"]= 1;
+$almenu[]=$egysor;
+
+$egysor["id"]="linkekuj";
+$egysor["nev"]= "Linkek-beküldött";
+$egysor["url"]= $kezdooldal.$separator.$getparams[0]."/linkek/friss";
+$egysor["status"]= 1;
+$almenu[]=$egysor;
+
+$egysor["id"]="linkekdel";
+$egysor["nev"]= "Linkek-törölt";
+$egysor["url"]= $kezdooldal.$separator.$getparams[0]."/linkek/torolt";
+$egysor["status"]= 1;
+$almenu[]=$egysor;
+
+$egysor["id"]="termekekdel";
+$egysor["nev"]= "Termékek-törölt";
+$egysor["url"]= $kezdooldal.$separator.$getparams[0]."/apro/torolt";
+$egysor["status"]= 1;
+$almenu[]=$egysor;
+
+
+$egysor["id"]="hirlevel";
+$egysor["nev"]= "Hírlevél";
+$egysor["url"]= $kezdooldal.$separator.$getparams[0]."/hirlevel";
+$egysor["status"]= 1;
+$almenu[]=$egysor;
+
+$egysor["id"]="banner";
+$egysor["nev"]= "Reklámok";
+$egysor["url"]= $kezdooldal.$separator.$getparams[0]."/banner/friss";
+$egysor["status"]= 1;
+$almenu[]=$egysor;
+
+?>

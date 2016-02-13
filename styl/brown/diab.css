@@ -1,0 +1,714 @@
+@font-face {
+font-family: 'Mountains of Christmas';
+font-style: normal;
+font-weight: 700;
+src: local('Mountains of Christmas Bold'), local('MountainsofChristmas-Bold'), url(http://themes.googleusercontent.com/static/fonts/mountainsofchristmas/v5/PymufKtHszoLrY0uiAYKNNMJQ1kXdW7gxNBCG4zxl74_BNIuymZ_hD58qNx2bu5M.woff) format('woff');
+}
+img{
+max-width:100%;	
+}
+h1,h2,h3,h4,h5,h6,h7,h8,h9,a{
+color:#835693;
+}
+a:hover{
+text-decoration:none;
+text-shadow:0px 0px 3px rgba(0,0,0,0.6);
+color:#835693;
+}
+body{
+background:url(img/bg.jpg) repeat;
+}
+.navbar-fixed-top{
+position:relative;
+}
+header
+{
+background:url(img/topbar_bg.png) repeat-x;
+height:60px;	
+}
+header .navbar
+{
+background:none;	
+border:none;
+}
+header .navbar-default .navbar-nav>li>a{
+color:#FFF;	
+}
+header .navbar-default .navbar-nav>li>ul{
+/*display:block;*/
+width: auto;
+background-color: #b84639;
+box-shadow: 0 3PX 3px rgba(0,0,0,0,8);
+margin-top:-5px;
+}
+header .navbar-default .navbar-nav>li>ul>li{
+display:block;
+padding:2px;
+}
+header .navbar-default .navbar-nav>li>ul>li>a{
+color:#fff;
+}
+@media (max-width: 767px) {
+header .navbar-collapse{
+background:#b84639;
+max-height: 80%;
+position: absolute;
+top: 45px;
+max-width:100%;
+width: 100%;
+}
+header .navbar ul li{
+display:block;
+}
+header .navbar ul li ul {
+position:relative;
+display:block;
+}	
+header .navbar li > ul > li{
+display:inline-flex!important;
+}	
+header .navbar-nav {
+margin: 5px 0px; 
+}	
+header .navbar-fixed-top .navbar-collapse {
+
+}
+}
+.navbar-brand{
+display:inline-block;
+text-indent:-10000px;
+background:url(img/logo.png);
+background-repeat:no-repeat;
+background-position:center;
+background-size:contain;
+height:45px;
+}
+/*
+
+*/
+.headerpic{
+display:block;
+position:relative;
+width:100%;
+height:310px !important;
+background-image:url(img/head.png);
+background-repeat: no-repeat;
+background-position:center;
+background-size:contain;
+
+}
+.headerpic .headerlogo
+{
+position:absolute;
+background:url(img/logo.png);
+background-repeat:no-repeat;
+background-position:center;
+width:30%;
+height:225px;	
+top:12%;
+left: 33%;
+background-size:contain;
+background-color:transparent;
+animation:headerlogoanimation 7s infinite;
+-webkit-animation:headerlogoanimation 7s infinite; 
+-moz-animation:headerlogoanimation 7s infinite; 
+}
+/*
+@keyframes headerlogoanimation
+{
+0%   {filter:  hue-rotate(0deg) saturate(100%) ;}
+50%  {filter:  hue-rotate(-60deg) saturate(80%);}
+100% {filter:  hue-rotate(0deg) saturate(100%) ;}
+}
+*/
+@-webkit-keyframes headerlogoanimation
+{
+0%   {-webkit-filter:  hue-rotate(0deg) saturate(100%); }
+50%  {-webkit-filter:  hue-rotate(-60deg) saturate(80%); }
+100% {-webkit-filter:  hue-rotate(0deg) saturate(100%);}
+}
+
+@-moz-keyframes headerlogoanimation 
+{
+0%   {-moz-filter:  hue-rotate(0deg) saturate(100%) ;}
+50%  {-moz-filter:  hue-rotate(-60deg) saturate(80%) ;}
+100% {-moz-filter:  hue-rotate(0deg) saturate(100%);}
+}
+.headerpic .text1 a,
+.headerpic .text2 a
+{
+color:#835693;
+text-decoration:none;
+}
+.headerpic .text1,
+.headerpic .text2
+{
+position: absolute;
+width: 21%;
+top: 36%;
+left: 13.5%;
+font-size: 46px;
+font-family: 'Mountains of Christmas';
+}
+.headerpic .text2
+{
+left: 71.5%;
+}
+@media (max-width: 1200px) {
+.headerpic .text1,
+.headerpic .text2
+{
+top: 38%;
+left: 8.5%;
+font-size: 40px;
+}
+.headerpic .text2 {
+left: 76%;
+}
+}
+@media (max-width: 992px) {
+.headerpic .text1,
+.headerpic .text2
+{
+top: 38%;
+left: 7%;
+font-size: 32px;
+}
+.headerpic .text2 {
+left: 75%;
+}
+}
+@media (max-width: 630px) {
+.headerpic .text1,
+.headerpic .text2
+{
+top: 38%;
+left: 3%;
+font-size: 32px;
+width:auto;
+}
+.headerpic .text2 {
+left:auto;
+right:3%;
+}
+}
+@media (max-width: 490px) {
+.headerpic{
+display:none;
+}
+}
+/**/
+.maincontainer .container{
+background-color: #f6f6f6;
+position:relative;
+}
+.maincontainer .container:first-child{
+/* background: none;*/
+margin-top:12px;
+}
+.maincontainer .container:nth-child(1):before{
+position:absolute;
+background: url(img/content_h_bg.png);
+left:0;
+top:-12px;
+height:13px;
+width:100%;
+}
+.maincontainer .container:last-child:after{
+position:absolute;
+background: url(img/content_b_bg.png);
+left:0;
+bottom:-10px;
+height:13px;
+width:100%;
+}
+left{
+padding:0 0 0 0!important;
+}
+left h1,
+left h3
+{
+width: 100%;
+padding-bottom: 7px;
+background: url(img/left_h1_bg.png) ;
+background-position: bottom center;
+background-size: 100% 40%;
+background-repeat: no-repeat;
+text-align: center;
+font-family: 'Mountains of Christmas' !important;
+color: #835693;
+font-size: 38px;
+text-shadow: 2px 5px 10px rgba(0,0,0,0.5);
+-moz-text-shadow: text-shadow;
+-webkit-text-shadow: text-shadow;
+border: none;
+border-radius: 0;
+box-shadow: 1px 60px 30px rgba(114,113,113,0.1);
+background-color: #f6f6f6;
+border-top: #f6f6f6 10px solid;
+border-left: #f6f6f6 10px solid;
+border-right: #f6f6f6 10px solid;
+margin-left: -10px;
+-moz-box-shadow: box-shadow;
+-webkit-box-shadow: box-shadow;
+margin-bottom: 10px;
+}
+left nav ul li a,
+left nav ul li
+{
+position:relative;
+list-style:none;
+text-decoration:none;
+color:#b84639;
+}
+left nav ul > li > ul{
+display:none;	
+position:absolute;
+top:-10px;
+left:50%;
+background-color: #f6f6f6;
+margin:0;
+padding: 5px;
+box-shadow:2px 2px 3px rgba(0,0,0,0.7);
+}
+left nav ul > li > ul > li{
+padding: 5px;
+min-width: 130px;
+}
+left nav ul  li:hover  ul{
+display:block!important;	
+z-index:10;
+}
+@media (max-width: 767px) {
+left{
+display:none;
+}
+}
+.attencion{
+text-align:center;
+color:#b84639;
+padding-bottom:5px;
+}
+footer::before{
+background:url(img/botbar_bg.png) repeat-x;
+min-height:60px;	
+position:absolute;
+top:-25px;
+width:100%;
+height:60px;
+display:block!important;
+}
+footer{
+position:relative;
+background:#BA473A;
+padding: 10px 0!important;
+margin-top:30px;
+
+}
+.footercontainer
+{
+	margin-bottom:20px;
+}
+/* Checkboxok*/
+.newrecipe .resetbtn,
+.newrecipe .newrecbtn{
+display:none;
+}
+.diab input[type=checkbox],
+.lactose input[type=checkbox],
+.gluten input[type=checkbox]
+{
+margin-left:-15px;
+}
+.diab input[type=checkbox]:after,
+.lactose input[type=checkbox]:after,
+.gluten input[type=checkbox]:after
+{
+cursor:pointer;
+margin-left:15px;
+background-image:url(img/diabicon1.png);	
+display:inline-block;
+padding: 0 0 0 0px;
+width:30px;
+height:33px;
+-webkit-filter: grayscale(100%);
+-moz-filter: grayscale(100%);
+-ms-filter: grayscale(100%);
+-o-filter: grayscale(100%);
+filter: grayscale(100%);
+filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); /* Firefox 3.5+ */
+filter: gray;
+content: "\0";
+}
+.diab input[type=checkbox]:checked:after,
+.lactose input[type=checkbox]:checked:after,
+.gluten input[type=checkbox]:checked:after
+{
+-webkit-filter: none;
+-moz-filter:  none;
+-ms-filter:  none;
+-o-filter:  none;
+filter:  none;
+content: "\1200";
+}
+.diab,
+.diab input[type=checkbox]:after {
+background-position: 0px 0px !important;
+}
+.lactose,
+.lactose input[type=checkbox]:after {
+background-position: 30px 0px !important;
+}
+.gluten,
+.gluten input[type=checkbox]:after {
+background-position: 60px 0px !important;
+}
+.diab,
+.gluten,
+.lactose
+{
+width:30px!important;
+height:34px!important;
+overflow:hidden;	
+font-size: 0.1px;
+}
+.freeselect
+{
+display:block;
+float:left;
+margin-left:50%;	
+}
+.freeselect .diab{
+margin-left:-50%;	
+}
+/* Checkboxok*/
+.toprecipe{
+display:block;
+position:relative;
+padding:0!important;	
+
+}
+.toprecipe .icons{
+position:absolute;
+top:3%;
+left:2%;
+}
+.toprecipe .floattext{
+position:absolute;
+width:100%;
+background:rgba(255,255,255,0.6);
+bottom:0;
+left:0;
+}
+.toprecipe .floattext a{
+display:block;
+margin:10px;
+}
+.toprecipe a:hover {
+text-decoration:none;
+text-shadow:none;
+}
+.toprecipe a:hover .floattext{
+background:rgba(255,255,255,0.8);
+}
+.toprecipe .floattext div[itemprop="description"],
+.toprecipe .floattext h2,
+.toprecipe .floattext h3
+{
+margin: 10px 20px 10px 10px;
+}
+.toprecipe .imgWrap{
+width:100%;	
+}
+.toprecipe .tabla{
+float:right;
+margin-left:10px;
+display:inline-table;
+width:100%;
+}
+.toprecipe .tabla .tblrow{
+display:table-cell;	
+background:#FFF;
+text-align:center;
+}
+.toprecipe  .tabla .tblrow span {
+display: block;
+padding: 3px;
+font-weight:bold;
+}
+.toprecipe .tabla,
+.toprecipe .imgWrap{
+padding:0;
+}
+@media (max-width: 490px) {
+.toprecipe .floattext
+{
+display:block;
+position:relative;
+}
+}
+#mertek{
+display:inline-block;
+width:auto;	
+}
+/* recipelist*/
+recipes recipe{
+position:relative;
+height:320px;
+overflow:hidden;
+/*font-family: 'ArialNarrow';*/
+z-index:40;
+color:#835693;
+margin-bottom:10px;
+}
+recipe .icons{
+position:absolute;
+top:3%;
+left:2%;
+}
+
+recipes recipe:hover{
+z-index:200 !important;
+overflow:visible !important;
+text-shadow:none;
+}
+recipes recipe h1,
+recipes recipe a h1,
+recipes recipe h2,
+recipes recipe a h2,
+recipes recipe h3,
+recipes recipe a h3
+{
+font-family: 'MyriadPro' !important;
+font-size:14px;
+font-weight:bold;
+color:#835693;
+margin:0;
+}
+recipes recipe a,
+recipes recipe:hover a
+{
+color:#000;
+text-shadow:none !important;
+text-decoration:none;
+}
+recipe .icon{
+background-image:url(img/diabicon1.png);
+float:left;	
+display:block;
+width:30px!important;
+height:34px!important;
+overflow:hidden;	
+}
+.langbar .en,
+.langbar .de,
+.langbar .hu, 
+recipes recipe .imgWrap img,
+recipes recipe .imgframe img{
+width:100%;
+-webkit-filter: blur(0.4px) hue-rotate(320deg) saturate(50%) sepia(50%);
+filter: blur(0.4px) hue-rotate(320deg) saturate(50%) sepia(50%);
+}
+.langbar .en:hover,
+.langbar .de:hover,
+.langbar .hu:hover,
+recipes recipe:hover .imgWrap img,
+recipes recipe:hover .imgframe img{
+filter: none;
+-webkit-filter: none;
+}
+recipes recipe .cim span,
+recipes recipe .osszegzes span{
+font-weight:bold;
+border-bottom:#F90 2px solid !important;	
+border-top:#F90 2px solid !important;	
+}
+recipes recipe .text{
+background:#FFF;
+padding:2px;
+box-shadow: rgba(0,0,0,0) 0 1px 0;
+-webkit-box-shadow: box-shadow;
+-moz-box-shadow: box-shadow;
+}
+recipes recipe:hover .text{
+display:block;
+margin-top:-5px;
+box-shadow: rgba(0,0,0,0.7) 0 5px 10px;
+}
+recipes recipe .tabla{
+width:100%;
+height:74px;
+padding:3px;
+border-color:#F60;
+overflow:hidden;
+display:table;
+}
+recipe .tblrow {
+display:table-row-group;
+font-size:12px;	
+}
+recipe .tblrow span{
+display:table-cell;
+padding:1px;
+}
+/*-------------------------------------------------------*/
+.recipeingrdient{
+width:100%;
+display:table;
+position:relative
+}
+.recipeingrdient input{
+width:60px;	
+}
+.energia,#energia{
+background:#C1F0FF;	
+}
+.kaloria,#kaloria{
+background:#CCFDD1;	
+}
+.szenhidrat,#szenhidrat{
+background:#FFDBAE;	
+}
+.feherje,#feherje{
+background:#FFC;	
+}
+.zsir,#zsir{
+background:#FFFBDD;	
+}
+.rost,#rost{
+background:#F7CBFE;	
+}
+.koleszterin,#koleszterin{
+background:#E1D7FF;	
+}
+@media (max-width: 490px) {
+.recipeingrdient .zsir,
+.recipeingrdient #zsir,
+.recipeingrdient .rost,
+.recipeingrdient #rost,
+.recipeingrdient #feherje,
+.recipeingrdient .feherje,
+.tabla .zsir,
+.tabla #zsir,
+.tabla .rost,
+.tabla #rost,
+.tabla .feherje,
+.tabla #feherje,
+.rost
+{
+display:none!important;
+}
+}
+@media (max-width: 320px) {
+.recipeingrdient .feherje,
+.recipeingrdient #feherje,
+.recipeingrdient .koleszterin,
+.recipeingrdient #koleszterin,
+.tabla .feherje,
+.tabla #feherje,
+.tabla .koleszterin,
+.tabla #koleszterin,
+.koleszterin
+{
+display:none!important;
+}
+}
+/*social*/
+social{
+margin:10px 0;	
+display:block;
+}
+.pinit {
+     top : 0px !important;
+}
+social .facebook,
+social .twitter,
+social a,
+social .printme,
+social .googleplus{
+vertical-align:top; 
+display:inline-block;
+background-size:cover!important;
+height:30px;
+width:30px;
+cursor:pointer;
+}
+social .facebook{
+background:url(img/fb.png);
+}
+social .twitter{
+background:url(img/twitter.png);
+}
+social .googleplus{
+background:url(img/gplus.png);
+}
+social .printme{
+background:url(img/print.png);
+}
+/* Checkboxok*/
+#diab,
+#lactose,
+#gluten {
+display:none !important;
+}
+#diab input + label,
+#lactose+ label,
+#gluten+ label
+{
+background-image:url(img/diabicon1.png);	
+display:inline-block;
+padding: 0 0 0 0px;
+width:30px;
+height:30px;
+-webkit-filter: grayscale(100%);
+-moz-filter: grayscale(100%);
+-ms-filter: grayscale(100%);
+-o-filter: grayscale(100%);
+filter: grayscale(100%);
+filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); /* Firefox 3.5+ */
+filter: gray;	
+}
+/*Sepc diab*/
+.container-fluid .footads{
+margin-top:20px;	
+}
+searchrecipe label{
+/*display:none;	*/
+}
+.video{
+margin-bottom:20px;	
+}
+.pagination{
+background:#FFDBAE;
+border-radius:20px;
+-webkit-border-radius:border-radius;
+-moz-border-radius:border-radius;
+box-shadow: 0px 1px 3px rgba(0,0,0,0.5);
+-webkit-box-shadow:box-shadow;
+-moz-box-shadow:box-shadow;
+}
+.pagination a{
+background:none!important;
+border:none!important;
+color:#835693!important;
+}
+footer nav li{
+list-style:none;	
+}
+footer nav li ul{
+margin-left:-30px;	
+}
+footer nav li a:hover,
+footer nav li a,
+footer h3
+{
+color:#FFF;	
+}
+left ads ad{
+max-height:320px!important;
+display:block;
+overflow:hidden;
+}
+#captha{
+display:none;
+}

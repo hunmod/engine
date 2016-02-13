@@ -1,0 +1,406 @@
+[12-Oct-2013 21:51:16 Europe/Berlin] PHP Warning:  imagecreatefrompng() [<a href='function.imagecreatefrompng'>function.imagecreatefrompng</a>]: '/home/hunmodeu/public_html/scripts/phpqrcode/temp/testd8cbdb2abe743b4e470fc1232b5b45b3.png' is not a valid PNG file in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 30
+[12-Oct-2013 21:51:16 Europe/Berlin] PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 34
+[12-Oct-2013 21:51:16 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 35
+[15-Oct-2013 10:58:18 Europe/Berlin] PHP Warning:  imagecreatefrompng() [<a href='function.imagecreatefrompng'>function.imagecreatefrompng</a>]: '/home/hunmodeu/public_html/scripts/phpqrcode/temp/testd8cbdb2abe743b4e470fc1232b5b45b3.png' is not a valid PNG file in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 30
+[15-Oct-2013 10:58:19 Europe/Berlin] PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 34
+[15-Oct-2013 10:58:19 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 35
+[15-Oct-2013 12:16:33 Europe/Berlin] PHP Warning:  imagecreatefrompng() [<a href='function.imagecreatefrompng'>function.imagecreatefrompng</a>]: '/home/hunmodeu/public_html/scripts/phpqrcode/temp/testf80446f1ef76546ea2b83d486614db14.png' is not a valid PNG file in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 30
+[15-Oct-2013 12:16:33 Europe/Berlin] PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 34
+[15-Oct-2013 12:16:33 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 35
+[15-Oct-2013 12:16:33 Europe/Berlin] PHP Warning:  imagecreatefrompng() [<a href='function.imagecreatefrompng'>function.imagecreatefrompng</a>]: '/home/hunmodeu/public_html/scripts/phpqrcode/temp/test88e18cc3d8ba3a3b8e3a9bf06f36025f.png' is not a valid PNG file in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 30
+[15-Oct-2013 12:16:33 Europe/Berlin] PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 34
+[15-Oct-2013 12:16:33 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 35
+[15-Oct-2013 13:44:38 Europe/Berlin] PHP Warning:  imagecreatefrompng() [<a href='function.imagecreatefrompng'>function.imagecreatefrompng</a>]: '/home/hunmodeu/public_html/scripts/phpqrcode/temp/testd8cbdb2abe743b4e470fc1232b5b45b3.png' is not a valid PNG file in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 30
+[15-Oct-2013 13:44:38 Europe/Berlin] PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 34
+[15-Oct-2013 13:44:38 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 35
+[15-Oct-2013 23:33:35 Europe/Berlin] PHP Warning:  imagecreatefrompng() [<a href='function.imagecreatefrompng'>function.imagecreatefrompng</a>]: '/home/hunmodeu/public_html/scripts/phpqrcode/temp/testde12c23629d6c34bab3740b4aa4e5b74.png' is not a valid PNG file in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 30
+[15-Oct-2013 23:33:35 Europe/Berlin] PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 34
+[15-Oct-2013 23:33:35 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 35
+[16-Oct-2013 16:18:14 Europe/Berlin] PHP Warning:  imagecreatefrompng() [<a href='function.imagecreatefrompng'>function.imagecreatefrompng</a>]: '/home/hunmodeu/public_html/scripts/phpqrcode/temp/test439bd06d30aa51687b4ca009b45dcb06.png' is not a valid PNG file in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 30
+[16-Oct-2013 16:18:15 Europe/Berlin] PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 34
+[16-Oct-2013 16:18:15 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 35
+[17-Oct-2013 17:18:21 Europe/Berlin] PHP Warning:  imagecreatefrompng() [<a href='function.imagecreatefrompng'>function.imagecreatefrompng</a>]: '/home/hunmodeu/public_html/scripts/phpqrcode/temp/teste2b410b47394b5b45a96264ed838e626.png' is not a valid PNG file in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 30
+[17-Oct-2013 17:18:21 Europe/Berlin] PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 34
+[17-Oct-2013 17:18:21 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 35
+[17-Oct-2013 20:19:17 Europe/Berlin] PHP Warning:  imagecreatefrompng() [<a href='function.imagecreatefrompng'>function.imagecreatefrompng</a>]: '/home/hunmodeu/public_html/scripts/phpqrcode/temp/teste2b410b47394b5b45a96264ed838e626.png' is not a valid PNG file in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 30
+[17-Oct-2013 20:19:17 Europe/Berlin] PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 34
+[17-Oct-2013 20:19:17 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 35
+[17-Oct-2013 22:01:48 Europe/Berlin] PHP Warning:  imagecreatefrompng() [<a href='function.imagecreatefrompng'>function.imagecreatefrompng</a>]: '/home/hunmodeu/public_html/scripts/phpqrcode/temp/test006d195c03d623155fad5325970d25c4.png' is not a valid PNG file in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 30
+[17-Oct-2013 22:01:48 Europe/Berlin] PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 34
+[17-Oct-2013 22:01:48 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 35
+[18-Oct-2013 11:32:37 Europe/Berlin] PHP Warning:  imagecreatefrompng() [<a href='function.imagecreatefrompng'>function.imagecreatefrompng</a>]: '/home/hunmodeu/public_html/scripts/phpqrcode/temp/test0fda85285d9a54c8f46c6443bfeb0784.png' is not a valid PNG file in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 30
+[18-Oct-2013 11:32:37 Europe/Berlin] PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 34
+[18-Oct-2013 11:32:37 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 35
+[19-Oct-2013 14:32:38 Europe/Berlin] PHP Warning:  imagecreatefrompng() [<a href='function.imagecreatefrompng'>function.imagecreatefrompng</a>]: '/home/hunmodeu/public_html/scripts/phpqrcode/temp/test4dfb7fc7a349ec915a8ba92bd85968d6.png' is not a valid PNG file in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 30
+[19-Oct-2013 14:32:38 Europe/Berlin] PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 34
+[19-Oct-2013 14:32:38 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 35
+[19-Oct-2013 15:12:35 Europe/Berlin] PHP Warning:  imagecreatefrompng() [<a href='function.imagecreatefrompng'>function.imagecreatefrompng</a>]: '/home/hunmodeu/public_html/scripts/phpqrcode/temp/test4dfb7fc7a349ec915a8ba92bd85968d6.png' is not a valid PNG file in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 30
+[19-Oct-2013 15:12:35 Europe/Berlin] PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 34
+[19-Oct-2013 15:12:35 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 35
+[19-Oct-2013 15:41:07 Europe/Berlin] PHP Warning:  imagecreatefrompng() [<a href='function.imagecreatefrompng'>function.imagecreatefrompng</a>]: '/home/hunmodeu/public_html/scripts/phpqrcode/temp/test3b35493c42cb184097dd900cd75f247b.png' is not a valid PNG file in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 30
+[19-Oct-2013 15:41:07 Europe/Berlin] PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 34
+[19-Oct-2013 15:41:07 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 35
+[19-Oct-2013 15:41:07 Europe/Berlin] PHP Warning:  imagecreatefrompng() [<a href='function.imagecreatefrompng'>function.imagecreatefrompng</a>]: '/home/hunmodeu/public_html/scripts/phpqrcode/temp/testf85383e24171dda516a6f985bede0f4d.png' is not a valid PNG file in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 30
+[19-Oct-2013 15:41:07 Europe/Berlin] PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 34
+[19-Oct-2013 15:41:07 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 35
+[19-Oct-2013 16:29:52 Europe/Berlin] PHP Warning:  imagecreatefrompng() [<a href='function.imagecreatefrompng'>function.imagecreatefrompng</a>]: '/home/hunmodeu/public_html/scripts/phpqrcode/temp/testac3afa36d2264d5938caa93780de69a2.png' is not a valid PNG file in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 30
+[19-Oct-2013 16:29:52 Europe/Berlin] PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 34
+[19-Oct-2013 16:29:52 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 35
+[19-Oct-2013 16:33:57 Europe/Berlin] PHP Warning:  imagecreatefrompng() [<a href='function.imagecreatefrompng'>function.imagecreatefrompng</a>]: '/home/hunmodeu/public_html/scripts/phpqrcode/temp/testba99efb2c24c447b696db4e28fb10f0e.png' is not a valid PNG file in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 30
+[19-Oct-2013 16:33:57 Europe/Berlin] PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 34
+[19-Oct-2013 16:33:57 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 35
+[19-Oct-2013 16:38:02 Europe/Berlin] PHP Warning:  imagecreatefrompng() [<a href='function.imagecreatefrompng'>function.imagecreatefrompng</a>]: '/home/hunmodeu/public_html/scripts/phpqrcode/temp/test43d95f09b739242f38a60a5bca8b6841.png' is not a valid PNG file in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 30
+[19-Oct-2013 16:38:02 Europe/Berlin] PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 34
+[19-Oct-2013 16:38:02 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 35
+[19-Oct-2013 16:38:02 Europe/Berlin] PHP Warning:  imagecreatefrompng() [<a href='function.imagecreatefrompng'>function.imagecreatefrompng</a>]: '/home/hunmodeu/public_html/scripts/phpqrcode/temp/test211777f55476833b411c576b9fdad3e8.png' is not a valid PNG file in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 30
+[19-Oct-2013 16:38:02 Europe/Berlin] PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 34
+[19-Oct-2013 16:38:02 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 35
+[19-Oct-2013 19:15:10 Europe/Berlin] PHP Warning:  imagecreatefrompng() [<a href='function.imagecreatefrompng'>function.imagecreatefrompng</a>]: '/home/hunmodeu/public_html/scripts/phpqrcode/temp/test43d95f09b739242f38a60a5bca8b6841.png' is not a valid PNG file in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 30
+[19-Oct-2013 19:15:10 Europe/Berlin] PHP Warning:  imagecreatefrompng() [<a href='function.imagecreatefrompng'>function.imagecreatefrompng</a>]: '/home/hunmodeu/public_html/scripts/phpqrcode/temp/test211777f55476833b411c576b9fdad3e8.png' is not a valid PNG file in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 30
+[19-Oct-2013 19:15:10 Europe/Berlin] PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 34
+[19-Oct-2013 19:15:10 Europe/Berlin] PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 34
+[19-Oct-2013 19:15:10 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 35
+[19-Oct-2013 19:15:10 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 35
+[21-Oct-2013 16:04:49 Europe/Berlin] PHP Warning:  imagecreatefrompng() [<a href='function.imagecreatefrompng'>function.imagecreatefrompng</a>]: '/home/hunmodeu/public_html/scripts/phpqrcode/temp/test0eb821055f8d6a3a23db994801ecc4f5.png' is not a valid PNG file in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 30
+[21-Oct-2013 16:04:49 Europe/Berlin] PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 34
+[21-Oct-2013 16:04:49 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 35
+[23-Oct-2013 13:41:52 Europe/Berlin] PHP Warning:  imagecreatefrompng() [<a href='function.imagecreatefrompng'>function.imagecreatefrompng</a>]: '/home/hunmodeu/public_html/scripts/phpqrcode/temp/test8261d45a8658e5ce16697e5d0199ff73.png' is not a valid PNG file in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 30
+[23-Oct-2013 13:41:52 Europe/Berlin] PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 34
+[23-Oct-2013 13:41:52 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 35
+[23-Oct-2013 17:34:55 Europe/Berlin] PHP Warning:  imagecreatefrompng() [<a href='function.imagecreatefrompng'>function.imagecreatefrompng</a>]: '/home/hunmodeu/public_html/scripts/phpqrcode/temp/teste3b2525c4adb8658306cf5cdc0dce1d8.png' is not a valid PNG file in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 30
+[23-Oct-2013 17:34:55 Europe/Berlin] PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 34
+[23-Oct-2013 17:34:55 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 35
+[23-Oct-2013 20:12:40 Europe/Berlin] PHP Warning:  imagecreatefrompng() [<a href='function.imagecreatefrompng'>function.imagecreatefrompng</a>]: '/home/hunmodeu/public_html/scripts/phpqrcode/temp/testcb150214a4a52c205a473290c5c34acc.png' is not a valid PNG file in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 30
+[23-Oct-2013 20:12:40 Europe/Berlin] PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 34
+[23-Oct-2013 20:12:40 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 35
+[24-Oct-2013 23:03:18 Europe/Berlin] PHP Warning:  imagecreatefrompng() [<a href='function.imagecreatefrompng'>function.imagecreatefrompng</a>]: '/home/hunmodeu/public_html/scripts/phpqrcode/temp/test8261d45a8658e5ce16697e5d0199ff73.png' is not a valid PNG file in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 30
+[24-Oct-2013 23:03:18 Europe/Berlin] PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 34
+[24-Oct-2013 23:03:18 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 35
+[24-Oct-2013 23:24:22 Europe/Berlin] PHP Warning:  imagecreatefrompng() [<a href='function.imagecreatefrompng'>function.imagecreatefrompng</a>]: '/home/hunmodeu/public_html/scripts/phpqrcode/temp/test8261d45a8658e5ce16697e5d0199ff73.png' is not a valid PNG file in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 30
+[24-Oct-2013 23:24:22 Europe/Berlin] PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 34
+[24-Oct-2013 23:24:22 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 35
+[24-Oct-2013 23:25:33 Europe/Berlin] PHP Warning:  imagecreatefrompng() [<a href='function.imagecreatefrompng'>function.imagecreatefrompng</a>]: '/home/hunmodeu/public_html/scripts/phpqrcode/temp/test5cccd4894812dcb1c444ffd67fe19dd3.png' is not a valid PNG file in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 30
+[24-Oct-2013 23:25:33 Europe/Berlin] PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 34
+[24-Oct-2013 23:25:33 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 35
+[26-Oct-2013 20:54:41 Europe/Berlin] PHP Warning:  imagecreatefrompng() [<a href='function.imagecreatefrompng'>function.imagecreatefrompng</a>]: '/home/hunmodeu/public_html/scripts/phpqrcode/temp/testd8be4c30a17370be1af4619b02d625df.png' is not a valid PNG file in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 30
+[26-Oct-2013 20:54:41 Europe/Berlin] PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 34
+[26-Oct-2013 20:54:41 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 35
+[28-Oct-2013 09:10:45 Europe/Berlin] PHP Warning:  imagecreatefrompng() [<a href='function.imagecreatefrompng'>function.imagecreatefrompng</a>]: '/home/hunmodeu/public_html/scripts/phpqrcode/temp/testaa766bb844956aa27517abd7a67d7c6e.png' is not a valid PNG file in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 30
+[28-Oct-2013 09:10:45 Europe/Berlin] PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 34
+[28-Oct-2013 09:10:45 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 35
+[28-Oct-2013 15:37:49 Europe/Berlin] PHP Warning:  imagecreatefrompng() [<a href='function.imagecreatefrompng'>function.imagecreatefrompng</a>]: '/home/hunmodeu/public_html/scripts/phpqrcode/temp/test390520e751a85f155e9d7ed042268171.png' is not a valid PNG file in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 30
+[28-Oct-2013 15:37:49 Europe/Berlin] PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 34
+[28-Oct-2013 15:37:49 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 35
+[01-Nov-2013 23:19:52 Europe/Berlin] PHP Warning:  imagecreatefrompng() [<a href='function.imagecreatefrompng'>function.imagecreatefrompng</a>]: '/home/hunmodeu/public_html/scripts/phpqrcode/temp/test8261d45a8658e5ce16697e5d0199ff73.png' is not a valid PNG file in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 30
+[01-Nov-2013 23:19:52 Europe/Berlin] PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 34
+[01-Nov-2013 23:19:52 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 35
+[07-Nov-2013 23:58:42 Europe/Berlin] PHP Warning:  imagecreatefrompng() [<a href='function.imagecreatefrompng'>function.imagecreatefrompng</a>]: '/home/hunmodeu/public_html/scripts/phpqrcode/temp/test1fdd25c1831ad3ea2b2881f5d53c6330.png' is not a valid PNG file in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 30
+[07-Nov-2013 23:58:42 Europe/Berlin] PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 34
+[07-Nov-2013 23:58:42 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 35
+[08-Nov-2013 11:19:00 Europe/Berlin] PHP Warning:  imagecreatefrompng() [<a href='function.imagecreatefrompng'>function.imagecreatefrompng</a>]: '/home/hunmodeu/public_html/scripts/phpqrcode/temp/test0d9c700ef58ffde4f2140a1e71c284f3.png' is not a valid PNG file in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 30
+[08-Nov-2013 11:19:00 Europe/Berlin] PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 34
+[08-Nov-2013 11:19:00 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 35
+[09-Nov-2013 16:12:41 Europe/Berlin] PHP Warning:  imagecreatefrompng() [<a href='function.imagecreatefrompng'>function.imagecreatefrompng</a>]: '/home/hunmodeu/public_html/scripts/phpqrcode/temp/test987ddd5f29a3560e5152c8e8b3b8d682.png' is not a valid PNG file in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 30
+[09-Nov-2013 16:12:41 Europe/Berlin] PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 34
+[09-Nov-2013 16:12:41 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 35
+[09-Nov-2013 16:14:33 Europe/Berlin] PHP Warning:  imagecreatefrompng() [<a href='function.imagecreatefrompng'>function.imagecreatefrompng</a>]: '/home/hunmodeu/public_html/scripts/phpqrcode/temp/test514337c69ce2ab9383fd0c8cc98de191.png' is not a valid PNG file in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 30
+[09-Nov-2013 16:14:33 Europe/Berlin] PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 34
+[09-Nov-2013 16:14:33 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 35
+[09-Nov-2013 22:49:55 Europe/Berlin] PHP Warning:  imagecreatefrompng() [<a href='function.imagecreatefrompng'>function.imagecreatefrompng</a>]: '/home/hunmodeu/public_html/scripts/phpqrcode/temp/test439bd06d30aa51687b4ca009b45dcb06.png' is not a valid PNG file in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 30
+[09-Nov-2013 22:49:55 Europe/Berlin] PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 34
+[09-Nov-2013 22:49:55 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 35
+[10-Nov-2013 12:15:31 Europe/Berlin] PHP Warning:  imagecreatefrompng() [<a href='function.imagecreatefrompng'>function.imagecreatefrompng</a>]: '/home/hunmodeu/public_html/scripts/phpqrcode/temp/test8261d45a8658e5ce16697e5d0199ff73.png' is not a valid PNG file in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 30
+[10-Nov-2013 12:15:31 Europe/Berlin] PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 34
+[10-Nov-2013 12:15:31 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 35
+[11-Nov-2013 18:13:22 Europe/Berlin] PHP Warning:  imagecreatefrompng() [<a href='function.imagecreatefrompng'>function.imagecreatefrompng</a>]: '/home/hunmodeu/public_html/scripts/phpqrcode/temp/test92bc649fcd643b260815b4a7f82ad5ae.png' is not a valid PNG file in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 30
+[11-Nov-2013 18:13:22 Europe/Berlin] PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 34
+[11-Nov-2013 18:13:22 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 35
+[18-Nov-2013 06:31:55 Europe/Berlin] PHP Warning:  imagecreatefrompng() [<a href='function.imagecreatefrompng'>function.imagecreatefrompng</a>]: '/home/hunmodeu/public_html/scripts/phpqrcode/temp/test4b912c6e4a4125b71e4bd2e09b477cd1.png' is not a valid PNG file in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 30
+[18-Nov-2013 06:31:55 Europe/Berlin] PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 34
+[18-Nov-2013 06:31:55 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 35
+[19-Nov-2013 18:48:49 Europe/Berlin] PHP Warning:  imagecreatefrompng() [<a href='function.imagecreatefrompng'>function.imagecreatefrompng</a>]: '/home/hunmodeu/public_html/scripts/phpqrcode/temp/test666d759f0b55af0abfcbc114acd8b3ea.png' is not a valid PNG file in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 30
+[19-Nov-2013 18:48:49 Europe/Berlin] PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 34
+[19-Nov-2013 18:48:49 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 35
+[21-Nov-2013 23:30:05 Europe/Berlin] PHP Warning:  imagecreatefrompng() [<a href='function.imagecreatefrompng'>function.imagecreatefrompng</a>]: '/home/hunmodeu/public_html/scripts/phpqrcode/temp/test6c4f013b03988be449649bc23970c250.png' is not a valid PNG file in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 30
+[21-Nov-2013 23:30:05 Europe/Berlin] PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 34
+[21-Nov-2013 23:30:05 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 35
+[23-Nov-2013 16:27:40 Europe/Berlin] PHP Warning:  imagecreatefrompng() [<a href='function.imagecreatefrompng'>function.imagecreatefrompng</a>]: '/home/hunmodeu/public_html/scripts/phpqrcode/temp/test514f80eeda621bcdd3245551e15831d5.png' is not a valid PNG file in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 30
+[23-Nov-2013 16:27:40 Europe/Berlin] PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 34
+[23-Nov-2013 16:27:40 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 35
+[23-Nov-2013 16:40:38 Europe/Berlin] PHP Warning:  imagecreatefrompng() [<a href='function.imagecreatefrompng'>function.imagecreatefrompng</a>]: '/home/hunmodeu/public_html/scripts/phpqrcode/temp/test8261d45a8658e5ce16697e5d0199ff73.png' is not a valid PNG file in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 30
+[23-Nov-2013 16:40:38 Europe/Berlin] PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 34
+[23-Nov-2013 16:40:38 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 35
+[24-Nov-2013 07:45:52 Europe/Berlin] PHP Warning:  imagecreatefrompng() [<a href='function.imagecreatefrompng'>function.imagecreatefrompng</a>]: '/home/hunmodeu/public_html/scripts/phpqrcode/temp/test6336b47dadd757563ca2eab0a988eb1f.png' is not a valid PNG file in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 30
+[24-Nov-2013 07:45:52 Europe/Berlin] PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 34
+[24-Nov-2013 07:45:52 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 35
+[29-Nov-2013 20:09:09 Europe/Berlin] PHP Warning:  imagecreatefrompng() [<a href='function.imagecreatefrompng'>function.imagecreatefrompng</a>]: '/home/hunmodeu/public_html/scripts/phpqrcode/temp/testc637fea2ed580727d63a3c2cdcc26fb0.png' is not a valid PNG file in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 30
+[29-Nov-2013 20:09:10 Europe/Berlin] PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 34
+[29-Nov-2013 20:09:10 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 35
+[01-Dec-2013 21:15:57 Europe/Berlin] PHP Warning:  imagecreatefrompng() [<a href='function.imagecreatefrompng'>function.imagecreatefrompng</a>]: '/home/hunmodeu/public_html/scripts/phpqrcode/temp/test001efa179761eb0c23581d5b14ccae3e.png' is not a valid PNG file in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 30
+[01-Dec-2013 21:15:57 Europe/Berlin] PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 34
+[01-Dec-2013 21:15:57 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 35
+[01-Dec-2013 22:34:53 Europe/Berlin] PHP Warning:  imagecreatefrompng() [<a href='function.imagecreatefrompng'>function.imagecreatefrompng</a>]: '/home/hunmodeu/public_html/scripts/phpqrcode/temp/testcce7e8d6dd828a791f8fa13d6232e94a.png' is not a valid PNG file in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 30
+[01-Dec-2013 22:34:53 Europe/Berlin] PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 34
+[01-Dec-2013 22:34:53 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 35
+[05-Dec-2013 11:55:46 Europe/Berlin] PHP Warning:  imagecreatefrompng() [<a href='function.imagecreatefrompng'>function.imagecreatefrompng</a>]: '/home/hunmodeu/public_html/scripts/phpqrcode/temp/test123377d51d863d4303deb4af7b741eb8.png' is not a valid PNG file in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 30
+[05-Dec-2013 11:55:46 Europe/Berlin] PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 34
+[05-Dec-2013 11:55:46 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 35
+[09-Dec-2013 00:37:49 Europe/Berlin] PHP Warning:  imagecreatefrompng() [<a href='function.imagecreatefrompng'>function.imagecreatefrompng</a>]: '/home/hunmodeu/public_html/scripts/phpqrcode/temp/test5fa57ae89e36110a1d98e0bf11a96285.png' is not a valid PNG file in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 30
+[09-Dec-2013 00:37:49 Europe/Berlin] PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 34
+[09-Dec-2013 00:37:49 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 35
+[06-Jan-2014 23:43:48 Europe/Berlin] PHP Warning:  imagecreatefrompng() [<a href='function.imagecreatefrompng'>function.imagecreatefrompng</a>]: '/home/hunmodeu/public_html/scripts/phpqrcode/temp/test5186e5183d791533999383fe28ad965d.png' is not a valid PNG file in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 30
+[06-Jan-2014 23:43:48 Europe/Berlin] PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 34
+[06-Jan-2014 23:43:48 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 35
+[20-Jan-2014 22:46:15 Europe/Berlin] PHP Warning:  imagecreatefrompng() [<a href='function.imagecreatefrompng'>function.imagecreatefrompng</a>]: '/home/hunmodeu/public_html/scripts/phpqrcode/temp/testa0d42326874e80a4b75834698f36f4d5.png' is not a valid PNG file in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 30
+[20-Jan-2014 22:46:15 Europe/Berlin] PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 34
+[20-Jan-2014 22:46:15 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 35
+[26-Jan-2014 11:52:38 Europe/Berlin] PHP Warning:  imagecreatefrompng() [<a href='function.imagecreatefrompng'>function.imagecreatefrompng</a>]: '/home/hunmodeu/public_html/scripts/phpqrcode/temp/test3aab85a8ad06025904538c232bbb3112.png' is not a valid PNG file in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 30
+[26-Jan-2014 11:52:38 Europe/Berlin] PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 34
+[26-Jan-2014 11:52:38 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 35
+[30-Jan-2014 20:41:08 Europe/Berlin] PHP Warning:  imagecreatefrompng() [<a href='function.imagecreatefrompng'>function.imagecreatefrompng</a>]: '/home/hunmodeu/public_html/scripts/phpqrcode/temp/test001efa179761eb0c23581d5b14ccae3e.png' is not a valid PNG file in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 30
+[30-Jan-2014 20:41:08 Europe/Berlin] PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 34
+[30-Jan-2014 20:41:08 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 35
+[31-Jan-2014 12:17:30 Europe/Berlin] PHP Warning:  imagecreatefrompng() [<a href='function.imagecreatefrompng'>function.imagecreatefrompng</a>]: '/home/hunmodeu/public_html/scripts/phpqrcode/temp/testcce7e8d6dd828a791f8fa13d6232e94a.png' is not a valid PNG file in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 30
+[31-Jan-2014 12:17:30 Europe/Berlin] PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 34
+[31-Jan-2014 12:17:30 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 35
+[02-Feb-2014 14:14:45 Europe/Berlin] PHP Warning:  imagecreatefrompng() [<a href='function.imagecreatefrompng'>function.imagecreatefrompng</a>]: '/home/hunmodeu/public_html/scripts/phpqrcode/temp/testde12c23629d6c34bab3740b4aa4e5b74.png' is not a valid PNG file in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 30
+[02-Feb-2014 14:14:45 Europe/Berlin] PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 34
+[02-Feb-2014 14:14:45 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 35
+[06-Feb-2014 14:11:11 Europe/Berlin] PHP Warning:  PHP Startup: fileinfo: Unable to initialize module
+Module compiled with module API=20090626
+PHP    compiled with module API=20100525
+These options need to match
+ in Unknown on line 0
+[06-Feb-2014 14:11:11 Europe/Berlin] PHP Warning:  PHP Startup: intl: Unable to initialize module
+Module compiled with module API=20090626
+PHP    compiled with module API=20100525
+These options need to match
+ in Unknown on line 0
+[06-Feb-2014 14:11:11 Europe/Berlin] PHP Warning:  PHP Startup: fileinfo: Unable to initialize module
+Module compiled with module API=20090626
+PHP    compiled with module API=20100525
+These options need to match
+ in Unknown on line 0
+[06-Feb-2014 14:11:11 Europe/Berlin] PHP Warning:  PHP Startup: intl: Unable to initialize module
+Module compiled with module API=20090626
+PHP    compiled with module API=20100525
+These options need to match
+ in Unknown on line 0
+[06-Feb-2014 14:19:18 Europe/Berlin] PHP Warning:  PHP Startup: fileinfo: Unable to initialize module
+Module compiled with module API=20090626
+PHP    compiled with module API=20100525
+These options need to match
+ in Unknown on line 0
+[06-Feb-2014 14:19:18 Europe/Berlin] PHP Warning:  PHP Startup: intl: Unable to initialize module
+Module compiled with module API=20090626
+PHP    compiled with module API=20100525
+These options need to match
+ in Unknown on line 0
+[06-Feb-2014 14:19:19 Europe/Berlin] PHP Warning:  PHP Startup: fileinfo: Unable to initialize module
+Module compiled with module API=20090626
+PHP    compiled with module API=20100525
+These options need to match
+ in Unknown on line 0
+[06-Feb-2014 14:19:19 Europe/Berlin] PHP Warning:  PHP Startup: intl: Unable to initialize module
+Module compiled with module API=20090626
+PHP    compiled with module API=20100525
+These options need to match
+ in Unknown on line 0
+[06-Feb-2014 15:11:53 Europe/Berlin] PHP Warning:  PHP Startup: fileinfo: Unable to initialize module
+Module compiled with module API=20090626
+PHP    compiled with module API=20100525
+These options need to match
+ in Unknown on line 0
+[06-Feb-2014 15:11:53 Europe/Berlin] PHP Warning:  PHP Startup: intl: Unable to initialize module
+Module compiled with module API=20090626
+PHP    compiled with module API=20100525
+These options need to match
+ in Unknown on line 0
+[06-Feb-2014 15:11:54 Europe/Berlin] PHP Warning:  PHP Startup: fileinfo: Unable to initialize module
+Module compiled with module API=20090626
+PHP    compiled with module API=20100525
+These options need to match
+ in Unknown on line 0
+[06-Feb-2014 15:11:54 Europe/Berlin] PHP Warning:  PHP Startup: intl: Unable to initialize module
+Module compiled with module API=20090626
+PHP    compiled with module API=20100525
+These options need to match
+ in Unknown on line 0
+[06-Feb-2014 15:11:56 Europe/Berlin] PHP Warning:  PHP Startup: fileinfo: Unable to initialize module
+Module compiled with module API=20090626
+PHP    compiled with module API=20100525
+These options need to match
+ in Unknown on line 0
+[06-Feb-2014 15:11:56 Europe/Berlin] PHP Warning:  PHP Startup: intl: Unable to initialize module
+Module compiled with module API=20090626
+PHP    compiled with module API=20100525
+These options need to match
+ in Unknown on line 0
+[06-Feb-2014 15:39:54 Europe/Berlin] PHP Warning:  PHP Startup: fileinfo: Unable to initialize module
+Module compiled with module API=20090626
+PHP    compiled with module API=20100525
+These options need to match
+ in Unknown on line 0
+[06-Feb-2014 15:39:54 Europe/Berlin] PHP Warning:  PHP Startup: intl: Unable to initialize module
+Module compiled with module API=20090626
+PHP    compiled with module API=20100525
+These options need to match
+ in Unknown on line 0
+[06-Feb-2014 15:39:55 Europe/Berlin] PHP Warning:  PHP Startup: fileinfo: Unable to initialize module
+Module compiled with module API=20090626
+PHP    compiled with module API=20100525
+These options need to match
+ in Unknown on line 0
+[06-Feb-2014 15:39:55 Europe/Berlin] PHP Warning:  PHP Startup: intl: Unable to initialize module
+Module compiled with module API=20090626
+PHP    compiled with module API=20100525
+These options need to match
+ in Unknown on line 0
+[06-Feb-2014 15:39:55 Europe/Berlin] PHP Warning:  PHP Startup: fileinfo: Unable to initialize module
+Module compiled with module API=20090626
+PHP    compiled with module API=20100525
+These options need to match
+ in Unknown on line 0
+[06-Feb-2014 15:39:55 Europe/Berlin] PHP Warning:  PHP Startup: intl: Unable to initialize module
+Module compiled with module API=20090626
+PHP    compiled with module API=20100525
+These options need to match
+ in Unknown on line 0
+[06-Feb-2014 16:20:07 Europe/Berlin] PHP Warning:  PHP Startup: fileinfo: Unable to initialize module
+Module compiled with module API=20090626
+PHP    compiled with module API=20100525
+These options need to match
+ in Unknown on line 0
+[06-Feb-2014 16:20:07 Europe/Berlin] PHP Warning:  PHP Startup: intl: Unable to initialize module
+Module compiled with module API=20090626
+PHP    compiled with module API=20100525
+These options need to match
+ in Unknown on line 0
+[06-Feb-2014 16:20:07 Europe/Berlin] PHP Warning:  PHP Startup: fileinfo: Unable to initialize module
+Module compiled with module API=20090626
+PHP    compiled with module API=20100525
+These options need to match
+ in Unknown on line 0
+[06-Feb-2014 16:20:07 Europe/Berlin] PHP Warning:  PHP Startup: intl: Unable to initialize module
+Module compiled with module API=20090626
+PHP    compiled with module API=20100525
+These options need to match
+ in Unknown on line 0
+[06-Feb-2014 16:20:08 Europe/Berlin] PHP Warning:  PHP Startup: fileinfo: Unable to initialize module
+Module compiled with module API=20090626
+PHP    compiled with module API=20100525
+These options need to match
+ in Unknown on line 0
+[06-Feb-2014 16:20:08 Europe/Berlin] PHP Warning:  PHP Startup: intl: Unable to initialize module
+Module compiled with module API=20090626
+PHP    compiled with module API=20100525
+These options need to match
+ in Unknown on line 0
+[06-Feb-2014 16:49:47 Europe/Berlin] PHP Warning:  PHP Startup: fileinfo: Unable to initialize module
+Module compiled with module API=20090626
+PHP    compiled with module API=20100525
+These options need to match
+ in Unknown on line 0
+[06-Feb-2014 16:49:47 Europe/Berlin] PHP Warning:  PHP Startup: intl: Unable to initialize module
+Module compiled with module API=20090626
+PHP    compiled with module API=20100525
+These options need to match
+ in Unknown on line 0
+[06-Feb-2014 16:49:49 Europe/Berlin] PHP Warning:  PHP Startup: fileinfo: Unable to initialize module
+Module compiled with module API=20090626
+PHP    compiled with module API=20100525
+These options need to match
+ in Unknown on line 0
+[06-Feb-2014 16:49:49 Europe/Berlin] PHP Warning:  PHP Startup: intl: Unable to initialize module
+Module compiled with module API=20090626
+PHP    compiled with module API=20100525
+These options need to match
+ in Unknown on line 0
+[06-Feb-2014 16:49:51 Europe/Berlin] PHP Warning:  PHP Startup: fileinfo: Unable to initialize module
+Module compiled with module API=20090626
+PHP    compiled with module API=20100525
+These options need to match
+ in Unknown on line 0
+[06-Feb-2014 16:49:51 Europe/Berlin] PHP Warning:  PHP Startup: intl: Unable to initialize module
+Module compiled with module API=20090626
+PHP    compiled with module API=20100525
+These options need to match
+ in Unknown on line 0
+[06-Feb-2014 18:14:31 Europe/Berlin] PHP Warning:  PHP Startup: fileinfo: Unable to initialize module
+Module compiled with module API=20090626
+PHP    compiled with module API=20100525
+These options need to match
+ in Unknown on line 0
+[06-Feb-2014 18:14:31 Europe/Berlin] PHP Warning:  PHP Startup: intl: Unable to initialize module
+Module compiled with module API=20090626
+PHP    compiled with module API=20100525
+These options need to match
+ in Unknown on line 0
+[06-Feb-2014 18:14:32 Europe/Berlin] PHP Warning:  PHP Startup: fileinfo: Unable to initialize module
+Module compiled with module API=20090626
+PHP    compiled with module API=20100525
+These options need to match
+ in Unknown on line 0
+[06-Feb-2014 18:14:32 Europe/Berlin] PHP Warning:  PHP Startup: intl: Unable to initialize module
+Module compiled with module API=20090626
+PHP    compiled with module API=20100525
+These options need to match
+ in Unknown on line 0
+[06-Feb-2014 18:14:32 Europe/Berlin] PHP Warning:  PHP Startup: fileinfo: Unable to initialize module
+Module compiled with module API=20090626
+PHP    compiled with module API=20100525
+These options need to match
+ in Unknown on line 0
+[06-Feb-2014 18:14:32 Europe/Berlin] PHP Warning:  PHP Startup: intl: Unable to initialize module
+Module compiled with module API=20090626
+PHP    compiled with module API=20100525
+These options need to match
+ in Unknown on line 0
+[13-Feb-2014 18:55:58 Europe/Berlin] PHP Warning:  imagecreatefrompng() [<a href='function.imagecreatefrompng'>function.imagecreatefrompng</a>]: '/home/hunmodeu/public_html/scripts/phpqrcode/temp/test47ac66733fad7988acc0d87ba8580a1b.png' is not a valid PNG file in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 30
+[13-Feb-2014 18:55:58 Europe/Berlin] PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 34
+[13-Feb-2014 18:55:58 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 35
+[20-Feb-2014 13:51:29 Europe/Berlin] PHP Warning:  imagecreatefrompng() [<a href='function.imagecreatefrompng'>function.imagecreatefrompng</a>]: '/home/hunmodeu/public_html/scripts/phpqrcode/temp/testc637fea2ed580727d63a3c2cdcc26fb0.png' is not a valid PNG file in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 30
+[20-Feb-2014 13:51:29 Europe/Berlin] PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 34
+[20-Feb-2014 13:51:29 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 35
+[08-Mar-2014 09:55:14 Europe/Berlin] PHP Warning:  imagecreatefrompng() [<a href='function.imagecreatefrompng'>function.imagecreatefrompng</a>]: '/home/hunmodeu/public_html/scripts/phpqrcode/temp/testcce7e8d6dd828a791f8fa13d6232e94a.png' is not a valid PNG file in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 30
+[08-Mar-2014 09:55:14 Europe/Berlin] PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 34
+[08-Mar-2014 09:55:14 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 35
+[08-Mar-2014 13:32:30 Europe/Berlin] PHP Warning:  imagecreatefrompng() [<a href='function.imagecreatefrompng'>function.imagecreatefrompng</a>]: '/home/hunmodeu/public_html/scripts/phpqrcode/temp/test383947bcfc97898b7bde1f4a786e32be.png' is not a valid PNG file in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 30
+[08-Mar-2014 13:32:30 Europe/Berlin] PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 34
+[08-Mar-2014 13:32:30 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 35
+[02-Apr-2014 15:29:26 Europe/Berlin] PHP Warning:  imagecreatefrompng() [<a href='function.imagecreatefrompng'>function.imagecreatefrompng</a>]: '/home/hunmodeu/public_html/scripts/phpqrcode/temp/testa749c99961a3670eb69b52b26d756ba7.png' is not a valid PNG file in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 30
+[02-Apr-2014 15:29:26 Europe/Berlin] PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 34
+[02-Apr-2014 15:29:26 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 35
+[14-Apr-2014 09:31:27 Europe/Berlin] PHP Warning:  imagecreatefrompng() [<a href='function.imagecreatefrompng'>function.imagecreatefrompng</a>]: '/home/hunmodeu/public_html/scripts/phpqrcode/temp/testcce7e8d6dd828a791f8fa13d6232e94a.png' is not a valid PNG file in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 30
+[14-Apr-2014 09:31:27 Europe/Berlin] PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 34
+[14-Apr-2014 09:31:27 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 35
+[05-May-2014 13:00:26 Europe/Berlin] PHP Warning:  imagecreatefrompng() [<a href='function.imagecreatefrompng'>function.imagecreatefrompng</a>]: '/home/hunmodeu/public_html/scripts/phpqrcode/temp/test47b7a2861fe5f775b02033a9e57ea152.png' is not a valid PNG file in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 30
+[05-May-2014 13:00:27 Europe/Berlin] PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 34
+[05-May-2014 13:00:27 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 35
+[31-May-2014 21:30:02 Europe/Berlin] PHP Warning:  imagecreatefrompng() [<a href='function.imagecreatefrompng'>function.imagecreatefrompng</a>]: '/home/hunmodeu/public_html/scripts/phpqrcode/temp/test73f1d2719b1ca2cddd5c203424636349.png' is not a valid PNG file in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 30
+[31-May-2014 21:30:02 Europe/Berlin] PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 34
+[31-May-2014 21:30:02 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 35
+[12-Jun-2014 11:29:34 Europe/Berlin] PHP Warning:  imagecreatefrompng() [<a href='function.imagecreatefrompng'>function.imagecreatefrompng</a>]: '/home/hunmodeu/public_html/scripts/phpqrcode/temp/test9a46bfcbd70ce22e768d93e2209baba6.png' is not a valid PNG file in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 30
+[12-Jun-2014 11:29:34 Europe/Berlin] PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 34
+[12-Jun-2014 11:29:34 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 35
+[26-Dec-2014 04:23:55 Europe/Berlin] PHP Warning:  imagecreatefrompng() [<a href='function.imagecreatefrompng'>function.imagecreatefrompng</a>]: '/home/hunmodeu/public_html/scripts/phpqrcode/temp/testde12c23629d6c34bab3740b4aa4e5b74.png' is not a valid PNG file in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 30
+[26-Dec-2014 04:23:55 Europe/Berlin] PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 34
+[26-Dec-2014 04:23:55 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 35
+[17-Jan-2015 21:33:56 Europe/Berlin] PHP Warning:  imagecreatefrompng() [<a href='function.imagecreatefrompng'>function.imagecreatefrompng</a>]: '/home/hunmodeu/public_html/scripts/phpqrcode/temp/testc56e3c22e03151d92d7bc36d83f1d4f9.png' is not a valid PNG file in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 30
+[17-Jan-2015 21:33:56 Europe/Berlin] PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 34
+[17-Jan-2015 21:33:56 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 35
+[22-Mar-2015 23:51:45 Europe/Berlin] PHP Warning:  imagecreatefrompng() [<a href='function.imagecreatefrompng'>function.imagecreatefrompng</a>]: '/home/hunmodeu/public_html/scripts/phpqrcode/temp/teste4ce45c565b1404f3ac74afa4bec42c5.png' is not a valid PNG file in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 30
+[22-Mar-2015 23:51:45 Europe/Berlin] PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 34
+[22-Mar-2015 23:51:45 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 35
+[18-Apr-2015 18:04:31 Europe/Berlin] PHP Warning:  imagecreatefrompng() [<a href='function.imagecreatefrompng'>function.imagecreatefrompng</a>]: '/home/hunmodeu/public_html/scripts/phpqrcode/temp/test383947bcfc97898b7bde1f4a786e32be.png' is not a valid PNG file in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 30
+[18-Apr-2015 18:04:31 Europe/Berlin] PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 34
+[18-Apr-2015 18:04:31 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 35
+[19-Apr-2015 19:45:39 Europe/Berlin] PHP Warning:  imagecreatefrompng() [<a href='function.imagecreatefrompng'>function.imagecreatefrompng</a>]: '/home/hunmodeu/public_html/scripts/phpqrcode/temp/testde12c23629d6c34bab3740b4aa4e5b74.png' is not a valid PNG file in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 30
+[19-Apr-2015 19:45:39 Europe/Berlin] PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 34
+[19-Apr-2015 19:45:39 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 35
+[20-May-2015 16:33:06 Europe/Berlin] PHP Warning:  imagecreatefrompng() [<a href='function.imagecreatefrompng'>function.imagecreatefrompng</a>]: '/home/hunmodeu/public_html/scripts/phpqrcode/temp/test3aab85a8ad06025904538c232bbb3112.png' is not a valid PNG file in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 30
+[20-May-2015 16:33:06 Europe/Berlin] PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 34
+[20-May-2015 16:33:06 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 35
+[03-Jun-2015 19:35:24 Europe/Berlin] PHP Warning:  imagecreatefrompng() [<a href='function.imagecreatefrompng'>function.imagecreatefrompng</a>]: '/home/hunmodeu/public_html/scripts/phpqrcode/temp/test3aab85a8ad06025904538c232bbb3112.png' is not a valid PNG file in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 30
+[03-Jun-2015 19:35:24 Europe/Berlin] PHP Warning:  imagepng() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 34
+[03-Jun-2015 19:35:24 Europe/Berlin] PHP Warning:  imagedestroy() expects parameter 1 to be resource, boolean given in /home/hunmodeu/public_html/scripts/phpqrcode/index2.php on line 35
