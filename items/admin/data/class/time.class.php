@@ -128,7 +128,7 @@ function dateprintshort($date){
 function datedata($date){
 	$ret=date('YmdHis',strtotime($date));
 	return($ret);
-	}		
+}		
 
 
 function ifdate($input)
@@ -144,7 +144,16 @@ function ifdate($input)
     }
 }
 
-
+function date_strip($date){
+	$ret["al"]=date('YmdHis',strtotime($date));
+	$ret["y"]=date('Y',strtotime($date));
+	$ret["m"]=date('m',strtotime($date));
+	$ret["d"]=date('d',strtotime($date));		
+	$ret["h"]=date('H',strtotime($date));
+	$ret["i"]=date('i',strtotime($date));
+	$ret["s"]=date('s',strtotime($date));	
+	return($ret);
+}	
 
 
 	
