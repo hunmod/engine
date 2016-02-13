@@ -1,5 +1,5 @@
 <?php
-if ($_POST['contactform']==1 && $_POST['email']!=''&& $_POST['message']!=''&& $_POST['message']!='subject'&&$_POST['captha']){
+if ($_POST['contactform']==1 && $_POST['email']!=''&& $_POST['message']!=''&& $_POST['message']!='subject'){
 	$message='<strong>Felado:</strong> <a href="mailto:USEREMAIL">USERNAME</a> (USEREMAIL) <br /> <strong>Tárgy:</strong>'.$_POST["subject"].'<br />'.$_POST["message"];
 
 		$mire=array($_POST["nev"],$_POST["email"]);
@@ -14,8 +14,6 @@ if ($_POST['contactform']==1 && $_POST['email']!=''&& $_POST['message']!=''&& $_
 <h3><?= $lan['message'];?></h3>
 <form action="" method="post" name="contactform" id="contactform">
 <?php $Form_Class->hiddenbox('contactform','1');?>
-<?php $Form_Class->textbox('captha','');?>
-
 <?php $Form_Class->textbox('email',$auser['email'],$lan['email'],NULL,1);?>
 <?php $Form_Class->textbox('nev',$auser['nev'],$lan['nev'],NULL,1);?>
 <?php $Form_Class->textbox('subject',$auser['subject'],$lan['subject'],NULL,1);?>

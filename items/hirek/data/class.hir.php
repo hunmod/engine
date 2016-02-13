@@ -178,7 +178,7 @@ public function table_fields(){
 
 public function get($filters,$order='',$page='all') 
 {
-	global $adatbazis,$tbl;
+	global $adatbazis,$tbl,$prefix;
 	$Sys_Class=new sys();
 
 if ($filters['maxegyoldalon']>0){
@@ -218,10 +218,10 @@ if ($filters['maxegyoldalon']>0){
 
 //menu kapcsolat
 	$mezok.=$Sys_Class->comasupport($mezok);	
-	$mezok.="menu.nev as menu_name";	
-	$tables.=',menu';
+	$mezok.=$prefix."menu.nev as menu_name";	
+	$tables.=','.$prefix.'menu';
 	$where.=$Sys_Class->andsupport($where);
-	$where.=$SD["table"].".mid=menu.id";
+	$where.=$SD["table"].".mid=".$prefix."menu.id";
 
 //számos feltételek	
 $fmezonev='id';

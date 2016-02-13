@@ -6,7 +6,7 @@ $loginclass=new user();
 session_start();
 if (page_settings("fb_ap_id")!="")$fb_ap_id=page_settings("fb_ap_id");
 if (page_settings("fb_ap_secret")!="")$fb_ap_secret=page_settings("fb_ap_secret");
-$required_scope     = 'public_profile,  email'; //Permissions required
+$required_scope     = 'public_profile,  email, user_posts,user_friends,user_likes,user_location,read_custom_friendlists'; //Permissions required
 $redirect_url       = $homeurl.'/user/fbreg'; //FB redirects to this page with a code
 //echo ($redirect_url);
 if ($_POST["regform"]=='1'){

@@ -35,6 +35,10 @@
 		$getparams=array();	
 		$getparams[0]='konyha';
 		$getparams[1]='recept';
+		
+		//$getparams[0]='konyha';
+		//$getparams[1]='recept';		
+		
 		foreach($gp as $gpp){
 			if ($gpp!='konyha'&&$gpp!='recept')$getparams[]=$gpp;
 		}	
