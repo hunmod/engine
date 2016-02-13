@@ -138,8 +138,8 @@ $separator2="&";
 }*/
 
 include_once("fugvenyek.php");
-include_once("class/class.yandextranslate.php");
-$trnslate = new yandextranslate();
+//include_once("class/class.yandextranslate.php");
+//$trnslate = new yandextranslate();
 
 //include_once ("fnct/web/belepetuser.php"); 
 //include_once ("fnct/chron/index.php");
@@ -272,7 +272,8 @@ include("seoredirect.php");
 //lang
 $inputFileName = './lang.xls';
 $lan=$lang_Class->xlstoarray($inputFileName,$xlslangid);
-$inputFileName = 'items/'.'konyha'.'/lang/lang.xls';
+$inputFileName = 'items/'.$getparams[0].'/lang/lang.xls';
+//echo $inputFileName;
 if (file_exists ($inputFileName)){
 	$lan+=$lang_Class->xlstoarray($inputFileName,$xlslangid);
 }
