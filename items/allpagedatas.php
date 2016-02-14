@@ -119,7 +119,7 @@ foreach($mytables as $tbls){
 $domain=$_SERVER["HTTP_HOST"];
 $homeurl="http://".$domain.$homefolder.'';
 $server_url=$homeurl.'/';
-$thisulr= $domain."".$_SERVER["REQUEST_URI"];
+$thisulr= $domain.$homefolder."".$_SERVER["REQUEST_URI"];
 $folders["uploads"]='_'.$oldalid.'/';
 $folders["uploads2"]='_'.$oldalid.'/';
 $defaultimg="_".$oldalid."/noimage.jpg";
