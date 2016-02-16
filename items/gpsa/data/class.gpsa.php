@@ -125,7 +125,15 @@ public function distance($lat1, $lng1, $lat2, $lng2)
 
 
 
+	public function idotipus(){
 
+		$data[0]="Ma";
+		$data[1]="Tegnap";
+		$data[2]="tegnapeott";
+		$data[3]="datum";
+		$data[4]="idoszak";
+		return $data;
+	}
 
 
 public function status(){

@@ -19,6 +19,7 @@ if ($getparams[2]!="" && strlen($getparams[2])>5){
 
 
 $allstatus=$gps_class->status();
+$idotipus=$gps_class->idotipus();
 
 $trdatas=$gps_class->get_gpsdata($get);
 //echo ($trdatas["query"]);
