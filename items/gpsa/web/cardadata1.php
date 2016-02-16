@@ -51,7 +51,9 @@ float:left;
 
 </style>
 <script type="text/javascript">
-$(document).on('click', 'row' , function() {
+	var poliline=[];
+	$(document).on('click', 'row' , function() {
+
 	var zoomlevel=map.getZoom();
 	var latx =$(this).children("lng").html();
 	var lngx =$(this).children("lat").html();
@@ -102,12 +104,18 @@ foreach ($backdatas as $row){
 <!--fuel class="cell"><?=hexdec ($row["benzszint"]);?></fuel-->
 <status class="cell"><?=$allstatus[$row["statusz"]];?></status>
 <address class="cell"><?=$row["addres"];?></address>
-
-
+	<?php if ($row["statusz"]=="E"){?>
+<script>
+	 poliline[poliline.length]= {lat:<?=$row["lng"];?>,lng:<?=$row["lat"];?>};
+</script>
+	<?php }?>
 </row>
 <?php	
 }
 ?>
+	<script>
+		//console.log(poliline);
+	</script>
 </triplist>
 </div>
 <div class="col-sm-6">

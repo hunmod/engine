@@ -13,6 +13,10 @@ $get["ig"]="2016-02-05 23:13:23";
 if ($get["rsz"]==''){
 $get["rsz"]='867948017577984';
 }
+if ($getparams[2]!="" && strlen($getparams[2])>5){
+   $_GET["rsz"]= $get["rsz"]=$getparams[2];
+}
+
 
 $allstatus=$gps_class->status();
 

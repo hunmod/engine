@@ -44,7 +44,7 @@ $carlist=$gpsacars_class->get_cars($filters);
 <div class="col-xs-2">
 <ul>
 <?php foreach($carlist['datas'] as $car){?>
-<li onclick="rszch('<?=$car['rendszam'];?>');"><?=$car['vrendszam'];?></li>
+<li onclick="rszch('<?=$car['rendszam'];?>');"><?=$car['vrendszam'];?>  <a href="<?= $kezdooldal.$separator.$getparams[0]."/cardadata1/".$car['rendszam'];?>">Udata</a></li>
 <?php } ?>
 </ul>
 </div>
