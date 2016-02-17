@@ -36,7 +36,9 @@ $adatbazis["db3_pass"]=$adatbazis["db1_pass"];
 
 $tbl['geocode']="gecode";
 $tbl['gpscars']="elofizeto";
-
+$tbl['usercar']="usercar";
+$tbl['usergroup']="usergroup";
+$tbl['groupcar']="groupcar";
 
 include_once("class.gpsa.php");
 include_once("class.gpsusers.php");
