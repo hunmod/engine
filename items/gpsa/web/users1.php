@@ -2,7 +2,7 @@
 
 $allstatus = $gps_class->status();
 
-//$carlist=$gpsacars_class->create_tbl_usercar();
+$carlist=$gpsacars_class->create_tbl_usercar();
 //$carlist=$gpsacars_class->cars_table_update1();
 $regisztracio = $gpsacars_class->get_regisztracio($filters);
 
@@ -28,9 +28,9 @@ foreach ($regisztracio["datas"] as $reg) {
         $dret['nev'] = $rcar["datas"][0]["email"];
         $dret['email'] = $rcar["datas"][0]["email"];
         if ($reg["erosit"] == 'igen') {
-            $dret['status'] = 1;
-        } else {
             $dret['status'] = 2;
+        } else {
+            $dret['status'] = 1;
         }
         $dret['nev'] = $reg["username"];
 
@@ -96,6 +96,11 @@ foreach ($regisztracio["datas"] as $reg) {
         echo $dret['id']." ".$dret['nev']." ".$dret['email'];
         // arraylist($reg);
         echo "<br>carsnum:" . count($cars);
+
+        foreach ($cars as $car) {
+            $car["uid"]=$dret['id'];
+            $gpsacars_class->save_user_car($car);
+        }
         arraylist($cars);
 
     }

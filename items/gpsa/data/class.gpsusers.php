@@ -91,6 +91,25 @@ class gpsacars extends gpsa
         return $datas;
     }
 
+    public function table_usercar_fields()
+    {
+        global $adatbazis, $tbl;
+
+        //$table=$tbl['service_cat'];
+        //$mezok[]=$table.'.'.'`status`';
+
+        $mdata = $this->table_usercar();
+        if (count($mdata['mezok']))
+            foreach ($mdata['mezok'] as $mezo) {
+                $mezok[] = $mezo['id'];
+            }
+
+        $datas['table'] = $mdata['table'];
+        $datas['mezok'] = $mezok;
+
+        return $datas;
+    }
+
     public function table_gpscars($data = array())
     {
         global $adatbazis, $tbl;
@@ -471,7 +490,8 @@ class gpsacars extends gpsa
 
     }
 
-    public function get_regisztracio($filters=array()){
+    public function get_regisztracio($filters = array())
+    {
         global $adatbazis, $tbl, $prefix;
         $Sys_Class = new sys();
 
@@ -487,7 +507,7 @@ class gpsacars extends gpsa
             $where .= '(' . $SD["table"] . ".`" . $fmezonev . "`='" . $filters[$fmezonev] . "') ";
         }
 
-        $query="SELECT * FROM  `regisztracio` ".$where;
+        $query = "SELECT * FROM  `regisztracio` " . $where;
 
         $result['datas'] = db_Query($query, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"], $adatbazis["db1_srv"], $adatbazis["db1_db"], "select");
         $result['query'] = $query;
@@ -568,14 +588,16 @@ class gpsacars extends gpsa
         }
 
 
-
         $fmezonev = 'ugyfelazon';
         if ($filters[$fmezonev] != '') {
             $where .= $Sys_Class->andsupport($where);
             $where .= $SD["table"] . ".`" . $fmezonev . "`LIKE'%" . $filters[$fmezonev] . "%'";
         }
-
-
+        $fmezonev = 'szerzszam';
+        if ($filters[$fmezonev] != '') {
+            $where .= $Sys_Class->andsupport($where);
+            $where .= $SD["table"] . ".`" . $fmezonev . "`LIKE'%" . $filters[$fmezonev] . "%'";
+        }
 
 //ha van feltétel elé csapjuk hogy WHERE
         if ($where != '') {
@@ -623,31 +645,158 @@ class gpsacars extends gpsa
         return $result;
     }
 
+    public function save_user_car($datas)
+    {
+        global $adatbazis, $Sys_Class;
+        if ($datas["uid"] != "" && $datas["cid"] != "") {
+
+            $SD = $this->table_usercar_fields();
+            //insert
+            foreach ($SD["mezok"] as $mezoe) {
+                $mezok .= $Sys_Class->comasupport($mezok);
+                $mezok .= $mezoe;
+                $datasb .= $Sys_Class->comasupport($datasb);
+                $datasb .= "'" . $datas[$mezoe] . "'";
+            }
+            $query = "REPLACE INTO  " . $SD["table"] . " (" . $mezok . ")VALUES (" . $datasb . ")";
+            $result = db_Query($query, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"], $adatbazis["db1_srv"], $adatbazis["db1_db"], "INSERT");
+            // echo $query.'<br>';
+            // echo $error;
+            $res = mysql_insert_id();
+            // echo "bejut";
+        } else echo "error";
+    }
+
+    public function get_usercar($filters, $order = '', $page = 'all')
+    {
+        global $adatbazis, $tbl, $prefix;
+        $Sys_Class = new sys();
+        if ($filters['maxegyoldalon'] > 0) {
+            $maxegyoldalon = $filters['maxegyoldalon'];
+        } else {
+            $maxegyoldalon = 8;
+        }
+        $SD = $this->table_usercar();
+
+        if ($order != '') {
+            $order = ' ORDER BY ' . $order;
+        } else {
+            //$order=' ORDER BY '.$SD["table"].'.`id` DESC ';
+        }
+
+        //a tábla saját mezői
+        foreach ($SD["mezok"] as $mezoe) {
+            $mezok .= $Sys_Class->comasupport($mezok);
+            $mezok .= $mezoe['table'];
+        }
+        //Táblázatok
+        $tables = $SD["table"];
+
+        //Táblázatok
+        $tables=$SD["table"].",".$tbl["gpscars"];
+
+        //másik tábla mezői hozzáadása
+        $mezok.=','.$tbl["gpscars"].'.rendszam,'.$tbl["gpscars"].'.vrendszam';
+        //tábla kapcsolat
+        $where.=$SD["table"].".cid=".$tbl["gpscars"].".szerzszam";
+
+        //ez kell az összes találat megszámolásához
+
+        $mezokc.='count('.$SD["table"].'.id) as count';
+
+        $fmezonev = 'uid';
+        if ($filters[$fmezonev] != '') {
+            $where .= $Sys_Class->andsupport($where);
+            $where .= '(' . $SD["table"] . ".`" . $fmezonev . "`='" . $filters[$fmezonev] . "') ";
+        }
+
+        $fmezonev = 'cid';
+        if ($filters[$fmezonev] != '') {
+            $where .= $Sys_Class->andsupport($where);
+            $where .= '(' . $SD["table"] . ".`" . $fmezonev . "`='" . $filters[$fmezonev] . "') ";
+        }
+
+
+//ha van feltétel elé csapjuk hogy WHERE
+        if ($where != '') {
+            $where = " WHERE " . $where;
+        }
+
+//összes elem lekérdezése
+        $queryc = "SELECT " . $mezokc . " FROM " . $tables . $where . ' ' . $order;
+        $resultc = db_Query($queryc, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"], $adatbazis["db1_srv"], $adatbazis["db1_db"], "select");
+        //echo $queryc;
+        //arraylist ($resultc);
+        $result['count'] = $resultc[0]['count'];
+
+//oldalazó
+        if ($page != 'all') {
+//$maxegyoldalon=page_settings("max_service_perpage");
+
+            $oldalakszama = ceil($result['count'] / $maxegyoldalon);
+            if ($maxegyoldalon > 0) {
+                if (($page == "") || ($page <= 0)) {
+                    $oldal = 0;
+                } else {
+                    $oldal = $page;
+                }
+
+
+                if ($page >= $oldalakszama) {
+                    $page = $oldalakszama - 1;
+                }
+                //oldalak kiszámolása
+
+                if ($oldalakszama != "") {
+                    $limit = " LIMIT " . ($page * $maxegyoldalon) . "," . $maxegyoldalon;
+                }
+
+            }
+        }
+        $query = "SELECT " . $mezok . " FROM " . $tables . $where . ' ' . $order . $limit;
+//echo $query ;
+
+
+        $result['datas'] = db_Query($query, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"], $adatbazis["db1_srv"], $adatbazis["db1_db"], "select");
+        $result['query'] = $query;
+        $result['error'] = $error;
+        return $result;
+    }
+
     public function cars_table_update1()
     {
         global $adatbazis, $tbl, $prefix;
         $q = "ALTER TABLE " . $tbl["gpscars"] . " ADD `id` INT NOT NULL AUTO_INCREMENT FIRST, ADD INDEX (`id`);";
         $resultc = db_Query($q, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"], $adatbazis["db1_srv"], $adatbazis["db1_db"], "insert");
 
-       // echo $error;
+        // echo $error;
     }
 
     public function create_tbl_usercar()
     {
-        global $adatbazis;
+        global $adatbazis, $tbl;
+
+        $q = "DROP TABLE  " . $tbl["usercar"];
+
+      //  $result = db_Query($q, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"], $adatbazis["db1_srv"], $adatbazis["db1_db"], "CREATE");
+        echo $error;
 
         $q = "CREATE TABLE IF NOT EXISTS " . $tbl["usercar"] . " (
-`uid` bigint(11) NOT NULL,
-`cid` bigint(11) NOT NULL,
-`jog` int(11) NOT NULL DEFAULT '1',
-`tilt` int(11) NOT NULL DEFAULT '0',
-`leker` int(11) NOT NULL DEFAULT '0',
-`menet` int(11) NOT NULL DEFAULT '0',
-`geo` int(11) NOT NULL DEFAULT '0',
-KEY `uid` (`uid`,`cid`)
+ `uid` bigint(11) NOT NULL,
+  `cid` bigint(11) NOT NULL,
+  `jog` int(11) NOT NULL DEFAULT '1',
+  `tilt` int(11) NOT NULL DEFAULT '0',
+  `leker` int(11) NOT NULL DEFAULT '0',
+  `menet` int(11) NOT NULL DEFAULT '0',
+  `geo` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`uid`,`cid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;";
 
-        $result = db_Query($q, $error, $adatbazis["db3_user"], $adatbazis["db3_pass"], $adatbazis["db3_srv"], $adatbazis["db3_db"], "CREATE");
+
+//        $q="TRUNCATE TABLE " . $tbl["usercar"] ;
+
+        $result = db_Query($q, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"], $adatbazis["db1_srv"], $adatbazis["db1_db"], "CREATE");
+        echo $error;
     }
 }
 
