@@ -1,4 +1,10 @@
 <?php
+if ($auser["id"]>0) {
+}else{
+    //arraylist($auser);
+    header('Location: '.$server_url."user/noacces");
+    exit;
+}
 //arraylist($adatbazis);
 //$gps_class->create_tbl('2016-01-25');
 
@@ -7,11 +13,12 @@ $get = $_GET;
 if (!$_GET["tol"]) {
 //$get["rsz"]='867948017577984';
 //$get["rsz"]='356895036977984';
-    $get["tol"] = "2016-02-01 05:13:11";
-    $get["ig"] = "2016-02-05 23:13:23";
+
+    $get["tol"] = "2016-02-01 00:00:00";
+    $get["ig"] = "2016-02-05 00:00:00";
 }
 if ($get["rsz"] == '') {
-    $get["rsz"] = '867948017577984';
+  //  $get["rsz"] = '867948017577984';
 }
 if ($getparams[2] != "" && strlen($getparams[2]) > 5) {
     $_GET["rsz"] = $get["rsz"] = $getparams[2];
@@ -55,6 +62,14 @@ foreach ($trdatas["datas"] as $row) {
     */
 
 
+}
+if ($_GET["imadmin"]) {
+    if ($_GET["imadmin"] != 'all') {
+        $filters['s'] = $_GET["imadmin"];
+    }
+    $carlist = $gpsacars_class->get_cars($filters);
+} else {
+    $carlist = $Usercars;
 }
 
 ?>

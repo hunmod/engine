@@ -1,4 +1,10 @@
 <?php
+if ($auser["id"]>0) {
+}else{
+   //arraylist($auser);
+   header('Location: '.$server_url."user/noacces");
+   exit;
+}
 //arraylist($adatbazis);
 //$gps_class->create_tbl('2016-01-25');
 
@@ -18,6 +24,7 @@ if ($getparams[2]!="" && strlen($getparams[2])>5){
 }
 
 
+
 $allstatus=$gps_class->status();
 $idotipus=$gps_class->idotipus();
 
@@ -29,4 +36,12 @@ $row["addres"]=$garray["zip"].",".$garray["city"]." ".$garray["street"]." ".$gar
 $backdatas[]=$row;
 }
 
+if ($_GET["imadmin"]) {
+   if ($_GET["imadmin"] != 'all') {
+      $filters['s'] = $_GET["imadmin"];
+   }
+   $carlist = $gpsacars_class->get_cars($filters);
+} else {
+   $carlist = $Usercars;
+}
 ?>

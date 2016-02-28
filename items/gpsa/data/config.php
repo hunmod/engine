@@ -7,9 +7,17 @@ $file_structuct["modules"]="gpsa";
 
 
 /*admin menü*/
-$file_structuct["name"]="geocode";
+/*$file_structuct["name"]="geocode";
 $file_structuct["file"]="rgeocode";
+$adminmenu[]=$file_structuct;*/
+$file_structuct["name"]="Userlist";
+$file_structuct["file"]="users2";
 $adminmenu[]=$file_structuct;
+$file_structuct["name"]="Cars";
+$file_structuct["file"]="cars";
+$adminmenu[]=$file_structuct;
+
+
 
 /*választhatómodul*/
 $file_structuct["name"]="geocode";
@@ -47,5 +55,14 @@ if (is_file($file['js'])){
  $ejs=$makemin->js($file['js'],str_replace('.js','.min.js',$file['js']),false);
  $extrascript[]='<script src="'.$server_url.$ejs.'" type="text/javascript"></script>';
 }
+
+
+//var_dump($_SESSION["uid"]);
+if ($_SESSION["uid"]>0){
+ $ficar["uid"]=$_SESSION["uid"];
+ $Usercars=$gpsacars_class->get_usercar($ficar);
+
+}
+
 
 ?>

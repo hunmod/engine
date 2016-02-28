@@ -525,7 +525,7 @@ class gpsacars extends gpsa
         if ($filters['maxegyoldalon'] > 0) {
             $maxegyoldalon = $filters['maxegyoldalon'];
         } else {
-            $maxegyoldalon = 8;
+            $maxegyoldalon = 20;
         }
 
         $SD = $this->table_gpscars();
@@ -560,8 +560,22 @@ class gpsacars extends gpsa
             $where .= '(' . $SD["table"] . ".`" . $fmezonev . "`='" . $filters[$fmezonev] . "') ";
         }
 
+        $fmezonev = 'notid';
+        if ($filters[$fmezonev] != '') {
+            $where .= $Sys_Class->andsupport($where);
+            $where .= '(' . $SD["table"] . ".`szerzszam` not in (" . $filters[$fmezonev] . ") ) ";
+        }
+
 
 //szöveges feltételek
+
+        $fmezonev = 's';
+        if ($filters[$fmezonev] != '') {
+            $where .= $Sys_Class->andsupport($where);
+            $where .= $SD["table"] . ".`vrendszam` LIKE '%" . $filters[$fmezonev] . "%' OR ";
+            $where .= $SD["table"] . ".`rendszam` LIKE '%" . $filters[$fmezonev] . "%'";
+        }
+
         $fmezonev = 'vrendszam';
         if ($filters[$fmezonev] != '') {
             $where .= $Sys_Class->andsupport($where);
@@ -660,6 +674,23 @@ class gpsacars extends gpsa
             }
             $query = "REPLACE INTO  " . $SD["table"] . " (" . $mezok . ")VALUES (" . $datasb . ")";
             $result = db_Query($query, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"], $adatbazis["db1_srv"], $adatbazis["db1_db"], "INSERT");
+            // echo $query.'<br>';
+            // echo $error;
+            $res = mysql_insert_id();
+            // echo "bejut";
+        } else echo "error";
+    }
+
+    public function del_user_car($datas)
+    {
+        global $adatbazis, $Sys_Class;
+        if ($datas["uid"] != "" && $datas["cid"] != "") {
+
+            $SD = $this->table_usercar_fields();
+            //DELETE
+            //$query = "REPLACE INTO  " . $SD["table"] . " (" . $mezok . ")VALUES (" . $datasb . ")";
+            $query = "DELETE FROM " . $SD["table"] . " WHERE uid=".$datas["uid"].' AND cid='.$datas["cid"];
+            $result = db_Query($query, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"], $adatbazis["db1_srv"], $adatbazis["db1_db"], "DELETE");
             // echo $query.'<br>';
             // echo $error;
             $res = mysql_insert_id();

@@ -37,7 +37,7 @@ else
 				<li><a href="<?php echo $homeurl.$separator."user/logout/";?>"><?= $lan['logout']?></a></li>
              </ul>   
       </nav>    
-	<?php if ($auser["jogid"]==4){    ?> 
+	<?php if ($auser["jogid"]>=4){    ?>
     <h3 class="bgcolor2 border8">Admin</h3>
 		<?php  
 		//arraylist($adminmenu);

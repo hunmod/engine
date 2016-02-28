@@ -137,11 +137,12 @@ class gpsa
 
     public function idotipus()
     {
-        $data[0] = "Ma";
-        $data[1] = "Tegnap";
-        $data[2] = "tegnapeott";
-        $data[3] = "datum";
-        $data[4] = "idoszak";
+        global $lan;
+        $data[0] = $lan['ma'];
+        $data[1] = $lan['tegnap'];
+        $data[2] = $lan['tegnapelott'];
+        $data[3] = $lan['date'];
+        $data[4] = $lan['idoszak'];
         return $data;
     }
 
@@ -591,7 +592,6 @@ class gpsa
         }
         return $tblexists;
     }
-
 
     private function convto2($num)
     {
