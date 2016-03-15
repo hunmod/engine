@@ -3,7 +3,9 @@ rssarticle{
 	height:250px;
 	overflow:hidden;
 }
-
+h2{
+    font-size: 18px;
+}
 </style>
 <div class="container">
   <left class="col-md-3 col-sm-4" >

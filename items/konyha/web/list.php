@@ -130,7 +130,7 @@ for ($c=$start;$c<=$end;$c++){
 <?php }?>
 <?php
 //arraylist($dbadat);
-foreach ($dbadat as $recip){
+if($dbadat)foreach ($dbadat as $recip){
 include("recipe_box1.php");
 }
 ?>

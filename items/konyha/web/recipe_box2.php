@@ -1,5 +1,7 @@
 <recipe itemscope="recipe" itemtype="http://schema.org/Recipe" class="col-sm-12 toprecipe">
     <a href="<?php echo $rec_class->recipe_url($recip);?>" itemprop="url" title="<?php echo $recip["nev"];?>" >
+        <h2 class="cim bgcolor0" itemprop="name"><?php echo $recip["nev"]."<br>";?></h2>
+
     <div class="imgWrap bgcolor0" style="position:relative;">
         <img src="<?php echo $rec_class->recipe_img($recip["id"],600,230);?>" alt="<?php echo $recip["nev"];?>" title="<?php echo $recip["nev"];?>" itemprop="image" />
         <div class="icons">
@@ -15,7 +17,6 @@
         </div>
     </div>
 <div class="floattext">
-<h2 class="cim bgcolor0" itemprop="name"><?php echo $recip["nev"]."<br>";?></h2>
 <div class="bgcolor0 text" itemprop="description">
 	<?php echo keywordstaged(($recip["bevezeto"]),$metakeywordss)	;?>
     <?php if (($auser["jogid"]>=3)||($auser["id"]==$recip["uid"]) ){?>

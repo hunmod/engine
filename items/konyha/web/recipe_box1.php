@@ -1,8 +1,8 @@
 <recipe itemscope="recipe" itemtype="http://schema.org/Recipe" class="col-lg-3 col-md-4 col-sm-6">
         <?php if($recip["status"]!=1) echo $recstatus[$recip["status"]];?>
     <a href="<?php echo $rec_class->recipe_url($recip);?>" itemprop="url" title="<?php echo $recip["nev"];?>" >
-    
-    <div class="imgWrap bgcolor0" style="position:relative;">
+        <h2 class="cim bgcolor0" itemprop="name"><?php echo $recip["nev"]."<br>";?></h2>
+        <div class="imgWrap bgcolor0" style="position:relative;">
         <img src="<?php echo $rec_class->recipe_img($recip["id"],300,250);?>" alt="<?php echo $recip["nev"];?>" title="<?php echo $recip["nev"];?>" itemprop="image" />
         <div class="icons">
             <?php if ($recip["gluten"]){?>
@@ -16,7 +16,6 @@
             <?php } ?>    
         </div>
     </div>
-        <h2 class="cim bgcolor0" itemprop="name"><?php echo $recip["nev"]."<br>";?></h2>
 
 <div class="tabla" itemprop="nutrition"
     itemscope itemtype="http://schema.org/NutritionInformation">

@@ -131,7 +131,7 @@ $page_description="";
 
 
 $n=0;
-foreach($dbadat as $egy){
+if($dbadat)foreach($dbadat as $egy){
 	foreach ($egy as $megegyname=>$megegy)
 	{
 		$dbadat[$n][$megegyname]=$Text_Class->htmlfromchars($megegy);
@@ -162,7 +162,7 @@ $kiemeltrecept=$dbkiemelt['datas'][rand(0,count($dbkiemelt['datas'])-1)];
 
 //kulcsszavak,leírás összegyűlytése
 $pagekeywords="";
-foreach ($dbadat as $egy){
+if($dbadat)foreach ($dbadat as $egy){
 	if ($pagekeywords!=""){
 	$pagekeywords.=",";
 	}

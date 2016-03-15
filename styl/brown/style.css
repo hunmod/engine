@@ -286,3 +286,13 @@ background:url(image/pirosx.gif) no-repeat;
 #contactform label{
 display:none;	
 }
+header{
+/*	position: fixed;
+	left: 0;
+	right: 0;
+	z-index: 100;*/
+}
+header::after{
+	margin-bottom: 120px;
+}
+
