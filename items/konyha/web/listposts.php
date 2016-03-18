@@ -1,12 +1,13 @@
 <?php
 
 $facebook = new Facebook(array(
-	'appId' => '943743955706230',
-	'secret' => '6ee0ad7178c9be59f1bcc41cee16a0e2'
+	'appId' => '464118993709707',
+	'secret' => '20f793b4d8bfd05441cf47959e5cde81'
 ));
 
 
 $params["access_token"]="CAANaVIM9IXYBAPt6oJhZBLiyT5V8BrYxiCW99681iNSiANgmzTZBGzp2tXWZAhTy5PuM72MVbUk4vgakP6Yn5UJDeIlX0xCRR81igsNiDUxf8GhzBMG1RL4n1aSlrMRWuZBlOcIJnb1E81DpoyJDbrkxI3dxCHH2pr3Xxr5gvW8vaBiSLVE3G8Q1m6DionnVH86k1J7pXKMG2MZBsDi9m";
+$params["access_token"]="CAAGmHRZCA6osBAMirXZCA1YKQFDpUyQJOlOhR0IHr9jjsmchUSzsktlhRGBKz36ZBkm6oCwKUPKEZC7Q6BTWQpBHLcyX1XvWZBvIzuRcBdZBHVGWR3ClMia34FymKvhl9WDfe8PVghwnMnyKKgf5PZBTexVZBsZBGjnZBParPim3N55Qw5Yz6WtpjG";
 //$params["message"]="messs";
 $params["link"]="http://abrakahasba.hu";
 //$params["picture"]="http://i.imgur.com/lHkOsiH.png";
@@ -61,7 +62,7 @@ $accessToken = new Facebook\Authentication\AccessToken('{example-access-token}',
 
 foreach ($dbadat as $recip){
 //postolás FB csoportba
-$params["access_token"]="CAANaVIM9IXYBAPt6oJhZBLiyT5V8BrYxiCW99681iNSiANgmzTZBGzp2tXWZAhTy5PuM72MVbUk4vgakP6Yn5UJDeIlX0xCRR81igsNiDUxf8GhzBMG1RL4n1aSlrMRWuZBlOcIJnb1E81DpoyJDbrkxI3dxCHH2pr3Xxr5gvW8vaBiSLVE3G8Q1m6DionnVH86k1J7pXKMG2MZBsDi9m";
+//$params["access_token"]="CAAGmHRZCA6osBAMirXZCA1YKQFDpUyQJOlOhR0IHr9jjsmchUSzsktlhRGBKz36ZBkm6oCwKUPKEZC7Q6BTWQpBHLcyX1XvWZBvIzuRcBdZBHVGWR3ClMia34FymKvhl9WDfe8PVghwnMnyKKgf5PZBTexVZBsZBGjnZBParPim3N55Qw5Yz6WtpjG";
 //$params["message"]="messs";
 $params["link"]=$rec_class->recipe_url($recip);
 //$params["picture"]="http://i.imgur.com/lHkOsiH.png";
