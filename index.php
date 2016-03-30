@@ -15,9 +15,9 @@ include_once("items/allpagedatas.php");
 define('FACEBOOK_SDK_V4_SRC_DIR', './Facebook/src/Facebook/');
 include ('./Facebook/autoload.php');
 
- if (is_file('.'.$template.".php"))	
+ if (is_file($urlpre.$template.".php"))
 {
- include_once('.'.$template.".php");	
+ include_once($urlpre.$template.".php");
 }
 else {include_once("./styl/default/index.php");}
  ?>

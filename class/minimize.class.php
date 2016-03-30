@@ -37,7 +37,7 @@ public function css($file,$newname)	{
 
 	
 private function makejs($file,$newname){
-	$current = file_get_contents('.'.$file, true);
+	$current = file_get_contents($file, true);
 	$current=str_replace('/**/','',$current);
         /* remove comments */
         $buffer = preg_replace("/((?:\/\*(?:[^*]|(?:\*+[^*\/]))*\*+\/)|(?:\/\/.*))/", "", $current);
@@ -45,7 +45,7 @@ private function makejs($file,$newname){
         $buffer = str_replace(array("\r\n","\r","\t","\n",'  ','    ','     '), '', $buffer);
         /* remove other spaces before/after ) */
         $text = preg_replace(array('(( )+\))','(\)( )+)'), ')', $buffer);
-		$this->writeUTF8File('.'.$newname,$text);	
+		$this->writeUTF8File($newname,$text);
 }	
 	
 public function js($file,$newname,$debug=false)	{
@@ -53,8 +53,7 @@ if ($debug){
 	return $file;	
 }
 else{
-	
-if (filectime ('.'.$file)>filectime ('.'.$newname)){
+if  (file_exists($file) && filectime($file)>filectime($newname)){
 	$this->	makejs($file,$newname);
 }
 	return $newname;
