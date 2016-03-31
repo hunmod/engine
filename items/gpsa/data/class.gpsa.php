@@ -4,9 +4,9 @@ class gpsa{
 static protected $googleapikey="AIzaSyBXLKqQrlQAg2zETkuOxBSUYMHAenHuwZw";
 
 
-public function getapikey(){
-return  self::$googleapikey;
-}
+	public function getapikey(){
+		return  self::$googleapikey;
+	}
 
 
 public function commahelp($text){

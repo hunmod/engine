@@ -274,6 +274,7 @@ return $text;
 }
 
 
+
 public function encode($string){
 return base64_encode($string);	
 }

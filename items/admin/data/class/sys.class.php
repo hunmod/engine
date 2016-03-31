@@ -2,7 +2,6 @@
 //
 class sys{
 
-
 //curl functions
 
 public function curl_download($Url){
@@ -237,7 +236,20 @@ $diffFloor     = $pow*($number-$floor)+($number < 0 ? -1 : 1);
 if($diffCeil >= $diffFloor) return  sprintf("%0.2f", $floor);  
 else return sprintf("%0.2f", $ceil);
 }
-} 
+public function readxml($url){
+
+	if (file_exists($url)) {
+		$xml = simplexml_load_file($url, null, LIBXML_NOCDATA);
+		return $content = json_decode(json_encode($xml),TRUE);
+		return $xml;
+		//$this->arraylist($content);
+		//print_r($content);
+	} else {
+		return "XMLERROR";
+	}
+
+}
+}
 
 
 

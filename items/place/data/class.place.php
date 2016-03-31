@@ -207,7 +207,7 @@ public function table($data=array()){
 
 	$mezo["id"]='tipus';
 	$mezo["table"]=$table.'.'.'`'.$mezo["id"].'`';
-	$mezo["name"]="varos";
+	$mezo["name"]="tipus";
 	$mezo["display"]=1;
 	$mezo["type"]='num';
 	$mezo["requied"]=1;		
