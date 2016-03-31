@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 function getIP_cdata()
 {
@@ -271,18 +271,17 @@ if ($_GET["q"] != "") {
 
 //lang
 $inputFileName = './lang.xls';
-<<<<<<< HEAD
+
 $lan = $lang_Class->xlstoarray($inputFileName, $xlslangid);
 $inputFileName = 'items/' . 'konyha' . '/lang/lang.xls';
 if (file_exists($inputFileName)) {
     $lan += $lang_Class->xlstoarray($inputFileName, $xlslangid);
-=======
+}
 $lan=$lang_Class->xlstoarray($inputFileName,$xlslangid);
 $inputFileName = 'items/'.$getparams[0].'/lang/lang.xls';
 //echo $inputFileName;
 if (file_exists ($inputFileName)){
 	$lan+=$lang_Class->xlstoarray($inputFileName,$xlslangid);
->>>>>>> AGPS
 }
 //modul fájlok
 $file = array();
