@@ -327,18 +327,7 @@ for ($i = 1; $i <= 20; $i++) {
 <?php echo $lan['publicdate'];?>:
 <input size="16" type="text" value="<?php echo ($adat["ido"]); ?>" readonly class="form_datetime" name="ido" id="ido">
  
-<script type="text/javascript">
-$('#ido').datetimepicker({
-	format:'Y-m-d H:i'
-});
-</script>            
 
-<?php 		//datetimebox('activate',$adat["activate"]);?>                    
-<script>
-$(function(){
-  $('#activatedate').dtpicker();
-});
-</script>
                     <fieldset>
                    
 			<label for="AdContactinfo">Tags</label>

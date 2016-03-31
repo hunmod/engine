@@ -3,16 +3,15 @@
 //$gps_class->create_tbl('2016-01-25');
 
 $get=$_GET;
-
+/*
 if (!$_GET["rsz"]){
 $get["rsz"]='867948017577984';
 $get["rsz"]='356895036977984';
-}
+}*/
 if (!$_GET["tol"]){
 $get["tol"]="2016-01-01 05:13:11";
 $get["ig"]=date("Y-m-d H:i:s" , strtotime($date));
 $get["limit"]="0,1";
-
 }
 
 $trdatas=$gps_class->get_gpsdata($get);
