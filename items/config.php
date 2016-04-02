@@ -98,7 +98,6 @@ $ido_time = "";
 $keywordsarray = "";
 $googleplus_id = "";
 
-
 /*
 $datas["db_conf"]=$adatbazis;
 $datas["homefolder"]=$homefolder;
@@ -107,13 +106,5 @@ $datas["homefolder"]=$homefolder;
 $datas["prefix"]=$prefix;
 $datas["prefix_pagesetting"]=$prefix_pagesetting;
 file_put_contents($file,json_encode($datas));
-*/
-/*
-// Open the file to get existing content
-$current = file_get_contents($file);
-// Append a new person to the file
-$current .= "John Smith\n";
-// Write the contents back to the file
-file_put_contents($file, $current);
 */
 ?>

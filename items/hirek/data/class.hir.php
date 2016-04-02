@@ -1,5 +1,5 @@
 <?php
-class hir{
+class hir extends sys{
 	
 public function status(){
 	global $lan;
@@ -140,37 +140,25 @@ public function table($data=array()){
 	$mezo["displaylist"]=0;
 	$mezo["value"]=$data[$mezo["id"]];	
 		$mezok[]=$mezo;
-		$mezo=array();		
-//		
-
-
-		
-	
+//
 	$datas['table']=$table;
 	$datas['mezok']=$mezok;
-	
-	return $datas;	
+	return $datas;
 }
 
 
 
 public function table_fields(){
 	global $adatbazis,$tbl;
-
-	//$table=$tbl['service_cat'];
-	//$mezok[]=$table.'.'.'`status`';
-	
 	$mdata=$this->table();
 	if (count($mdata['mezok']))
 	foreach ($mdata['mezok'] as $mezo)
 	{
 		$mezok[]=$mezo['id'];	
 	}
-	
 	$datas['table']=$mdata['table'];
 	$datas['mezok']=$mezok;
-	
-	return $datas;	
+	return $datas;
 }
 	
 	
@@ -185,9 +173,7 @@ if ($filters['maxegyoldalon']>0){
 	$maxegyoldalon=$filters['maxegyoldalon'];
 	}else{
 	$maxegyoldalon=8;
-}
-
-	$SD=$this->table();	
+}	$SD=$this->table();
 	
 	if ($order!='')	{
 		$order=' ORDER BY '.$order;

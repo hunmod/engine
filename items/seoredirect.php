@@ -17,7 +17,9 @@
 		$getparams=array();	
 		$getparams[0]='hirek';
 		$getparams[1]='hir';
-		$getparams[2]=$gp[count($gp)-1];
+		foreach($gp as $gpp){
+			if ($gpp!=$getparams[0] && $gpp!=$getparams[1])$getparams[]=$gpp;
+		}
 	}
 /*	if ($getparams[0]=='konyha' && $getparams[1]!='edit' )
 	{
@@ -36,9 +38,7 @@
 		$getparams[0]='konyha';
 		$getparams[1]='recept';
 		foreach($gp as $gpp){
-			if ($gpp!='konyha'&&$gpp!='recept')$getparams[]=$gpp;
+			if ($gpp!=$getparams[0] &&$gpp!=$getparams[1])$getparams[]=$gpp;
 		}	
-		
 	}
-
 ?>

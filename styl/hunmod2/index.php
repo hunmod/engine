@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="hu">
-  <head>
+
 <?php include_once ("./items/headelemets.php");?>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+
 <!-- Start Alexa Certify Javascript -->
 <script type="text/javascript">
 _atrk_opts = { atrk_acct:"Llnqi1asyr00q9", domain:"abrakahasba.hu",dynamic: true};
@@ -30,8 +26,7 @@ bing
 
 <!-- Bootstrap -->
 <link href="<?php echo $homeurl.$stylefolder;?>css/bootstrap.min.css" rel="stylesheet">
-<link href="<?php echo $homeurl.$stylefolder;?>diab.css" rel="stylesheet">
-<link href="<?php echo $homeurl.$stylefolder;?>css/font-awesome.css" rel="stylesheet" type="text/css">    
+<link href="<?php echo $homeurl.$stylefolder;?>css/font-awesome.css" rel="stylesheet" type="text/css">
   </head>
   <body>
 	<!-- HEADER -->

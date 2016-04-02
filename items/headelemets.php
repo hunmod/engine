@@ -1,13 +1,15 @@
+<!DOCTYPE html>
+<html lang="<?= lang ?>">
+<head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Cache-control" content="public">
-<meta http-equiv="Content-language" content="<?php echo $_SESSION["lang"];?>">
+<meta http-equiv="Content-language" content="<?php echo lang ?>">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title><?php echo $pagetitle;?> <?php echo $oldalneve;?></title>
 <link rel="canonical" href="<?php echo $homeurl.'/'.$MenuClass->shorturl_get($_GET['q']);?>" />
-
 <link rel="metalink" type="application/metalink+xml" href="<?php echo $homeurl;?>/rssfeed.php?<?php echo $_SERVER["QUERY_STRING"];?>" />
 <link rel="alternate" type="application/rss+xml" title="RSS" href="<?php echo $homeurl;?>/rssfeed.php?<?php echo $_SERVER["QUERY_STRING"];?>" />
-<?php 
-?>
 <link rel="stylesheet" type="text/css" href="<?php echo $homeurl;?><?php echo $makemin->css($stylefolder.'style.css',$stylefolder.'style.min.css')?>" />
 <?php if ($page_keywords!=""){?>
 <meta name="keywords" content="<?php echo $Text_Class->tageketcsupaszit($page_keywords);?>" />

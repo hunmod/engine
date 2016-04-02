@@ -1,7 +1,7 @@
 <?php
 //$leftside[]="./items/user/web/usermenu.php";
 //$leftside[]="./items/admin/web/widget_sitesetting_menu.php";
-
+$admintemplate=1;
 $extrascript[]= ' 
 	<script src="'.$server_url.'scripts/jquery.ui.timepicker.js"></script> 
 	<link rel="stylesheet" href="'.$server_url.'scripts/jquery.ui.timepicker.css" />

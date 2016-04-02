@@ -59,16 +59,20 @@ if ($_POST["loginform_id"])
 
 }
 
+if ($_SESSION["uid"] > 0) {
+	$auser=$UserClass->get_userid($_SESSION["uid"]);
+	if (isset($_SESSION["adminid"]))
+		if ($_SESSION["adminid"] > 0) {
+			$auser = $UserClass->get_userid($_SESSION["uid"]);
+		}
+}
 
-
-if ($_SESSION["uid"]>0)$auser=$UserClass->get_userid($_SESSION["uid"]);
 if ($auser["status"]==4){
 	unset($_SESSION["uid"]);
 	$_SESSION["messageerror"]="Törölt felhasználó!";	
 }
 else{
 if ($redi==1)header("Location:".$homeurl.$separator.$_GET['q']);
-	
 }
 
 

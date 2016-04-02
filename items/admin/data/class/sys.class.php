@@ -1,9 +1,7 @@
 <?php
 //
 class sys{
-
 //curl functions
-
 public function curl_download($Url){
 	global $currlsslfile;
     // is cURL installed yet?
@@ -58,12 +56,7 @@ public function curl_srv($input,&$retval,&$inval)
     //$inval=  get_object_vars($input_dec);
     $retval['inval']=$inval;
 }
-
-
-
 ////////////////
-
-
 public function arraylist($input){
 if (count($input)>0){
 foreach ($input as $value1=>$first){
@@ -82,12 +75,6 @@ foreach ($input as $value1=>$first){
 else echo "<hr>Nem kaptam adatot!<hr>";
 }
 //
-
-
-
-
-
-
 public function comasupport($where)
 {
 	if($where==""){
@@ -99,8 +86,6 @@ public function comasupport($where)
 	return $whereb;
 	
 }
-
-
 public function andsupport($where)
 {
 	if($where==""){
@@ -134,9 +119,7 @@ public function sqlwhereand($where)
 	}
 	return $whereb;	
 }
-
-
-
+//lista tábla létrehozása, név, id status
 public function create_list($tablename){
 	 	global $adatbazis;
 
@@ -219,7 +202,6 @@ public function get_list($table,$filter)
 	return $result;
 
 }
-
 public function mround($number, $precision=0) {
 
 $precision = ($precision == 0 ? 1 : $precision);   
@@ -249,8 +231,47 @@ public function readxml($url){
 	}
 
 }
+	//List folder
+public function dirlist($mappa){
+		if (is_dir($mappa)) {
+			$files1 = scandir($mappa);
+			foreach ($files1 as $file){
+				$filename2= $mappa."/".$file;
+				$filename2= str_replace("//", "/", $filename2);
+				$filename2= str_replace("//", "/", $filename2);
+				$filename2= str_replace("//", "/", $filename2);
+				$filename2= str_replace("//", "/", $filename2);
+				if (($file!='.')&&($file!='..'))
+				{
+					if (is_dir ($filename2)){$folderimages[]=$file;}
+				}
+			}
+		}
+		return $folderimages;
+	}
+public function getIP_cdata(){
+		foreach (array('HTTP_CLIENT_IP', 'HTTP_X_FORWARDED_FOR', 'HTTP_X_FORWARDED', 'HTTP_X_CLUSTER_CLIENT_IP', 'HTTP_FORWARDED_FOR', 'HTTP_FORWARDED', 'REMOTE_ADDR') as $key) {
+			if (array_key_exists($key, $_SERVER) === true) {
+				foreach (explode(',', $_SERVER[$key]) as $ip) {
+					if (filter_var($ip, FILTER_VALIDATE_IP) !== false) {
+						return $ip;
+					}
+				}
+			}
+		}
+	}
+//Seo_url
+public function shorturl_getparams($getq)
+{
+	global $tbl, $adatbazis;
+	$q = "SELECT * FROM " . $tbl["short_url"] . " WHERE `get` LIKE '" . $getq . "' LIMIT 1";
+	$eredmeny = db_query($q, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"], $adatbazis["db1_srv"], '', 'select');
+
+	if (isset($eredmeny[0]['params']) && $eredmeny[0]['params'] != "") {
+		return $eredmeny[0]['params'];
+	} else {
+		return $getq;
+	}
 }
-
-
-
+}
 ?>

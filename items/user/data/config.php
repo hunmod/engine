@@ -10,8 +10,7 @@ $file_structuct["file"]="list";
 $adminmenu[]=$file_structuct;
 
 
-include_once('./items/user/class/users.class.php');
-$User_Class=$UserClass=new user();
+
 
 
 
