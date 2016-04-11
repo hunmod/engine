@@ -618,7 +618,6 @@ function decode($string)
 }
 
 //--------------------------curl functions------------------------------
-
 function get_google_geocoding($address)
 {
     global $google_api_key;
@@ -647,6 +646,7 @@ function get_google_geocoding($address)
     curl_close($ch);
     return $retval;
 }
+
 
 function curl_download($Url)
 {

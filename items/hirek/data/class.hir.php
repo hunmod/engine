@@ -370,7 +370,8 @@ public function save($datas)
 		}
 		$query="INSERT INTO  ".$SD["table"]." (".$mezok.")VALUES (".$datasb.")";
 		$result =db_Query($query, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"],$adatbazis["db1_srv"],$adatbazis["db1_db"], "INSERT");
-		echo $query.'<br>';
+		//echo($query);
+		echo '<br>'.'<br>'.'<br>'.'<br>'.'<br>'.$query.'<br>';
 		echo $error;		
 		$res=mysql_insert_id();
 	}
@@ -387,8 +388,8 @@ public function save($datas)
 		}
 		$query="UPDATE  ".$SD["table"]." SET  ".$datasb."   WHERE  `id` =".$datas["id"]." LIMIT 1 ;";
 		$result =db_Query($query, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"],$adatbazis["db1_srv"],$adatbazis["db1_db"], "UPDATE");
-		/*echo $query;
-		echo $error;*/
+		//echo $query;
+		//echo $error;
 
 	}
 return($res);//csak id-t ad vissza
@@ -575,7 +576,6 @@ public function del_ad_tag($data){
 
 public function save_ad_tag($data){
 		global $adatbazis;
-
 		$query="INSERT INTO  `hir_tags` (`rec_id` ,`tag_id` ,`created` )
 		VALUES ('".$data["rec_id"]."',  '".$data['tag_id']."', now());";
 		$result =db_Query($query, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"],$adatbazis["db1_srv"],$adatbazis["db1_db"], "insert");

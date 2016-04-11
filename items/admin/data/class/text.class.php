@@ -255,8 +255,8 @@ public function ekezeteketvissza($rizsa){
 public function htmltochars($text){
 	//return stringencode($text);
 	//return urlencode($text);
-	$text=$this->stringencode($text);
-	//$text= $this->ekezetekeoda($text);
+	//$text=$this->stringencode($text);
+	$text= $this->ekezetekeoda($text);
 	
 	return $text;
 	}
