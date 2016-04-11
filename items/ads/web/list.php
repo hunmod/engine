@@ -14,13 +14,14 @@ $ADS_list=$class_ads->get($_GET);
 
 ?>
 <div class="container"> 
-  <left class="col-md-3 col-sm-4" >
+  <!--left class="col-md-3 col-sm-4" >
 <?php 
-$widgets[]="items/user/web/widget_user_menu.php";
+/*$widgets[]="items/user/web/widget_user_menu.php";
 $widgets[]="items/konyha/web/widget_submenu.php";
-foreach ($widgets as $widget)if (file_exists($widget))include($widget);?>
-  </left>  
-<section class="col-md-9 col-sm-8" ads >
+foreach ($widgets as $widget)if (file_exists($widget))include($widget);*/ ?>
+  </left>
+<section class="col-md-9 col-sm-8" ads -->
+<section class="col-md-12 col-sm-12" ads >
 
     <a href="<?php echo $homeurl.$separator.$getparams[0]."/edit";?>" class="btn btn-success">New ADS</a>
 <form method="get">

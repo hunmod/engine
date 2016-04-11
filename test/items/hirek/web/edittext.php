@@ -223,7 +223,7 @@ background:#CCC;
 }
 </style>
 <div class="container">
-<div class="col-sm-8">
+<div class="col-sm-12">
 <?php 
 $form=new formobjects();
 $status=$hir_class->status();
@@ -368,7 +368,7 @@ include('items/files/web/list.php');
 <?php } ?> 
  
 </div>
-<div class="col-md-3 col-sm-4">
-
-<?php include("items/user/web/widget_user_menu.php")?>
-</div></div>
+	<!--section class="col-md-3 col-sm-4" >
+<?php //include("items/user/web/widget_user_menu.php"); ?>
+  </section-->
+</div>

@@ -11,9 +11,9 @@ $css_list[]=$css_liste;
 
 ?>
 <div class="container">
-
 <h1>Site setting</h1>
-    <section class="col-md-9 col-sm-8">
+    <!--section class="col-md-9 col-sm-8"-->
+    <section class="col-md-12 col-sm-12">
 
     <form id="form_title" name="form_title" method="post" action="">
 
@@ -146,10 +146,10 @@ var CKfBUrl='<?php echo $homeurl;?>/scripts/ckfinder/ckfinder.html';
        
         </script>
         </section>   
-  <section class="col-md-3 col-sm-4" >
+  <!--section class="col-md-3 col-sm-4" >
   
 <?php include("items/user/web/widget_user_menu.php");?>
   
-  </section>                   
+  </section-->
 
 </div>

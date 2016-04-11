@@ -77,7 +77,7 @@ jQuery(function($) {
 
       <!-- Logo start -->
       <div class="logo">
-        CK <span>Admin</span>
+        HUNMOD <span>Admin</span>
       </div>
       <!-- Logo end -->
 
@@ -182,20 +182,25 @@ jQuery(function($) {
               </li>
             </ul>
           </li>
-          <li>
+
+              <li>
+                  <?php include('profil_menu.php');?>
+              </li>
+
+          <!--li>
             <a href="login.html">
               <span class="text-label">Mr. John </span><span class="fs1" aria-hidden="true" data-icon="&#xe088;"></span>
             </a>
 
               <ul class="user-summary">
-
                 <li>
                 <div class="summary">
                   <div class="user-pic">
                     <img src="<?php echo $server_url;?>styl/admin/img/avatar-1.png" alt="Slick Admin"/>
                   </div>
                   <div class="basic-details">
-                    <h4 class="no-margin">Johnny</h4>
+
+                      <h4 class="no-margin">Johnny</h4>
                     <h5 class="no-margin">UX Designer</h5>
                     <small>Garabandha, India</small>
                   </div>
@@ -212,8 +217,10 @@ jQuery(function($) {
                 <span class="clearfix"></span>
               </li>
             </ul>
-          </li>
+          </li-->
+
         </ul>
+
       </div>
       <!-- Mini navigation end -->
 <style>

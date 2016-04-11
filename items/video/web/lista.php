@@ -1,7 +1,5 @@
 <?php
 $_SESSION["utolso_lap"]=$_SERVER["REQUEST_URI"];
-
-
 $video_class=new video();
 $datasx=$video_class->get($_GET);
 $datas=$datasx["datas"];
@@ -14,21 +12,20 @@ $qmenu=$MenuClass->get_menu($filtersm,$order='',$page='all');*/
 //$filtersm["modul"]="video";
 $filtersm["modul"]="video";
 $qmenu=$MenuClass->menu_selectboxfilter(0,array(),$filtersm,$order='',$page='all');
-
-
 //arraylist($datas);
 ?>
 
 <div class="container">
-  <left class="col-md-3 col-sm-4" >
+  <!--left class="col-md-3 col-sm-4" >
 <?php 
 $widgets[]="items/user/web/widget_user_menu.php";
 $widgets[]="items/ads/web/widget_side1.php";
 $widgets[]="items/konyha/web/widget_submenu.php";
 foreach ($widgets as $widget)if (file_exists($widget))include($widget);?>
-  </left> 
-  
-  <div class="col-md-9 col-sm-8 row">
+  </left-->
+
+  <!--section class="col-md-9 col-sm-8"-->
+  <section class="col-md-12 col-sm-12">
   <div class="col-md-12">
     <div class="widget">
       <div class="widget-header">
@@ -106,4 +103,4 @@ New video</a>
 
     </div>
     </div>
-  </div>
+  </section>

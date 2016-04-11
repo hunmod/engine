@@ -1,6 +1,6 @@
 <?php
 $admintemplate=1;
-$User_Class->reqgrantuser(6);
+//$User_Class->reqgrantuser(6);
 if ($_GET["mid"]<1){
 	/*$_GET["mid"]=1;
 	$getparams[2]=1;*/
