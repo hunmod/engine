@@ -65,7 +65,9 @@ if (count($_POST))
 	{
 		/*$kapott=menu_editform_form($_POST);	
 		gen_form_save($kapott,"menu",$_POST);*/
-		
+		$_POST["nev"]=$Text_Class->htmltochars($_POST["nev"]);
+		$_POST["leiras"]=$Text_Class->htmltochars($_POST["leiras"]);
+
 		$kapott=$MenuClass->save($_POST);
 		//arraylist($kapott);
 	}else{$kapott=$getparams[2];}
