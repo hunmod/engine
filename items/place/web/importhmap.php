@@ -17,7 +17,8 @@ foreach ($datas as $data){
     $gdatas=$googlemapreq->get_coords($coords[1],$coords[0]);
     $savedata["zip"]=$gdatas["zip"];
     //getvaros
-    //$Sys_Class->get_list('location_citys_data',array('city_name'=>$gdatas["city"]));
+    $varosarray=$Sys_Class->get_list('location_citys_data',array('city_name'=>$gdatas["city"]));
+  //  arraylist($varosarray);
     //$savedata["varos"]=$gdatas["country"];
     $savedata["varos"]=$gdatas["city"];
     $savedata["cim"]=$gdatas["street"];
@@ -55,4 +56,7 @@ foreach ($datas as $data){
     $savedatas[]=$savedata;
 
 }
-$Sys_Class->arraylist($savedatas);
+foreach($savedatas as $row){
+    $place_class->save($row);
+}
+//$Sys_Class->arraylist($savedatas);

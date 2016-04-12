@@ -33,6 +33,7 @@ if ($_GET["status"]){
 
 
 $qhir=$place_class->get($filters,'',$_GET["page"]) ;
+//arraylist($qhir);
 $hirekelemek=($qhir['datas']);
 $hszlistacount=$qhir['count'];
 

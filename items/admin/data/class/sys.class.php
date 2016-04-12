@@ -198,7 +198,7 @@ public function get_list($table,$filter)
 	$q="SELECT * FROM  `".$table."`".$where." ORDER BY  `name` ASC ";
 	$result =db_Query($q, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"],$adatbazis["db1_srv"],$adatbazis["db1_db"], "select");
 	//var_dump($filter);
-	//echo $q;
+	echo $q;
 	return $result;
 
 }

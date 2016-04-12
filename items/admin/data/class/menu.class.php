@@ -508,25 +508,25 @@ echo '</ul>';
 
 public function printmenu2($menuarray,$level=3,$mylevel=0){
 	global $homeurl,$separator;
-if (count($menuarray)&&$mylevel<$level){
+	///if (count($menuarray)&&$mylevel<$level){
+	if (count($menuarray)){
 	//arraylist($menuarray);
 echo '<ul>';
 foreach ($menuarray as $menuelem){
-    if (($menuelem["status"]=="1" || (!$menuelem["status"]) )){
+    //if (($menuelem["status"]=="1" || (!$menuelem["status"]) )){
 		if ($menuelem["name"])$menuelem["nev"]=$menuelem["name"];
 		if ($menuelem["modules"])$menuelem["modul"]=$menuelem["modules"];
 		if ($menuelem["files"])$menuelem["file"]=$menuelem["files"];
 
-	echo '<li>';	
+	echo '<li>';
                 if ($menuelem["item"]==""){$menuelem["item"]=$menuelem["id"];}
                   $almenu=$menuelem["alatta"];
 		
 		echo '<a href="'. 
-		 $homeurl.$separator.$this->shorturl_get($menuelem["modul"]."/".$menuelem["file"]."/".$menuelem["item"]);?>"><?php echo $menuelem["nev"].
-		'</a>';	  
+		 $homeurl.$separator.$this->shorturl_get($menuelem["modul"]."/".$menuelem["file"]."/".$menuelem["item"]);?>"><?php echo $menuelem["nev"].'</a>';
 		$this->printmenu2($almenu,$level,$mylevel++);
 	echo '</li>';					  
-	}
+	//}
 }
 echo '</ul>';	
 }

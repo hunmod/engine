@@ -1,18 +1,9 @@
 <?php
-$Sys_Class=new sys();
-$form=new formobjects();
-$status=array('2'=>'Active','4'=>'Deleted');
-//$users=$jobclass->get_users(array());
-
-if ($_GET['dtag']>0){
-$Sys_Class->save_list('tags',array("id"=>$_GET['dtag'],'status'=>'4'));
-}
-
-$datas=$Sys_Class->get_list('tags',$_GET,"all");
+$status[0]=array('id'=>'','nev'=>$lan['all']);
 ?>
 <div class="container">
-    <section class="col-md-9 col-sm-8">
-
+  <!--section class="col-md-9 col-sm-8"-->
+  <section class="col-md-12 col-sm-12">
 <div class="row">
           <div class="col-md-12">
             <div class="widget">
@@ -29,7 +20,7 @@ $datas=$Sys_Class->get_list('tags',$_GET,"all");
 
                   </div>
                   <div class="form-group">
-				<?php $form->selectboxeasy2('status',$status,$_GET["status"],'status');?>
+                    <?php $form->selectbox('status',$status,array('value'=>'id','name'=>'nev'),$data["status"],'status');?>
                   </div>  
                   <button type="submit" class="btn btn-success" data-original-title="">Search</button>
                 </form>
@@ -65,7 +56,7 @@ $datas=$Sys_Class->get_list('tags',$_GET,"all");
                     </thead>
                     <tbody>
                     
-                    <?php foreach ($datas as $data){?>
+                    <?php if(($datas))foreach ($datas as $data){?>
 
 
                       <tr class="gradeX">
@@ -96,11 +87,9 @@ $datas=$Sys_Class->get_list('tags',$_GET,"all");
         </div>
         <!-- Row end -->
         </div>
-        </section>   
-  <section class="col-md-3 col-sm-4" >
-  
-<?php include("items/user/web/widget_user_menu.php");?>
-  
-  </section>  
+        </section>
+  <!--section class="col-md-3 col-sm-4" >
+  <?php //include("items/user/web/widget_user_menu.php");?>
+   </section-->
         </div>
         

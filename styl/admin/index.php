@@ -276,9 +276,11 @@ background:#fff;
           <img src="<?php echo $server_url;?>styl/admin/img/avatar-1.png" alt="Slick Admin">
         </div>
           <!-- User pic end -->
-          <?php if ($auser["jogid"]==4)$MenuClass->printmenu2($adminmenu,2);
+          <?php
+         // arraylist($adminmenu);
+          if ($auser["jogid"]==4)$MenuClass->printmenu2($adminmenu,2);
           ?>
-			<ul>
+			<!--ul>
               <li>
               <a href="<?php echo $homeurl.$separator;?>recipe/rclist2"><div class="icon">
                 <span class="fs1" aria-hidden="true" data-icon="&#xe14a;"></span>
@@ -317,9 +319,9 @@ background:#fff;
                         <ul>
                     <li><a href="<?php echo $homeurl.$separator;?>user/list"> Users</a> </li>                  
                    <li><a href="<?php echo $homeurl.$separator;?>recipe/rclist3">Count recipes by user</a></li>
-                   <!--li><a href="<?php echo $homeurl.$separator;?>recipe/monthcheaf">Home Cheaf.</a></li-->
+                   <!--li><a href="<?php echo $homeurl.$separator;?>recipe/monthcheaf">Home Cheaf.</a></li>
 
-               </ul>         
+                     </ul>
                   
               </li>
               <li>
@@ -391,7 +393,7 @@ background:#fff;
 
                     </ul>
               </li-->                          
-          <li>
+          <!--li>
             <a href="#">
               <div class="icon">
                 <span class="fs1" aria-hidden="true" data-icon="&#xe0a2;"></span>
@@ -511,7 +513,7 @@ background:#fff;
             </a>
           </li>
 <?php }?>          
-        </ul>
+        </--ul>
       </div>
       <!-- Mian navigation end -->
 

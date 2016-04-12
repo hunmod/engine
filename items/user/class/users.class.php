@@ -463,21 +463,21 @@ class user
 	}
 
 	public function requser(){
-		global $auser;
+		global $auser,$server_url;
 		if ($auser["id"] > 0) {
 			return true;
 		} else {
-            return header('Location: ' . server_url . "user/noacces");
+             header('Location: ' . $server_url . "user/noacces");
 			//return false;
 			//exit;
 		}
 	}
 	public function reqgrantuser($grant=0){
-		global $auser;
+		global $auser,$server_url;
 		if ($auser["id"] > 0 && $auser["jog"]>=$grant) {
 			return true;
 		} else {
-            return header('Location: ' . server_url . "user/noacces");
+             header('Location: ' . $server_url . "user/noacces");
 			//return false;
 			//exit;
 		}

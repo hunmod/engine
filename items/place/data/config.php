@@ -7,7 +7,7 @@ $file_structuct["modules"]="place";
 
 /*admin menü*/
 $file_structuct["name"]="hely lista";
-$file_structuct["file"]="lista";
+$file_structuct["file"]="list";
 $adminmenu[]=$file_structuct;
 
 $file_structuct["name"]="hely lista";

@@ -19,12 +19,12 @@ if ($_POST['hirsave']=='1'){
 	if ($_POST['nev']==''){
 		$_SESSION["messageerror"]="Adj Nevet!";
 	}
-	else if ($_POST['varos']<1){
+	/*else if ($_POST['varos']<1){
 		$_SESSION["messageerror"]="Adj várost!";
-	}
-	if ($_POST['cim']==''){
+	}*/
+	/*if ($_POST['cim']==''){
 		$_SESSION["messageerror"]="Adj címet!";
-	}	
+	}	*/
 	else if ($_POST['tipus']<1){
 		$_SESSION["messageerror"]="Adj Típust!";
 	}

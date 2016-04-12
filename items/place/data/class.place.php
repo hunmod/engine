@@ -103,7 +103,18 @@ public function table($data=array()){
 	$mezo["displaylist"]=1;
 	$mezo["value"]=$data[$mezo["id"]];
 		$mezok[]=$mezo;
-		$mezo=array();	
+		$mezo=array();
+
+	$mezo["id"]='specid';
+	$mezo["table"]=$table.'.'.'`'.$mezo["id"].'`';
+	$mezo["name"]="specid";
+	$mezo["display"]=1;
+	$mezo["type"]='varchar';
+	$mezo["requied"]=1;
+	$mezo["displaylist"]=1;
+	$mezo["value"]=$data[$mezo["id"]];
+		$mezok[]=$mezo;
+		$mezo=array();
 		
 	$mezo["id"]='email';
 	$mezo["table"]=$table.'.'.'`'.$mezo["id"].'`';
@@ -313,7 +324,6 @@ if ($filters['maxegyoldalon']>0){
 
 
 
-
 //számos feltételek	
 $fmezonev='id';
 if ($filters[$fmezonev]!=''){
@@ -478,6 +488,7 @@ public function create_table(){
  `email` VARCHAR( 200 ) NOT NULL ,
  `web` VARCHAR( 500 ) NOT NULL ,
  `web2` VARCHAR( 500 ) NOT NULL ,
+ `specid` VARCHAR( 500 ) NOT NULL ,
  `gluten` TINYINT NOT NULL ,
  `diab` TINYINT NOT NULL ,
  `lactose` TINYINT NOT NULL ,
@@ -492,7 +503,7 @@ INDEX (  `gluten` ,  `diab` ,  `status` )
 	";
 		$result =db_Query($q, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"],$adatbazis["db1_srv"],$adatbazis["db1_db"], "CREATE");	
 		//echo $q.'<br>';
-		//echo $error;			
+		//echo $error;
 }
 
 public function createurl($hir){

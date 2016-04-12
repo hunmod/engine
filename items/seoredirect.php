@@ -30,7 +30,7 @@
 		foreach($gp as $gpp){
 			if ($gpp!='konyha'||$gpp!='recept'||$gpp!='list')$getparams[]=$gpp;
 		}	
-	}	*/
+	}
 	if ($getparams[0]=='recept' )
 	{
 		$gp=$getparams;
@@ -40,5 +40,15 @@
 		foreach($gp as $gpp){
 			if ($gpp!=$getparams[0] &&$gpp!=$getparams[1])$getparams[]=$gpp;
 		}	
+	}*/
+if ($getparams[0]=='recept' )
+	{
+		$gp=$getparams;
+		$getparams=array();
+		$getparams[0]='gmrec';
+		$getparams[1]='recept';
+		foreach($gp as $gpp){
+			if ($gpp!=$getparams[0] &&$gpp!=$getparams[1])$getparams[]=$gpp;
+		}
 	}
 ?>
