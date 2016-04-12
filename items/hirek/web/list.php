@@ -32,8 +32,9 @@ foreach ($widgets as $widget)if (file_exists($widget))include($widget);?>
 <?php } else {?>
 <news itemscope="" itemtype="http://schema.org/WebPage">
 <?php } ?>      
+<div>
                 <h1>
-				<?php //echo $menu["nev"];
+				<?php echo $menu["nev"];
 				$c=1;
                 if(count($menufelette))foreach(array_reverse($menufelette) as $mef){
 					
@@ -50,8 +51,14 @@ foreach ($widgets as $widget)if (file_exists($widget))include($widget);?>
                 }
 				?>
                 </h1>
+				 <?php
+               if ($auser["jog"]>2){
+				?>
+                <a href="<?php echo $homeurl.$separator;?>hirek/edittext">Új hír</a>
+                <?php }?>
           
-<?php 
+</div>
+		  <?php 
 //arraylist($hirekelemek);
 if (count($hirekelemek)>0){
 	$che=$stn=1;

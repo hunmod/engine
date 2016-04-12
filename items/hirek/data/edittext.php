@@ -2,6 +2,7 @@
 if ($auser["jog"] < 3) {
     header("Location:" . $homeurl);
 }
+$admintemplate=1;
 
 $extrascript[]= '
 	<script src="'.$server_url.'scripts/jquery.ui.timepicker.js"></script> 
@@ -16,6 +17,7 @@ $sorrend = $hir_class->sorrend();
 $form = new formobjects();
 $UploadClass = new file_upload();
 $hir_class = new hir();
+$hirid=decode($getparams[2]);
 if ($_POST['hirsave'] == '1') {
    // arraylist($_POST);
     $_POST["hir"]=$Text_Class->htmltochars($_POST["hir"]);
@@ -25,8 +27,10 @@ if ($_POST['hirsave'] == '1') {
     $_POST["id"] = $hirid;
 //$hir_class->save_ad_tags_field($_POST);
 //echo $hirid;
-    $target = $UploadClass->uploadimg('photo', $hirimg_loc . '/' . $hirid, '' . $hirid, 800, 600, true, true, true);
+//echo "!!!!!!!!!!!!!! ".$hirimg_loc . '/' . $hirid;
 
+    $target = $UploadClass->uploadimg('photo', $hirimg_loc . '/' . $hirid, '' . $hirid, 800, 600, true, true, true);
+//echo $target;
 //header("Location:".$homeurl."/hirek/edittext/".encode($hirid));
 
 }

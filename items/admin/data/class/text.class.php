@@ -256,6 +256,7 @@ public function htmltochars($text){
 	//return stringencode($text);
 	//return urlencode($text);
 	//$text=$this->stringencode($text);
+	$text= $this->szovegfeldolgoz_array_walk($text);
 	$text= $this->ekezetekeoda($text);
 	
 	return $text;

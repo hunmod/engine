@@ -211,7 +211,7 @@
 </style>
 <div class="container">
     <div class="col-sm-12">
-        <form id="uploadForm" action="" method="post" enctype="multipart/form-data; charset=utf-8" accept-charset="UTF-8">
+        <form id="uploadForm" action="" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
             <?php $Form_Class->hiddenbox('hirsave', '1') ?>
             <?php echo $lan['menu'];
 
@@ -224,7 +224,8 @@
 
             ?>:
 
-            <?php $Form_Class->selectbox2("mid", $menuk, array('value' => 'id', 'name' => 'nev'), $adat["mid"], "Menu"); ?>
+            <?php 
+			$Form_Class->selectbox2("mid", $menuk, array('value' => 'id', 'name' => 'nev'), $adat["mid"], "Menu"); ?>
 
 
             <?php
@@ -240,7 +241,7 @@
             <br/>
 
 
-            <input name="id" id="id" type="hidden" value="<?php echo base64_decode($getparams[2]); ?>"/>
+            <input name="id" id="id" type="hidden" value="<?php echo decode($getparams[2]); ?>"/>
             <?php echo $lan['cim']; ?>:
             <input name="cim" id="cim" type="text" value="<?php echo $Text_Class->htmlfromchars($adat["cim"]); ?>"
                    maxlength="200" style="  width: 217px;"/><br/>
@@ -250,7 +251,8 @@
             <?php echo $lan['outertext']; ?>: <?php $form->kcebox("hir2", $Text_Class->htmlfromchars($adat["hir2"])) ?>
             <br/>
             <?php echo $lan['status']; ?>:<?php
-            $form->selectboxeasy2("status", $status, $adat["status"], "status");
+			
+            $form->selectbox2("status", $status, array('value' => 'id', 'name' => 'nev'),  $adat["status"], "status");
             ?>
             <br/>
             <?php echo $lan['sorrend']; ?>:<?php
@@ -259,7 +261,7 @@
             <br/>
 
 
-            <img src="<?php echo($homeurl . '/' . $nimg); ?>">
+            <img src="<?php echo($nimg); ?>">
             <br/>
             <input id="photo" name="photo" type="file">
 
