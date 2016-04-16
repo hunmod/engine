@@ -312,7 +312,7 @@ if ($maxegyoldalon>0)
 
 public function save($datas) 
 {
-	global $adatbazis;
+	global $adatbazis,$Text_Class;
 	$Sys_Class=new sys();
 	//tábla adatai
 	$SD=$this->table_fields();	
@@ -329,7 +329,7 @@ public function save($datas)
 			$mezok.=$Sys_Class->comasupport($mezok);	
 			$mezok.=$mezoe['table'];	
 			$datasb.=$Sys_Class->comasupport($datasb);	
-			$datasb.="'".($datas[$mezoe['id']])."'";
+			$datasb.="'".($Text_Class->htmltochars($datas[$mezoe['id']]))."'";
 		}
 		$query="INSERT INTO  ".$SD["table"]." (".$mezok.")VALUES (".$datasb.")";
 		$result =db_Query($query, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"],$adatbazis["db1_srv"],$adatbazis["db1_db"], "INSERT");

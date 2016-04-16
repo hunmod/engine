@@ -10,9 +10,10 @@ $datas=$mydatas["Document"]["Folder"][0]["Placemark"];
 $googlemapreq=new gpsa();
 foreach ($datas as $data){
     $savedata=array();
-    $savedata["nev"]=$data['name'];
-    $savedata["leiras"]=$data['description'];
-    $savedata["specid"]=$data['Point']['coordinates'];
+    $savedata["nev"]=$Text_Class->htmltochars($data['name']);
+    $savedata["leiras"]=$Text_Class->htmltochars($data['description']);
+    $savedata["specid"]=$Text_Class->htmltochars($data['Point']['coordinates']);
+   /*
     $coords=explode(',',$savedata["coordinates"]);
     $gdatas=$googlemapreq->get_coords($coords[1],$coords[0]);
     $savedata["zip"]=$gdatas["zip"];
@@ -24,7 +25,7 @@ foreach ($datas as $data){
     $savedata["cim"]=$gdatas["street"];
     $savedata["hsz"]=$gdatas["num"];
     $savedata["lat"]=$gdatas["lat"];
-    $savedata["lon"]=$gdatas["lon"];
+    $savedata["lon"]=$gdatas["lon"];*/
 
     if (strpos(strtolower ($savedata["leiras"]), strtolower ('laktózmentes')))$savedata["lactose"]=1;
     if (strpos(strtolower ($savedata["leiras"]), strtolower ('laktóz-')))$savedata["lactose"]=1;
@@ -48,7 +49,7 @@ foreach ($datas as $data){
 
     $savedata["tipus"]=0;
     $savedata["uid"]=1;
-    $savedata["status"]=1;
+    $savedata["status"]=2;
     //koordináták lekérdezése
 
 
@@ -56,7 +57,10 @@ foreach ($datas as $data){
     $savedatas[]=$savedata;
 
 }
+//$place_class->create_table();
+
 foreach($savedatas as $row){
+    arraylist($row);
     $place_class->save($row);
 }
 //$Sys_Class->arraylist($savedatas);

@@ -152,7 +152,7 @@ global $adatbazis;
 	}	
 	
 }
-public function get_list($table,$filter)
+public function get_list($table,$filter,$order='ORDER BY  `name` ASC')
 {
 	global $adatbazis;
 
@@ -164,11 +164,15 @@ public function get_list($table,$filter)
 	if ($filter["ids"]>0){
 			$where.=$this->sqlwhereand($where);	
 			$where.="id in (".$filter["ids"].")";
-	}					
-	
+	}
 	if ($filter["name"]!=''){
+		$where.=$this->sqlwhereand($where);
+		$where.="name LIKE '%".$filter["name"]."%'";
+	}
+
+	if ($filter["city_name"]!=''){
 			$where.=$this->sqlwhereand($where);	
-			$where.="name LIKE '%".$filter["name"]."%'";
+			$where.="city_name LIKE '%".$filter["city_name"]."%'";
 	}
 	if ($filter["name2"]!=''){
 			$where.=$this->sqlwhereand($where);	
@@ -195,7 +199,7 @@ public function get_list($table,$filter)
 			$where.=$this->sqlwhereand($where);	
 			$where.="status = '2'";
 	}		
-	$q="SELECT * FROM  `".$table."`".$where." ORDER BY  `name` ASC ";
+	$q="SELECT * FROM  `".$table."`".$where." ".$order;
 	$result =db_Query($q, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"],$adatbazis["db1_srv"],$adatbazis["db1_db"], "select");
 	//var_dump($filter);
 	echo $q;
