@@ -27,6 +27,13 @@ Ha találtál egy jó helyet és szívesen megosztanád velünk <a href="<?php e
 A feltöltélteshez be kell <span onclick="javascript:login();">lépned</span>, ha még nem <span onclick="javascript:reg();">regisztrál</span>tál pár másodperc alatt megteheted.<br />
 
 </div>
+
+
+    <div class="col-xs-12">
+        <div id="map" style="height: 300px;"></div>
+    </div>
+<script src="https://maps.googleapis.com/maps/api/js?key=<?= $gps_class->getapikey(); ?>&callback=initMap" async defer>
+</script>
 <div class="row">
           <div class="col-md-12">
             <div class="widget">
@@ -103,7 +110,10 @@ A feltöltélteshez be kell <span onclick="javascript:login();">lépned</span>, 
 
                       <tr class="gradeX">
                         <td><?php echo $data['id']; ?></td>
-                        <td><?php echo $data['nev']; ?></td>
+<?php
+$positions=explode(',',$data['specid']);
+?>
+                        <td><a onclick="gotomarker('<?php echo $positions[1]; ?>','<?php echo $positions[0]; ?>')"><?php echo $data['nev']; ?></a> </td>
                         <td><?php echo $data['varos_nev']; ?>,<?php echo $data['cim']; ?> <?php echo $data['hsz']; ?></td>                       <?php if ($auser["jog"]>=3){?>
                         <td><?php echo $status[$data['status']]; ?></td>
                         <?php } ?>
@@ -118,12 +128,13 @@ A feltöltélteshez be kell <span onclick="javascript:login();">lépned</span>, 
                          <?php } ?>
                      </tr>
                     
-                    <?php ?>
-                    
+                    <?php
+                        $scriptadd.="makemarker('".$positions[1]."','".$positions[0]."','".$data['nev']."');"; ?>
                     <?php }?>
                     
                     </tbody>
                   </table>
+
                   <div class="clearfix"></div>
                   
                                 <nav class="text-center">
@@ -172,3 +183,6 @@ A feltöltélteshez be kell <span onclick="javascript:login();">lépned</span>, 
                 </div>
 
         <!-- Row end -->
+<script>
+    <?php echo $scriptadd;?>
+</script>

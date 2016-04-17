@@ -130,7 +130,7 @@ class gpsa
             $googlejsonurl = "https://maps.googleapis.com/maps/api/geocode/json?latlng=";
             $googlejsonurl .= $lat . ',' . $long;
             $googlejsonurl .= "&key=" . self::$googleapikey;
-            //echo $googlejsonurl;
+            echo $googlejsonurl;
             $res = $this->curlread($googlejsonurl);
             $position = json_decode($res, true);
             $ret = $this->convert_google_geocode($position);

@@ -13,6 +13,14 @@ $qadatok="SELECT * FROM  ".$tbl['shop']." WHERE id='".base64_decode($getparams[2
 $adatok=db_Query($qadatok, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"],$adatbazis["db1_srv"],'', "select");
 $adat=$adatok[0];
 $adat['ar_old']=$adat['ar'];
+
+	$filter["id"]=$Text_Class->decode($getparams[2]);
+	$filter["status"]='all';
+
+	$datas=$shop_class->get($filters,$order='',$page='all');
+	$adat=$datas["datas"][0];
+
+
 }
 if ($_POST['cim']!=""){
 	$adat=$_POST;
@@ -24,8 +32,5 @@ if ($_POST['cim']!=""){
 	//$savedatas=$shop_class->table($adat);// shop_editform_form($adat);
 
 	$shop_class->save($adat);
-
-
 }
-
 ?>

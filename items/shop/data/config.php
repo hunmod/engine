@@ -22,7 +22,7 @@ $adminmenu[]=$file_structuct;
 
 include('class.shop.php');
 
-echo $menustart;
+//echo $menustart;
 //$menupontselectbox=menupontselectbox('103',$onearray,'','','');
 //arraylist(menupontselectbox(1,$onearray,'','',''));
 
@@ -45,7 +45,6 @@ else $shopmenustart=0;
 //$sidemenu1=menuadat($shopmenustart);
 
 
-	
 	
 
 //kosárba rakás
