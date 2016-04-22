@@ -1,29 +1,6 @@
 
 <?php include_once ("./items/headelemets.php");?>
 
-<!-- Start Alexa Certify Javascript -->
-<script type="text/javascript">
-_atrk_opts = { atrk_acct:"Llnqi1asyr00q9", domain:"abrakahasba.hu",dynamic: true};
-(function() { var as = document.createElement('script'); as.type = 'text/javascript'; as.async = true; as.src = "https://d31qbv1cthcecs.cloudfront.net/atrk.js"; var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(as, s); })();
-</script>
-<!-- End Alexa Certify Javascript -->
-
-
-<!-- Alexa-->
-<!-- gGR5ouOd2fTuR4jIpPmHOLLkMuE -->
-<!--
-bing
--->
-<meta name="msvalidate.01" content="45F10A1B46A10689266441A11B8F7D41" />
-<link id="page_favicon" href="<?php echo $homeurl.$stylefolder;?>icons/favicon.ico" rel="icon" type="image/x-icon" />
-<link href="<?php echo $homeurl.$stylefolder;?>icons/192.png" rel="apple-touch-icon" type="image/x-icon"  />
-<link href="<?php echo $homeurl.$stylefolder;?>icons/76.png" rel="apple-touch-icon" sizes="76x76" type="image/x-icon"  />
-<link href="<?php echo $homeurl.$stylefolder;?>icons/120.png" rel="apple-touch-icon" sizes="120x120" type="image/x-icon"  />
-<link href="<?php echo $homeurl.$stylefolder;?>icons/152.png" rel="apple-touch-icon" sizes="152x152" type="image/x-icon" />
-<link href="<?php echo $homeurl.$stylefolder;?>icons/180.png" rel="apple-touch-icon" sizes="180x180" type="image/x-icon"  />
-<link href="<?php echo $homeurl.$stylefolder;?>icons/192.png" rel="icon" sizes="192x192" type="image/x-icon" />
-<link href="<?php echo $homeurl.$stylefolder;?>icons/128.png" rel="icon" sizes="128x128" type="image/x-icon" />
-
 <!-- Bootstrap -->
 <link href="<?php echo $homeurl.$stylefolder;?>css/bootstrap.min.css" rel="stylesheet">
 <link href="<?php echo $homeurl.$stylefolder;?>css/font-awesome.css" rel="stylesheet" type="text/css">

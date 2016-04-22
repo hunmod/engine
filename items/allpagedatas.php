@@ -37,14 +37,14 @@ $default_deviza = "HUF";
 
 //Ez a file az oldal beállításait végzi.
 
-
+/*
 if ($_SESSION["country_code"] == "") {
     $json = file_get_contents('http://getcitydetails.geobytes.com/GetCityDetails?fqcn=' . $Sys_Class->getIP_cdata());
     $data = json_decode($json, true);
     //arraylist($data);
     $_SESSION["country_code"] = $data["geobytesinternet"];
 }
-
+*/
 
 //nyelv beállítása
 if (isset($_GET["lang"]))
