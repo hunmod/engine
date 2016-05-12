@@ -512,9 +512,10 @@ function page_settings($what)
 function updt_page_settings($variable, $value)
 {
     global $tbl, $adatbazis, $Text_Class;
+    $value=$Text_Class->htmltochars($value);
     $q = "REPLACE INTO " . $tbl["page_settings"] . " (`id`,`value`) VALUES ('" . $variable . "','" . $Text_Class->htmltochars($value) . "')";
     db_query($q, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"], $adatbazis["db1_srv"], '', 'replace');
-    //echo $q;
+    echo $error;
     return $q;
 }
 

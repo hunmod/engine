@@ -2,9 +2,14 @@
 <?php include_once ("./items/headelemets.php");?>
 
 <!-- Bootstrap -->
-<link href="<?php echo $homeurl.$stylefolder;?>css/bootstrap.min.css" rel="stylesheet">
+<link href="<?php 
+$stylefolder="/styl/hunmod2/";
+echo $homeurl.$stylefolder;?>css/bootstrap.min.css" rel="stylesheet">
 <link href="<?php echo $homeurl.$stylefolder;?>css/font-awesome.css" rel="stylesheet" type="text/css">
-  </head>
+<link href="<?php echo $homeurl.$stylefolder;?>css/LumiSys.css" rel="stylesheet" type="text/css">
+	<script src="<?php echo $homeurl.$stylefolder;?>/js/js.js"></script>
+ 
+ </head>
   <body>
 	<!-- HEADER -->
     <header class="container-fluid">

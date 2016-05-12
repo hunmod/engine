@@ -25,7 +25,7 @@ bing
 <link href="<?php echo $homeurl.$stylefolder;?>icons/128.png" rel="icon" sizes="128x128" type="image/x-icon" />
 <!-- Bootstrap -->
 <link href="<?php echo $homeurl.$stylefolder;?>css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="<?php echo $homeurl;?><?php echo $makemin->css($stylefolder.'diab.css',$stylefolder.'diab.min.css')?>" />
+<link rel="stylesheet" type="text/css" href="<?php echo $homeurl;?><?php echo $makemin->css($stylefolder.'LumiSys.css',$stylefolder.'LumiSys.min.css')?>" />
 <link rel="stylesheet" type="text/css" href="<?php echo $homeurl;?><?php echo $makemin->css($stylefolder.'css/font-awesome.css',$stylefolder.'css/font-awesome.min.css')?>" />
 <!-- Begin Cookie Consent plugin by Silktide - http://silktide.com/cookieconsent -->
 <script type="text/javascript">

@@ -41,7 +41,7 @@ function adBlockDetected() {
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="<?php echo $homeurl.$stylefolder;?>js/bootstrap.min.js"></script>
-    <script src="<?php echo $server_url;?>scripts/html5lightbox/html5lightbox.js"></script>
+    <!-- script src="<?php echo $server_url;?>scripts/html5lightbox/html5lightbox.js"></script-->
 
     <?php
 	if (page_settings('blockmouse')==2&&$auser['jog']<4){

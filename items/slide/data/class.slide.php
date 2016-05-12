@@ -27,7 +27,11 @@ public function get_sorrend(){
 
 	
 public function insert($data){
-		global $adatbazis;
+		global $adatbazis,$Text_Class;
+
+	if(isset($data["name"]))$data["name"]=$Text_Class->htmltochars($data["name"]);
+	if(isset($data["description"]))$data["description"]=$Text_Class->htmltochars($data["description"]);
+
 
 	if ($data['id']>0)
 	{
@@ -48,7 +52,11 @@ public function insert($data){
 
 
 public function update($datas){
-global $adatbazis;
+global $adatbazis,$Text_Class;
+
+	if(isset($datas["name"]))$datas["name"]=$Text_Class->htmltochars($datas["name"]);
+	if(isset($datas["description"]))$datas["description"]=$Text_Class->htmltochars($datas["description"]);
+
 
 	$mezoka[]='name';
 	$mezoka[]='imgurl';	
@@ -79,7 +87,7 @@ global $adatbazis;
 
 
 public function get($filters){
-global $adatbazis;
+global $adatbazis,$Text_Class;
 	$mezoka[]='id';	
 	$mezoka[]='name';	
 	$mezoka[]='url';
@@ -114,6 +122,10 @@ $order=' ORDER BY `sorrend` ASC ';
 		//echo $query;
 		$result =db_Query($query, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"],$adatbazis["db1_srv"],$adatbazis["db1_db"], "select");
 		//echo $error;
+	foreach($result as &$data){
+		if(isset($data["name"]))$data["name"]=$Text_Class->htmlfromchars($data["name"]);
+		if(isset($data["description"]))$data["description"]=$Text_Class->htmlfromchars($data["description"]);
+	}
 		$res["datas"]=$result;
 		return $res;
 
