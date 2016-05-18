@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 
 $extrascript[]= ' 
@@ -29,11 +29,16 @@ $receptekreceptek=$dbrec['datas'];
 
 //friss magazin cikkek
 $filtersm['mid']=94;
-$filtersm["maxegyoldalon"]=5;
+$filtersm["maxegyoldalon"]=6;
 $qhir=$hir_class->get($filtersm,'',$_GET["page"]) ;
 $hirekelemek1=($qhir['datas']);
 
 
+//friss magazin cikkek
+$filtersm['mid']=94;
+$filtersm["maxegyoldalon"]=8;
+$qhir=$hir_class->get($filtersm,'',$_GET["page"]) ;
+$hirekelemek2=($qhir['datas']);
 
 
 //friss hírcsatrona elemek1

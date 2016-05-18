@@ -129,3 +129,22 @@ max-width:100%;
 .facebookButton{
 padding:5px;	
 }
+.clear{
+	clear:both;
+}
+
+/* PARALLAX */
+.parallax {
+	height: 310px;
+	background-position: top center;
+	background-attachment: fixed;
+	background-color: transparent;
+	position: relative;
+	background-size: cover;
+	background-repeat: no-repeat;
+	z-index: 6;
+	-webkit-transform-style: preserve-3d;
+}
+@media (max-width: 991px) {
+	.parallax { background-attachment: scroll !important; }
+}

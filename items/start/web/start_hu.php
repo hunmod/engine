@@ -24,12 +24,31 @@ foreach($hirekelemek1 as $elem){
 }
 ?>
 <div class="clear"></div>
+<?php 
+if (isset($hirekelemek2))foreach($hirekelemek2 as $elem){
+		include('items/hirek/web/hir_display_block_paralax_one.php');
+}
+?>
+<div class="clear"></div>
+
 <?php
-foreach ($rssdatas as $egyrssdata){
+if (isset($rssdatas))foreach ($rssdatas as $egyrssdata){
 	$egyrssdata["url"]= $homeurl.$separator.'rss/item/'.$Text_Class->htmlfromchars($Text_Class->to_link($egyrssdata["title"])).'/'.$egyrssdata["id"];
 include('items/rss/web/rssarticle1.php');
 }
 ?>
+<div class="clear"></div>
+<div class="col-xs-12">
+	<div class="col-xs-6">
+		<?php include('./items/admin/web/contact_widget.php');?>
+	</div>
+	<div class="col-xs-6">
+		<?php include('./items/user/web/widget_user_contact.php');?>
+
+	</div>
+</div>
+
+<div class="clear"></div>
 
 <?php if ($auser["jog"]>3){
 include("items/user/web/widget_user_menu.php");	

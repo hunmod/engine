@@ -23,7 +23,6 @@ $modules[] = $file_structuct;
 $file_structuct["name"] = "oldal beállításai";
 $file_structuct["file"] = "sitesetting5";
 $adminmenu2[] = $file_structuct;
-
 //
 $file_structuct["name"] = "Socialmedia beállításai";
 $file_structuct["file"] = "sitesetting6";
@@ -32,10 +31,14 @@ $adminmenu2[] = $file_structuct;
 $file_structuct["name"] = "email beállításai";
 $file_structuct["file"] = "sitesetting7";
 $adminmenu2[] = $file_structuct;
+$file_structuct["name"] = "Kapcsolati adatok";
+$file_structuct["file"] = "contact_widget_edit";
+$adminmenu2[] = $file_structuct;
 
 $file_structuct["name"] = "oldal beállításai";
 $file_structuct["file"] = "sitesetting5";
 $file_structuct["alatta"] = $adminmenu2;
+
 
 $adminmenu[] = $file_structuct;
 
