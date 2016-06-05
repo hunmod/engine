@@ -31,7 +31,7 @@ text-align:center;
 
 <?php if ($auser["jogid"]>=10){?>
 
-	<a href="<?php echo $separator.$getparams[0]."/edittext";?>" class="button">Hír küldése</a><br />
+	<a href="<?php echo $homeurl.$separator.$getparams[0]."/edittext";?>" class="button">Hír küldése</a><br />
 <div style="clear">&nbsp;</div>
 
 <?php }?>
@@ -39,12 +39,12 @@ text-align:center;
 <?php if ($oldalakszama>1){
 //oldalazó	?>
   <div class="hszoldalazo">
-   <a href="<?php echo $separator.$_GET["q"].$separator2."oldal=0"; ?>"> |&lt; </a>
-   <a href="<?php echo $separator.$_GET["q"].$separator2."oldal=".($oldal-1); ?>"> &lt; </a>
+   <a href="<?php echo $homeurl.$separator.$_GET["q"].$separator2."oldal=0"; ?>"> |&lt; </a>
+   <a href="<?php echo $homeurl.$separator.$_GET["q"].$separator2."oldal=".($oldal-1); ?>"> &lt; </a>
     <?php
 for ($c=0;$c<=$oldalakszama-1;$c++){
-	?><a href="<?php echo $separator.$_GET["q"].$separator2."oldal=".$c; ?>"><?php echo $c+1;?></a><?php	}
-	?><a href="<?php echo $separator.$_GET["q"].$separator2."oldal=".($oldal+1); ?>"> &gt;</a><a href="<?php echo $separator.$_GET["q"]."&oldal=".($oldalakszama-1); ?>">&gt;| </a>
+	?><a href="<?php echo $homeurl.$separator.$_GET["q"].$separator2."oldal=".$c; ?>"><?php echo $c+1;?></a><?php	}
+	?><a href="<?php echo $homeurl.$separator.$_GET["q"].$separator2."oldal=".($oldal+1); ?>"> &gt;</a><a href="<?php echo $separator.$_GET["q"]."&oldal=".($oldalakszama-1); ?>">&gt;| </a>
 	</div>
     
 <div class="clear"></div>    
@@ -58,7 +58,7 @@ if (count($hirekelemek)>0){
 foreach($hirekelemek as $elem){
 ?>
 <egymenu class="col-sm-4" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-<a href="<?php echo $kezdooldal.$separator.$elem["modul"]."/".$elem["file"]."/".($elem["this"]);?>" itemprop="item">
+<a href="<?php echo $homeurl.$separator.$elem["modul"]."/".$elem["file"]."/".($elem["this"]);?>" itemprop="item">
 	<h2 itemprop="name"><?php echo $Text_Class->htmlfromchars($elem["nev"]);?></h2>
 <picture class="imgWrap">
 <img src="<?php echo $Text_Class->htmlfromchars($elem["image"]);?>" itemprop="image"/> 
@@ -70,7 +70,7 @@ foreach($hirekelemek as $elem){
 	<?php 
 	if (($auser["jogid"]>=3) || ($auser["id"]==$elem["uid"])){?>
     <br />
-	<a href="<?php echo $kezdooldal.$separator.$getparams[0]."/menu_edit/".base64_encode ($elem["id"]);?>" onmouseover="ddrivetip('szerkeszt')" onmouseout="hideddrivetip()"><?php echo $buttons["edit"];?></a>
+	<a href="<?php echo $homeurl.$separator.$getparams[0]."/menu_edit/".base64_encode ($elem["id"]);?>" onmouseover="ddrivetip('szerkeszt')" onmouseout="hideddrivetip()"><?php echo $buttons["edit"];?></a>
     <?php }?>
 </egymenu>
 <?php
@@ -81,12 +81,12 @@ foreach($hirekelemek as $elem){
 //oldalazó	?>
 <div class="clear"></div>
   <div class="hszoldalazo">
-   <a href="<?php echo $separator.$_GET["q"].$separator2."oldal=0"; ?>"> |&lt; </a>
-   <a href="<?php echo $separator.$_GET["q"].$separator2."oldal=".($oldal-1); ?>"> &lt; </a>
+   <a href="<?php echo $homeurl.$separator.$_GET["q"].$separator2."oldal=0"; ?>"> |&lt; </a>
+   <a href="<?php echo $homeurl.$separator.$_GET["q"].$separator2."oldal=".($oldal-1); ?>"> &lt; </a>
     <?php
 for ($c=0;$c<=$oldalakszama-1;$c++){
-	?><a href="<?php echo $separator.$_GET["q"].$separator2."oldal=".$c; ?>"><?php echo $c+1;?></a><?php	}
-	?><a href="<?php echo $separator.$_GET["q"].$separator2."oldal=".($oldal+1); ?>"> &gt;</a><a href="<?php echo $separator.$_GET["q"]."&oldal=".($oldalakszama-1); ?>">&gt;| </a>
+	?><a href="<?php echo $homeurl.$separator.$_GET["q"].$separator2."oldal=".$c; ?>"><?php echo $c+1;?></a><?php	}
+	?><a href="<?php echo $homeurl.$separator.$_GET["q"].$separator2."oldal=".($oldal+1); ?>"> &gt;</a><a href="<?php echo $separator.$_GET["q"]."&oldal=".($oldalakszama-1); ?>">&gt;| </a>
 	</div>
     <?php	
 //oldalazó

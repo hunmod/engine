@@ -315,6 +315,6 @@ return $ret;
 	
 }
 
-
+$FormClass=new formobjects();
 
 ?>

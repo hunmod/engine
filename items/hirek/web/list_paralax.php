@@ -22,16 +22,7 @@ font-size:23px;
                 <div class="row">
 
 
-<?php if (count($widgets)){?>
-  <left class="col-md-3 col-sm-4" >
-<?php 
-foreach ($widgets as $widget)if (file_exists($widget))include($widget);?>
-  </left>  
-
-<news itemscope  itemtype="http://schema.org/WebPage" class="col-md-9 col-sm-8">
-<?php } else {?>
-<news itemscope="" itemtype="http://schema.org/WebPage">
-<?php } ?>      
+    
 <div>
                 <h1>
 				<?php echo $menu["nev"];
@@ -86,16 +77,21 @@ if ($che<1){
 }	
 	switch($stn){
 	case 1:	
-		include('items/hirek/web/hir_display_short.php');	
+		//include('items/hirek/web/hir_display_short.php');	
+		include('items/hirek/web/hir_display_block_paralax.php');
+		
 	break;
 	case 2:	
-		include('items/hirek/web/hir_display_block1.php');
+		//include('items/hirek/web/hir_display_block1.php');
+		include('items/hirek/web/hir_display_block_paralax.php');
 	break;	
 	case 3:	
-		include('items/hirek/web/hir_display_block2.php');	
+		//include('items/hirek/web/hir_display_block2.php');	
+		include('items/hirek/web/hir_display_block_paralax.php');
 	break;
 	default:
-		include('items/hirek/web/hir_display_short_first.php');
+		include('items/hirek/web/hir_display_block_paralax.php');
+		//include('items/hirek/web/hir_display_short_first.php');
 	}
 $counter++;
 $che--;
@@ -103,36 +99,37 @@ $che--;
 //include('hir_display_short_first.php');
 
 ?>
-    <div class="clear"></div>
+<div class="clear"></div>
+
 <?php if ($oldalakszama>1){
 //oldalazó	?>
 
                         <nav class="text-center">
                           <ul class="pagination">
                             <li>
-                                <a href="<?php echo $homeurl.$separator.$_GET["q"].$separator2."page=0"; ?>" aria-label="First">
+                                <a href="<?php echo $separator.$_GET["q"].$separator2."page=0"; ?>" aria-label="First">
                                     <span aria-hidden="true"><i class="fa fa-angle-double-left"></i></span>
                                 </a>
                             </li>
                             <li>
-                                <a href="<?php echo $homeurl.$separator.$_GET["q"].$separator2."page=".($oldal-1); ?>" aria-label="Previous">
+                                <a href="<?php echo $separator.$_GET["q"].$separator2."page=".($oldal-1); ?>" aria-label="Previous">
                                     <span aria-hidden="true"><i class="fa fa-angle-left"></i></span>
                                 </a>
                             </li>
     <?php
 for ($c=0;$c<=$oldalakszama-1;$c++){
-	?><li><a href="<?php echo $homeurl.$separator.$_GET["q"].$separator2."page=".$c; ?>"><?php echo $c+1;?></a></li>
+	?><li><a href="<?php echo $separator.$_GET["q"].$separator2."page=".$c; ?>"><?php echo $c+1;?></a></li>
 	<?php	}
 	?>
                             <!--li class="active"><a href="#">2</a></li-->
 
                             <li>
-                              <a href="<?php echo $homeurl.$separator.$_GET["q"].$separator2."page=".($oldal+1); ?>" aria-label="Next">
+                              <a href="<?php echo $separator.$_GET["q"].$separator2."page=".($oldal+1); ?>" aria-label="Next">
                                 <span aria-hidden="true"><i class="fa fa-angle-right"></i></span>
                               </a>
                             </li>
                             <li>
-                                <a href="<?php echo $homeurl.$separator.$_GET["q"]."&page=".($oldalakszama-1); ?>" aria-label="Last">
+                                <a href="<?php echo $separator.$_GET["q"]."&page=".($oldalakszama-1); ?>" aria-label="Last">
                                     <span aria-hidden="true"><i class="fa fa-angle-double-right"></i></span>
                                 </a>
                             </li>
@@ -141,11 +138,21 @@ for ($c=0;$c<=$oldalakszama-1;$c++){
 <?php	
 //oldalazó
 }?>
-</news>
 
 
 
-                    
+<?php if (count($widgets)){?>
+  <left class="col-md-3 col-sm-4" >
+<?php 
+foreach ($widgets as $widget)if (file_exists($widget))include($widget);?>
+  </left>  
+
+<news itemscope  itemtype="http://schema.org/WebPage" class="col-md-9 col-sm-8">
+<?php } else {?>
+<news itemscope="" itemtype="http://schema.org/WebPage">
+<?php 
+} ?>  
+</news>                    
 
 
                 <div class="text-center horizBanner">

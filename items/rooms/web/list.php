@@ -16,7 +16,7 @@ font-size:23px;
                 <?php
                if ($auser["jog"]>2){
 				?>
-                <a href="<?php echo $homeurl.$separator;?>hirek/edittext">Új hír</a>
+                <a href="<?php echo $homeurl.$separator.$getparams[1];?>/edittext">Új Szobatípus</a>
                 <?php }?>
             </div-->
                 <div class="row">
@@ -54,7 +54,7 @@ foreach ($widgets as $widget)if (file_exists($widget))include($widget);?>
 				 <?php
                if ($auser["jog"]>2){
 				?>
-                <a href="<?php echo $homeurl.$separator;?>hirek/edittext">Új hír</a>
+                   <a href="<?php echo $homeurl.$separator.$getparams[0];?>/edittext">Új Szobatípus</a>
                 <?php }?>
           
 </div>
@@ -65,6 +65,13 @@ if (count($hirekelemek)>0){
 	$counter=0;
 	$numh=count($hirekelemek);
 foreach($hirekelemek as $elem){
+
+    //lang text
+    $filtersh["id"]=$elem['id'];
+    $elemhuid=$RoomsClass->get_text('hu',$filtersh) ;
+    $elem['hu']=$elemhuid['datas'][0];
+    $elem['url']=$RoomsClass->createurl($elem);;
+   // arraylist($elemhuid);
 //article
 	$thenum=$numh-$counter;
 //echo $thenum.':'.$che.'-'.$stn.'|';
@@ -84,7 +91,7 @@ if ($che<1){
 			$che=$stn;
 	}
 }	
-	switch($stn){
+/*	switch($stn){
 	case 1:	
 		include('items/hirek/web/hir_display_short.php');	
 	break;
@@ -99,40 +106,39 @@ if ($che<1){
 	}
 $counter++;
 $che--;
+}*/
+include('room_display1.php');
 }}
-//include('hir_display_short_first.php');
-
 ?>
-    <div class="clear"></div>
 <?php if ($oldalakszama>1){
 //oldalazó	?>
 
                         <nav class="text-center">
                           <ul class="pagination">
                             <li>
-                                <a href="<?php echo $homeurl.$separator.$_GET["q"].$separator2."page=0"; ?>" aria-label="First">
+                                <a href="<?php echo $separator.$_GET["q"].$separator2."page=0"; ?>" aria-label="First">
                                     <span aria-hidden="true"><i class="fa fa-angle-double-left"></i></span>
                                 </a>
                             </li>
                             <li>
-                                <a href="<?php echo $homeurl.$separator.$_GET["q"].$separator2."page=".($oldal-1); ?>" aria-label="Previous">
+                                <a href="<?php echo $separator.$_GET["q"].$separator2."page=".($oldal-1); ?>" aria-label="Previous">
                                     <span aria-hidden="true"><i class="fa fa-angle-left"></i></span>
                                 </a>
                             </li>
     <?php
 for ($c=0;$c<=$oldalakszama-1;$c++){
-	?><li><a href="<?php echo $homeurl.$separator.$_GET["q"].$separator2."page=".$c; ?>"><?php echo $c+1;?></a></li>
+	?><li><a href="<?php echo $separator.$_GET["q"].$separator2."page=".$c; ?>"><?php echo $c+1;?></a></li>
 	<?php	}
 	?>
                             <!--li class="active"><a href="#">2</a></li-->
 
                             <li>
-                              <a href="<?php echo $homeurl.$separator.$_GET["q"].$separator2."page=".($oldal+1); ?>" aria-label="Next">
+                              <a href="<?php echo $separator.$_GET["q"].$separator2."page=".($oldal+1); ?>" aria-label="Next">
                                 <span aria-hidden="true"><i class="fa fa-angle-right"></i></span>
                               </a>
                             </li>
                             <li>
-                                <a href="<?php echo $homeurl.$separator.$_GET["q"]."&page=".($oldalakszama-1); ?>" aria-label="Last">
+                                <a href="<?php echo $separator.$_GET["q"]."&page=".($oldalakszama-1); ?>" aria-label="Last">
                                     <span aria-hidden="true"><i class="fa fa-angle-double-right"></i></span>
                                 </a>
                             </li>

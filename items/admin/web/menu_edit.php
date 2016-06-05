@@ -42,7 +42,7 @@ $('#'+filename+modul).addClass(" selected");
 }
 </script>
 <div class="container">
-    <section class="col-md-9 col-sm-8">
+    <section class="col-sm-12">
 <a href="<?php echo $separator;?>admin/menu">Vissza</a>
 
 <h1>Menüpont szerkesztése</h1>
@@ -72,8 +72,8 @@ if (count($_POST))
 		//arraylist($kapott);
 	}else{$kapott=$getparams[2];}
 	
-	$targetfldr='.'.$stylefolder."menu_img/".$kapott.'/';
-
+	$targetfldr='.'."/uploads/menu_img/".$kapott.'/';
+echo $targetfldr;
 	if (isset($_POST["menuimg"]))
 	{
 		$Upload_Class->createdir($targetfldr);
@@ -102,7 +102,7 @@ if ($filters2['id']>0){
 	$dbadat=$egyelem['datas'][0];
 	$menuimages=$MenuClass->menu_img($dbadat["id"]);
 }
-	//arraylist($menuimages);
+	arraylist($menuimages);
 //$formelements=menu_editform_form($dbadat);
 //arraylist($formelements);
 ?>
@@ -124,25 +124,23 @@ if ($filters2['id']>0){
 <input name="smbt" type="submit" value="<?php echo $lan['save']; ?>" />
 </form>
 </article>
-
-
-  <article class='adminmenulist col-sm-4'>
-  <h1>Modul:</h1>
-  <ul>
-  <?php	
+<article class='adminmenulist col-sm-4'>
+<h1>Modul:</h1>
+<ul>
+<?php
 //arraylist ($dbadat);
 foreach ($modules as $modul){
 $style="menuselect";
 if (($modul["modules"]==$dbadat["modul"])&&($modul["file"]==$dbadat["file"])){
-	$style="menuselect default";
-	}
+$style="menuselect default";
+}
 ?>
-    <li><span onclick="menu_admin_select('<?php echo $modul["modules"];  ?>','<?php echo $modul["file"];  ?>');" class="<?php echo $style;?>" id="<?php echo $modul["file"].$modul["modules"];  ?>"><?php echo $modul["name"];  ?></span></li>	
-  <?php	
+<li><span onclick="menu_admin_select('<?php echo $modul["modules"];  ?>','<?php echo $modul["file"];  ?>');" class="<?php echo $style;?>" id="<?php echo $modul["file"].$modul["modules"];  ?>"><?php echo $modul["name"];  ?></span></li>
+<?php
 }
 ?>	
-  </ul>
-  <?php	
+</ul>
+<?php
 //arraylist($modules);
 ?>
 
@@ -152,11 +150,13 @@ if (($modul["modules"]==$dbadat["modul"])&&($modul["file"]==$dbadat["file"])){
 	<?php 
 ?>
 	<h1>Menu <?php echo $lan['picture']; ?>:</h1>
-    <?php if ($menuimages['menu_img']!=''){?>
-        <img src="<?php echo $menuimages['menu_img_url'];?>" /><br />
+	<?php echo $homeurl.$menuimages['menu_img_url'];?>
+
+	<?php if ($menuimages['menu_img']!=''){?>
+        <img src="<?php echo $homeurl.$menuimages['menu_img_url'];?>" /><br />
         <a href="<?php echo $separator.$_GET['q'].$separator2."delfile=".encode($menuimages['menu_img']);?>">DEL</a>
 
-		<h1>Menu <?php echo $lan['picture']; ?> hover:</h1>    
+		<h1>Menu <?php echo $lan['picture']; ?> hover:</h1>
 
     <?php 
 	if ($menuimages['menu_hover']!=""){?>
@@ -179,10 +179,5 @@ if (($modul["modules"]==$dbadat["modul"])&&($modul["file"]==$dbadat["file"])){
 <article>
 
         </section>   
-  <section class="col-md-3 col-sm-4" >
-  
-<?php include("items/user/web/widget_user_menu.php");?>
-  
-  </section>  
 
 </div>

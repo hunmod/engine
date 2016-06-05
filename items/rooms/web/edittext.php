@@ -67,7 +67,6 @@
         });
     });
 </script>
-
 <script>
     var savecomplete = 0;
     function deltag(id) {
@@ -237,9 +236,18 @@
             <input name="kitchen" id="kitchen" type="text" value="<?php echo $Text_Class->htmlfromchars($adat["kitchen"]); ?>"
                    maxlength="200"/><br/>
             <?php echo $lan['connectedservices']; ?>:
-            <input name="connectedservices" id="connectedservices" type="text" value="<?php echo $Text_Class->htmlfromchars($adat["connectedservices"]); ?>
+            <input name="connectedservices" id="connectedservices" type="text" value="<?php echo $Text_Class->htmlfromchars($adat["connectedservices"]); ?>">
 
+<div class="clear">
+</div>
+<div class="step1">
+    <?php $steplang="hu" ;?>
+    <?php $form->textbox($steplang."[title]", $Text_Class->htmlfromchars($adat[$steplang]["title"]),'cím') ?>
+    <?php $form->textaera($steplang."[leadtext]", $Text_Class->htmlfromchars($adat[$steplang]["leadtext"]),'bevezető') ?>
+    <?php $form->kcebox($steplang."[longtext]", $Text_Class->htmlfromchars($adat[$steplang]["longtext"])) ?>
+    <?php $form->kcebox($steplang."[included]", $Text_Class->htmlfromchars($adat[$steplang]["included"])) ?>
 
+</div>
 
             <img src="<?php echo($nimg); ?>">
             <br/>
@@ -271,7 +279,9 @@
                 </div>
             </a>
 
-        <?php } ?>
+        <?php }
+        arraylist($_POST);
+        ?>
 
     </div>
     <!--div class="col-md-3 col-sm-4">

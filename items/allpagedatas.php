@@ -297,7 +297,7 @@ include('items/user/data/login.php');
 if (page_settings("site_css") != "") {
     $template = "/styl/" . page_settings("site_css") . "/index";
     $stylefolder = "/styl/" . page_settings("site_css") . "/";
-    $menuimg_folder = '.' . $stylefolder . "menu_img/";
+    $menuimg_folder = '.' . "/uploads/menu_img/";
 }
 if ($admintemplate==1){
     $template = "/styl/admin/index";

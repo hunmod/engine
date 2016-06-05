@@ -369,3 +369,18 @@ function writeCookie(name,value,days) {
 }
 writeCookie('screenwidth',$(window).width(),100);
 writeCookie('screenheight',$(window).height(),100);
+
+/* Session mod*/
+/*
+function SetSession(name,val)
+{
+	'<%Session["'+name+'"] = "' + val + '"; %>';
+	//alert('<%=Session["UserName"] %>');
+}
+function GetSession(name)
+{
+
+	return  '<%= Session["'+name+'"] %>';
+	//alert(username );
+}
+		*/

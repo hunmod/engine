@@ -5,18 +5,21 @@ if ($auser["jog"] < 3) {
 }
 $admintemplate=1;
 
-/*$extrascript[]= '
+$extrascript[]= '
 	<script src="'.$server_url.'scripts/jquery.ui.timepicker.js"></script> 
 	<link rel="stylesheet" href="'.$server_url.'scripts/jquery.ui.timepicker.css" />
 	<script src="'.$server_url.'/scripts/ckeditor/ckeditor.js" type="text/javascript"></script>
 	<script src="'.$server_url.'/scripts/ckfinder/ckfinder.js" type="text/javascript"></script>	
 	';
-*/
+
 $form = new formobjects();
 $status = $RoomsClass->status();
 $form = new formobjects();
 $UploadClass = new file_upload();
 $hirid=decode($getparams[2]);
+
+
+
 if ($_POST['hirsave'] == '1') {
    // arraylist($_POST);
     $_POST["maxroom"]=$Text_Class->htmltochars($_POST["maxroom"]);
@@ -29,11 +32,20 @@ if ($_POST['hirsave'] == '1') {
     $_POST["connectedservices"]=$Text_Class->htmltochars($_POST["connectedservices"]);
     $hirid = $RoomsClass->save($_POST);
     $_POST["id"] = $hirid;
+    $adat=$_POST;
+
+    if ($_POST["hu"]){
+        $_POST["hu"]['id']=$_POST["id"];
+        $hirid = $RoomsClass->save_text('hu',$_POST["hu"]);
+    }
+
+
+
 //$hir_class->save_ad_tags_field($_POST);
 //echo $hirid;
 //echo "!!!!!!!!!!!!!! ".$hirimg_loc . '/' . $hirid;
 
-    $target = $UploadClass->uploadimg('photo', $hirimg_loc . '/' . $hirid, '' . $hirid, 800, 600, true, true, true);
+    $target = $UploadClass->uploadimg('photo', $room_loc . '/' . $hirid, '' . $hirid, 800, 600, true, true, true);
 //echo $target;
 //header("Location:".$homeurl."/hirek/edittext/".encode($hirid));
 
@@ -42,12 +54,15 @@ if ($_POST['hirsave'] == '1') {
 if (decode($getparams[2]) > 0) {
     $hirid = base64_decode($getparams[2]);
 }
-if ($hirid > 0) {
+if ($hirid > 0 && !isset($adat)) {
     $filters['id'] = $hirid;
-    $news = $hir_class->get($filters, $order = '', $page = 'all');
+    $news = $RoomsClass->get($filters, $order = '', $page = 'all');
     $adat = $news['datas'][0];
-    $nimg = $hir_class->getimg($adat['id']);
-    $tags = $hir_class->get_ad_tag(array("ad" => $filters["id"], "active" => 'all'));
+    $adatd["hu"]=$RoomsClass->get_text('hu',array('id'=>$adat['id']));
+    $adat["hu"]=$adatd["hu"]["datas"][0];
+    $nimg = $RoomsClass->getimg($adat['id']);
+
+    //$tags = $RoomsClass->get_ad_tag(array("ad" => $filters["id"], "active" => 'all'));
 
     //var_dump($nimg);
 

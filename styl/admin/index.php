@@ -77,7 +77,7 @@ jQuery(function($) {
 
       <!-- Logo start -->
       <div class="logo">
-        HUNMOD <span>Admin</span>
+        <span>Admin</span>
       </div>
       <!-- Logo end -->
 
@@ -85,9 +85,10 @@ jQuery(function($) {
       <div id="optional-dropdown">
         <ul>
           <li>
-            <a href="index.html">
+            <a href="<?= $homeurl;?>">
               <span class="fs1" aria-hidden="true" data-icon="&#xe000;" ></span>
             </a>
+              <?php include('menu.php');?>
           </li>
           <li>
             <a href="invoice.html">

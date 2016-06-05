@@ -1,6 +1,9 @@
 .maincontainer{
-}
+	padding-top: 50px;
 
+}
+.maincontainer.container{
+}
 
 .imgWrap img{
 width:100%;
@@ -8,6 +11,10 @@ width:100%;
 /*NEWS Modul*/
 news article img{
 width:100%;
+}
+
+new{
+	height: 340px;
 }
 
 
@@ -32,8 +39,20 @@ padding-left:5px;
 .navbar ul li:hover ul{
 display:block;
 }
+/* Sidebar menu */
 
-
+left > ul  {
+	padding: 0;
+}
+left ul li{
+	display:block;
+}
+left ul li > ul{
+	 display:none;
+ }
+left ul li:hover > ul{
+	display:block;
+}
 owner img{
 border-radius: 50px 50px 50px 50px;
 -moz-border-radius:border-radius;
@@ -81,8 +100,6 @@ text-align:left;
 	color:#FFC;
 	
 }
-
-
 .select_pager .textb1
 {
 	display:block;
@@ -92,29 +109,22 @@ text-align:left;
 	text-align:center;
 	font-weight:bold;
 }
-
-
 .select_pager
 {
 	display:inline-block;
 }
-
-.select_pager 
+.select_pager
 {
 	color:#FFF;
 	border: 1px solid #d1cecf;
 	border-radius:0px;
 
 }
-
-
 .select_pager .bgcolor3
 {
 background: linear-gradient(to bottom, #FFF 0%,#e0e0e0 100%);
 color:#630;	
 }
-
-
 ads img,
 ads iframe
 {
@@ -132,7 +142,6 @@ padding:5px;
 .clear{
 	clear:both;
 }
-
 /* PARALLAX */
 .parallax {
 	height: 310px;
@@ -147,4 +156,8 @@ padding:5px;
 }
 @media (max-width: 991px) {
 	.parallax { background-attachment: scroll !important; }
+}
+
+.pagination>li>a, .pagination>li>span {
+	height: 28px;
 }

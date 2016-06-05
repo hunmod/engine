@@ -1,6 +1,6 @@
 <?php $form=new formobjects();?>
 <div class="container">
-    <section class="col-md-9 col-sm-8">
+    <section class="col-sm-12">
 
 <h1>Szociális média beállításai</h1>
     <form id="form_title" name="form_title" method="post" action="">
@@ -15,9 +15,5 @@
     <input name="" type="submit" value="Save" />
         </form>
         </section>   
-  <section class="col-md-3 col-sm-4" >
-  
-<?php include("items/user/web/widget_user_menu.php");?>
-  
-  </section>
+
 </div>

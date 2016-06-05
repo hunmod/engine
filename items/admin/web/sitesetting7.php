@@ -31,7 +31,7 @@ CKEDITOR.instances[editorname].insertHtml( '<img src="uploads/picture.php?pictur
 }
 </script>
 <div class="container">
-    <section class="col-md-9 col-sm-8">
+<section class="col-sm-12">
 
 <h1>Oldal email  beállításai</h1>
     <form id="form_title" name="form_title" method="post" action="">
@@ -201,10 +201,5 @@ var CKfBUrl='<?php echo $homeurl;?>/scripts/ckfinder/ckfinder.html';
 
 </script>
 
-        </section>   
-  <section class="col-md-3 col-sm-4" >
-  
-<?php include("items/user/web/widget_user_menu.php");?>
-  
-  </section>  
+ </section>
 </div>

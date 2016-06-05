@@ -6,7 +6,7 @@ margin-left:10px;
 }
 </style>
 <div class="container">
-    <section class="col-md-9 col-sm-8">
+    <section class="col-sm-12">
 
 <h1><?php echo $lan["sitemap"];?></h1><br />
        <a href="<?php echo $kezdooldal.$separator.$getparams[0]."/".$getparams[1]."_edit"; ?>">
@@ -64,10 +64,5 @@ $thisformjog["uj"]='3';
 menuprint($menuadatok);
 //arraylist($menuadatok)
 ?>
-        </section>   
-  <section class="col-md-3 col-sm-4" >
-  
-<?php include("items/user/web/widget_user_menu.php");?>
-  
-  </section>                   
+        </section>
 </div>

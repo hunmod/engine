@@ -27,8 +27,8 @@ echo $homeurl.$stylefolder;?>css/bootstrap.min.css" rel="stylesheet">
           <a class="navbar-brand" href="<?php echo $homeurl;?>"><?php echo $oldalneve;?></a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
-		<?php include('menu.php');?>                                
-                                <ul class="nav navbar-nav navbar-right">
+		<?php include('menu.php');?>
+                                <!--ul class="nav navbar-nav navbar-right">
 <?php if ($auser["id"]<1){?>
                                     <li><a href="javascript:reg();"><span><?php echo $lan["reg"]; ?></span></a></li>
                                     <li><a href="javascript:login();"><span><?php echo $lan["login"]; ?></span></a></li>
@@ -43,7 +43,7 @@ echo $homeurl.$stylefolder;?>css/bootstrap.min.css" rel="stylesheet">
                                     
                                     </li>                     
 <?php }?>                                    
-                                </ul>
+                                </--ul--!>
           
         </div><!--/.nav-collapse -->
       </div>
@@ -52,12 +52,9 @@ echo $homeurl.$stylefolder;?>css/bootstrap.min.css" rel="stylesheet">
 	</header>	
 
 		<div class="container">
-<?php include('items/konyha/web/widget_home.php');?>		
+<?php //include('items/konyha/web/widget_home.php');?>
 		</div>
  		<div class="maincontainer">
-
-            <div class="container">
-            </div>
 <?php
 			// arraylist($adminmenu);
 			if (file_exists($file['web'])){

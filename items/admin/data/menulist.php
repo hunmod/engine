@@ -43,7 +43,6 @@ foreach($hirekelemek as $egy){
 	$thisid=$egy["item"];	
 	}
 	$hirekelemek[$n]["this"]=$thisid;
-
 	$mappa="uploads/".$folders["uploads"].$egy["modul"]."/".$thisid;
 	//echo $mappa;
 	$img=randomimgtofldr($mappa);
