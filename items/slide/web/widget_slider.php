@@ -66,7 +66,7 @@ $(document).ready(function() {
 });
 </script>
 
-<div class="container">
+
 
 <div id="myslider" class="owl-carousel owl-theme">
 <?php
@@ -85,5 +85,3 @@ $img="picture2.php?picture=".encode($slider['imgurl'])."";
       </div>
 <?php } ?>  
 </div>  
-
-</div>

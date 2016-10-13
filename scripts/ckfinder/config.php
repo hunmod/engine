@@ -195,30 +195,16 @@ to execute JavaScript code and to e.g. perform an XSS attack. Grant permission
 to upload `.swf` files only if you understand and can accept this risk.
 ==============================================================================
 */
-$config['DefaultResourceTypes'] = '';
+//$config['DefaultResourceTypes'] = '';
+
+$config['ResourceType']=array();
 
 $config['ResourceType'][] = Array(
-		'name' => 'Files',				// Single quotes not allowed
-		'url' => $baseUrl . 'files/',
-		'directory' => $baseDir . 'files/',
-		'maxSize' => 0,
-		'allowedExtensions' => '7z,aiff,asf,avi,bmp,csv,doc,docx,fla,flv,gif,gz,gzip,jpeg,jpg,mid,mov,mp3,mp4,mpc,mpeg,mpg,ods,odt,pdf,png,ppt,pptx,pxd,qt,ram,rar,rm,rmi,rmvb,rtf,sdc,sitd,swf,sxc,sxw,tar,tgz,tif,tiff,txt,vsd,wav,wma,wmv,xls,xlsx,zip',
-		'deniedExtensions' => '');
-
-$config['ResourceType'][] = Array(
-		'name' => 'Images',
-		'url' => $baseUrl . 'images/static/',
-		'directory' => $baseDir . 'images/static/',
+		'name' => 'Icons',
+		'url' => $baseUrl . 'icons/',
+		'directory' => $baseDir . 'icons/',
 		'maxSize' => 0,
 		'allowedExtensions' => 'bmp,gif,jpeg,jpg,png',
-		'deniedExtensions' => '');
-
-$config['ResourceType'][] = Array(
-		'name' => 'engine',
-		'url' => $baseUrl . '_engine',
-		'directory' => $baseDir . '_engine',
-		'maxSize' => 0,
-		'allowedExtensions' => '7z,aiff,asf,avi,bmp,csv,doc,docx,fla,flv,gif,gz,gzip,jpeg,jpg,mid,mov,mp3,mp4,mpc,mpeg,mpg,ods,odt,pdf,png,ppt,pptx,pxd,qt,ram,rar,rm,rmi,rmvb,rtf,sdc,sitd,swf,sxc,sxw,tar,tgz,tif,tiff,txt,vsd,wav,wma,wmv,xls,xlsx,zip',
 		'deniedExtensions' => '');
 
 $config['ResourceType'][] = Array(

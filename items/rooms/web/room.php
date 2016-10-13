@@ -1,59 +1,276 @@
-<?php
+﻿<?php
 
-$filters['id'] = $getparams[2];
-$news = $RoomsClass->get($filters, $order = '', $page = 'all');
-$adat = $news['datas'][0];
-$adatd["hu"]=$RoomsClass->get_text('hu',array('id'=>$adat['id']));
-$adat["hu"]=$adatd["hu"]["datas"][0];
-$nimg = $RoomsClass->getimg($adat['id']);
-$tipusok = $RoomsClass->tipus();
+
 
 //arraylist($adat);
 ?>
+<style>
+    .connectedservices div p {
+        display: block;
+        width: 100%;
+        float: left;
+    }
+
+    .connectedservices b {
+        margin: 5px 0px 0px 8px;
+    }
+
+    .connectedservices b,
+    .connectedservices span {
+        float: left;
+        display: block;
+    }
+
+    .bottomspace {
+        margin-bottom: 2em;
+
+    }
+
+    #lightSlider li img {
+        width: 100%;
+    }
+</style>
+
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $('#lightSlider').lightSlider({
+            gallery: true,
+            item: 1,
+            loop: true,
+            thumbItem: 9,
+            slideMargin: 0,
+            enableDrag: false,
+            currentPagerPosition: 'left',
+            onSliderLoad: function (el) {
+                el.lightGallery({
+                    selector: '#imageGallery .lslide'
+                });
+            }
+        });
+    });
+</script>
+
+
 <div class="container room">
- <div>
- <form method="post">
-
-     <?php include('items/start/web/timerange.php');?>
-     <?php $FormClass->numbox("adult", $Text_Class->htmlfromchars($adat['adult']),'Felnőtt') ?>
-     <?php $FormClass->numbox("children", $Text_Class->htmlfromchars($adat['children']),'Gyerek') ?>
- </form>
- </div>
-
-
-    <h1><?= $adat["hu"]["title"];?></h1>
-    <div class="col-xs-4 thumbnail">
-       <img class="img-thumbnail" src="<?= $nimg;?>" alt="<?= $adat["hu"]["title"];?>">
+    <div id="breadCrumb">
+        <a href="<?php echo $homeurl;?>"><?=lan('home');?></a> >
+        <a href="<?php echo $homeurl.''.$separator.shorturl_get("rooms/list/");?>"> <?=lan('szobalista');?></a> >
+        <span><?php echo "". ($adat["title"]);?></span>
     </div>
-    <div class="col-xs-8">
-        <b><?= $lan["priece"];?>:</b><?= $adat["priece"];?><br>
-        <b><?= $lan["tip"];?>:</b><?= $tipusok[$adat["tip"]];?><br>
-        <b><?= $lan["guestbad"];?>:</b><?= $adat["guestbad"];?><br>
-        <b><?= $lan["roomnum"];?>:</b><?= $adat["roomnum"];?><br>
-        <b><?= $lan["bathroom"];?>:</b><?= $adat["bathroom"];?><br>
-        <b><?= $lan["kitchen"];?>:</b><?= $adat["kitchen"];?><br>
-    </div>
+    <div class="bottomspace">
+        <h1 class="text-center"><?= $adat["title"]; ?></h1>
 
-    <div class="clear">
-    <div class="col-xs-6">
-        <?= $adat["hu"]["leadtext"];?>
+        <div class="text-center">
+            <h3><?= lan('mindenszobahoztartozik'); ?></h3>
+            <?php
+            foreach ($szobahoztartozik as $mlb) {
+                echo hotelicon_print($mlb, 50, 'fekete');
+            } ?>
+        </div>
     </div>
-    <div class="col-xs-12">
-        <?= $adat["hu"]["longtext"];?>
-    </div>
-    <div class="col-xs-12">
-        <?= $adat["hu"]["included"];?>
-    </div>
-
-    <div class="col-xs-12">
-        <?php
-        if ($adat["id"] > 0) {
-            $getparams[2] = $adat["id"];
-            include('items/files/web/list.php');
+    <div class="bottomspace">
+        <div class="col-xs-7 match-height matchHeight">
+            <?php
+            $id = ($getparams[2]);
+            $menu = $MenuClass->get_one_menu($id);
+            $mappa = 'uploads/' . $folders["uploads"] . "/" . $getparams[0] . "/" . $id . '/';
+            $mylist = $Upload_Class->folderlist($mappa, 600, 300, 70);
+            //arraylist($mylist);
             ?>
+
+            <ul id="lightSlider">
+                <li data-thumb="<?= $RoomsClass->getimg($adat['id'], 70, 39); ?>"
+                    data-src="<?= $RoomsClass->getimg($adat['id'], 70, 39); ?>">
+                    <img src="<?= $RoomsClass->getimg($adat['id'], 600, 300); ?>"/>
+                </li>
+                <?php foreach ($mylist as $onepic) { ?>
+
+                    <li data-thumb="<?= $homeurl . $onepic["url"] ?>" data-src="<?= $homeurl . $onepic["screen"] ?>">
+                        <img src="<?= $homeurl . $onepic["screen"] ?>"/>
+                    </li>
+                <?php } ?>
+            </ul>
+
+
+            <!--img class="img-responsive" src="<?= $nimg; ?>" alt="<?= $adat["title"]; ?>"-->
+        </div>
+        <div class="col-xs-5 match-height matchHeight">
+            <div>
+                <?= $adat["leadtext"]; ?>
+            </div>
+            <div class="connectedservices">
+                <div class="col-sm-12">
+                    <?= hotelicon_print('SZOBATIPUS', 30, 'fekete') ?> <b><?= lan('SZOBATIPUS') ?></b>  <br>
+                </div>
+                <div class="col-sm-12">
+                    <?= hotelicon_print('SZOBA-MERETE', 30, 'fekete') ?> <b><?= $adat["roomsize"]; ?> M2</b>  <br>
+                </div>
+                <?php if ($adat["roomnum"]>1){?>
+                    <div class="col-sm-12">
+                        <?= hotelicon_print('CSALADI', 30, 'fekete') ?> <b><?= lan('CSALADI');?></b>  <br>
+                    </div>
+                    <?php
+                }else{?>
+                    <div class="col-sm-12">
+                        <?= hotelicon_print('KET-FO', 30, 'fekete') ?> <b><?= lan('KET-FO') ?></b>
+                    </div>
+                    <?php
+                }
+                ?>
+                <?php if ($adat["roomtip"]==3){?>
+                    <div class="col-sm-12">
+                        <?= hotelicon_print('kulonNAPPALI', 30, 'fekete') ?> <strong><?= lan('kulonNAPPALI');?></strong>  <br>
+                    </div>
+                    <?php
+                }
+                ?>
+                <div class="clearfix"></div>
+                <div class="szobaar">
+                    <?= lan('artolelott') ?><b><?= $adat["priece"]; ?> Ft</b>/<?= $tipusok[$adat["tip"]]; ?><?= lan('artolmogott') ?><br>
+                    <?= lan('artolutan') ?>
+                </div>
+            </div>
+            <a href="<?php echo $homeurl.$separator."rooms/order/".($adat["id"]).'/'.$adat["title"];;?>" class="btn btn-creme col-xs-12"><?= lan('megrendelem'); ?></a>
+            <span class="btn btn-creme-inv col-xs-12"><?= lan('kosarba'); ?></span>
+        </div>
+        <div class="clearfix "></div>
+
+    </div>
+    <div>
+        <?= $adat["longtext"]; ?>
+    </div>
+
+    <div class="clear"></div>
+    <?php
+    /*
+    //arraylist($adat['services']);
+    if ($adat['services'])
+        foreach ($adat['services'] as $szolgvar => $szolg) {
+            if (is_array($szolg)) {
+                $qsubroot = $category_class->get(array('id' => $szolgvar, 'lang' => $_SESSION['lang']), '', $_GET["page"]); ?>
+                <div class="<?= $qsubroot['datas'][0]['id'] ?>">
+                    <?php
+                    foreach ($szolg as $subszolgvar => $subszolg){
+                    $qsubroot = $category_class->get(array('id' => $subszolgvar, 'lang' => $_SESSION['lang']), '', $_GET["page"]); ?>
+                        <?= hotelicon_print($qsubroot['datas'][0]['class'], 30, 'fekete') ?>
+                        <b><?= $qsubroot['datas'][0]['nev'] ?></b>
+                        <?= $qsubroot['datas'][0]['leiras'] ?>
+                        <?= $qsubroot['datas'][0]['leirash'] ?>
+                        <?php
+                        }
+                        ?>
+                </div>
+                <?php
+            }
+        }
+*/
+    ?>
+
+    <div class="col-xs-12 connectedservices">
+        <?php
+        //csatlakozó szolgáltatások
+        if (is_array($adat['services'])) {
+            foreach ($adat['services'] as $servicename => $serviceval) {
+                if (is_array($serviceval)) {
+                    foreach ($serviceval as $servicesubname => $servicesubval) {
+                        if ($servicesubval == 1) {
+                            $filterscim['lang']=$_SESSION['lang'];
+                            $filterscim['id']=$servicesubname;
+                            $menudatcimarray= $category_class->get($filterscim, $order = '', $page = 'all');
+                            $menudatcim=$menudatcimarray['datas'][0]['nev'];
+                            $menudatclass=$menudatcimarray['datas'][0]['class'];
+                            ?>
+                            <div class="col-sm-4">
+                                <?= hotelicon_print($menudatclass, 30, 'fekete',$menudatcim) ?> <b><?= $menudatcim ?></b>
+                            </div>
+                        <?php }
+
+                }
+                }
+
+
+            }
+
+        }
+
+       // arraylist($adat['services']);
+        /*
+        if ($adat['services']) foreach ($adat['services'] as $hat => $val) { ?>
+            <div class="col-sm-4">
+                <?= hotelicon_print($hat, 30, 'fekete') ?> <b><?= lan($hat) ?></b>
+                <?php if ($lan[$hat . "_leiras"] != '') {
+                    echo '<p>' . $lan[$hat . "_leiras"] . '</p>';
+                } ?>
+            </div>
         <?php } ?>
     </div>
+    <div class="clear"></div>
+    <div class="col-xs-6 wellnes">
+        <?php
+        if ($adat['wellnes']) foreach ($adat['wellnes'] as $hat => $val) { ?>
+            <div class="col-sm-12">
+                <?= hotelicon_print($hat, 30, 'fekete') ?> <b><?= lan($hat) ?></b>
+                <?php if ($lan[$hat . "_leiras"] != '') {
+                    echo $lan[$hat . "_leiras"];
+                } ?>
+            </div>
+        <?php }*/ ?>
+    </div>
+
+    <div class="clear"></div>
+    <div class="col-xs-12">
+        <?= $Text_Class->htmlfromchars(page_settings('roomunder1' . $_SESSION["lang"])) ?>
+    </div>
+    <div class="clear"></div>
+    <div class="col-xs-12">
+        <?= $Text_Class->htmlfromchars(page_settings('roomaltalanos' . $_SESSION["lang"])) ?>
+    </div>
 
 
-
+    <div class="col-xs-12 connectedservices">
+        <?php /*
+        if ($adat['services']) foreach ($adat['services'] as $hat => $val) { ?>
+            <div class="col-sm-4">
+                <?= hotelicon_print($hat, 30, 'fekete') ?> <b><?= lan($hat) ?></b>
+                <?php if ($lan[$hat . "_leiras"] != '') {
+                    echo '<p>' . $lan[$hat . "_leiras"] . '</p>';
+                } ?>
+            </div>
+        <?php } ?>
+    </div>
+    <div class="clear"></div>
+    <div class="col-xs-6 wellnes">
+        <?php
+        if ($adat['wellnes']) foreach ($adat['wellnes'] as $hat => $val) { ?>
+            <div class="col-sm-12">
+                <?= hotelicon_print($hat, 30, 'fekete') ?> <b><?= lan($hat) ?></b>
+                <?php if ($lan[$hat . "_leiras"] != '') {
+                    echo $lan[$hat . "_leiras"];
+                } ?>
+            </div>
+        <?php }*/ ?>
+    </div>
+    <div class="clear"></div>
+    <div class="col-xs-6 foglalasinfok">
+        <?php /*
+        if ($adat['foglalasinfok']) foreach ($adat['foglalasinfok'] as $hat => $val) { ?>
+            <div class="col-sm-12">
+                <?= hotelicon_print($hat, 30, 'fekete') ?> <b><?= lan($hat) ?></b>
+                <?php if ($lan[$hat . "_leiras"] != '') {
+                    echo $lan[$hat . "_leiras"];
+                } ?>
+            </div>
+        <?php } */ ?>
+    </div>
+    <div class="clear"></div>
+    <div class="col-xs-12 connectedservices">
+        <?= $adat["included"]; ?>
+    </div>
 </div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.match-height').matchHeight();
+    });
+</script>

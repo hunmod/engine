@@ -53,7 +53,7 @@ public  function array_convert($array,$type=array("value"=>"0","name"=>"1"),$row
 $ret=array();
 	if (count($array))foreach ($array as $name=>$val){
 		if ($val[$rownum]=='')
-		if ($val[1]!=''){
+		if (isset($val[1])){
 			$val[$rownum]=$val[1];
 		}
 		else{

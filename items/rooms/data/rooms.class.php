@@ -2,19 +2,27 @@
 class rooms{
 	
 public function status(){
-	global $lan;
-	$status[1]= $lan['status1'];
-	$status[2]=$lan['status2'];
-	$status[3]=$lan['status3'];
-	$status[4]=$lan['status4'];
+	$status[1]= lan('status1');
+	$status[2]= lan('status2');
+	$status[3]= lan('status3');
+	$status[4]= lan('status4');
 	return $status;
 }
 public function tipus(){
 	global $lan;
-	$status[1]=$lan['status1'];
-	$status[2]=$lan['status2'];
-	$status[3]=$lan['status3'];
-	$status[4]=$lan['status4'];
+	$status[1]=lan('foej');
+	$status[2]=lan('szobaej');
+	$status[3]=lan('fo');
+	$status[4]=lan('szoba');
+	$status[5]=lan('ar');
+	return $status;
+}
+public function roomtipus(){
+	global $lan;
+	$status[1]=lan('duplaagy');
+	$status[2]=lan('franciaagy');
+	$status[3]=lan('lakosztaly');
+
 	return $status;
 }
 
@@ -27,7 +35,7 @@ public function table_room_text($lang){
 	$mezo["id"]='id';
 	$mezo["table"]=$table.'.'.'`'.$mezo["id"].'`';
 	$mezo["name"]="ID";
-	$mezo["display"]=0;
+	$mezo["display"]= 0;
 	$mezo["type"]='int';
 	$mezo["displaylist"]=1;
 	$mezo["value"]=$data[$mezo["id"]];
@@ -121,7 +129,42 @@ public function table_room(){
 	$mezo["mysql_field"]="`".$mezo["id"]."` VARCHAR( 100 ) NOT NULL,";
 	$mezo["value"]=$data[$mezo["id"]];
 	$mezok[]=$mezo;
-		
+
+
+	$mezo=array();
+	$mezo["id"]='priece1';
+	$mezo["table"]=$table.'.'.'`'.$mezo["id"].'`';
+	$mezo["name"]="priece1";
+	$mezo["display"]=0;
+	$mezo["type"]='int';
+	$mezo["displaylist"]=1;
+	$mezo["mysql_field"]="`".$mezo["id"]."` VARCHAR( 100 ) NOT NULL,";
+	$mezo["value"]=$data[$mezo["id"]];
+	$mezok[]=$mezo;
+
+
+	$mezo=array();
+	$mezo["id"]='priece2';
+	$mezo["table"]=$table.'.'.'`'.$mezo["id"].'`';
+	$mezo["name"]="priece2";
+	$mezo["display"]=0;
+	$mezo["type"]='int';
+	$mezo["displaylist"]=1;
+	$mezo["mysql_field"]="`".$mezo["id"]."` VARCHAR( 100 ) NOT NULL,";
+	$mezo["value"]=$data[$mezo["id"]];
+	$mezok[]=$mezo;
+
+	$mezo=array();
+	$mezo["id"]='roomsize';
+	$mezo["table"]=$table.'.'.'`'.$mezo["id"].'`';
+	$mezo["name"]="roomsize";
+	$mezo["display"]=0;
+	$mezo["type"]='int';
+	$mezo["displaylist"]=1;
+	$mezo["mysql_field"]="`".$mezo["id"]."` INT NOT NULL,";
+	$mezo["value"]=$data[$mezo["id"]];
+	$mezok[]=$mezo;
+
 
 	$mezo=array();		
 	$mezo["id"]='tip';
@@ -133,8 +176,30 @@ public function table_room(){
 	$mezo["mysql_field"]="`".$mezo["id"]."` INT NOT NULL DEFAULT  '0',";
 	$mezo["value"]=$data[$mezo["id"]];
 	$mezok[]=$mezo;
-	
+
+	$mezo=array();
+	$mezo["id"]='roomtip';
+	$mezo["table"]=$table.'.'.'`'.$mezo["id"].'`';
+	$mezo["name"]="roomtip";
+	$mezo["display"]=0;
+	$mezo["type"]='int';
+	$mezo["displaylist"]=1;
+	$mezo["mysql_field"]="`".$mezo["id"]."` INT NOT NULL DEFAULT  '0',";
+	$mezo["value"]=$data[$mezo["id"]];
+	$mezok[]=$mezo;
+
 	$mezo=array();		
+	$mezo["id"]='childbad';
+	$mezo["table"]=$table.'.'.'`'.$mezo["id"].'`';
+	$mezo["name"]="potagy";
+	$mezo["display"]=0;
+	$mezo["type"]='int';
+	$mezo["displaylist"]=1;
+	$mezo["mysql_field"]="`".$mezo["id"]."` INT NOT NULL DEFAULT  '0',";
+	$mezo["value"]=$data[$mezo["id"]];
+	$mezok[]=$mezo;
+
+	$mezo=array();
 	$mezo["id"]='guestbad';
 	$mezo["table"]=$table.'.'.'`'.$mezo["id"].'`';
 	$mezo["name"]="potagy";
@@ -186,6 +251,28 @@ public function table_room(){
 	$mezo["type"]='text';
 	$mezo["displaylist"]=1;
 	$mezo["mysql_field"]="`".$mezo["id"]."` TEXT";
+	$mezo["value"]=$data[$mezo["id"]];
+	$mezok[]=$mezo;
+
+	$mezo=array();
+	$mezo["id"]='sorrend';
+	$mezo["table"]=$table.'.'.'`'.$mezo["id"].'`';
+	$mezo["name"]="sorrend";
+	$mezo["display"]=0;
+	$mezo["type"]='int';
+	$mezo["displaylist"]=1;
+	$mezo["mysql_field"]="`".$mezo["id"]."` INT NOT NULL DEFAULT  '5',";
+	$mezo["value"]=$data[$mezo["id"]];
+	$mezok[]=$mezo;
+
+	$mezo=array();
+	$mezo["id"]='status';
+	$mezo["table"]=$table.'.'.'`'.$mezo["id"].'`';
+	$mezo["name"]="status";
+	$mezo["display"]=0;
+	$mezo["type"]='int';
+	$mezo["displaylist"]=1;
+	$mezo["mysql_field"]="`".$mezo["id"]."` INT NOT NULL DEFAULT  '1',";
 	$mezo["value"]=$data[$mezo["id"]];
 	$mezok[]=$mezo;
 
@@ -360,7 +447,26 @@ if ($filters['maxegyoldalon']>0){
 		$mezok.=$mezoe['table'];	
 	}
 	//T�bl�zatok
-	$tables=$SD["table"];/*.',location_citys_data';
+	$tables=$SD["table"];
+	if($filters['lang']) {
+		$SD2 = $this->table_room_text( $language = $filters['lang'],$data = array());
+		$tables .= ',' . $SD2["table"];
+
+		$mezok .= $Sys_Class->comasupport($mezok);
+		$mezok .= $SD2["table"] . ".title as 'title'";
+		$mezok .= $Sys_Class->comasupport($mezok);
+		$mezok .= $SD2["table"] . ".leadtext as 'leadtext'";
+		$mezok .= $Sys_Class->comasupport($mezok);
+		$mezok .= $SD2["table"] . ".longtext as 'longtext'";
+		$where .= $Sys_Class->andsupport($where);
+		$where .= $SD2["table"] . ".id" . ' = ' . $SD["table"] . ".id ";
+	}
+
+
+
+
+
+	/*.',location_citys_data';
 	$mezok.=',location_citys_data.city_name as varos_nev ';
 	$where.=$Sys_Class->andsupport($where);
 	$where.=$SD["table"].'.varos=location_citys_data.city_id';
@@ -516,7 +622,7 @@ public function getimg($id,$x=369,$y=247){
 		$img=$img;
 	}
 	else{
-		$img="uploads/".$defaultimg;
+		$img="/uploads/".$defaultimg;
 	}
 	$img=$homeurl."/picture2.php?picture=".encode($img)."&x=".$x."&y=".$y."&ext=.jpg";
 
@@ -576,4 +682,7 @@ $RoomsClass=new rooms();
 
 $RoomsClass->create_table();
 $RoomsClass->create_table_text('hu');
+$artipus=$RoomsClass->tipus();
+$roomtipus=$RoomsClass->roomtipus();
+$roomstatus=$RoomsClass->status();
 ?>

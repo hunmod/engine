@@ -7,7 +7,6 @@ $tbl[$tblmodul] = $adatbazis["db1_db"] . "." . $prefix . "short_url";
 $tblmodul = 'menu';
 $tbl[$tblmodul] = $adatbazis["db1_db"] . "." . $prefix . "menu";
 
-
 $file_structuct = array();
 $file_structuct["modules"] = "admin";
 
@@ -16,26 +15,33 @@ $file_structuct["name"] = "Menü lista";
 $file_structuct["file"] = "menulist";
 $modules[] = $file_structuct;
 
+$file_structuct["name"] = "Kapcsolat";
+$file_structuct["file"] = "contactform";
+$modules[] = $file_structuct;
+
 
 /*admin menü*/
 
 
-$file_structuct["name"] = "oldal beállításai";
+$file_structuct["name"] = lan("Működés");
 $file_structuct["file"] = "sitesetting5";
 $adminmenu2[] = $file_structuct;
 //
-$file_structuct["name"] = "Socialmedia beállításai";
+$file_structuct["name"] = "Socialmedia";
 $file_structuct["file"] = "sitesetting6";
 $adminmenu2[] = $file_structuct;
 //
-$file_structuct["name"] = "email beállításai";
-$file_structuct["file"] = "sitesetting7";
+$file_structuct["name"] = "Email";
+$file_structuct["file"] = "setemail1";
+$adminmenu2[] = $file_structuct;
+$file_structuct["name"] = "Láblécblokkok";
+$file_structuct["file"] = "setfooterblocks";
 $adminmenu2[] = $file_structuct;
 $file_structuct["name"] = "Kapcsolati adatok";
 $file_structuct["file"] = "contact_widget_edit";
 $adminmenu2[] = $file_structuct;
 
-$file_structuct["name"] = "oldal beállításai";
+$file_structuct["name"] = "Oldal beállításai";
 $file_structuct["file"] = "sitesetting5";
 $file_structuct["alatta"] = $adminmenu2;
 
@@ -55,7 +61,7 @@ $file_structuct["file"] = "menu";
 $adminmenu[] = $file_structuct;
 
 
-/*admin menü*/
+/*admin menü
 $file_structuct["name"] = "Tagek";
 $file_structuct["file"] = "tags";
 $adminmenu[] = $file_structuct;
@@ -296,8 +302,6 @@ function formelement_of_tipe($formelement)
 
 //---------------------------------------------------------- functions -------------------------
 //Seo_url
-
-
 function shorturl_get($getq)
 {
     global $tbl, $adatbazis;
@@ -310,195 +314,6 @@ function shorturl_get($getq)
         return $getq;
     }
 }
-
-//-----------------------------------------------menu
-//menuhoz
-/*
-function menuadattomb($id,$tblmodul){
-global $tbl,$adatbazis;
-$qs="SELECT * FROM ".$tbl[$tblmodul]." WHERE id=".$id." ORDER BY sorrend,nev ASC";
-$vissza=db_Query($qs, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"],$adatbazis["db1_srv"],'', "select");
-return $vissza[0];
-}
-*/
-
-/*
-function menulink($text){
-$retur="";
-if ($text!=""){
-$retur="/".$text;
-}	
-return $retur;
-}
-
-//menu képei
-
-function isset_menuimg($id){
-	global $stylefolder;
-	$targetfile=$stylefolder."menu_img/".$id;
-	
-	$back='';
-	$ret['img']="";
-	$ret['img_hover']="";
-	if (is_file($targetfile.".gif"))$back=".gif";
-	if (is_file($targetfile.".jpg"))$back=".jpg";
-	if (is_file($targetfile.".png"))$back=".png";
-	if ($back!=""){
-		$ret['img']=$targetfile.$back;
-
-		$back2='';
-		if (is_file($targetfile."_hover.gif"))$back2="_hover.gif";
-		if (is_file($targetfile."_hover.jpg"))$back2="_hover.jpg";
-		if (is_file($targetfile."_hover.png"))$back2="_hover.png";
-		if ($back2!=""){
-			$ret['img_hover']=$targetfile.$back2;
-		}
-		else{
-			$ret['img_hover']=$ret['img'];
-		}
-	}
-	
-return $ret;
-}
-
-function egymenuimg($id){
-	$ret="";
-	$back=isset_menuimg($id,"");
-	if ($back['img']!="")
-	$ret='<img src="'.$back['img'].'" class="menuimg"/>'.'<img src="'.$back['img_hover'].'" class="menuimg_hover"/>';
-return $ret;
-}
-
-function egymenuadat($id){
-global $tbl,$adatbazis;
-$qs="SELECT * FROM ".$tbl["menu"]." WHERE id=".$id."";
-$vissza=db_Query($qs, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"],$adatbazis["db1_srv"],'', "select");
-return $vissza;
-}
-//
-
-//almenü
-function menuadat($id){
-global $tbl,$adatbazis,$auser;
-
-if ($auser["jogid"]){
-	$where=" AND jogid<=".$auser["jogid"]." ";
-}
-else
-{
-	$where=" AND jogid=0 ";
-}
-
-$qs="SELECT * FROM ".$tbl["menu"]." Where mid=".$id." AND status!=4 ".$where." ORDER BY sorrend,nev ASC";
-$vissza=db_Query($qs, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"],$adatbazis["db1_srv"],'', "select");
-return $vissza;
-}
-
-function menuadat2($id){
-global $tbl,$adatbazis,$auser;
-
-if ($auser["jogid"]){
-	$where=" AND jogid<=".$auser["jogid"]." ";
-}
-else
-{
-	$where=" AND jogid=0 ";
-}
-
-$qs="SELECT * FROM ".$tbl["menu"]." Where mid=".$id."".$where." ORDER BY sorrend,nev ASC";
-$datas=db_Query($qs, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"],$adatbazis["db1_srv"],'', "select");
-
-foreach ($datas as $elem){
-		$vissza=$elem;
-		$vissza["alatta"]=menuadat2($elem["id"]);
-		$return[]=$vissza;
-}
-
-return $return;
-}
-
-
-//
-function menualatta($id,$modul){
-global $tbl,$adatbazis;
-if ($modul!=""){$where=" AND modul='".$modul."'";}
-$qs="SELECT id FROM ".$tbl["menu"]." WHERE mid=".$id." AND status=1";
-$elemei=db_Query($qs, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"],$adatbazis["db1_srv"],'', "select");
-if ((count ($elemei)>0)&& $elemei!=FALSE){
-foreach ($elemei as $elem){
-		$vissza.=$elem["id"].",";
-		$vissza.=menualatta($elem["id"],$modul);
-}
-}
-return $vissza;
-}
-
-//vissza adja az összes menüpontot almenükkel... menulv1-menulv2-....
-function menupontselectbox($id,$vissza,$nevhez,$tblmodules,$tblmoudelsfile){
-global $tbl,$adatbazis;
-$andwhere='';
-if ($tblmodules!=""){
-	$andwhere=" AND modul='".$tblmodules."'";	
-}
-if ($tblmoudelsfile!=""){
-	$andwhere=" AND file='".$tblmoudelsfile."'";	
-}
-else 
-{
-	//$andwhere=" AND file='list'";	
-}
-
-$qs="SELECT * FROM ".$tbl["menu"]." WHERE mid=".$id.$andwhere;
-//echo $qs."<br>";
-$elemei=db_Query($qs, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"],$adatbazis["db1_srv"],'', "select");
-if ( isset($elemei[0]))
-if (count($elemei[0])>0){
-	foreach ($elemei as $elem){
-		$nevhez1="";
-		if (($tblmodules!="")||($elem["modul"])!=$tblmodules){
-		$elem["nev"]=$nevhez.$elem["nev"];
-		$vissza[]=$elem;
-		$nevhez1=$elem["nev"]."-";
-		}
-	$vissza=menupontselectbox($elem["id"],$vissza,$nevhez1,$tblmodules,$tblmoudelsfile);
-	}
-}
-return $vissza;
-}
-
-function menulistafel($fideglenes)
-{
-	$menulistafel=array();
-
-	do {//echo $fideglenes.",";
-		$egysor=egymenuadat($fideglenes);
-		if (count($egysor)>0)
-		{
-		$egysor=$egysor[0];
-		$menulistafel[]=$egysor;
-		$fideglenes=$egysor["mid"];
-		}
-		//var_dump($egysor);echo " XXX ";
-		//menulistafel($fideglenes);
-	} while (isset($egysor["id"])&&$egysor["id"]>0);
-	return $menulistafel;
-}
-
-//array=menufel id=aktuellmenuid
-function onselected($array,$id)
-{
-	$ret="";
-	foreach ($array as $egy	)
-	{
-		if ($egy["id"]==$id){
-			$ret="selected";
-			}
-		
-	}
-return $ret;	
-}
-//-------------------------------------------
-*/
 //----------------------------------------------------------sitesettings
 function page_settings($what)
 {
@@ -527,60 +342,12 @@ function updt_page_settings($variable, $value)
 function percentage($val1, $val2, $precision)
 {
     $res = 100 - round(($val1 / $val2) * 100, $precision);
-
     return $res;
 }
-
 function priece_format($number, $length = 2)
 {
     return number_format($number, $length);
 }
-
-
-//-------------------------------------------------------------------Text Functions
-/*function tageketcsupaszit($text)
-{
-	$cserel="/<(.*?)>/";
-	$mire="";
-	$text = preg_replace ($cserel,$mire,$text);  
-	return $text; 
-}
-
-function fixtags($text){
-$text = htmlspecialchars($text);
-$text = preg_replace("/=/", "=\"\"", $text);
-$text = preg_replace("/&quot;/", "&quot;\"", $text);
-$tags = "/&lt;(\/|)(\w*)(\ |)(\w*)([\\\=]*)(?|(\")\"&quot;\"|)(?|(.*)?&quot;(\")|)([\ ]?)(\/|)&gt;/i";
-$replacement = "<$1$2$3$4$5$6$7$8$9$10>";
-$text = preg_replace($tags, $replacement, $text);
-$text = preg_replace("/=\"\"/", "=", $text);
-return $text;
-}
-
-/*leszedi az ékezetes karaktereket */
-/*function to_link($text){
- 	 $html=array('a','A','a','A','a','A','a','A','a','A','a','A','e','E','e','E','e','E','e','E','i','I','i','I','i','I','i','I','n','N','o','O','o','O','o','O','o','O','o','O','o','O','ss','u','U','u','U','u','U','u','U','o','O','u','U','_','');
-	$chars=array('á','Á','à','À','â','Â','å','Å','ã','Ã','ä','Ä','é','É','è','È','ê','Ê','ë','Ë','í','Í','ì','Ì','î','Î','ï','Ï','ñ','Ñ','ó','Ó','ò','Ò','ő','Ő','ø','Ø','ő','Ő','ö','Ö','ß','ú','Ú','ù','Ù','û','Û','ü','Ü','ő','Ő','ű','Ű',' ',':');
-return str_replace( $chars,$html, $text);
-}
-/*leszedi az ékezetes karaktereket */
-/*
-function htmltochars($text){
-	//return stringencode($text);
-	//return urlencode($text);
-		//$text=stringdecode($text);
-	$text= ekezetekeoda($text);
-	return $text;
-	}
-
-function htmlfromchars($text){	
-	$text= ekezeteketvissza($text);
-
-	$text= stringdecode($text);
-	return $text;
-	
-}
-*/
 function keywordstaged($text, $keywords)
 {
     $x = explode(",", $keywords);
@@ -593,24 +360,6 @@ function keywordstaged($text, $keywords)
 //$neutext
     return $text;
 }
-
-/*
-function tageketlevesz($text)
-{
-//	$text=str_replace ("</p>","<br />",$text);
-//	$text=str_replace ("<p>","",$text);
-	$cserel[]="/<a href=\"(.*?)\">/";
-	$cserel[]="/<\/a>/";
-	$cserel[]="/<span (.*?)>/";
-	$cserel[]="/<\/span>/";
-//	$cserel[]="/<img (.*?)>/";
-
-	$mire="";
-	$text = preg_replace ($cserel,$mire,$text);  
-return $text; 
-}
-*/
-
 function encode($string)
 {
     return base64_encode($string);
@@ -651,7 +400,6 @@ function get_google_geocoding($address)
     return $retval;
 }
 
-
 function curl_download($Url)
 {
     global $currlsslfile;
@@ -680,7 +428,6 @@ function curl_download($Url)
     curl_close($ch);
     return $output;
 }
-
 function curl_cli_post($input, $server_url)
 {
     $input_enc = rawurlencode(json_encode($input));
@@ -695,7 +442,6 @@ function curl_cli_post($input, $server_url)
     $output = json_decode($output_enc, TRUE);
     return $output;
 }
-
 function curl_srv($input, &$retval, &$inval)
 {
     $input_dec_kozb = $input;
@@ -714,18 +460,8 @@ function curl_srv($input, &$retval, &$inval)
 //-------------------------------------------------------
 function arraylist($input)
 {
-    if (count($input) > 0) {
-        foreach ($input as $value1 => $first) {
-            echo '<div style="margin-left:10px;border:#000 1px solid;text-align:left;">';
-            echo "<strong>" . $value1 . "</strong><br>";
-            if (!is_array($first)) {
-                echo($first);
-            } else {
-                arraylist($first);
-            }
-            echo "</div>";
-        }
-    } else echo "<hr>Nem kaptam adatot!<hr>";
+global $SysClass;
+    $SysClass->arraylist($input);
 }
 
 //-------------------------------------------------------------create tables

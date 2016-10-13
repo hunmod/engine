@@ -34,7 +34,7 @@ $qhir=$hir_class->get($filters) ;
 $aprodata=($qhir['datas'][0]);
 
 //
-$aprodata["image"]=$hir_class->getimg($hirid) ;
+$aprodata["image"]=$hir_class->getimg($hirid,1000,300) ;
 	//$menu=egymenuadat($aprodata["mid"]);
 		$menu=$MenuClass->get_one_menu($aprodata["mid"]);
 	//arraylist($aprodata);

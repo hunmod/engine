@@ -6,14 +6,14 @@ $file_structuct["modules"]="place";
 
 
 /*admin menü*/
-$file_structuct["name"]="hely lista";
+$file_structuct["name"]="Hely lista";
 $file_structuct["file"]="list";
 $adminmenu[]=$file_structuct;
 
-$file_structuct["name"]="hely lista";
+$file_structuct["name"]="Hely lista";
 $file_structuct["file"]="list";
 $modules[]=$file_structuct;
-$file_structuct["name"]="Egy hir";
+$file_structuct["name"]="Egy hely";
 $file_structuct["file"]="place";
 $modules[]=$file_structuct;
 

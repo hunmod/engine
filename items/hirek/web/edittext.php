@@ -308,14 +308,10 @@
         <?php
         if ($hirid > 0) {
             $getparams[2] = $hirid;
-            include('items/files/web/list.php');
-
+            include('items/files/web/list2.php');
             ?>
-            <a href="<?php echo str_replace('admin.', "", $homeurl) . "hirek/hir/" . $hirid . "?forcelook=1"; ?>"
-               target="_blank">
-                <div class="col-sm-4">
-                    Page preview
-                </div>
+            <a href="<?php echo str_replace('admin.', "", $homeurl) . "hirek/hir/" . $hirid . "?forcelook=1"; ?>" target="_blank">
+                <div class="col-sm-4"><?= lan("preview");?></div>
             </a>
 
         <?php } ?>

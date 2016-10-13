@@ -9,26 +9,26 @@
     <link href="<?php echo $server_url;?>styl/admin/css/bootstrap.css" rel="stylesheet">
    <!-- custom css -->
     <link href="<?php echo $server_url;?>styl/admin/css/main.css" rel="stylesheet">
+    <link href="<?php echo $server_url; ?>scripts/jquery.modalbox-1.5.0/css/jquery.modalbox.min.css" rel="stylesheet">
 
-    
+
     <script src="<?php echo $server_url;?>styl/admin/js/html5-trunk.js"></script>
     <script src="<?php echo $server_url;?>styl/admin/js/bootstrap.js"></script>
     <script src="<?php echo $server_url;?>styl/admin/js/toggle.js"></script>
-	<script src="<?php echo $server_url;?>scripts/jquery.datetimepicker.js"></script>
-    <link href="<?php echo $server_url;?>scripts/jquery.datetimepicker.css" rel="stylesheet">
+
 
         <link href="<?php echo $server_url;?>styl/admin/css/toggle.css" rel="stylesheet">
 
-        
+
     <link href="<?php echo $server_url;?>styl/admin/icomoon/style.css" rel="stylesheet">
         <!-- kereshető rendezhető táblázat script -->
-        
+
     <!-- custom css -->
     <link href="<?php echo $server_url;?>styl/admin/css/main.css" rel="stylesheet">
         <script type="text/javascript">
             $(document).ready(function(){
                 $( "#mainMenu li:has(ul)" ).addClass("sub-menu");
-                    
+
                     $( "li.sub-menu" ).prepend("<span class='almenuMobilGomb fa fa-arrow-circle-o-down'></span>");
 
                     $(".almenuMobilGomb").click(function(){
@@ -37,9 +37,9 @@
                         $(this).toggleClass("fa-arrow-circle-o-down");
                     });
                 });
-				
 
-/* Súgó: http://xdsoft.net/jqplugins/datetimepicker/ */
+
+/* Súgó: http://xdsoft.net/jqplugins/datetimepicker/
 
 jQuery(function($) {
   $('.datepicker').datetimepicker({
@@ -64,7 +64,7 @@ jQuery(function($) {
     lang:'hu'
   });
 });
-
+*/
 
         </script>
 
@@ -229,14 +229,14 @@ jQuery(function($) {
 display:none;
 }
 .col-sm-11 textarea{
- width:100%;   
+ width:100%;
  min-height:150px;
-    
+
 }
 .col-sm-4 #photo{position: relative!important;}
 
 .adminlogin{
-position:fixed;	
+position:fixed;
 top:0;
 left:0;
 width:100%;
@@ -251,7 +251,7 @@ background-color:#000;
 }
 
 .adminlogin .adminlogcont form{
-width:320px;	
+width:320px;
 background:#fff;
  margin-left: auto;
  margin-right: auto;
@@ -318,7 +318,7 @@ background:#fff;
               </div>
                 Users</a>
                         <ul>
-                    <li><a href="<?php echo $homeurl.$separator;?>user/list"> Users</a> </li>                  
+                    <li><a href="<?php echo $homeurl.$separator;?>user/list"> Users</a> </li>
                    <li><a href="<?php echo $homeurl.$separator;?>recipe/rclist3">Count recipes by user</a></li>
                    <!--li><a href="<?php echo $homeurl.$separator;?>recipe/monthcheaf">Home Cheaf.</a></li>
 
@@ -370,7 +370,7 @@ background:#fff;
                       <li> <a href="<?php echo $homeurl.$separator;?>admin/alergys">Special diet</a></li>
                       <li> <a href="<?php echo $homeurl.$separator;?>recipe/cuisines">Cuisines</a></li>
                       <li> <a href="<?php echo $homeurl.$separator;?>recipe/origins">Origins</a></li>
-                      <li> <a href="<?php echo $homeurl.$separator;?>recipe/categories">Categories</a></li> 
+                      <li> <a href="<?php echo $homeurl.$separator;?>recipe/categories">Categories</a></li>
                 <li></li>            
                       <li>
                         <a href="<?php echo $homeurl.$separator;?>admin/tags">Tags</a>
@@ -393,7 +393,7 @@ background:#fff;
                       </li>               
 
                     </ul>
-              </li-->                          
+              </li-->
           <!--li>
             <a href="#">
               <div class="icon">
@@ -504,7 +504,7 @@ background:#fff;
               Login
             </a>
           </li>
-<?php } else {?>          
+<?php } else {?>
           <li>
             <a href="<?php echo $homeurl.$separator;?>user/logout">
               <div class="icon">
@@ -513,16 +513,16 @@ background:#fff;
               logout
             </a>
           </li>
-<?php }?>          
+<?php }?>
         </--ul>
       </div>
       <!-- Mian navigation end -->
 
       <!-- Dashboard wrapper start -->
       <div class="dashboard-wrapper">
-<?php 		
+<?php
 if ($auser["jog"]>=3){
-	
+
 		if (isset($file['web']))
         	if (file_exists($file['web']))include_once($file['web']);
         }
@@ -530,48 +530,47 @@ if ($auser["jog"]>=3){
 			if (file_exists('items/user/web/alogin.php'))include_once('items/user/web/alogin.php');
 
 		}
-		
+
 ?>
 
       </div>
       <!-- Dashboard wrapper end -->
-    
+
     </div>
     <!-- Main Container end -->
 
 
     <!-- Scripts -->
 
-    <script src="<?php echo $server_url;?>styl/admin/js/wysiwyg/wysihtml5-0.3.0.js"></script>
+    <!--script src="<?php echo $server_url;?>styl/admin/js/wysiwyg/wysihtml5-0.3.0.js"></script-->
 
-    <script src="<?php echo $server_url;?>styl/admin/js/jquery.min.js"></script>
     <script src="<?php echo $server_url;?>styl/admin/js/bootstrap.js"></script>
     <script src="<?php echo $server_url;?>styl/admin/js/jquery-ui-1.8.23.custom.min.js"></script>
 
 
     <!-- Flot charts -->
-    <script src="<?php echo $server_url;?>styl/admin/js/flot/jquery.flot.js"></script>
+    <!--script src="<?php echo $server_url;?>styl/admin/js/flot/jquery.flot.js"></script>
     <script src="<?php echo $server_url;?>styl/admin/js/flot/jquery.flot.resize.min.js"></script>
-    <script src="<?php echo $server_url;?>styl/admin/js/flot/jquery.flot.tooltip.js"></script>
+    <script src="<?php echo $server_url;?>styl/admin/js/flot/jquery.flot.tooltip.js"></script-->
 
-    <!-- Easy pie charts -->
+    <!-- Easy pie charts
     <script src="<?php echo $server_url;?>styl/admin/js/jquery.easy-pie-chart.js"></script>
-
-    <!-- Tiny Scrollbar JS -->
+-->
+    <!-- Tiny Scrollbar JS
     <script src="<?php echo $server_url;?>styl/admin/js/tiny-scrollbar.js"></script>
-
-    <!-- Sparkline JS -->
+-->
+    <!-- Sparkline JS
     <script src="<?php echo $server_url;?>styl/admin/js/jquery.sparkline.js"></script>
 
     <script src="<?php echo $server_url;?>styl/admin/js/rating/jquery.raty.js"></script>
-
-    <!-- custom Js -->
+-->
+    <!-- custom Js
     <script src="<?php echo $server_url;?>styl/admin/js/custom-index.js"></script>
 
     <script src="<?php echo $server_url;?>styl/admin/js/custom.js"></script>
+-->
 
 
-    
     <script type="text/javascript">
       $(function() {
       $.fn.raty.defaults.path = 'img';

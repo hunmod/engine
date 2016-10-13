@@ -6,6 +6,16 @@ rssarticle{
 h2{
     font-size: 18px;
 }
+
+/* Required */
+
+.hiddenb{
+	opacity: 0;
+}
+
+.visibleb{
+	opacity: 1;
+}
 </style>
 <div class="container">
   <left class="col-md-3 col-sm-4" >
@@ -77,3 +87,12 @@ for ($c=$start;$c<=$end;$c++){
                           </ul>
                     </nav>   
 </div>
+
+<script type="text/javascript">
+jQuery(document).ready(function() {
+	jQuery('rssarticle').addClass("hiddenb").viewportChecker({
+	    classToAdd: 'visibleb animated flipInX', //flipInX,lightSpeedIn Class to add to the elements when they are visible
+	    offset: 100    
+	   });   
+});            
+</script>

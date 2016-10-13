@@ -1,0 +1,1 @@
+<?php $admintemplate=1;?>

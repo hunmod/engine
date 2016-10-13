@@ -1,73 +1,4 @@
 <script>
-    function selecttag(id, tag) {
-        $("#blogtagsl").hide();
-        $("#blogtag").val("");
-        if (id > 0) {
-            $("#blog_tagsshow").append('<div id="s' + id + '" class="ms-sel-item ">' + tag + '<span class="ms-close-btn" onclick="deltag(' + "'" + id + "'" + ')"></span></div>');
-            $("#blog_tags").val($("#blog_tags").val() + ',' + id);
-        }
-
-    }
-
-
-    function print_taglist(val) {
-        $("#blogtagsl").show();
-        $("#blogtagsl").append('<span onclick="selecttag(' + val.id + ',' + "'" + val.name + "'" + ')">' + val.name + '</span>');
-    }
-
-    function saveblogajax() {
-        $.getJSON('' + serverurl + 'service.php?q=hirek/ajax_taglist&tag=' + $("#blogtag").val() + '&save=1', function (data) {
-            if (data.length > 5) {
-                //$('#tagsave').attr("disabled", "disabled");
-
-            }
-            else {
-                //$('#tagsave').removeAttr("disabled");
-            }
-            if ($("#blogtag").val() != '') {
-                $("#blogtagsl").empty();
-                $.each(data, function (key, val) {
-                    selecttag(val.id, val.name)
-                    //print_taglist(val);
-                });
-            }
-        });
-
-    }
-
-    function loadblogajax() {
-        $.getJSON('' + serverurl + 'service.php?q=hirek/ajax_taglist&tag=' + $("#blogtag").val() + '', function (data) {
-            $("#blogtagsl").empty();
-            if (data.length > 0) {
-                //$('#tagsave').attr("disabled", "disabled");
-            }
-            else {
-                //	$('#tagsave').removeAttr("disabled");
-            }
-            $.each(data, function (key, val) {
-                print_taglist(val);
-            });
-        });
-
-    }
-    function posbtag() {
-        var pos1 = jQuery("#blogtag").position();
-        $("#blogtagsl").css('left', pos1.left + "px");
-        $("#blogtagsl").css('top', $("#blogtag").height() + "px");
-        $("#blogtagsl").css('display', "block");
-
-    }
-
-    $(document).ready(function () {
-        $(window).keydown(function (event) {
-            if (event.keyCode == 13) {
-                event.preventDefault();
-                return false;
-            }
-        });
-    });
-</script>
-<script>
     var savecomplete = 0;
     function deltag(id) {
         var res = $("#blog_tags").val().split(",");
@@ -156,98 +87,174 @@
         cursor: pointer;
 
     }
-    .lerningfield {
-        position: relative;
-    }
-    .lerningfield div {
-        position: absolute;
-        background-color: #FFF;
-        border: solid 1px #000000;
-        padding-top: 10px;
-    }
-    .lerningfield div span {
-        display: block;
-        cursor: pointer;
-    }
-    .lerningfield div span:hover {
-        background-color: #CCC;
-    }
-    .jobform .col1 .inner, .jobform .col2 .inner, .jobform .col2 {
-        overflow: visible;
-    }
-    #blogtag {
-        margin-left: 10px;
-        width: 65%;
-    }
-    #blogtagsl {
-        margin-top: 10px;
-        max-height: 200px;
-        overflow: auto;
-        display: none;
-        padding: 10px;
-        min-width: 250px;
-        padding: 3px 10px 5px 10px;
-        height: auto;
-        line-height: 30px;
-        font-size: 18px;
-        color: #7c7c7c;
-        font-family: 'robotolight';
-    }
-    .aclist {
-        display: block;
-        position: absolute;
-        background: #FFF;
-        box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.7);
-        width: 150px;
-    }
     .aclist span {
         display: block;
     }
+
     .aclist span:hover {
         cursor: pointer;
         background: #CCC;
     }
+
+    .cropit-preview {
+        background-color: #f8f8f8;
+        background-size: cover;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        margin-top: 7px;
+        width: <?=$imgx?>px;
+        height: <?=$imgy?>px;
+    }
+
+    .cropit-preview-image-container {
+        cursor: move;
+    }
+
+    .image-size-label {
+        margin-top: 10px;
+    }
+
+    input, .export {
+        display: block;
+    }
+
+    button {
+        margin-top: 10px;
+    }
+	
+.checkbox-addonservice {
+	margin-left: 0px;
+}	
+
 </style>
+<script>
+    $(document).ready(function () {
+
+        $('form').submit(function () {
+            var imageData = $('.image-editor').cropit('export', {
+                type: 'image/jpeg',
+                quality: .9,
+                originalSize: true
+            });
+
+            document.getElementById("nimg").value = imageData;
+
+            // Print HTTP request params
+            var formValue = $(this).serialize();
+            $('#result-data').text(formValue);
+
+            // Prevent the form from actually submitting
+            return true;
+        });
+
+
+        $('.image-editor').cropit({
+            imageState: {
+                src: '<?php echo $nimg;?>',
+            },
+        });
+
+        $('.rotate-cw').click(function () {
+            $('.image-editor').cropit('rotateCW');
+        });
+        $('.rotate-ccw').click(function () {
+            $('.image-editor').cropit('rotateCCW');
+        });
+    });
+</script>
 <div class="container">
     <div class="col-sm-12">
+        <h1><?= lan('roomaedit');?></h1>
         <form id="uploadForm" action="" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
             <?php $Form_Class->hiddenbox('hirsave', '1') ?>
+            <?php $Form_Class->hiddenbox('nimg', ''); ?>
+            <div class="form-group">
+                <div class="col-sm-12"><strong><?php echo $lan["profimg"]; ?></strong></div>
+                <div class="col-sm-12">
+                    <div class="image-editor">
+                        <input type="file" class="cropit-image-input">
+
+                        <div class="cropit-preview"></div>
+                        <div class="image-size-label"><?= lan("imageresize"); ?></div>
+                        <input type="range" class="cropit-image-zoom-input">
+                        <!-- button class="rotate-ccw">Rotate counterclockwise</button>
+                        <button class="rotate-cw">Rotate clockwise</button -->
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
 
             <input name="id" id="id" type="hidden" value="<?php echo decode($getparams[2]); ?>"/>
-            <?php echo $lan['maxroom']; ?>:
-            <input name="maxroom" id="maxroom" type="text" value="<?php echo $Text_Class->htmlfromchars($adat["maxroom"]); ?>"
+            <?php echo lan('maxroom'); ?>:
+            <input name="maxroom" id="maxroom" type="text"
+                   value="<?php echo $Text_Class->htmlfromchars($adat["maxroom"]); ?>"
                    maxlength="200"/><br/>
             <?php echo $lan['priece']; ?>:
-            <input name="priece" id="priece" type="text" value="<?php echo $Text_Class->htmlfromchars($adat["priece"]); ?>"
+            <input name="priece" id="priece" type="text"
+                   value="<?php echo $Text_Class->htmlfromchars($adat["priece"]); ?>"
                    maxlength="200"/><br/>
-            <?php echo $lan['tip']; ?>:
-            <input name="tip" id="tip" type="text" value="<?php echo $Text_Class->htmlfromchars($adat["tip"]); ?>"
+            <?php echo lan('artipus'); ?>:
+            <?php  $form->selectboxeasy2("tip", $artipus, $adat["tip"], lan('artipus')); ?><br/>
+            <?php echo lan('roomsize'); ?>:
+            <input name="roomsize" id="roomsize" type="number"
+                   value="<?php echo $Text_Class->htmlfromchars($adat["roomsize"]); ?>"
+                   maxlength="200"/> m2<br/>
+            <?php echo lan('roomtip'); ?>:
+            <?php  $form->selectboxeasy2("roomtip", $roomtipus, $adat["roomtip"], lan('roomtip')); ?><br/>
+            <?=  lan('guestbad'); ?>:
+            <input name="guestbad" id="guestbad" type="number"
+                   value="<?php echo $Text_Class->htmlfromchars($adat["guestbad"]); ?>"
                    maxlength="200"/><br/>
-            <?php echo $lan['guestbad']; ?>:
-            <input name="guestbad" id="guestbad" type="text" value="<?php echo $Text_Class->htmlfromchars($adat["guestbad"]); ?>"
+            <?=  lan('childbad'); ?>:
+            <input name="childbad" id="childbad" type="number"
+                   value="<?php echo $Text_Class->htmlfromchars($adat["childbad"]); ?>"
                    maxlength="200"/><br/>
-            <?php echo $lan['roomnum']; ?>:
-            <input name="roomnum" id="roomnum" type="text" value="<?php echo $Text_Class->htmlfromchars($adat["roomnum"]); ?>"
+            <?= lan('roomnum'); ?>:
+            <input name="roomnum" id="roomnum" type="number"
+                   value="<?php echo $Text_Class->htmlfromchars($adat["roomnum"]); ?>"
                    maxlength="200"/><br/>
-            <?php echo $lan['bathroom']; ?>:
-            <input name="bathroom" id="bathroom" type="text" value="<?php echo $Text_Class->htmlfromchars($adat["bathroom"]); ?>"
+            <?php echo lan('bathroom'); ?>:
+            <input name="bathroom" id="bathroom" type="text"
+                   value="<?php echo $Text_Class->htmlfromchars($adat["bathroom"]); ?>"
                    maxlength="200"/><br/>
-            <?php echo $lan['kitchen']; ?>:
-            <input name="kitchen" id="kitchen" type="text" value="<?php echo $Text_Class->htmlfromchars($adat["kitchen"]); ?>"
+            <?php echo lan('kitchen'); ?>:
+            <input name="kitchen" id="kitchen" type="text"
+                   value="<?php echo $Text_Class->htmlfromchars($adat["kitchen"]); ?>"
                    maxlength="200"/><br/>
-            <?php echo $lan['connectedservices']; ?>:
-            <input name="connectedservices" id="connectedservices" type="text" value="<?php echo $Text_Class->htmlfromchars($adat["connectedservices"]); ?>">
+            <?php echo lan('sorrend'); ?>:
+            <?php  $form->selectboxeasy2("sorrend", $sorrend, $adat["sorrend"], "sorrend"); ?>
+            <?php echo lan('status'); ?>:
+            <?php  $form->selectboxeasy2("status", $roomstatus, $adat["status"], lan('status')); ?>
 
-<div class="clear">
-</div>
-<div class="step1">
-    <?php $steplang="hu" ;?>
-    <?php $form->textbox($steplang."[title]", $Text_Class->htmlfromchars($adat[$steplang]["title"]),'cím') ?>
-    <?php $form->textaera($steplang."[leadtext]", $Text_Class->htmlfromchars($adat[$steplang]["leadtext"]),'bevezető') ?>
-    <?php $form->kcebox($steplang."[longtext]", $Text_Class->htmlfromchars($adat[$steplang]["longtext"])) ?>
-    <?php $form->kcebox($steplang."[included]", $Text_Class->htmlfromchars($adat[$steplang]["included"])) ?>
+            <?php $form->hiddenbox('connectedservices' , $Text_Class->htmlfromchars($adat["connectedservices"])); ?>
 
-</div>
+            <div class="clear">
+            </div>
+
+            <div class="bootstrap-tabs" data-tab-set-title="mmt">
+                <ul class="nav nav-tabs" role="tablist"><!-- add tabs here -->
+                    <?php foreach ($avaibleLang as $alan){?>
+                        <li <?php if($_SESSION['lang']==$alan){echo 'class="active" ';}?>role="presentation"><a aria-controls="mmt-tab-<?= $alan?>" class="tab-link" data-toggle="tab" href="#mmt-tab-<?= $alan?>" role="tab"><?= lan('text')." ".$alan?></a></li>
+                        <?php
+                    }
+                    ?>
+                </ul>
+
+            <div class="tab-content"><!-- add tab panels here -->
+                    <?php foreach ($avaibleLang as $alan){ ?>
+                <div class="tab-pane <?php if($_SESSION['lang']==$alan){echo 'active';}?>" id="mmt-tab-<?= $alan?>" role="tabpanel">
+
+                <?php $steplang = $alan; ?>
+                        <?php $form->textbox($steplang . "[title]", $Text_Class->htmlfromchars($adat[$steplang]["title"]), lan('cím').' '.lan($alan)) ?>
+                        <?php $form->textaera($steplang . "[leadtext]", $Text_Class->htmlfromchars($adat[$steplang]["leadtext"]), lan('bevezeto').' '.lan($alan)) ?>
+                        <?php $form->kcebox($steplang . "[longtext]", $Text_Class->htmlfromchars($adat[$steplang]["longtext"])) ?>
+                        <?php //$form->kcebox($steplang . "[included]", $Text_Class->htmlfromchars($adat[$steplang]["included"])) ?>
+                </div>
+
+                    <?php } ?>
+            </div>
+            </div>
+
 
             <img src="<?php echo($nimg); ?>">
             <br/>
@@ -255,24 +262,55 @@
 
 
             <br/>
-            <?php echo $lan['publicdate']; ?>:
-            <input size="16" type="text" value="<?php echo($adat["ido"]); ?>" readonly class="form_datetime" name="ido"
-                   id="ido">
+            <?php include('./items/cat/web/catform_1.php') ?>
+            <hr>
+            <div>
+                <?php /*echo lan('services'); ?>:
 
+                <?php foreach ($szobahoztartozhat as $hat) {
+                    $value=0;
+                    if($adat['services'][$hat])$value=1;
+					$caption=hotelicon_print($hat, 50, 'fekete');
+					//$caption=lan($hat);
+                    $form->checkbox('services['.$hat.']',$value,$caption,$class="checkbox-addonservice");
+                } ?>
+            </div>
+            <div>
+                <?php echo lan('wellnes'); ?>:
+                <?php foreach ($szobahoztartozhatw as $hat) {
+                    $value=0;
+                    if($adat['wellnes'][$hat])$value=1;
+					$caption=hotelicon_print($hat, 50, 'fekete');
+					//$caption=lan($hat);
+                    $form->checkbox('wellnes['.$hat.']',$value,$caption,$class="checkbox-addonservice");
+                } ?>
+            </div>
+            <div>
+                <?php echo lan('foglalasinfok'); ?>:
+                <?php foreach ($szobahoztartozhatf as $hat) {
+                    $value=0;
+                    if($adat['foglalasinfok'][$hat])$value=1;
+					$caption=hotelicon_print($hat, 50, 'fekete');
+					//$caption=lan($hat);
+                    $form->checkbox('foglalasinfok['.$hat.']',$value,$caption,$class="checkbox-addonservice");
+                } */?>
+            </div>
             <p>
                 <button type="submit" class="button enterButton"><?php echo $lan['save']; ?> <i
                         class="fa fa-arrow-right"></i></button>
             </p>
+
         </form>
 
 
         <?php
+        //arraylist($adat);
         if ($hirid > 0) {
             $getparams[2] = $hirid;
-            include('items/files/web/list.php');
+            include('items/files/web/list2.php');
 
             ?>
-            <a href="<?php echo str_replace('admin.', "", $homeurl) . "room/room/" . $hirid . "?forcelook=1"; ?>"
+            <a href="<?php echo str_replace('admin.', "", $homeurl) . "rooms/room/" . $hirid . "?forcelook=1"; ?>"
                target="_blank">
                 <div class="col-sm-4">
                     Page preview
@@ -280,7 +318,6 @@
             </a>
 
         <?php }
-        arraylist($_POST);
         ?>
 
     </div>

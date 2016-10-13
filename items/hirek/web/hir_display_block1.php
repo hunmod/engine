@@ -25,7 +25,7 @@ $elem["url"]=$hir_class->createurl($elem);
 
 <new class="col-md-6 col-sm-6 mhbl2" itemscope="" itemtype="http://schema.org/WebPage">
                         <a href="<?php echo $elem["url"];?>" class="box <?php echo $fcolor;?>"  itemprop="url">
-                            <h2><?php echo $elem["menu_name"];?></h2>
+                            <!--h2><?php echo $elem["menu_name"];?></h2-->
                             <div class="imgWrap">
                                         <img itemprop="image" src="<?php 
 										$nimg=$hir_class->getimg($elem['id'],300,148);

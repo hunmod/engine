@@ -1,0 +1,1 @@
+{"db_conf":{"db1_srv":"localhost","db1_db":"budaicip_de","db1_user":"budaicip_user","db1_pass":"Ch4mp10n"},"homefolder":"","oldalid":"cipo","prefix":"cipo","prefix_pagesetting":"cipo_"}

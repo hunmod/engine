@@ -1,7 +1,12 @@
 <?php 
+$extrascript[]='<link rel="stylesheet" type="text/css" href="'.$homeurl.$makemin->css('/scripts/animate.css','/scripts/animate.min.css').'" />
+';
+$extrascript[]='<script src="'.$homeurl.('/scripts/viewportchecker.js').'" /></script>
+';
+/*
 $leftside[]="./items/user/web/usermenu.php";
 $leftside[]="./items/ads/web/widget_side1.php";       
-
+*/
 
 include_once "class.AbsRssReader20.php";
 $_SESSION["utolso_lap"]=$_SERVER["REQUEST_URI"];

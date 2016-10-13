@@ -33,7 +33,7 @@ $datas=$class_recipe->get_list('cuisine',array());
 //arraylist($menuk);
 ?>
 <div class="container">  
-<section class="col-md-9 col-sm-8" >
+<section class="col-md-12" >
 <div class="row">
           <div class="col-md-12">
             <div class="widget">
@@ -155,11 +155,7 @@ $datas=$class_recipe->get_list('cuisine',array());
                                 </nav>
 
 </section>   
-  <section class="col-md-3 col-sm-4" >
-  
-<?php include("items/user/web/widget_user_menu.php");?>
-  
-  </section>                   
+        
                   
                 </div>
 

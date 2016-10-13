@@ -730,12 +730,13 @@ global $tbl,$adatbazis,$folders;
 	return array('error'=>$error,'query'=>$q);
 }
 
-public function folderlist($mappa){
+public function folderlist($mappa,$x=200,$y=200,$big=900){
 
 	$foe=$this->listfiles($mappa);
 	//arraylist($foe);
 if (count($foe)>0){
 	foreach ($foe as $egye){
+	$egyelem["name"]=$egye;
 	$egyelem["filepath"]=$mappa.$egye;
 	$egyelem["ext"]=$this->kierjeztes($egyelem["filepath"]);
 	$egyelem["icon"]='uploads/system/filegif/'.$egyelem["ext"].'.gif';
@@ -752,12 +753,12 @@ if (count($foe)>0){
 		case "png":	
 		case "bmp":	
 			$egyelem["type"]='img';
-			$egyelem["screen"]='/picture2.php?picture='.encode($egyelem["filepath"])."&x=200&y=200";
-			$egyelem["url"]='/picture.php?picture='.encode($egyelem["filepath"])."&x=600";
+			$egyelem["screen"]='/picture2.php?picture='.encode($egyelem["filepath"])."&x=".$x."&y=".$y;
+			$egyelem["url"]='/picture.php?picture='.encode($egyelem["filepath"])."&x=".$big;
 		break;
 		default:
 			$egyelem["type"]='other';
-			$egyelem["screen"]='/picture2.php?picture='.encode($egyelem["icon"])."&x=200&y=200";
+			$egyelem["screen"]='/picture2.php?picture='.encode($egyelem["icon"])."&x=".$x."&y=".$y;
 			$egyelem["url"]='/fdownload.php?file='.base64_encode($egyelem["filepath"]);
 	}
 	$mylist[]=$egyelem;

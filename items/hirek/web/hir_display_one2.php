@@ -28,7 +28,7 @@ $elem["url"]=$hir_class->createurl($elem);
         echo $nimg.'';
         ;?>" alt="<?php echo $Text_Class->htmlfromchars($elem["cim"]);?>"  title="<?php echo $Text_Class->htmlfromchars($elem["cim"]);?>"  >
     </div>
-                            <h2><?php echo $elem["menu_name"];?></h2>
+                            <!--h2><?php echo $elem["menu_name"];?></h2-->
                             <div class="upArrowDecor"></div>
                             <h2 itemprop="name"><?php echo $Text_Class->htmlfromchars($elem["cim"]);?></h2>
 							<p itemprop="description"><?php echo $Text_Class->htmlfromchars($elem["hir2"]);?></p>

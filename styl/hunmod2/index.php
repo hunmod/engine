@@ -7,8 +7,8 @@ $stylefolder="/styl/hunmod2/";
 echo $homeurl.$stylefolder;?>css/bootstrap.min.css" rel="stylesheet">
 <link href="<?php echo $homeurl.$stylefolder;?>css/font-awesome.css" rel="stylesheet" type="text/css">
 <link href="<?php echo $homeurl.$stylefolder;?>css/LumiSys.css" rel="stylesheet" type="text/css">
-	<script src="<?php echo $homeurl.$stylefolder;?>/js/js.js"></script>
-	<script src="<?php echo $homeurl.$stylefolder;?>/js/jquery.masonry.min.js"></script>
+	<!--script src="<?php echo $homeurl.$stylefolder;?>/js/js.js"></script>
+	<script src="<?php echo $homeurl.$stylefolder;?>/js/jquery.masonry.min.js"></script-->
  
  </head>
   <body>

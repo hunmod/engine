@@ -2070,3 +2070,6 @@ header {
       border-top-color: #bce8f1; }
   .panel-info > .panel-footer + .panel-collapse .panel-body {
     border-bottom-color: #bce8f1; }
+.container {
+  max-width: 100%;
+}

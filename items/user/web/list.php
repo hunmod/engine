@@ -50,6 +50,7 @@
                 <th style="width:20%"><?php echo $lan["uname"]; ?> </th>
                 <th style="width:20%"><?php echo $lan["email"]; ?> </th>
                 <th style="width:5%" class="hidden-phone"><?php echo $lan["status"]; ?></th>
+                <th style="width:5%" class="hidden-phone"><?php echo $lan["jogid"]; ?></th>
                 <th style="width:15%" class="hidden-phone">Last Active</th>
 
                 
@@ -64,7 +65,9 @@
                 <td><?php echo $data['unev']; ?></td>
                 <td><?php echo $data['email']; ?></td>
 
-                <td class="hidden-phone"><?php echo $status[$data['status']]; ?></td>
+                <td class="hidden-phone"><?php echo $status[$data['status']]["nev"]; ?></td>
+                <td class="hidden-phone"><?php echo $jog[$data['jogid']]; ?></td>
+
                 <td class="hidden-phone"><?php echo $data['lastactive']; ?></td>
                 
                 <td class="hidden-phone">

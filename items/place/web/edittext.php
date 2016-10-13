@@ -6,7 +6,7 @@ if ($auser["id"]<1){
 ?>
 
 <div class="container">
-<div class="col-sm-8">
+<div class="col-sm-12">
 <h1>Új hely hozzáadása</h1>
 <?php 
 $form=new formobjects();
@@ -76,9 +76,8 @@ $adat=$adatok[0];*/
     <?php  $Form_Class->hiddenbox("id",base64_decode($getparams[2])) ?>
     <?php  $form->textbox("nev",$Text_Class->htmlfromchars($adat["nev"]),$lan['nev']); ?>
 	<strong><?php echo $lan['varos']."Város";?></strong>
-<?php $Form_Class->selectbox2("varos",$citys['datas'],array('value'=>'city_id','name'=>'city_name'),$adat["varos"],"Város");?>   
+	<?php $Form_Class->selectbox2("varos",$citys['datas'],array('value'=>'city_id','name'=>'city_name'),$adat["varos"],"Város");?>   
     <?php  $form->textbox("zip",$Text_Class->htmlfromchars($adat["zip"]),'zip'); ?>
-               
     <?php  $form->textbox("cim",$Text_Class->htmlfromchars($adat["cim"]),$lan['cim']); ?>
     <?php  $form->textbox("hsz",$Text_Class->htmlfromchars($adat["hsz"]),'hsz'); ?>
     <?php  $form->textbox("tel",$Text_Class->htmlfromchars($adat["tel"]),$lan['tel'].'tel2'); ?>
@@ -105,20 +104,13 @@ $adat=$adatok[0];*/
 				 $form->selectboxeasy2("tipus",$tipus,$adat["tipus"],"tipus");									
 ?>
 <br />
-
-
 <br />
-
-
 <p>
-                        <button type="submit" class="button enterButton"><?php echo $lan['save'];?> <i class="fa fa-arrow-right"></i></button>
+				<button type="submit" class="button enterButton"><?php echo $lan['save'];?> <i class="fa fa-arrow-right"></i></button>
 </p>
 </form>
  
  
  
-</div>
-<div class="col-md-3 col-sm-4">
-<?php include("items/user/web/widget_user_menu.php")?>
 </div>
 </div>

@@ -1,0 +1,33 @@
+.form-group [type="checkbox"]:not(:checked),
+.form-group [type="checkbox"]:checked,
+.form-group [type="radio"]:not(:checked),
+.form-group [type="radio"]:checked {
+  position: relative;
+  left: 0;
+}
+.form-group [type="checkbox"]:not(:checked) + label,
+.form-group [type="checkbox"]:checked + label,
+.form-group [type="radio"]:not(:checked) + label,
+.form-group [type="radio"]:checked + label {
+  position: relative;
+  padding-left: 0;
+  cursor: pointer;
+}
+.form-group [type="checkbox"]:not(:checked) + label:before,
+.form-group [type="checkbox"]:checked + label:before,
+.form-group [type="radio"]:not(:checked) + label:before,
+.form-group [type="radio"]:checked + label:before,
+.form-group [type="radio"]:not(:checked) + label:before,
+.form-group [type="radio"]:checked + label:before,
+.form-group [type="checkbox"]:not(:checked) + label:after,
+.form-group [type="checkbox"]:checked + label:after,
+.form-group [type="radio"]:not(:checked) + label:after,
+.form-group [type="radio"]:checked + label:after,
+.form-group [type="radio"]:not(:checked) + label:after,
+.form-group [type="radio"]:checked + label:after,
+.form-group [type="checkbox"]:not(:checked) + label:before,
+.form-group [type="checkbox"]:checked + label:before,
+.form-group [type="checkbox"]:not(:checked) + label:after,
+.form-group [type="checkbox"]:checked + label:after {
+  display: none;
+}

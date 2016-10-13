@@ -1,0 +1,730 @@
+<?php
+class page{
+	
+public function status(){
+	global $lan;
+	$status[1]= $lan['status1'];
+	$status[2]=$lan['status2'];
+	$status[3]=$lan['status3'];
+	$status[4]=$lan['status4'];
+	return $status;
+}
+
+public function sorrend(){
+	for ($i = 1; $i <= 10; $i++) 
+	{
+	$status[$i]=$i;	}
+
+	return $status;
+}
+
+public function table($data=array()){
+	global $adatbazis,$tbl;
+	//arraylist($tbl);
+	$table=$tbl['page'];
+
+	$mezo=array();		
+	$mezo["id"]='id';
+	$mezo["table"]=$table.'.'.'`'.$mezo["id"].'`';
+	$mezo["name"]="ID";
+	$mezo["display"]=0;
+	$mezo["type"]='int';
+	$mezo["displaylist"]=1;
+	$mezo["value"]=$data[$mezo["id"]];
+		$mezok[]=$mezo;
+		$mezo=array();
+		
+	$mezo=array();		
+	$mezo["id"]='mid';
+	$mezo["table"]=$table.'.'.'`'.$mezo["id"].'`';
+	$mezo["name"]="mid";
+	$mezo["display"]=0;
+	$mezo["type"]='int';
+	$mezo["displaylist"]=1;
+	$mezo["value"]=$data[$mezo["id"]];
+	$mezok[]=$mezo;
+	$mezo=array();
+
+/*
+	$mezo["id"]='seourl_hu';
+	$mezo["table"]=$table.'.'.'`'.$mezo["id"].'`';
+	$mezo["name"]="Név";
+	$mezo["display"]=1;
+	$mezo["type"]='varchar';
+	$mezo["requied"]=1;
+	$mezo["displaylist"]=1;
+	$mezo["value"]=$data[$mezo["id"]];
+	$mezok[]=$mezo;
+	$mezo=array();
+*/
+	$mezo["id"]='cim_hu';
+	$mezo["table"]=$table.'.'.'`'.$mezo["id"].'`';
+	$mezo["name"]="Név";
+	$mezo["display"]=1;
+	$mezo["type"]='varchar';
+	$mezo["requied"]=1;		
+	$mezo["displaylist"]=1;
+	$mezo["value"]=$data[$mezo["id"]];
+		$mezok[]=$mezo;
+		$mezo=array();	
+		
+	$mezo["id"]='hir_hu';
+	$mezo["table"]=$table.'.'.'`'.$mezo["id"].'`';
+	$mezo["name"]="Oldal";
+	$mezo["display"]=1;
+	$mezo["displaylist"]=0;
+	$mezo["type"]='text';
+	$mezo["value"]=$data[$mezo["id"]];
+		$mezok[]=$mezo;
+		$mezo=array();	
+	
+	$mezo["id"]='hir2_hu';
+	$mezo["table"]=$table.'.'.'`'.$mezo["id"].'`';
+	$mezo["name"]="Oldal";
+	$mezo["display"]=1;
+	$mezo["displaylist"]=0;
+	$mezo["type"]='text';
+	$mezo["value"]=$data[$mezo["id"]];
+		$mezok[]=$mezo;
+		$mezo=array();		
+
+
+
+//
+	/*
+	$mezo["id"]='seourl_en';
+	$mezo["table"]=$table.'.'.'`'.$mezo["id"].'`';
+	$mezo["name"]="Név";
+	$mezo["display"]=1;
+	$mezo["type"]='varchar';
+	$mezo["requied"]=1;
+	$mezo["displaylist"]=1;
+	$mezo["value"]=$data[$mezo["id"]];
+	$mezok[]=$mezo;
+	$mezo=array();
+*/
+	$mezo["id"]='cim_en';
+	$mezo["table"]=$table.'.'.'`'.$mezo["id"].'`';
+	$mezo["name"]="Név";
+	$mezo["display"]=1;
+	$mezo["type"]='varchar';
+	$mezo["requied"]=1;
+	$mezo["displaylist"]=1;
+	$mezo["value"]=$data[$mezo["id"]];
+	$mezok[]=$mezo;
+	$mezo=array();
+
+	$mezo["id"]='hir_en';
+	$mezo["table"]=$table.'.'.'`'.$mezo["id"].'`';
+	$mezo["name"]="Oldal";
+	$mezo["display"]=1;
+	$mezo["displaylist"]=0;
+	$mezo["type"]='text';
+	$mezo["value"]=$data[$mezo["id"]];
+	$mezok[]=$mezo;
+	$mezo=array();
+
+	$mezo["id"]='hir2_en';
+	$mezo["table"]=$table.'.'.'`'.$mezo["id"].'`';
+	$mezo["name"]="Oldal";
+	$mezo["display"]=1;
+	$mezo["displaylist"]=0;
+	$mezo["type"]='text';
+	$mezo["value"]=$data[$mezo["id"]];
+	$mezok[]=$mezo;
+	$mezo=array();
+
+
+
+	$mezo["id"]='uid';
+	$mezo["table"]=$table.'.'.'`'.$mezo["id"].'`';
+	$mezo["name"]="Felhasználó azonosító";
+	$mezo["display"]=0;
+	$mezo["type"]='int';
+	$mezo["displaylist"]=0;
+	$mezo["value"]=$data[$mezo["id"]];	
+		$mezok[]=$mezo;
+		$mezo=array();
+		
+	$mezo["id"]='status';
+	$mezo["table"]=$table.'.'.'`'.$mezo["id"].'`';
+	$mezo["name"]="Állapot";
+	$mezo["display"]=1;
+	$mezo["type"]='array';
+	$mezo["displaylist"]=1;
+	$mezo["values"]=$this->status();
+	$mezo["values_type"]='0';//array('id'=>idmezoneve,'value'=ertekmezoneve)
+	$mezo["value"]=$mezo["values"][$data[$mezo["id"]]];
+		$mezok[]=$mezo;
+		$mezo=array();	
+	
+	
+	$mezo["id"]='sorrend';
+	$mezo["table"]=$table.'.'.'`'.$mezo["id"].'`';
+	$mezo["name"]="sorrend";
+	$mezo["display"]=1;
+	$mezo["type"]='array';
+	$mezo["displaylist"]=1;
+	$mezo["values"]=$this->sorrend();
+	$mezo["values_type"]='0';//array('id'=>idmezoneve,'value'=ertekmezoneve)
+	$mezo["value"]=$mezo["values"][$data[$mezo["id"]]];	
+		$mezok[]=$mezo;
+		$mezo=array();	
+
+	$mezo["id"]='ido';
+	$mezo["table"]=$table.'.'.'`'.$mezo["id"].'`';
+	$mezo["name"]="ido";
+	$mezo["display"]=0;
+	$mezo["displaylist"]=0;
+	$mezo["type"]='text';
+	$mezo["value"]=$data[$mezo["id"]];
+		$mezok[]=$mezo;
+		$mezo=array();
+
+
+
+//		
+
+
+		
+	
+	$datas['table']=$table;
+	$datas['mezok']=$mezok;
+	
+	return $datas;	
+}
+
+
+
+public function table_fields(){
+	global $adatbazis,$tbl;
+
+	//$table=$tbl['service_cat'];
+	//$mezok[]=$table.'.'.'`status`';
+	
+	$mdata=$this->table();
+	if (count($mdata['mezok']))
+	foreach ($mdata['mezok'] as $mezo)
+	{
+		$mezok[]=$mezo['id'];	
+	}
+	
+	$datas['table']=$mdata['table'];
+	$datas['mezok']=$mezok;
+	
+	return $datas;	
+}
+	
+	
+	
+
+public function get($filters,$order='',$page='all') 
+{
+	global $adatbazis,$tbl;
+	$Sys_Class=new sys();
+
+if ($filters['maxegyoldalon']>0){
+	$maxegyoldalon=$filters['maxegyoldalon'];
+	}else{
+	$maxegyoldalon=8;
+}
+
+	$SD=$this->table();	
+	
+	if ($order!='')	{
+		$order=' ORDER BY '.$order;
+	}
+	else
+	{
+		$order=' ORDER BY '.$SD["table"].'.`id` DESC ';
+	}
+
+	//a tábla saját mezői
+	foreach ($SD["mezok"] as $mezoe)
+	{
+		$mezok.=$Sys_Class->comasupport($mezok);	
+		$mezok.=$mezoe['table'];	
+	}
+	//Táblázatok
+	$tables=$SD["table"];
+
+	//másik tábla mezői hozzáadása
+		//$mezok.='tabla.mezo'
+		//tábla kapcsolat
+		//$where.=$SD["table"].".mezo=tabla.mezo";
+
+//ez kell az összes találat megszámolásához	
+	$mezokc.='count('.$SD["table"].'.id) as count';
+
+
+
+//menu kapcsolat
+	$mezok.=$Sys_Class->comasupport($mezok);	
+	$mezok.="menu.nev as menu_name";	
+	$tables.=',menu';
+	$where.=$Sys_Class->andsupport($where);
+	$where.=$SD["table"].".mid=menu.id";
+
+//számos feltételek	
+$fmezonev='id';
+if ($filters[$fmezonev]!=''){
+		$where.=$Sys_Class->andsupport($where);
+		$where.='('.$SD["table"].".`".$fmezonev."`='".$filters[$fmezonev]."') ";
+}
+
+$fmezonev='mid';
+if ($filters[$fmezonev]!=''){
+		$where.=$Sys_Class->andsupport($where);
+		$where.=''.$SD["table"].".`".$fmezonev."` in(".$filters[$fmezonev].") ";
+}
+
+$fmezonev='notid';
+if ($filters[$fmezonev]!=''){
+		$where.=$Sys_Class->andsupport($where);
+		$where.=''.$SD["table"].".`id` not in(".$filters['notid'].") ";
+}
+
+$fmezonev='uid';
+if ($filters[$fmezonev]>0){
+		$where.=$Sys_Class->andsupport($where);
+		$where.=$SD["table"].".`".$fmezonev."`='".$filters[$fmezonev]."'";
+}
+
+
+$fmezonev='ido';
+if ($filters[$fmezonev]>0){
+		$where.=$Sys_Class->andsupport($where);
+		$where.=$SD["table"].".`".$fmezonev."`<='".$filters[$fmezonev]."'";
+}
+
+$fmezonev='status';
+if ($filters[$fmezonev]>0){
+		$where.=$Sys_Class->andsupport($where);
+		$where.=$SD["table"].".`".$fmezonev."`='".$filters[$fmezonev]."'";
+}
+else 
+	if ($filters[$fmezonev]!='all'){
+		$where.=$Sys_Class->andsupport($where);
+		$where.=$SD["table"].".`".$fmezonev."`='2'";
+	}
+
+
+$fmezonev='tag';
+if ($filters[$fmezonev]!=''){
+	$tables.=',hir_tags,tags';
+	$where.=$Sys_Class->andsupport($where);
+	$where.=$SD["table"].".id=hir_tags.rec_id";
+	$where.=$Sys_Class->andsupport($where);
+	$where.="tags.id=hir_tags.tag_id";
+	
+	
+		$where.=$Sys_Class->andsupport($where);
+		$where.="tags.name LIKE '".$filters[$fmezonev]."'";
+}
+
+
+//szöveges feltételek	
+$fmezonev='cim_hu';
+if ($filters[$fmezonev]!=''){
+		$where.=$Sys_Class->andsupport($where);
+		$where.=$SD["table"].".`".$fmezonev."`LIKE'%".$filters[$fmezonev]."%'";
+}
+$fmezonev='cim_en';
+if ($filters[$fmezonev]!=''){
+		$where.=$Sys_Class->andsupport($where);
+		$where.=$SD["table"].".`".$fmezonev."`LIKE'%".$filters[$fmezonev]."%'";
+}
+
+$fmezonev='s';
+if ($filters[$fmezonev]!=''){
+
+		$where.=$Sys_Class->andsupport($where);
+		$where.="(".$SD["table"].".`cim_".$_SESSION["lang"]."`LIKE'%".$filters[$fmezonev]."%'";
+		$where.=" OR ".$SD["table"].".`hir_".$_SESSION["lang"]."`LIKE'%".$filters[$fmezonev]."%'";
+		$where.=" OR ".$SD["table"].".`hir2_".$_SESSION["lang"]."`LIKE'%".$filters[$fmezonev]."%')";
+}
+
+
+
+
+//ha van feltétel elé csapjuk hogy WHERE	
+if ($where!=''){
+	$where=" WHERE ".$where;	
+}
+
+//összes elem lekérdezése
+	$queryc = "SELECT ".$mezokc." FROM ".$tables.$where.' '.$order;
+	$resultc =db_Query($queryc, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"],$adatbazis["db1_srv"],$adatbazis["db1_db"], "select");
+	//echo $queryc;
+	//arraylist ($resultc);
+	$result['count']=$resultc[0]['count'];
+	
+//oldalazó	
+if ($page!='all'){
+//$maxegyoldalon=page_settings("max_service_perpage");
+
+$oldalakszama=ceil ($result['count']/$maxegyoldalon);
+if ($maxegyoldalon>0)
+{
+	if (($page=="") || ($page<=0)){
+		$oldal=0;
+	}
+	else {
+		$oldal=$page;
+	}	
+		
+
+	if ($page>=$oldalakszama){
+		$page=$oldalakszama-1;
+	}
+	//oldalak kiszámolása
+	
+	if ($oldalakszama!=""){
+		$limit= " LIMIT ".($page*$maxegyoldalon).",".$maxegyoldalon;
+	}
+		
+}
+}
+	$query = "SELECT ".$mezok." FROM ".$tables.$where.' '.$order.$limit;
+//echo $query ;
+
+
+	$result['datas'] =db_Query($query, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"],$adatbazis["db1_srv"],$adatbazis["db1_db"], "select");
+	$result['query']=$query ;
+	$result['error']=$error ;
+	return $result;
+}
+
+
+public function save($datas) 
+{
+	global $adatbazis;
+	$Sys_Class=new sys();
+	//tábla adatai
+	$SD=$this->table_fields();	
+	$mtbl=$this->table();	
+	
+//Alapértemlezett érték definiálás, jobb lenne a tábla strukturából megoldani ezeket
+//	if (!isset($datas['active']))$datas['active']='1';
+//arraylist($datas);
+	if ($datas["id"]<1)
+	{
+		//insert		
+		foreach ($mtbl["mezok"] as $mezoe)
+		{
+			$mezok.=$Sys_Class->comasupport($mezok);	
+			$mezok.=$mezoe['table'];	
+			$datasb.=$Sys_Class->comasupport($datasb);	
+			$datasb.="'".($datas[$mezoe['id']])."'";
+		}
+		$query="INSERT INTO  ".$SD["table"]." (".$mezok.")VALUES (".$datasb.")";
+		$result =db_Query($query, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"],$adatbazis["db1_srv"],$adatbazis["db1_db"], "INSERT");
+		echo $query.'<br>';
+		echo $error;		
+		$res=mysql_insert_id();
+	}
+	else
+	{
+		$res=$datas["id"];
+		//update		
+		foreach ($mtbl["mezok"] as $mezoe)
+		{
+			if (isset($datas[$mezoe['id']])){
+			$datasb.=$Sys_Class->comasupport($datasb);	
+			$datasb.="".$mezoe['table']." =  '".($datas[$mezoe['id']])."'";
+			}
+		}
+		$query="UPDATE  ".$SD["table"]." SET  ".$datasb."   WHERE  `id` =".$datas["id"]." LIMIT 1 ;";
+		$result =db_Query($query, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"],$adatbazis["db1_srv"],$adatbazis["db1_db"], "UPDATE");
+		/*echo $query;
+		echo $error;*/
+
+	}
+return($res);//csak id-t ad vissza
+}
+
+public function create_table(){
+	global $adatbazis;
+	$SD=$this->table_fields();	
+	$q="
+	CREATE TABLE IF NOT EXISTS ".$SD["table"]." (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `mid` bigint(20) NOT NULL DEFAULT '0',
+  `cim_hu` varchar(200) NOT NULL,
+  `hir_hu` text NOT NULL,
+  `hir2_hu` text NOT NULL,
+  `cim_en` varchar(200) NOT NULL,
+  `hir_en` text NOT NULL,
+  `hir2_en` text NOT NULL,
+  `uid` bigint(20) NOT NULL DEFAULT '0',
+  `ido` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `status` smallint(6) DEFAULT '1',
+  `sorrend` int(11) NOT NULL DEFAULT '10',
+  `like_count` INT NOT NULL,
+  `favorite_count` INT NOT NULL,
+  
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+	";
+		$result =db_Query($q, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"],$adatbazis["db1_srv"],$adatbazis["db1_db"], "CREATE");	
+		//echo $q.'<br>';
+		//echo $error;			
+}
+public function getimg($id,$x=369,$y=247){
+	global $adatbazis,$folders,$defaultimg,$hirimg_loc,$homeurl;
+	
+	$img=$hirimg_loc.''.$id.'/'.$id.'.jpg';
+	//$img=randomimgtofldr($mappa);
+	//echo $img;
+if (is_file($img)){
+	$img=$img;
+}
+else{
+	$img="uploads/".$defaultimg;
+}	
+$img=$homeurl."/picture2.php?picture=".encode($img)."&x=".$x."&y=".$y."&ext=.jpg";
+
+/*
+	if ($img!="none"){
+					//echo $mappa."/".$img;
+
+		$img="picture2.php?picture=".encode($img)."&x=".$x."&y=".$y."&ext=.jpg";
+			//echo $mappa;
+
+	}
+	else{
+		$img="uploads/".$defaultimg;
+	}*/
+	return($img);
+}
+
+public function createurl($hir){
+global $Text_Class,$homeurl,$separator;
+	return $homeurl.$separator."blog/".$Text_Class->to_link($hir["cim_".$_SESSION["lang"]])."/".($hir["id"]);
+}
+
+//tags
+public function create_tags_table(){
+	
+	
+$q="
+CREATE TABLE IF NOT EXISTS `page_tags` (
+  `rec_id` int(11) NOT NULL,
+  `tag_id` int(11) NOT NULL,
+  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`rec_id`,`tag_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+";	
+}
+
+
+
+//tags
+public function del_ad_tags($rec_id)
+{
+		//a bloghoz tartozó tagek törlése
+			$gettags_blog=$this->get_tags_blog($rec_id);
+			if (count($gettags_blog)){
+				foreach ($gettags_blog as $one)
+					$save_tags=array();
+					$save_tags["tag_id"]=$one["tag_id"];
+					$save_tags["rec_id"]=$one["rec_id"];
+			$this->update_tags_blog($save_tags);			
+			}	
+}
+
+public function save_ad_tags_field($data){
+{
+$this->del_ad_tag(array('rec_id'=>$data["id"]));
+		//vesszővel elválasztva a tag id-k.
+		//arraylist($data);
+		if ($data["blog_tags"]&&$data["id"]){
+			$tags=explode(',',$data["blog_tags"]);
+		
+				//a bloghoz tartozó tagek mentése		
+					if (count($tags))
+					{
+						foreach ($tags as $onetag){
+							if ($onetag>0){
+								$save_tags=array();
+								$save_tags["tag_id"]=$onetag;
+								$save_tags["rec_id"]=$data["id"];
+			
+									$this->save_ad_tag($save_tags);							
+							}
+						}
+						}
+						}
+						}
+
+}
+
+
+
+public function del_ad_tag($data){
+		global $adatbazis;
+
+	if ($data['rec_id']>0||$data['tag_id']>0)
+	{
+		
+	if ($data['rec_id']>0){	
+		$WHERE="`rec_id`='".$data['rec_id']."'";
+	}
+	
+
+	if ($data['tag_id']>0){
+	if ($WHERE!=""){	
+		$WHERE.=" AND ";
+	}	
+				
+		$WHERE.="`tag_id`='".$data['tag_id']."'";
+	}	
+	
+		$query="DELETE FROM `page_tags` WHERE ".$WHERE;
+		$result =db_Query($query, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"],$adatbazis["db1_srv"],$adatbazis["db1_db"], "delete");	
+			//echo $query;
+		
+	}
+
+
+	
+	
+}
+
+
+public function save_ad_tag($data){
+		global $adatbazis;
+
+		$query="INSERT INTO  `page_tags` (`rec_id` ,`tag_id` ,`created` )
+		VALUES ('".$data["rec_id"]."',  '".$data['tag_id']."', now());";
+		$result =db_Query($query, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"],$adatbazis["db1_srv"],$adatbazis["db1_db"], "insert");
+		//echo $query;
+	}
+
+public function get_ad_tag($filters){
+	global $adatbazis;
+
+	$where=" WHERE ";
+	$where.="page_tags.tag_id=tags.id";
+	$where.=" AND tags.status=2";
+
+
+	$mezok='page_tags.rec_id';
+	$mezok.=',page_tags.tag_id';
+	$mezok.=',tags.name';	
+
+	$tables='hir_tags,tags';
+	
+	
+if ($filters["rec_id"]>0){
+		$where.=" AND page_tags.rec_id='".$filters["rec_id"]."'";
+}
+if ($filters["tag_id"]>0){
+		$where.=" AND page_tags.tag_id='".$filters["tag_id"]."'";
+}
+
+if ($filters["ad"]>0){
+		$where.=" AND page_tags.rec_id in(".$filters["ad"].")";
+}
+if ($filters["tag"]>0){
+		$where.=" AND page_tags.tag_id='".$filters["tag"]."'";
+}
+
+	$query = "SELECT ".$mezok." FROM ".$tables.$where.' '.$order.' GROUP BY page_tags.tag_id';
+	//echo $query ;
+if (count($filters)>0)
+	$result =db_Query($query, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"],$adatbazis["db1_srv"],$adatbazis["db1_db"], "select");
+	return $result;
+}
+
+
+//like, favorietes
+public function user_like_ads($uid,$adid,$status=1)
+{
+	global $adatbazis;
+	$q="REPLACE INTO  `user_like_hir` (`user_id` ,`ad_id` ,`status`)VALUES ('".$uid."',  '".$adid."',  '".$status."'
+);";
+	$result =db_Query($q, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"],$adatbazis["db1_srv"],'', "insert");
+	
+}
+public function get_user_action_ads($table,$filters,$order=''){
+	global $adatbazis;
+	//table= user_like_ads
+if ($order!='')	{
+	$order=' ORDER BY '.$order;
+}
+	$where=" WHERE ";
+	$where.="".$table.".status='1'";
+	$mezok=$table.'.user_id';
+	$mezok.=','.$table.'.ad_id';	
+	$mezok.=','.$table.'.status';	
+	$mezok.=','.$table.'.created';	
+
+	$tables=''.$table.'';
+	
+
+		$mezok.=',user.nev';	
+		$mezok.=',user.unev';		
+		$tables.=',user';
+		$where.=" AND ".$table.".user_id=user.id";	
+
+	/*	$mezok.=',recipe.name';	
+		$tables.=',recipe';
+		$where.=" AND ".$table.".ad_id=recipe.id";	*/
+
+
+if ($filters["count_ad"]!=''){
+		$mezok.=',count('.$table.'.ad_id) as count';	
+		$group=' GROUP BY ad_id';
+}
+
+if ($filters["count_user"]!=''){
+		$mezok.=',count('.$table.'.user_id) as count';	
+		$group=' GROUP BY user_id';
+}
+
+/*
+if ($filters["job"]!=''){
+		$where.=" AND recipe.name LIKE'%".$filters["job"]."%'";
+}
+*/
+if ($filters["user"]!=''){
+		$mezok.=',count('.$table.'.ad_id) as count';	
+		$where.=" AND user.nev LIKE'%".$filters["user"]."%'";
+		$where.=" AND user.unev LIKE'%".$filters["user"]."%'";
+}
+if ($filters["tol"]>0){
+		$where.=" AND ".$table.".created>'".date("Y-m-d H:i:s",strtotime($filters["tol"]))."'";
+}
+if ($filters["ig"]>0){
+		$where.=" AND ".$table.".created<'".date("Y-m-d H:i:s",strtotime($filters["ig"]))."'";
+}
+if ($filters["user_id"]>0){
+		$where.=" AND ".$table.".user_id='".$filters["user_id"]."'";
+}
+if ($filters["ad_id"]>0){
+		$where.=" AND ".$table.".ad_id='".$filters["ad_id"]."'";
+}
+	$query = "SELECT ".$mezok." FROM ".$tables.$where.' '.$group.$order;
+	//echo $query ;
+if (count($filters)>0)
+	$result =db_Query($query, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"],$adatbazis["db1_srv"],$adatbazis["db1_db"], "select");
+	return $result;
+}
+
+
+
+public function get_user_action_ads_coma_fromad($array){
+$ret='';
+	if (count($array)&&$array!=false)foreach ($array as $elem){
+		if ($ret!='')$ret.=',';
+		$ret.=$elem['ad_id'];
+	}
+	return $ret;
+}
+
+//
+
+}
+
+?>

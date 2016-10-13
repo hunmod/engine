@@ -46,8 +46,9 @@
                             <table class="table table-condensed table-striped table-hover table-bordered pull-left" id="data-table">
                                 <thead>
                                 <tr>
-                                    <th style="width:5%">Id</th>
-                                    <th style="width:5%">Ár</th>
+                                    <th style="width:5%"><?= lan('id');?></th>
+                                    <th style="width:5%"><?= lan('ar');?></th>
+                                    <th style="width:5%"><?= lan('nev');?></th>
                                     <th style="width:10%" class="hidden-phone">Actions</th>
                                 </tr>
                                 </thead>
@@ -60,6 +61,13 @@
                                 <tr class="gradeX">
                                     <td><?php echo $data['id']; ?></td>
                                     <td><?php echo $data['priece']; ?></td>
+                                    <td><?php
+                                        $elem=$filtersh=array();
+                                        $filtersh["id"] = $data['id'];
+                                        $elemhuid = $RoomsClass->get_text($_SESSION['lang'], $filtersh);
+                                        $elem = $elemhuid['datas'][0];
+                                        echo $elem["title"];
+                                        ?></td>
                                     <td class="hidden-phone">
                                         <a href="<?php echo $server_url.$separator."".$getparams[0]."/edittext/".encode($data['id']);?>" class="actions-icons">
                                             <img src="<?php echo $server_url;?>styl/admin/img/edit-icon.png" alt="edit" class="icons">

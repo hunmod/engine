@@ -20,6 +20,16 @@
 		foreach($gp as $gpp){
 			if ($gpp!=$getparams[0] && $gpp!=$getparams[1])$getparams[]=$gpp;
 		}
+	}	
+	if ($getparams[0]=='blog' )
+	{
+		$gp=$getparams;
+		$getparams=array();	
+		$getparams[0]='page';
+		$getparams[1]='hir';
+		foreach($gp as $gpp){
+			if ($gpp!=$getparams[0] && $gpp!=$getparams[1])$getparams[]=$gpp;
+		}
 	}
 /*	if ($getparams[0]=='konyha' && $getparams[1]!='edit' )
 	{

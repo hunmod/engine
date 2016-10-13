@@ -1,7 +1,36 @@
-<?php 
-$widgets[]="items/user/web/widget_user_menu.php";
-$widgets[]="items/konyha/web/widget_submenu.php";
-$widgets[]="items/ads/web/widget_side1.php";
+<?php
+
+
+/*
+ FRANCIAAGY
+ HAJSZARITO
+ HIDROMASSZAZS-KAD
+ IROASZTAL
+ KAVE-TEA-BEKESZITES
+ KET-FO
+ KETAGYAS
+ KIRALYI-AGY
+ KONTOS
+ LCD-TV
+ LEGKONDI
+ MAGNES-AJTOZAR
+ MEGLEPETES
+ MINIBAR
+ PAPUCS
+ PROFI-ZENELEJATSZO
+ SZALLAS
+ SZEF
+ SZOBA-MERETE
+ SZOBASZERVIZ
+ SZOBATIPUS
+ TELJES-ELLATAS
+ TOROLKOZO-SZARITO
+ TOROLKOZO
+ TV
+ UDVOZLOITAL
+ ZUHANY
+*/
+
 
 $Sys_Class=new sys();
 
@@ -48,6 +77,8 @@ $status=$RoomsClass->status();
 if ($_GET["status"]){
     $filters['status']=$_GET["status"];
 }
+$filters['lang']=$_SESSION['lang'];
+
 /*if ($_GET["name"]){
     $filters['cim']=$_GET["name"];
 }

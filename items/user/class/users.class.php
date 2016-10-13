@@ -403,7 +403,31 @@ class user
 		}
 		return ($res);//csak id-t ad vissza
 	}
+	public function profielimgurl($user, $x = 200, $y = 200)
+	{
+		global $server_url, $oldalid, $defaultimg, $profilimage_loc;
+		$uid = $user["id"];
+		$profilimage_loc = 'uploads/profileimg/';
+//arraylist($user);
+		//$defaultimg2 = 'picture2.php?picture=' . encode($profilimage_loc . 'dummyimg.png') . '&x=' . $x . '&y=' . $y . '.jpg';
+		//$defpic = $server_url . 'picture2.php?picture=' . encode($profilimage_loc .'default.png') . '&x=' . $x . '&y=' . $y . '.jpg';
+		$defpic = $profilimage =  $server_url .'/uploads/profileimg/default.png';
 
+		if ($user['fbid'] != '') $fbpic = "https://graph.facebook.com/" . $user['fbid'] . "/picture?width=" . $x . "&height=" . $y . "";
+		if ($user['id'] != '') $upic = '' . $profilimage_loc . "p" . $uid . ".jpg";
+// echo ($upic)."|".$this->url_exists($upic)."|"; 
+		if (file_exists('./' . $upic)) {
+			//$ret = $server_url . 'picture2.php?picture=' . encode($upic) . '&x=' . $x . '&y=' . $y . '.jpg';
+			$ret = $server_url . ($upic);
+		} else if ($user['fbid'] != '') {
+			$ret = $fbpic;
+		} else {
+			$ret = $defpic;
+			//$server_url . '/uploads/profileimg/default.png';
+		}
+
+		return $ret;;
+	}
 	public function profielimg2($user, $x = 200, $y = 200)
 	{
 		global $server_url, $oldalid, $defaultimg, $profilimage_loc;

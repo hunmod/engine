@@ -1,17 +1,11 @@
-<!DOCTYPE html>
-<html lang="<?php echo $_SESSION["lang"];?>">
-  <head>
 <?php include_once ("./items/headelemets.php");?>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
    <?php include_once ("head.php");?>
- 
-
-  </head>
+   </head>
   <body>
-<?php //include_once ("confetti.php");?>
-  
-	<!-- HEADER -->
+  <?php //include_once ("confetti.php");?>
+  	<!-- HEADER -->
     <header class="container-fluid">
 		<div class="container-fluid">
 <nav class="navbar navbar-default navbar-fixed-top">

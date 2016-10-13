@@ -1,15 +1,15 @@
-﻿<?php
+<?php
 
 //include system classes
 include_once("remotedb3.php");
 include_once("items/admin/data/class/sys.class.php");
+include_once('items/admin/data/class/lang.class.php');
 include_once('items/admin/data/class/menu.class.php');
 include_once('items/admin/data/class/file_upload.class.php');
 include_once('items/admin/data/class/form.class.php');
 include_once('items/admin/data/class/text.class.php');
 include_once('items/admin/data/class/time.class.php');
 include_once('items/admin/data/class/location.class.php');
-include_once('items/admin/data/class/lang.class.php');
 include_once('items/user/class/users.class.php');
 //construct classes
 $MenuClass = new menu();
@@ -20,31 +20,15 @@ $Sys_Class = new sys();
 $lang_Class = new lang();
 $Time_Class = new time();
 $Sys_Class = new sys();
-$User_Class=$UserClass=new user();
+$User_Class = $UserClass = new user();
 
-//fileminimizer
-include('class/minimize.class.php');
-$MakeMin = $makemin = new hnmdminimize();
-
-include_once("fugvenyek.php");
-include_once("class/class.yandextranslate.php");
-$Translate = $trnslate = new yandextranslate();
-
-
-
+//idő változók
+date_default_timezone_set('UTC');
+$t = time();
+$date = date("YmdHis");
+//lang
 $default_lang = "hu";
 $default_deviza = "HUF";
-
-//Ez a file az oldal beállításait végzi.
-
-/*
-if ($_SESSION["country_code"] == "") {
-    $json = file_get_contents('http://getcitydetails.geobytes.com/GetCityDetails?fqcn=' . $Sys_Class->getIP_cdata());
-    $data = json_decode($json, true);
-    //arraylist($data);
-    $_SESSION["country_code"] = $data["geobytesinternet"];
-}
-*/
 
 //nyelv beállítása
 if (isset($_GET["lang"]))
@@ -68,10 +52,36 @@ switch ($_SESSION['lang']) {
         break;
 
 }
-//idő változók
-date_default_timezone_set('UTC');
-$t = time();
-$date = date("YmdHis");
+
+//default lang
+$inputFileName = './lang.xls';
+$lan = $lang_Class->xlstoarray($inputFileName, $xlslangid);
+
+//abrakahasbanhoz kell az egyéb szövegek miatt
+$inputFileName = 'items/' . 'konyha' . '/lang/lang.xls';
+if (file_exists($inputFileName)) {
+    $lan += $lang_Class->xlstoarray($inputFileName, $xlslangid);
+}
+
+//fileminimizer
+include('class/minimize.class.php');
+$MakeMin = $makemin = new hnmdminimize();
+
+include_once("fugvenyek.php");
+include_once("class/class.yandextranslate.php");
+$Translate = $trnslate = new yandextranslate();
+
+$avaibleLang[] = 'hu';
+$avaibleLang[] = 'en';
+$avaibleLang[] = 'de';
+/*
+if ($_SESSION["country_code"] == "") {
+    $json = file_get_contents('http://getcitydetails.geobytes.com/GetCityDetails?fqcn=' . $Sys_Class->getIP_cdata());
+    $data = json_decode($json, true);
+    //arraylist($data);
+    $_SESSION["country_code"] = $data["geobytesinternet"];
+}
+*/
 
 include_once("config.php");
 
@@ -102,16 +112,15 @@ define("domain", $domain);
 define("homeurl", $homeurl);
 define("serverurl", $server_url);
 define("uploadfolder", $folders["uploads"]);
-define("defaultimg",$defaultimg);
-define("lang",$_SESSION["lang"]);
+define("defaultimg", $defaultimg);
+define("lang", $_SESSION["lang"]);
 
 //serverurl to js
-$extrascript[] = '<script> var server_url="' .serverurl. '";</script>';
+$extrascript[] = '<script> var server_url="' . serverurl . '";</script>';
 
 //separator if exist .htacces is ok else ? &
 $separator = "/";
 $separator2 = "?";
-
 
 
 //include_once ("fnct/web/belepetuser.php"); 
@@ -124,15 +133,19 @@ foreach ($items_mappa as $onefolder) {
     if (file_exists($configfile)) {
         include_once($configfile);
     }
-}
+    $inputFileName = 'items/' . $onefolder . '/lang/lang.xls';
+    if (file_exists($inputFileName)) {
+        $lan += $lang_Class->xlstoarray($inputFileName, $xlslangid);
+    }
 
+
+}
 
 //read page settings from db
 
-
-if (page_settings("title") != "") $oldalneve = page_settings("title");
-if (page_settings("keywords") != "") $metakey_words = page_settings("keywords");
-if (page_settings("description") != "") $meta_description = page_settings("description");
+if (page_settings("title_" . $_SESSION["lang"]) != "") $oldalneve = page_settings("title_" . $_SESSION["lang"]);
+if (page_settings("keywords_" . $_SESSION["lang"]) != "") $metakey_words = page_settings("keywords_" . $_SESSION["lang"]);
+if (page_settings("description_" . $_SESSION["lang"]) != "") $meta_description = page_settings("description_" . $_SESSION["lang"]);
 if (page_settings("sitemail") != "") $sitemail = page_settings("sitemail");
 if (page_settings("analitics_id") != "") $analitics_id = page_settings("analitics_id");
 if (page_settings("googleplus_id") != "") $googleplus_id = page_settings("googleplus_id");
@@ -160,6 +173,7 @@ if (page_settings("timezone") != 0) {
     $shift = $timezone . " hours"; //SZERVER időhöz képest +/-
     $date = date("YmdHis", strtotime($shift, strtotime($date)));
 }
+$onlydateprint = date("Y-m-d", strtotime($date));
 
 //deafult keywords
 $keywords = $metakeywords;
@@ -170,119 +184,98 @@ include('items/user/data/login.php');
 
 
 //Modul Select
-    if ($_GET["q"] != "") {
-        $getparams = explode("/", $_GET["q"]);
-        //ha egy elemből áll a kapott érték
-        if (count($getparams) == 1) {
-            //SEO URL
-            $getparams = explode("/", $Sys_Class->shorturl_getparams($_GET["q"]));
-        }
-        //other routes
-        include("seoredirect.php");
-        if ($getparams[0] == 'm') {
-            //Menu_id
-            $getparams2 = $getparams;
-            $egymenuadat = $MenuClass->get_one_menu($getparams[1]);
-            //arraylist($egymenuadat);
-            if ($egymenuadat["item"] == "") {
-                $egymenuadat["item"] = $getparams[1];
-            }
-            $getparams_uri = $egymenuadat["modul"] . "/" . $egymenuadat["file"] . $MenuClass->menulink($egymenuadat["item"]);
-            $getparams = explode("/", $getparams_uri);
-        }
-
-    } else {
-//error page
-        $getparams[0] = "start";
-        $getparams[1] = "e404";
-        $getparams[2] = "";
+if ($_GET["q"] != "") {
+    $getparams = explode("/", $_GET["q"]);
+    //ha egy elemből áll a kapott érték
+    if (count($getparams) == 1) {
+        //SEO URL
+        $getparams = explode("/", $Sys_Class->shorturl_getparams($_GET["q"]));
     }
+    //other routes
+    include("seoredirect.php");
+    if ($getparams[0] == 'm') {
+        //Menu_id
+        $getparams2 = $getparams;
+        $egymenuadat = $MenuClass->get_one_menu($getparams[1]);
+        //arraylist($egymenuadat);
+        if ($egymenuadat["item"] == "") {
+            $egymenuadat["item"] = $getparams[1];
+        }
+        $getparams_uri = $egymenuadat["modul"] . "/" . $egymenuadat["file"] . $MenuClass->menulink($egymenuadat["item"]);
+        $getparams = explode("/", $getparams_uri);
+    }
+
+} else {
+//error page
+    $getparams[0] = "start";
+    $getparams[1] = "e404";
+    $getparams[2] = "";
+}
 //arraylist($getparams);
 
-//lang
-    //default lang
-    $inputFileName = './lang.xls';
-    $lan = $lang_Class->xlstoarray($inputFileName, $xlslangid);
-    //abrakahasbanhoz kell az egyéb szövegek miatt
-    $inputFileName = 'items/' . 'konyha' . '/lang/lang.xls';
-    if (file_exists($inputFileName)) {
-        $lan += $lang_Class->xlstoarray($inputFileName, $xlslangid);
+//az aktuálisan megnyitott file nyelvi állománya
+$inputFileName = 'items/' . $getparams[0] . '/lang/' . $getparams[1] . '.xls';
+if (file_exists($inputFileName)) {
+    $lan += $lang_Class->xlstoarray($inputFileName, $xlslangid);
+}
+
+//a rendszer által hasnálatos fájlok.
+$file = array();
+
+if (isset($getparams[0]) && isset($getparams[1]))
+    if (($getparams[0] != '') && ($getparams[1] != '')) {
+        $file['web'] = "items/" . $getparams[0] . "/web/" . $getparams[1] . ".php";
+        $file['css'] = "items/" . $getparams[0] . "/css/" . $getparams[1] . ".css";
+        $file['js'] = "/items/" . $getparams[0] . "/js/" . $getparams[1] . ".js";
+        $file['rss'] = "items/" . $getparams[0] . "/rss/" . $getparams[1] . ".php";
+        $file['sitemap'] = "items/" . $getparams[0] . "/sitemap/" . $getparams[1] . ".php";
+        $file['adat'] = "items/" . $getparams[0] . "/data/" . $getparams[1] . ".php";
     }
-    //az aktuálisan megnyitott modul nyelvi állománya
-    $inputFileName = 'items/' . $getparams[0] . '/lang/lang.xls';
-    if (file_exists($inputFileName)) {
-        $lan += $lang_Class->xlstoarray($inputFileName, $xlslangid);
-    }
-
-    //az aktuálisan megnyitott file nyelvi állománya
-    $inputFileName = 'items/' . $getparams[0] . '/lang/' . $getparams[1] . '.xls';
-    if (file_exists($inputFileName)) {
-        $lan += $lang_Class->xlstoarray($inputFileName, $xlslangid);
-    }
-
-    //a rendszer által hasnálatos fájlok.
-    $file = array();
-
-    if (isset($getparams[0]) && isset($getparams[1]))
-        if (($getparams[0] != '') && ($getparams[1] != '')) {
-            $file['web'] = "items/" . $getparams[0] . "/web/" . $getparams[1] . ".php";
-            $file['css'] = "items/" . $getparams[0] . "/css/" . $getparams[1] . ".css";
-            $file['js'] = "/items/" . $getparams[0] . "/js/" . $getparams[1] . ".js";
-            $file['rss'] = "items/" . $getparams[0] . "/rss/" . $getparams[1] . ".php";
-            $file['sitemap'] = "items/" . $getparams[0] . "/sitemap/" . $getparams[1] . ".php";
-            $file['adat'] = "items/" . $getparams[0] . "/data/" . $getparams[1] . ".php";
-
-            $inputFileName = 'items/' . $getparams[0] . '/lang/' . $getparams[1] . '.xls';
-            if (file_exists($inputFileName)) {
-                $lan += $lang_Class->xlstoarray($inputFileName, $xlslangid);
-            }
-
-        }
-    $fomenu = $MenuClass->get_menus_down($menustart);
+$fomenu = $MenuClass->get_menus_down($menustart);
 //arraylist($getparams);
 //$fomenu=menuadat($menustart);
 
 //aktuális modul adatainak betöltése
-    if (isset($file['adat']))
-        if (file_exists($file['adat'])) {
-            include_once($file['adat']);
-        }
-
-
-    if (!isset($metakey_words)) {
-        $metakey_words = "";
+if (isset($file['adat']))
+    if (file_exists($file['adat'])) {
+        include_once($file['adat']);
     }
+
+
+if (!isset($metakey_words)) {
+    $metakey_words = "";
+}
 //ha nincs a modulnak kulcsszava akkor az alap kulcsszavakat vegye 
-    if (!isset($page_keywords)) {
-        $page_keywords = $metakey_words;
-    } else {
-        $page_keywords = $Text_Class->htmlfromchars($page_keywords);
+if (!isset($page_keywords)) {
+    $page_keywords = $metakey_words;
+} else {
+    $page_keywords = $Text_Class->htmlfromchars($page_keywords);
 //$page_keywords =createpagekeywords($Text_Class->tageketcsupaszit($Text_Class->htmlfromchars(str_replace('	', "",$page_keywords))),6);
-    }
+}
 
-    if (!isset($meta_description)) {
-        $meta_description = "";
-    }
+if (!isset($meta_description)) {
+    $meta_description = "";
+}
 //ha nincs a modulnak leírása akkor az alap leírást vegye 
-    if (!isset($page_description)) {
-        $page_description = $meta_description;
-    } else {
-        $page_description = $Text_Class->tageketcsupaszit($Text_Class->htmlfromchars($page_description));
-        $page_description = str_replace('	', "", $page_description);
-        if (strlen($page_description) > 165) {
-            $page_description = substr($page_description, 0, 162) . '...';
-        }
+if (!isset($page_description)) {
+    $page_description = $meta_description;
+} else {
+    $page_description = $Text_Class->tageketcsupaszit($Text_Class->htmlfromchars($page_description));
+    $page_description = str_replace('	', "", $page_description);
+    if (strlen($page_description) > 165) {
+        $page_description = substr($page_description, 0, 162) . '...';
     }
+}
 
-    if (!isset($meta_ogimage)) {
-        $meta_ogimage = "";
-    }
+if (!isset($meta_ogimage)) {
+    $meta_ogimage = "";
+}
 //ha nincs a modulnak og képe akkor az alap og képet vegye 
-    if (!isset($page_ogimage)) {
-        $page_ogimage = $meta_ogimage;
-    } else {
+if (!isset($page_ogimage)) {
+    $page_ogimage = $meta_ogimage;
+} else {
 
-    }
+}
 
 
 //ez igy nem ok
@@ -290,16 +283,16 @@ include('items/user/data/login.php');
 //arraylist($menunavigaciohoz);
 
 
-    /* CHRONE run */
-    include_once("chrone/web/action.php");
-    /* CHRONE run */
+/* CHRONE run */
+include_once("chrone/web/action.php");
+/* CHRONE run */
 
 if (page_settings("site_css") != "") {
     $template = "/styl/" . page_settings("site_css") . "/index";
     $stylefolder = "/styl/" . page_settings("site_css") . "/";
     $menuimg_folder = '.' . "/uploads/menu_img/";
 }
-if ($admintemplate==1){
+if ($admintemplate == 1) {
     $template = "/styl/admin/index";
     $stylefolder = "/styl/admin/";
 }
@@ -319,6 +312,9 @@ $jogok[$sni]["id"] = $sni;
 $sni = 4;
 $jogok[$sni]["nev"] = "Admin";
 $jogok[$sni]["id"] = $sni;
+$sni = 5;
+$jogok[$sni]["nev"] = "Superadmin";
+$jogok[$sni]["id"] = $sni;
 
 //statuszok
 $status = array();
@@ -331,8 +327,10 @@ $status[$sni]["id"] = $sni;
 $sni = 3;
 $status[$sni]["nev"] = "Jóváhagyásra vár";
 $status[$sni]["id"] = $sni;
+$sni = 4;
 $status[$sni]["nev"] = "Törölve";
 $status[$sni]["id"] = $sni;
+
 //staticvars
 $selected = 'selected="selected"';
 $checked = 'checked="checked"';

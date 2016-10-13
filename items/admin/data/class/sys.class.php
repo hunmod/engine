@@ -60,7 +60,7 @@ public function curl_srv($input,&$retval,&$inval)
 public function arraylist($input){
 if (count($input)>0){
 foreach ($input as $value1=>$first){
- echo '<div style="margin-left:10px;border:#000 1px solid;text-align:left;">';
+ echo '<div style="margin-left:10px;border:#000 1px solid;text-align:left;background: #fffacd;">';
  echo "<strong>".$value1."</strong><br>";
   if (!is_array($first))
   {
@@ -278,4 +278,5 @@ public function shorturl_getparams($getq)
 	}
 }
 }
+$SysClass=new sys();
 ?>

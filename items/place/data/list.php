@@ -72,7 +72,6 @@ $n=0;
 
 $c=1;
 
-                                       
 $page_description.=str_replace(' / ', '-', $breadtext);
 if(count($hirekelemek)>0)
 foreach($hirekelemek as $egy){
