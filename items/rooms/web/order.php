@@ -1,213 +1,146 @@
 <?php
-if ($getparams[2] > 0) {
+if ($getparams[2] > 0 && $getparams[3]=="room") {
+    $filterroom['id'] = $getparams[2];
+}
 
-    $filters['id'] = $getparams[2];
-    $filters['lang'] = $_SESSION['lang'];
-    $roomarray = $RoomsClass->get($filters, $order = '', $page = 'all');
-    $rooms =$roomarray["datas"] ;
+if ($getparams[2] > 0 && $getparams[3]=="pack") {
+    $filtercsomag['id'] = $getparams[2];
 }
-//ha kaptam adatot
-if ($order['gyereknum']<1) {
-    if ($_SESSION['gyerek']>0) {
+if ($getparams[3]!="pack") {
+    $filterroom['lang'] = $_SESSION['lang'];
+    $roomarray = $RoomsClass->get($filterroom, $order = '', $page = 'all');
+    $rooms = $roomarray["datas"];
+}
+if ($getparams[3]!="room") {
+    $filtercsomag['lang'] = $_SESSION['lang'];
+    $csomagok = $CsomagClass->get($filtercsomag, '', $page = 'all');
+}
+$order = $_POST;
+
+if ($order['gyereknum'] < 1) {
+    if ($_SESSION['gyerek'] > 0) {
         $order['gyereknum'] = $_SESSION['gyerek'];
-    }
-    else $order['gyereknum'] = 0;
+    } else $order['gyereknum'] = 0;
 }
-if ($order['felnottnum']<1) {
-    if ($_SESSION['felnott']>0) {
+if ($order['felnottnum'] < 1) {
+    if ($_SESSION['felnott'] > 0) {
         $order['felnottnum'] = $_SESSION['felnott'];
-    }
-    else $order['felnottnum'] = 0;
+    } else $order['felnottnum'] = 0;
 }
 
 if (!$order['erkezes']) {
     if ($_SESSION['from']) {
         $order['erkezes'] = $_SESSION['from'];
-    }
-    else $order['erkezes'] = $dateprint;
+    } else $order['erkezes'] = $dateprint;
 }
 if (!$order['tavozas']) {
     if ($_SESSION['to']) {
         $order['tavozas'] = $_SESSION['to'];
-    }
-    else $order['tavozas'] = $dateprint;
+    } else $order['tavozas'] = $dateprint;
 }
 ?>
 <script>
-    var childnum = 0;
-    var felnottnum = 0;
-    var roomneedval = 0;
-
-    $(window).load(function () {
-        var mychild = ($('#gyereknum').val());
-        for (i = 0; i < mychild; i++) {
-            addgyerek();
-        }
-        felnottnum =$('#felnottnum').val();
-        roomneed();
-        //ejaszakak kiszamolas
-        nigthwrite();
-        $('#felnottnum').on('change', function (a) {
-            SetSession('felnott', $('#felnottnum').val(), 'start/setsession');
-            //alert('ch');
-        });
-        $('#gyereknum').on('change', function (a) {
-            SetSession('gyerek', $('#gyereknum').val(), 'start/setsession');
-           var mnum= $('#gyereknum').val();
-            if (mnum>childnum){
-                for (i = childnum ; i < mnum; i++) {
-                    addgyerek();
-                }
-            }
-            if (mnum<childnum){
-                for (i = mnum ; i < childnum+1; i++) {
-                    removegyerek();
-                    sleep(10000);
-                }
-                console.log(childnum);
-
-            }
-            console.log(mnum);
-            //alert('ch');
-        });
-        $('#felnottplusf').on('click', function (a) {
-            SetSession('felnott', valboxplus('felnottnum'), 'start/setsession');
-            felnottnum++;
-            roomneed();
-            //alert('ch');
-        });
-        $('#gyerekplusf').on('click', function (a) {
-            SetSession('gyerek', valboxplus('gyereknum'), 'start/setsession');
-            addgyerek();
-            roomneed();
-            //alert('ch');
-        });
-        $('#felnottminusf').on('click', function (a) {
-            SetSession('felnott', valboxminus('felnottnum'), 'start/setsession');
-            felnottnum--;
-            roomneed();
-            //alert('ch');
-        });
-        $('#gyerekminusf').on('click', function (a) {
-            SetSession('gyerek', valboxminus('gyereknum'), 'start/setsession');
-            removegyerek();
-            roomneed();
-            //alert('ch');
-        });
-        $('#erkezes').blur(function(event)
-        {
-            nigthwrite()
-        });
-        $('#tavozas').blur(function(event)
-        {
-            nigthwrite()
-        });
-
-    });
-
-    function roomneed(){
-      var personas=parseInt(childnum)+parseInt(felnottnum);
-
-        $('#roomneed').html(Math.ceil(personas/2));
-    }
-
-    function agecalc(birthdate,nowdate){
-        if (nowdate){
-            datum1 = new Date(nowdate);
-        }else{
-            datum1 = new Date();
-        }
-        datum2 = new Date(birthdate);
-        kul = datum1.getTime()-datum2.getTime();
-        kor=Math.floor(kul/(1000*60*60*24)/365);
-        return(kor);
-    }
-    function daycalc(firstdate,seconddate){
-        datum1 = new Date(seconddate);
-        datum2 = new Date(firstdate);
-        kul = datum1.getTime()-datum2.getTime();
-        kor=Math.floor(kul/(1000*60*60*24));
-        return(kor);
-    }
-    function nigthwrite() {
-        firstdate = $('#erkezes').val();
-        seconddate = $('#tavozas').val();
-        days=daycalc(firstdate, seconddate);
-        if (days>1){
-            nigthst=days-1;
-        }
-        else nigthst=0;
-        $('#ejszam').val(nigthst);
-    }
-
-    function sleep(ms) {
-        return new Promise(resolve => setTimeout(resolve, ms));
-    }
-    function countgyerekek() {
-        return $('.childgroup').length;
-        //console.log($('.childgroup').length);
-    }
-    function removegyerek() {
-        $('.childgroup').last().remove();
-        childnum--;
-    }
     function addgyerek() {
-        var childataform = '<div class="childgroup">' + '<?php $FormClass->numbox('child['."'+".'childnum'."+'".'][birth]',null,lan('gyerekkora'),'hidden',1);?>' + '</div>';
+        var childataform = '<div class="childgroup">' + '<div class="col-sm-6"><?php $FormClass->datebox('child['."'+".'childnum'."+'".'][birth]',null,lan('birthdate'),'',1);?>' + '</div>' + '<div class="col-sm-6"><?php $FormClass->numbox('child['."'+".'childnum'."+'".'][age]','null',lan('age'),'',1);?>' + '</div></div>';
         $("#gyerekadat").append(childataform);
         childnum++;
+        $('.childgroup .maskdatebox').blur(function (event) {
+            name = $(this).attr('id');
+            mydate = $(this).val();
+            if (mydate) {
+                myage = agecalc(mydate);
+                name2 = name.replace('birth', "age");
+                agelement = document.getElementById(name2).value = myage;
+                SetSession(name, mydate, 'start/setsession');
+                SetSession(name2, myage, 'start/setsession');
+            }
+            babynum = countbabys(babyage);
+            roomneed();
+        });
+        $('.maskdatebox').mask("9999.99.99", {placeholder: 'yyyy.mm.dd'});
         // console.log(childnum);
     }
-
 </script>
-<div class="container room">
+<div class="container order">
     <div id="breadCrumb">
         <a href="<?php echo $homeurl; ?>"><?= lan('home'); ?></a> >
         <a href="<?php echo $homeurl . '' . $separator . shorturl_get("rooms/list/"); ?>"> <?= lan('szobalista'); ?></a>
         >
         <span><?php echo "" . ($adat["order"]); ?></span>
     </div>
-
-    <form>
+    <div>
+    <h2><?= lan('order');?></h2>
+    </div>
+    <form method="post">
         <div class="col-sm-6">
             <?php $FormClass->textbox('name', $order['name'], lan('nev'), 'hidden', 1); ?>
             <?php $FormClass->emailbox('email', $order['email'], lan('email'), 'hidden', 1); ?>
             <?php $FormClass->textbox('tel', $order['tel'], lan('tel'), 'hidden', 1); ?>
-            <?php $FormClass->textaera('message', $order['message'], lan('message'), 'hidden', 1); ?>
-
+            <?php $FormClass->textaera('message', $order['message'], lan('message'), 'hidden', 0); ?>
         </div>
         <div class="col-sm-6">
-
             <div class="col-xs-6">
                 <b><?= lan('felnott'); ?></b>
                 <span class="plus" id="felnottminusf">-</span>
-                <input type="text" id="felnottnum" name="felnottnum" value="<?= $order["felnottnum"]; ?>" maxlength="3" readonly>
+                <input type="text" id="felnottnum" name="felnottnum" value="<?= $order["felnottnum"]; ?>" maxlength="3"
+                       readonly>
                 <span class="plus" id="felnottplusf">+</span>
             </div>
             <div class="col-xs-6">
                 <b><?= lan('gyerek'); ?></b>
                 <span class="plus" id="gyerekminusf">-</span>
-                <input type="text" id="gyereknum" name="gyereknum" value="<?= $order["gyereknum"]; ?>" maxlength="3"  readonly>
+                <input type="text" id="gyereknum" name="gyereknum" value="<?= $order["gyereknum"]; ?>" maxlength="3"
+                       readonly>
                 <span class="plus" id="gyerekplusf">+</span>
             </div>
             <?php $FormClass->datebox('erkezes', $order['erkezes'], lan('erkezes'), 'hidden', 1); ?>
             <?php $FormClass->datebox('tavozas', $order['tavozas'], lan('tavozas'), 'hidden', 1); ?>
-            <?php $FormClass->numbox('ejszam', $order['ejszam'], lan('ejszam'), 'hidden', 1); ?>
-
+            <?php $FormClass->numbox('ejszam', $order['ejszam'], lan('ejszam'), '', 1); ?>
             <div id="gyerekadat"></div>
-
         </div>
         <div>
-           <?= lan('roomneed')?>:<span id="roomneed"></span>
+            <?= lan('roomneed') ?>:<span id="roomneed"></span>
         </div>
         <div class="clearfix"></div>
-<input type="submit" class="btn btn-creme">
+        <?php
+        //arraylist($rooms);
+        ?>
+        <div class="clearfix"></div>
+        <div  class="priecelist">
+            <?php foreach ($rooms as $roomdatas) {
+                 //lenesarray['datas'][0];
+                // arraylist($roomdatas);
+                include('formelement_order_room.php');
+            ?>
+        <?php
+        $c++;
+        } ?>
+        <?php foreach ($csomagok["datas"] as $csomag) {
+                $csomag["connectedservices"]=csomagtags_json_from($csomag);
+              // arraylist($elem["connectedservices"]['services']['rooms']);
+                    //rooms
+                 foreach ($csomag["connectedservices"]['services']['rooms'] as $room){
+                     $filterssubroom['lang'] = $_SESSION['lang'];
+                     $order['rooms'][$c]["id"] = $filterssubroom['id'] = $room['id'];
+                     $order['rooms'][$c]["csomagid"]=$csomag['id']+2;
+                     $order['rooms'][$c]["person"]=2-$order['rooms'][$c]["foglalt"];
+                     $ideglenesarray = $RoomsClass->get($filterssubroom, '', $page = 'all');
+
+                     $roomdatas=$ideglenesarray['datas'][0];
+                    // arraylist($roomdatas);
+                        include('formelement_order_room.php');
+                     $c++;
+                 }
+
+                ?>
+        <?php
+        }
+        //arraylist($order);
+        ?>
+        <div class="clearfix"></div>
+</div>
+        <input type="submit" class="btn btn-creme">
 
     </form>
 
-    <div class="clearfix"></div>
-    <?php
-    foreach ($rooms as $elem){
-        include('items/rooms/web/room_display_prieces.php');
-    }
-    ?>
 </div>

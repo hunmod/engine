@@ -173,6 +173,26 @@ public function table($data=array()){
 	$mezo["value"]=$data[$mezo["id"]];	
 		$mezok[]=$mezo;
 		$mezo=array();
+			
+	$mezo["id"]='szepkartya';
+	$mezo["table"]=$table.'.'.'`'.$mezo["id"].'`';
+	$mezo["name"]="szepkartya";
+	$mezo["display"]=0;
+	$mezo["type"]='int';
+	$mezo["displaylist"]=0;
+	$mezo["value"]=$data[$mezo["id"]];	
+		$mezok[]=$mezo;
+		$mezo=array();
+			
+	$mezo["id"]='erzsebetkartya';
+	$mezo["table"]=$table.'.'.'`'.$mezo["id"].'`';
+	$mezo["name"]="erzsebetkartya";
+	$mezo["display"]=0;
+	$mezo["type"]='int';
+	$mezo["displaylist"]=0;
+	$mezo["value"]=$data[$mezo["id"]];	
+		$mezok[]=$mezo;
+		$mezo=array();
 		
 	$mezo["id"]='bringa';
 	$mezo["table"]=$table.'.'.'`'.$mezo["id"].'`';
@@ -191,6 +211,53 @@ public function table($data=array()){
 	$mezo["displaylist"]=0;
 	$mezo["value"]=$data[$mezo["id"]];
 		$mezok[]=$mezo;
+
+	$mezo["id"]='dohanyzo';
+	$mezo["table"]=$table.'.'.'`'.$mezo["id"].'`';
+	$mezo["name"]="dohanyzo";
+	$mezo["display"]=0;
+	$mezo["type"]='bool';
+	$mezo["displaylist"]=0;
+	$mezo["value"]=$data[$mezo["id"]];
+		$mezok[]=$mezo;
+
+	$mezo["id"]='balatonltav';
+	$mezo["table"]=$table.'.'.'`'.$mezo["id"].'`';
+	$mezo["name"]="balatonltav";
+	$mezo["display"]=0;
+	$mezo["type"]='bool';
+	$mezo["displaylist"]=0;
+	$mezo["value"]=$data[$mezo["id"]];
+		$mezok[]=$mezo;
+
+	$mezo["id"]='medence';
+	$mezo["table"]=$table.'.'.'`'.$mezo["id"].'`';
+	$mezo["name"]="medence";
+	$mezo["display"]=0;
+	$mezo["type"]='bool';
+	$mezo["displaylist"]=0;
+	$mezo["value"]=$data[$mezo["id"]];
+	$mezok[]=$mezo;
+
+	$mezo["id"]='telen';
+	$mezo["table"]=$table.'.'.'`'.$mezo["id"].'`';
+	$mezo["name"]="telen";
+	$mezo["display"]=0;
+	$mezo["type"]='bool';
+	$mezo["displaylist"]=0;
+	$mezo["value"]=$data[$mezo["id"]];
+	$mezok[]=$mezo;
+
+	$mezo["id"]='specdieta';
+	$mezo["table"]=$table.'.'.'`'.$mezo["id"].'`';
+	$mezo["name"]="specdieta";
+	$mezo["display"]=0;
+	$mezo["type"]='bool';
+	$mezo["displaylist"]=0;
+	$mezo["value"]=$data[$mezo["id"]];
+	$mezok[]=$mezo;
+
+
 
 	$mezo["id"]='sport';
 	$mezo["table"]=$table.'.'.'`'.$mezo["id"].'`';
@@ -261,6 +328,15 @@ public function table($data=array()){
 	$mezo["id"]='email';
 	$mezo["table"]=$table.'.'.'`'.$mezo["id"].'`';
 	$mezo["name"]="email";
+	$mezo["display"]=0;
+	$mezo["type"]='varchar';
+	$mezo["displaylist"]=0;
+	$mezo["value"]=$data[$mezo["id"]];
+	$mezok[]=$mezo;	
+	
+	$mezo["id"]='telefon';
+	$mezo["table"]=$table.'.'.'`'.$mezo["id"].'`';
+	$mezo["name"]="telefon";
 	$mezo["display"]=0;
 	$mezo["type"]='varchar';
 	$mezo["displaylist"]=0;
@@ -536,39 +612,24 @@ public function create_table(){
 	global $adatbazis;
 	$SD=$this->table_fields();	
 	$q="
-CREATE TABLE IF NOT EXISTS ".$SD["table"]." (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nev` varchar(500) NOT NULL,
-  `tipus` int(11) NOT NULL,
-  `varos` int(11) NOT NULL,
-  `zip` varchar(5) NOT NULL,
-  `street` varchar(300) NOT NULL,
-  `hsz` varchar(50) NOT NULL,
-  `szamlazasicim` text NOT NULL,
-  `leiras` text NOT NULL,
-  `megjegyzes` text NOT NULL,
-  `roki` int(11) NOT NULL,
-  `konyha` int(11) NOT NULL,
-  `gyerek` int(11) NOT NULL,
-  `facebook` varchar(200) NOT NULL,
-  `web` varchar(500) NOT NULL,
-  `email` varchar(500) NOT NULL,
-  `tel` VARCHAR(40) NOT NULL,
-  `pos` int(1) NOT NULL,
-  `sport` int(1) NOT NULL,
-  `allat` int(1) NOT NULL,
-  `bringa` int(1) NOT NULL,
-  `wifi` int(1) NOT NULL,
-  `support` int(1) NOT NULL,
+	CREATE TABLE IF NOT EXISTS ".$SD["table"]." (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `mid` bigint(20) NOT NULL DEFAULT '0',
+  `cim` varchar(200) NOT NULL,
+  `hir` text NOT NULL,
+  `hir2` text NOT NULL,
+  `telefon` text NOT NULL,
+  `uid` bigint(20) NOT NULL DEFAULT '0',
   `ido` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `sorrend` int(11) NOT NULL,
-  `status` int(11) NOT NULL,
-  `uid` int(11) NOT NULL,
+  `status` smallint(6) DEFAULT '1',
+  `sorrend` int(11) NOT NULL DEFAULT '10',
+  `like_count` INT NOT NULL,
+  `favorite_count` INT NOT NULL,
+  
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=100 ;
-
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 	";
-		$result =db_Query($q, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"],$adatbazis["db1_srv"],$adatbazis["db1_db"], "CREATE");
+		//$result =db_Query($q, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"],$adatbazis["db1_srv"],$adatbazis["db1_db"], "CREATE");
 		//echo $q.'<br>';
 		//echo $error;			
 }
@@ -602,7 +663,7 @@ $img=$homeurl."/picture2.php?picture=".encode($img)."&x=".$x."&y=".$y."&ext=.jpg
 
 public function createurl($hir){
 global $Text_Class,$homeurl,$separator;
-	return $homeurl.$separator."bf/place/".($hir["id"]."/".$Text_Class->to_link($hir["nev"])."");
+	return $homeurl.$separator."hir/".$Text_Class->to_link($hir["cim"])."/".($hir["id"]);
 }
 //
 

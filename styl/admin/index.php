@@ -36,11 +36,55 @@
                         $(this).toggleClass("fa-arrow-circle-o-up");
                         $(this).toggleClass("fa-arrow-circle-o-down");
                     });
+					
+    jQuery(function ($) {
+        $.datepicker.regional['hu'] = {
+            closeText: 'bezárás',
+            prevText: '&laquo;&nbsp;vissza',
+            nextText: 'előre&nbsp;&raquo;',
+            currentText: 'ma',
+            monthNames: ['Január', 'Február', 'Március', 'Április', 'Május', 'Június',
+                'Július', 'Augusztus', 'Szeptember', 'Október', 'November', 'December'],
+            monthNamesShort: ['Jan', 'Feb', 'Már', 'Ápr', 'Máj', 'Jún',
+                'Júl', 'Aug', 'Szep', 'Okt', 'Nov', 'Dec'],
+            dayNames: ['Vasárnap', 'Hétfö', 'Kedd', 'Szerda', 'Csütörtök', 'Péntek', 'Szombat'],
+            dayNamesShort: ['Vas', 'Hét', 'Ked', 'Sze', 'Csü', 'Pén', 'Szo'],
+            dayNamesMin: ['V', 'H', 'K', 'Sze', 'Cs', 'P', 'Szo'],
+            weekHeader: 'Hé',
+            dateFormat: 'yy.mm.dd',
+            firstDay: 1,
+            isRTL: false,
+            showMonthAfterYear: false,
+            yearSuffix: '',
+            buttonImage:homeurl+'/scripts/images/calendar.gif'
+           /* beforeShow: function ( inst) {
+                setTimeout(function () {
+                    var p = $( ".timeselectframe:first" );
+                    var k = $( ".timeselecthead:first" );
+                    var kb = $( ".timeselecttext:first" );
+                    var position = p.offset();
+                    var positionk = k.position();
+                    var positionb = kb.position();
+                   // $('#ui-datepicker-div').css({ top: position.top+positionk.height+positionb.height, left:  position.left });
+                    console.log(position);
+                    console.log(positionk);
+                    console.log(positionb);
+                    $('#ui-datepicker-div').css({ top: positionk.top+90, left:  position.left+10,width:300 });
+                }, 10);
+            }*/
+            };
+        $.datepicker.setDefaults($.datepicker.regional['hu']);
+    });					
+					
+					
+					
+					
+					
                 });
 
 
-/* Súgó: http://xdsoft.net/jqplugins/datetimepicker/
-
+/* Súgó: http://xdsoft.net/jqplugins/datetimepicker/*/
+/*
 jQuery(function($) {
   $('.datepicker').datetimepicker({
     onGenerate:function( ct ){
@@ -65,6 +109,7 @@ jQuery(function($) {
   });
 });
 */
+
 
         </script>
 

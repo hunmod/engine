@@ -38,6 +38,9 @@
         });
 
 
+		
+		
+
         $('.image-editor').cropit({
             imageState: {
                 src: '<?php echo $nimg;?>',
@@ -169,7 +172,7 @@
                <b><?php echo lan('megjelenik'); ?>:</b>
             </div>
             <div class="col-sm-6">
-                <?php $form->datebox('fromshow',$adat['fromshow'], lan("tol"),null,1); ?>
+                <?php $form->datebox('fromshow',$adat['fromshow'], lan("tol"),'datepicker',1); ?>
             </div>
             <div class="col-sm-6">
                 <?php $form->datebox('toshow',$adat['toshow'], lan("ig"),null,1); ?>
@@ -219,3 +222,15 @@
     <!--div class="col-md-3 col-sm-4">
 </div-->
 </div>
+<script>
+       $("#fromdate,#todate,#fromshow,#toshow").datepicker({
+            altFormat: "yyyy-mm-dd",
+            defaultDate: "+1w",
+            changeMonth: true,
+            showOn: "button",
+            numberOfMonths: 1,
+            dateFormat: 'yy-mm-dd',
+            firstDay: 1
+		
+        });
+</script>

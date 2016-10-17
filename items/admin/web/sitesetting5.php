@@ -46,7 +46,7 @@ foreach ($css_array as $cssfld) {
 
                             <?php
                             $Form_Class->selectbox("menu_root_" . $alan, $rootmenu_array, array('value' => 'id', 'name' => 'nev'), page_settings("menu_root_" . $alan), 'Rootmenu(' . $alan . ')');
-                            $Form_Class->textbox('start_page_' . $alan . $alan, page_settings('start_page_' . $alan), 'Kezdő oldal (' . $alan . ')');
+                            $Form_Class->textbox('start_page_' . $alan, page_settings('start_page_' . $alan), 'Kezdő oldal (' . $alan . ')');
                             $Form_Class->textbox('keywords_' . $alan, page_settings("keywords_" . $alan), 'Kulcsszavak (Keywords)' . $alan . '');
                             $Form_Class->textbox('title_' . $alan, page_settings("title_" . $alan), 'title (Description)' . $alan . '');
                             $Form_Class->textbox('description_' . $alan, page_settings("description_" . $alan), 'description (' . $alan . ')');

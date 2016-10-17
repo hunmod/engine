@@ -16,11 +16,7 @@
                                 <?php $form->textbox('name',$_GET["name"],'name',"sr-only");?>
                             </div>
                             <div class="form-group">
-                                <?php  $form->selectboxeasy2("status",$status,$_GET["status"],"status");?>
-                            </div>
-
-                            <div class="form-group">
-                                <?php $Form_Class->selectbox2("mid",$menuk,array('value'=>'id','name'=>'nev'),$_GET["mid"],"Menu");?>
+                                <?php  $form->selectboxeasy2("status",$csomagtatus,$_GET["status"],"status");?>
                             </div>
                             <button type="submit" class="btn btn-success" data-original-title=""><?= lan('search')?></button>
                         </form>

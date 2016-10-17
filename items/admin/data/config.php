@@ -4,8 +4,7 @@ $tblmodul = 'page_settings';
 $tbl[$tblmodul] = $adatbazis["db1_db"] . "." . $prefix . $prefix_pagesetting . "system_sitesetting";
 $tblmodul = 'short_url';
 $tbl[$tblmodul] = $adatbazis["db1_db"] . "." . $prefix . "short_url";
-$tblmodul = 'menu';
-$tbl[$tblmodul] = $adatbazis["db1_db"] . "." . $prefix . "menu";
+
 
 $file_structuct = array();
 $file_structuct["modules"] = "admin";
@@ -29,6 +28,14 @@ $adminmenu2[] = $file_structuct;
 //
 $file_structuct["name"] = "Socialmedia";
 $file_structuct["file"] = "sitesetting6";
+$adminmenu2[] = $file_structuct;
+
+$file_structuct["name"] = "Menü";
+$file_structuct["file"] = "menu";
+$adminmenu2[] = $file_structuct;
+
+$file_structuct["name"] = "varoslista";
+$file_structuct["file"] = "citys";
 $adminmenu2[] = $file_structuct;
 //
 $file_structuct["name"] = "Email";
@@ -56,9 +63,6 @@ unset($file_structuct["alatta"]);
 $file_structuct["file"]="users";
 $adminmenu[]=$file_structuct;
 */
-$file_structuct["name"] = "Menü";
-$file_structuct["file"] = "menu";
-$adminmenu[] = $file_structuct;
 
 
 /*admin menü

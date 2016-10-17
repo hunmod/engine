@@ -105,7 +105,7 @@ class formobjects
             $reqval = ' required="required"';
         }
         echo '<label class="' . $class . '" for="inputDefault">' . $caption . '</label>' .
-            '<input type="date" class="form-control" name="' . $name . '" id="' . $name . '" placeholder="' . $caption . '" value="' . $value . '"' . $reqval . '>';
+            '<input type="text" class="form-control maskdatebox" name="' . $name . '" id="' . $name . '" placeholder="' . $caption . '" value="' . $value . '"' . $reqval . '>';
     }
 
     public function textaera($name, $value, $caption = "", $class = "form-control", $requied = 0)

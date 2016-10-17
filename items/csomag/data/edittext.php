@@ -10,11 +10,11 @@ $admintemplate = 1;
 /*$extrascript[]= '
 	<script src="'.$server_url.'scripts/jquery.ui.timepicker.js"></script>
 	<link rel="stylesheet" href="'.$server_url.'scripts/jquery.ui.timepicker.css" />
-	';*/
+	';
 $extrascript[] = '
 	<script src="' . $server_url . '/scripts/ckeditor/ckeditor.js" type="text/javascript"></script>
 	<script src="' . $server_url . '/scripts/ckfinder/ckfinder.js" type="text/javascript"></script>
-	';
+	';*/
 $extrascript[] = '
 	<script src="' . $homeurl . '/scripts/cropit-master/dist/jquery.cropit.js"></script>
 	';
@@ -77,7 +77,7 @@ if ($_POST['hirsave'] == '1') {
     }
 //from file
     $target = $UploadClass->uploadimg('photo', $csomag_loc . '/' . $hirid, '' . $hirid, $imgx, $imgy, true, true, true);
-//header("Location:".$homeurl."/rooms/edittext/".encode($hirid));
+header("Location:".$homeurl."/csomag/edittext/".encode($hirid));
 }
 
 if (decode($getparams[2]) > 0) {

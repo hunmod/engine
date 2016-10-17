@@ -764,8 +764,8 @@ public function save($datas)
 		}
 		$query="INSERT INTO  ".$SD["table"]." (".$mezok.")VALUES (".$datasb.")";
 		$result =db_Query($query, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"],$adatbazis["db1_srv"],$adatbazis["db1_db"], "INSERT");
-		echo $query.'<br>';
-		echo $error;		
+	//echo $query.'<br>';
+	//	echo $error;		
 		$res=mysql_insert_id();
 	}
 	else

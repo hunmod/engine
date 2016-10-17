@@ -3,6 +3,7 @@
 [HUNMOD WEB ENGINE]
 Ez a file Behúzza a beállítási változókat..
 */
+//var_dump($_SERVER['SERVER_NAME']);
 $urlpre = "";
 $page_config_file = '';
 $_SESSION["page_install"] = "1";
@@ -34,7 +35,7 @@ switch ($_SERVER["HTTP_HOST"]) {
         $sfilename = "landver.txt";
         break;
     default:
-        $sfilename = "default.txt";
+        $sfilename = $_SERVER['SERVER_NAME'].".txt";
         break;
 }
 $sfile = "/items/config_files/" . $sfilename;

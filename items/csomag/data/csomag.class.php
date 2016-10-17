@@ -400,16 +400,17 @@ class csomag
                     $oldal = 0;
                 } else {
                     $oldal = $page;
+					$oldal--;
                 }
+				
 
-
-                if ($page >= $oldalakszama) {
-                    $page = $oldalakszama - 1;
+                if ($oldal >= $oldalakszama) {
+                    $oldal = $oldalakszama - 1;
                 }
                 //oldalak kisz�mol�sa
 
                 if ($oldalakszama != "") {
-                    $limit = " LIMIT " . ($page * $maxegyoldalon) . "," . $maxegyoldalon;
+                    $limit = " LIMIT " . ($oldal * $maxegyoldalon)-$maxegyoldalon . "," . $maxegyoldalon;
                 }
 
             }
@@ -421,6 +422,7 @@ class csomag
         $result['datas'] = db_Query($query, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"], $adatbazis["db1_srv"], $adatbazis["db1_db"], "select");
         $result['query'] = $query;
         $result['error'] = $error;
+		//arraylist($result);
         return $result;
     }
 
@@ -494,7 +496,7 @@ class csomag
 //�sszes elem lek�rdez�se
         $queryc = "SELECT " . $mezokc . " FROM " . $tables . $where . ' ' . $order;
         $resultc = db_Query($queryc, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"], $adatbazis["db1_srv"], $adatbazis["db1_db"], "select");
-        //echo $queryc;
+       // echo $queryc;
         //arraylist ($resultc);
         $result['count'] = $resultc[0]['count'];
 
@@ -503,7 +505,7 @@ class csomag
 //$maxegyoldalon=page_settings("max_service_perpage");
             $oldalakszama = ceil($result['count'] / $maxegyoldalon);
             if ($maxegyoldalon > 0) {
-                if (($page == "") || ($page <= 0)) {
+                if (($page == "") || ($page <= 1)) {
                     $oldal = 0;
                 } else {
                     $oldal = $page;
@@ -632,7 +634,7 @@ class csomag
     public function createurl($hir)
     {
         global $Text_Class, $homeurl, $separator;
-        return $homeurl . $separator . "csomag/csomag/" . $hir["id"] . "/" . $Text_Class->to_link($hir["hu"]["title"]);
+        return $homeurl . $separator . "csomag/csomag/" . $hir["id"] . "/" . $Text_Class->to_link($hir["title"]);
     }
 
     public function create_table()
@@ -674,5 +676,5 @@ $CsomagClass = new csomag();
 
 $CsomagClass->create_table();
 $CsomagClass->create_table_text('hu');
-$roomstatus = $CsomagClass->status();
+$csomagtatus = $CsomagClass->status();
 ?>

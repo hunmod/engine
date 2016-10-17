@@ -7,6 +7,19 @@
 <?php
 $filterss["status"]=2;
 $sliderelements=$class_slider->get($filterss);
+
+
+$filters['status']=2;
+$filters['maxegyoldalon']=3;
+$filters['lang']='hu';
+
+
+$csomagokarray=$CsomagClass->get($filters,null,'0') ;
+//arraylist($csomagokarray);
+
+$sitesarray=$SiteClass->get($filters,null,'0') ;
+
+
 ?>
 <slider>
         	<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
@@ -59,42 +72,23 @@ $active="";
 <div class="clearfix"></div>
 
 <div class="container home">
+<div class="clearfix"></div>
 <div class="ajanlatcontainer">
-
-<div class="col-sm-4">
-<?php include ('./items/csomag/web/sidelist.php');?>
-</div><div class="col-sm-4">
-<?php include ('csomag.php');?>
-</div><div class="col-sm-4">
-<?php include ('csomag.php');?>
-</div>
+	<?php foreach($csomagokarray['datas'] as $elem){?>
+	<div class="col-sm-4"><?php
+	include ('./items/csomag/web/csomag_display2.php');
+	?></div>
+	<?php } ?>
 </div>
 <div class="clearfix"></div>
+<div class="siteelement">
 
-  <article class="col-xs-12 oneurl">
-
-    <img src="<?=homeurl?>/picture2.php?picture=dXBsb2Fkcy9zbGlkZXIvL2IxLmpwZw==&amp;x=1000&amp;y=320" class="img-100" alt="">      
-		<div class="text">
-			<h3>ez a cime</h3>
-			<div class="col-sm-8"> ez a leirasa nem legyen ám tul hosszú</div>
-			<a href="#" class="btn btn-creme col-sm-4"><?= lan('tovabb');?></a>
-		</div>
-  </article>
-  <article class="col-xs-12 oneurl">
-    <img src="<?=homeurl?>/picture2.php?picture=dXBsb2Fkcy9zbGlkZXIvL2IxLmpwZw==&amp;x=1000&amp;y=320" class="img-100" alt="">      
-		<div class="text">
-			<h3>ez a cime</h3>
-			<div class="col-sm-8"> ez a leirasa nem legyen ám tul hosszú</div>
-			<a href="#" class="btn btn-creme col-sm-4"><?= lan('tovabb');?></a>
-		</div>
-  </article>
-  <article class="col-xs-12 oneurl">
-    <img src="<?=homeurl?>/picture2.php?picture=dXBsb2Fkcy9zbGlkZXIvL2IxLmpwZw==&amp;x=1000&amp;y=320" class="img-100" alt="">      
-		<div class="text">
-			<h3>ez a cime</h3>
-			<div class="col-sm-8"> ez a leirasa nem legyen ám tul hosszú</div>
-			<a href="#" class="btn btn-creme col-sm-4"><?= lan('tovabb');?></a>
-		</div>
-  </article>
-
+	<?php
+//arraylist($sitesarray);
+	foreach($sitesarray['datas'] as $elem){?>
+	<?php
+	include ('./items/site/web/display2.php');
+	?>
+	<?php } ?>
+</div>
 </div>

@@ -7,10 +7,31 @@ font-size:23px;
 }
 
 </style>
-< class="container">
+<div class="container">
+            <!--div id="breadCrumb">
+                <a href="<?php echo $homeurl;?>">Home</a> / 
+ 				<?php //echo $menu["nev"];
+                ?>
+                <span><strong><?php echo $breadtext;?></strong></span>
+                <?php
+               if ($auser["jog"]>2){
+				?>
+                <a href="<?php echo $homeurl.$separator;?>hirek/edittext">Új hír</a>
+                <?php }?>
+            </div-->
                 <div class="row">
 
+
+<?php if (count($widgets)){?>
+  <left class="col-md-3 col-sm-4" >
+<?php 
+foreach ($widgets as $widget)if (file_exists($widget))include($widget);?>
+  </left>  
+
+<news itemscope  itemtype="http://schema.org/WebPage" class="col-md-9 col-sm-8">
+<?php } else {?>
 <news itemscope="" itemtype="http://schema.org/WebPage">
+<?php } ?>      
 <div>
                 <h1>
 				<?php echo $menu["nev"];
@@ -33,55 +54,17 @@ font-size:23px;
 				 <?php
                if ($auser["jog"]>2){
 				?>
-                <a href="<?php echo $homeurl.$separator;?>hirek/edittext">Új hír</a>
+                <a href="<?php echo $homeurl.$separator;?>hirek/edittext"><?= lan('ujhir');?></a>
                 <?php }?>
           
 </div>
 		  <?php 
 //arraylist($hirekelemek);
-if (count($hirekelemek)>0){
-	$che=$stn=1;
-	$counter=0;
-	$numh=count($hirekelemek);
+if ($hirekelemek){
 foreach($hirekelemek as $elem){
-//article
-	$thenum=$numh-$counter;
-//echo $thenum.':'.$che.'-'.$stn.'|';
-if ($che<1){
-	if(($thenum) % 3 == 0){
-			$stn=3;
-			$che=$stn;
-	}
-	else
-	if (($thenum) % 2 == 0){
-			$stn=2;
-			$che=$stn;
-	}
-	else
-	{
-			$stn=1;
-			$che=$stn;
-	}
-}	
-	/*switch($stn){
-	case 1:	
-		include('items/bf/web/hir_display_short.php');	
-	break;
-	case 2:	
-		include('items/bf/web/hir_display_block1.php');
-	break;	
-	case 3:	
-		include('items/bf/web/hir_display_block2.php');	
-	break;
-	default:
-		include('items/bf/web/hir_display_short_first.php');
-	}*/
-	include('items/bf/web/display_block1.php');
-$counter++;
-$che--;
+		include('items/bf/web/display_short.php');	
+	
 }}
-//include('hir_display_short_first.php');
-
 ?>
     <div class="clear"></div>
 <?php if ($oldalakszama>1){

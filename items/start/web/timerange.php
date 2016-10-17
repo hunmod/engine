@@ -48,13 +48,13 @@
             dayNamesShort: ['Vas', 'Hét', 'Ked', 'Sze', 'Csü', 'Pén', 'Szo'],
             dayNamesMin: ['V', 'H', 'K', 'Sze', 'Cs', 'P', 'Szo'],
             weekHeader: 'Hé',
-            dateFormat: 'yy-mm-dd',
+            dateFormat: 'yy.mm.dd',
             firstDay: 1,
             isRTL: false,
             showMonthAfterYear: false,
             yearSuffix: '',
-            buttonImage:homeurl+'/scripts/images/calendar.gif',
-            beforeShow: function ( inst) {
+            buttonImage:homeurl+'/scripts/images/calendar.gif'
+           /* beforeShow: function ( inst) {
                 setTimeout(function () {
                     var p = $( ".timeselectframe:first" );
                     var k = $( ".timeselecthead:first" );
@@ -68,7 +68,7 @@
                     console.log(positionb);
                     $('#ui-datepicker-div').css({ top: positionk.top+90, left:  position.left+10,width:300 });
                 }, 10);
-            }
+            }*/
             };
         $.datepicker.setDefaults($.datepicker.regional['hu']);
     });
@@ -149,14 +149,26 @@
     }
     function GetSession(name) {
         var datas = {'name': name};
-        $.ajax({
+       $.ajax({
             type: "POST",
             url: server_url + "service.php?q=" + 'start/getsession',
             data: datas,
             success: function (data) {
                 return data;
             }
-        });
+       });
+    }
+    function GetSession2(name) {
+        var datas = {'name': name};
+       $.ajax({
+            type: "POST",
+            url: server_url + "service.php?q=" + 'start/getsession'+'&name='+name,
+            data: datas,
+            success: function (data) {
+                return data;
+            }
+       });
+
     }
     $(window).load(function () {
       /*  $(".timeselecthead").on('click', function (a) {

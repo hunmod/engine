@@ -7,7 +7,15 @@ url('fonts/Lato-Medium.ttf') format('truetype');
     font-family: 'Lato-Regular';
 url('fonts/Lato-Regular.ttf') format('truetype');
 }
-
+@import url(//fonts.googleapis.com/css?family="PT Serif":400);
+@import url(//fonts.googleapis.com/css?family="PT Serif":300);
+@import url(//fonts.googleapis.com/css?family="PT Serif":700);
+@import 'pt serif/pt seriffonts.css';
+@font-face {
+    font-family: "PT serif";
+    src: url(pt serif-Regular.ttf);
+    src: local("PT Serif"), url(pt serif-Regular.ttf) format("truetype");
+}
 /*
 gold
 #A49383
@@ -22,8 +30,8 @@ body {
 }
 
 h1, h2, h3 {
-    font-family: 'serif', 'Calibri';
-    font-weight: bold;
+    font-family: 'PT Serif';
+    font-weight: normal;
 
 }
 
@@ -45,11 +53,12 @@ h1, h2, h3 {
 }
 
 #breadCrumb {
-    font-family: 'serif', 'Calibri';
+    font-family: 'PT Serif';
     color: #000;
     font-weight: bold;
     margin-left: 120px;
     margin-top: -30px;
+	z-index:10;
 }
 
 /*NEWS Modul*/
@@ -121,6 +130,8 @@ news article img {
 
 .navbar .c_head {
     display: block;
+    text-align: center;
+	
 
 }
 
@@ -176,6 +187,7 @@ news article img {
 }
 
 /* timeselector */
+
 .timeselectform .timeselectblock button {
     background-color: transparent;
     border: none;
@@ -220,14 +232,24 @@ news article img {
     transition: all 0.5s ease;
 }
 
+.idopontgomb{
+	padding: 10px 20px;
+	background:#A49383;
+	text-align:center;
+	margin: 0 auto;
+	color:#fff;
+	border-radius: 5px;
+	font-size:16px;
+	
+}
 #opentimesector {
     cursor: pointer;
-    color: #A49383;
 }
 
 #opentimesector:hover {
-    color: #000;
+    color: #fff;
 }
+
 
 /* timepicker*/
 .ui-datepicker {
@@ -485,7 +507,7 @@ ads iframe {
 }
 
 /* artablazat*/
-.priecetable {
+/*.priecetable {
     margin: auto;
     border: 2px solid #A49383;
     text-align: center;
@@ -503,6 +525,31 @@ ads iframe {
 .priecetable .icon30 {
     display: block;
     margin: auto;
+}*/
+.ordertable .csomaginfo{
+    border-radius: 100px 0px 0px 100px;
+
+}
+.ordertable .szobainfo{
+    border-radius: 100px ;
+
+}
+.ordertable .szobainfo.csomaggal{
+    border-radius: 0px 100px 100px 10px;
+
+}
+.ordertable name{
+// display:block;
+    font-weight: bold;
+}
+.ordertable .greyishbeige,
+.ordertable ar
+{
+    display: inline-block;
+}
+.ordertable {
+    padding:15px;
+    border: 2px solid #A49383;
 }
 
 @media only screen and (max-width: 1200px) {
@@ -572,24 +619,51 @@ ads iframe {
         text-indent: -1000000;
     }
 
+    .navbar .navbar-brand {
+        position: absolute;
+        display: block;
+        background-size: 90% 90%;
+        background-repeat: no-repeat;
+        top: 0px;
+        width: 50px;
+        height: 50px;
+        text-indent: -1000000;
+        box-shadow: none;
+        border-radius: 0px;
+        z-index:1;
+        left: 40%;
+        opacity: 0.7;
+
+
+    }
+    .navbar .c_head ul{
+        z-index: 2;
+        position: absolute;
+        left: 0;
+        bottom: 0px;
+        padding: 0px 10px 0 5px;
+        width: 80%;
+        text-align: left;
+        -webkit-margin-before: 0;
+    }
+
+.idopontgomb{
+    z-index: 3;
+    position: absolute;
+    top: 0;
+    right: 20%;
+}
     #breadCrumb {
         margin-left: 0px;
     }
 }
 
 @media only screen and (max-width: 480px) {
-    .navbar .navbar-brand {
-        position: relative;
-        display: block;
-        background-size: 90% 90%;
-        background-repeat: no-repeat;
-        top: 0px;
-        left: 0px;
-        width: 50px;
-        height: 50px;
-        border-radius: 100px;
-        text-indent: -1000000;
+
+    .navbar .c_head ul{
+display: none;
     }
+
 }
 
 @media only screen and (max-width: 320px) {

@@ -23,6 +23,8 @@
 
 
                     <div class="c_head">
+					        <span id="opentimesector" class="idopontgomb"><?= lan('idopont') ?></span>
+
                         <ul>
                             <li>
                                 <?= hotelicon_print("TELEFON", 10, 'greyishbeige'); ?><a
@@ -47,10 +49,10 @@
                                 </li>
                             <?php } ?>
                             <li>
-                                <form method="get" action="/search/list">
+                                <!--form method="get" action="/search/list">
                                     <input type="search" name="s" placeholder="keresés">
                                     <input type="submit" style="display:none;">
-                                </form>
+                                </form-->
                             </li>
                             <li>
                                 <lang class="text-right">
@@ -60,7 +62,6 @@
                                         <a <?php if ($_SESSION["lang"] == 'hu') echo 'class="active"'; ?>
                                             href="?lang=hu">HU</a>
                                     </div>
-                                    <span id="opentimesector"><?= lan('idopont') ?></span>
 
 
                                 </lang>

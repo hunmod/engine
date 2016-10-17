@@ -3,6 +3,7 @@
 //$CsomagClass->create_table();
 
 
+//kategoria
 $admintemplate=1;
 if ($_GET["mid"]<1){
     /*$_GET["mid"]=1;
@@ -18,7 +19,7 @@ $maxegyoldalon=100;
 $form=new formobjects();
 $status=$CsomagClass->status();
 //filters
-if ($_GET["status"]){
+if ($_GET["status"] && $_GET["status"]!='all'){
     $filters['status']=$_GET["status"];
 }
 if ($_GET["name"]){

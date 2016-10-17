@@ -10,7 +10,7 @@ $datas["oldalid"]=$_POST['oldalid'];
 $datas["homefolder"]=$_POST['homefolder'];
 $datas["prefix"]=$_POST['prefix'];
 $datas["prefix_pagesetting"]=$datas["oldalid"]."_";
-$file = "items/config_files/".$_POST["oldalid"];
+$file = "items/config_files/". $_SERVER['SERVER_NAME']."txt";
 //var_dump($datas);
 //var_dump($file);	
 

@@ -49,13 +49,17 @@
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
     <!--script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script-->
-
+    <link rel="stylesheet" href="<?php echo $homeurl; ?><?php echo $makemin->css('/scripts/jquery-ui.css', '/scripts/jquery-ui.min.css') ?>"/>
+    <script src="<?php echo $server_url; ?>scripts/jquery-ui.min.js"></script>
     <script src="<?php echo $homeurl; ?>/scripts/jquery.matchHeight-min.js"></script>
+    <script src="<?php echo $homeurl; ?>/scripts/jquery.maskedinput.js"></script>
     <!--script src="<?php echo $homeurl; ?>/scripts/viewportchecker.js"></script-->
 
-
-    <script
-        src="<?php echo $homeurl; ?><?php echo $makemin->js($stylefolder33 . '/scripts/hn.js', $stylefolder33 . '/scripts/hn.min.js', false) ?>"></script>
+    <?php
+    if (is_file('.'.$file['js'])){?>
+        <script src="<?php echo $homeurl.$file['js']; ?>"></script>
+    <?php }?>
+    <script src="<?php echo $homeurl; ?><?php echo $makemin->js($stylefolder33 . '/scripts/hn.js', $stylefolder33 . '/scripts/hn.min.js', false) ?>"></script>
 
     <?php
     // Google analitics (konfig DB-ből olvassa)

@@ -32,15 +32,7 @@ form label{
 	width:80px;
 	}
 </style>
-<script>
-function menu_admin_select(modul,filename){
-	document.getElementById('modul').value=modul;
-	document.getElementById('file').value=filename;
-$('span').removeClass(' selected').addClass('');
-	
-$('#'+filename+modul).addClass(" selected");
-}
-</script>
+
 <div class="container">
     <section class="col-sm-12">
 <a href="<?php echo $separator;?>admin/menu">Vissza</a>
@@ -102,7 +94,7 @@ if ($filters2['id']>0){
 	$dbadat=$egyelem['datas'][0];
 	$menuimages=$MenuClass->menu_img($dbadat["id"]);
 }
-	arraylist($menuimages);
+	//arraylist($menuimages);
 //$formelements=menu_editform_form($dbadat);
 //arraylist($formelements);
 ?>
@@ -117,7 +109,9 @@ if ($filters2['id']>0){
 <?php $Form_Class->selectbox("mid",$qmenu,array('value'=>'id','name'=>'nev'),$dbadat['mid'],$lan['menu'],$class="form-control");?>
 <?php $Form_Class->textbox("nev",$dbadat['nev'],$lan['name']) ;?>
 <?php $Form_Class->textaera("leiras",$dbadat['leiras'],$lan['description']) ;?>
+<div id="itemcontainer">
 <?php $Form_Class->textbox("item",$dbadat['item'],$lan['item']) ;?>
+</div>
 <?php $Form_Class->selectboxeasy("jogid",$jog,$dbadat['jogid'],$lan['jogid'],"form-control");?>
 <?php $Form_Class->selectboxeasy("status",$status,$dbadat['status'],$lan['status'],"form-control");?>
 <?php $Form_Class->selectbox("sorrend",$sorrendarray,array('value'=>'id','name'=>'nev'),$dbadat['sorrend'],$lan['sorrend'],$class="form-control");?>
@@ -146,7 +140,7 @@ $style="menuselect default";
 
 </article>
 <div class="clear"></div>
-<article class='col-sm-4'>
+<article class='col-sm-4 hidden'>
 	<?php 
 ?>
 	<h1>Menu <?php echo $lan['picture']; ?>:</h1>
@@ -178,6 +172,6 @@ $style="menuselect default";
 
 <article>
 
-        </section>   
+</section>
 
 </div>

@@ -99,7 +99,7 @@ $notingr='';
 		$notingr.=$notingr2;
 
 	}
-	echo $notingr;
+	//echo $notingr;
 	$filters['ingridsand']=$notingr;
 }
 

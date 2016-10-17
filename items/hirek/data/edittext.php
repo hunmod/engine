@@ -45,7 +45,7 @@ if ($hirid > 0) {
     $news = $hir_class->get($filters, $order = '', $page = 'all');
     $adat = $news['datas'][0];
     $nimg = $hir_class->getimg($adat['id']);
-    $tags = $hir_class->get_ad_tag(array("ad" => $filters["id"], "active" => 'all'));
+   // $tags = $hir_class->get_ad_tag(array("ad" => $filters["id"], "active" => 'all'));
 
     //var_dump($nimg);
 

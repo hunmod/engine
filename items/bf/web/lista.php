@@ -1,15 +1,16 @@
 <?php
 
-
-$class_hir=new hir();
 $form=new formobjects();
-$status=$class_hir->status();
+$status=$bf_class->status();
 
-$myparams='rooms/lista';
+$myparams='bf/lista';
 foreach ($_GET as $nam=>$req )
 {
     if ($nam!='PHPSESSID'&&$nam!='q'&&$nam!='CKFinder_Path'&&$nam!='googtrans'&&$nam!='oldal'&&$nam!='cpsession'&&$nam!='langedit'&&$nam!='lang'&&$nam!='cprelogin'&&$nam!='page'&&$nam!='mr')
-        $myparams.='&'.$nam.'='.$req;
+if  ($myparams==''){$myparams.='?'.$nam.'='.$req;}
+else{
+   $myparams.='&'.$nam.'='.$req;
+}
 }
 $adminv=1;
 
@@ -20,17 +21,6 @@ else{
 
 }
 
-
-//$users=$jobclass->get_users(array());
-
-/*
-if ($_GET['dwork']>0){
-$class_recipe->save_list('cuisine',array("id"=>$_GET['dwork'],'status'=>'4'));
-}
-$datas=$class_recipe->get_list('cuisine',array());
-
-*/
-//arraylist($menuk);
 ?>
 <div class="container">  
 <section class="col-sm-12" >
@@ -39,7 +29,7 @@ $datas=$class_recipe->get_list('cuisine',array());
             <div class="widget">
               <div class="widget-header">
                 <div class="title">
-                  <span class="fs1" aria-hidden="true" data-icon="&#xe07f;"></span> Search
+                  <span class="fs1" aria-hidden="true" data-icon="&#xe07f;"></span> <?= lan('search');?>
                 </div>
               </div>
               <div class="widget-body">
@@ -55,7 +45,7 @@ $datas=$class_recipe->get_list('cuisine',array());
                   <div class="form-group">
 					<?php $Form_Class->selectbox2("mid",$menuk,array('value'=>'id','name'=>'nev'),$_GET["mid"],"Menu");?>                  
                   </div>  
-                  <button type="submit" class="btn btn-success" data-original-title="">Search</button>
+                  <button type="submit" class="btn btn-success" data-original-title=""><?= lan('search');?></button>
                 </form>
               </div>
             </div>
@@ -64,7 +54,7 @@ $datas=$class_recipe->get_list('cuisine',array());
 </div>  
 
                     <a href="<?php echo $homeurl.$separator."".$getparams[0]."/edittext";?>" class="btn btn-success">
-                    Új hely
+                    <?= lan('new');?>
                     </a>
 <!-- Row start -->
         <div class="row">
@@ -72,7 +62,7 @@ $datas=$class_recipe->get_list('cuisine',array());
             <div class="widget">
               <div class="widget-header">
                 <div class="title">
-                  <span class="fs1" aria-hidden="true" data-icon="&#xe14a;"></span>Balatonfelvidék elfogadóhely lista<br />
+                  <span class="fs1" aria-hidden="true" data-icon="&#xe14a;"></span>Balatonfelvidék lista 1<br />
                 </div>
               </div>
 

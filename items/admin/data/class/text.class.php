@@ -299,5 +299,5 @@ class texttotext
 
 
 }
-
+$TextClass= new texttotext();
 ?>

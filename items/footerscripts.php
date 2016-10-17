@@ -27,9 +27,7 @@ function adBlockDetected() {
 }
 </script>
 -->
-    <link rel="stylesheet"
-          href="<?php echo $homeurl; ?><?php echo $makemin->css('/scripts/jquery-ui.css', '/scripts/jquery-ui.min.css') ?>"/>
-    <script src="<?php echo $server_url; ?>scripts/jquery-ui.min.js"></script>
+
     <script src="<?php echo $server_url; ?>scripts/jquery.modalbox-1.5.0/js/jquery.modalbox-1.5.0-min.js"
             type="text/javascript"></script>
 

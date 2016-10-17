@@ -132,7 +132,7 @@
                     <?= lan('artolutan') ?>
                 </div>
             </div>
-            <a href="<?php echo $homeurl.$separator."rooms/order/".($adat["id"]).'/'.$adat["title"];;?>" class="btn btn-creme col-xs-12"><?= lan('megrendelem'); ?></a>
+            <a href="<?php echo $homeurl.$separator."rooms/order/".($adat["id"]).'/room/'.$TextClass->to_link($adat["title"]);?>" class="btn btn-creme col-xs-12"><?= lan('megrendelem'); ?></a>
             <span class="btn btn-creme-inv col-xs-12"><?= lan('kosarba'); ?></span>
         </div>
         <div class="clearfix "></div>

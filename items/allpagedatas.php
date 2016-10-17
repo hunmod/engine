@@ -9,10 +9,10 @@ include_once('items/admin/data/class/file_upload.class.php');
 include_once('items/admin/data/class/form.class.php');
 include_once('items/admin/data/class/text.class.php');
 include_once('items/admin/data/class/time.class.php');
+include_once('items/admin/data/class/google.class.php');
 include_once('items/admin/data/class/location.class.php');
 include_once('items/user/class/users.class.php');
 //construct classes
-$MenuClass = new menu();
 $Upload_Class = new file_upload();
 $Form_Class = new formobjects();
 $Text_Class = new texttotext();

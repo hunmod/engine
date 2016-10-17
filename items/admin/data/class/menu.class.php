@@ -196,6 +196,7 @@ return	$datas2;
 
 public function get_menus_down($id,$filters=array(),$order="") 
 {
+
 	$filters['mid']=$id;
 	$mmenus=$this->get_menu($filters,$order,'all');
 	$menus=$mmenus["datas"];
@@ -299,7 +300,7 @@ if ($filters[$fmezonev]>0){
 		$where.=$Sys_Class->andsupport($where);
 		$where.=$SD["table"].".`".$fmezonev."`='".$filters[$fmezonev]."'";
 }
-else {
+else if($filters[$fmezonev]!='all') {
 		$where.=$Sys_Class->andsupport($where);
 		$where.=$SD["table"].".`".$fmezonev."`='1'";}
 
@@ -567,4 +568,9 @@ public function shorturl_get($q){
 }
 
 }
+$tblmodul = 'menu';
+$tbl[$tblmodul] = $adatbazis["db1_db"] . "." . $prefix . "menu";
+$MenuClass = new menu();
+$menustatusarray=$MenuClass->status();
+
 ?>

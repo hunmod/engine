@@ -6,8 +6,7 @@ $nimg = $CsomagClass->getimg($elem['id'], 800, 600);
         <div class="icon">
             <?= hotelicon_print($elem['icon'], 50, 'feher') ?>
         </div>
-        <img class="img-responsive"
-             src="<?= $nimg ?>" alt="<?= $elem['title']?>">
+		<img class="img-responsive" src="<?= $nimg ?>" alt="<?= $elem['title']?>">
 
         <div class="cim">
             <h3><?= $elem['title']?></h3>
@@ -15,5 +14,5 @@ $nimg = $CsomagClass->getimg($elem['id'], 800, 600);
         <div class="clearfix"></div>
     </div>
     <div class="ar"><?= $elem['priece']?> <?= $artipus[$elem['tip']]?></div>
-    <a href="#" class="btn btn-creme "><?= lan('reszletek'); ?></a>
+    <a href="<?php echo $CsomagClass->createurl($elem);/*$elem["url"];*/?>" class="btn btn-creme "><?= lan('reszletek'); ?></a>
 </article>

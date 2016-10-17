@@ -1,3 +1,5 @@
-<?
-echo $_SESSION[$_POST['name']];
+<? 
+//var_dump($_SESSION);
+//echo $_REQUEST['name'];
+echo json_encode($_SESSION[$_REQUEST['name']]);
  ?>

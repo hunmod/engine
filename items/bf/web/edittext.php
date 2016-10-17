@@ -62,9 +62,9 @@
     <div class="col-sm-12">
         <form id="uploadForm" action="" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
             <input name="id" id="id" type="hidden" value="<?php echo decode($getparams[2]); ?>"/>
-		
-            <?php 
-			$Form_Class->hiddenbox('hirsave', '1') ?>
+			 <?php   
+
+             $Form_Class->hiddenbox('hirsave', '1') ?>
             <?php echo $lan['tipus'];
             $filtersm["jog"] = "5";
 			 ?>:
@@ -79,16 +79,15 @@
 			Hsz:
 			<input name="hsz" id="hsz" type="text" value="<?php echo $Text_Class->htmlfromchars($adat["hsz"]); ?>" maxlength="20"/><br/>
 				   
-	            <?= lan('facebookoldal'); ?>: <?php $form->textbox("facebook", $Text_Class->htmlfromchars($adat["facebook"],lan('facebook'))) ?>
-                <?= lan('weboldal'); ?>: <?php $form->textbox("web", $Text_Class->htmlfromchars($adat["web"],lan('weboldal'))) ?>
-                <?= lan('email'); ?>: <?php $form->textbox("email", $Text_Class->htmlfromchars($adat["email"],lan('email'))) ?>
-                <?= lan('tel'); ?>: <?php $form->textbox("tel", $Text_Class->htmlfromchars($adat["tel"],lan('tel'))) ?>
-			   
+			<?php $Form_Class->textbox('telefon', $adat["telefon"],lan("tel")) ?>
+
 				   
             <?php echo lan('leiras'); ?>:
             <?php $form->kcebox("leiras", $Text_Class->htmlfromchars($adat["leiras"])) ?>
             <br/>
-            <?php echo lan('megjegyzes'); ?>: <?php $form->textaera("hir2", $Text_Class->htmlfromchars($adat["megjegyzes"],lan('megjegyzes'))) ?>
+            <?php echo lan('megjegyzes'); ?>: <?php $form->textaera("megjegyzes", $Text_Class->htmlfromchars($adat["megjegyzes"],lan('megjegyzes'))) ?>
+            <br/>
+            <?php $Form_Class->textbox('balatonltav', $adat["balatonltav"],lan("balatonltav")) ?>
             <br/>
             <?= lan('wifi'); ?>:
 			  <input type="radio" name="wifi" value="0" <?php if ($adat["wifi"]==0)echo 'checked';?> > <?= lan('nem');?>
@@ -117,36 +116,32 @@
                 <?= lan('gyerekbarat'); ?>:
 			  <input type="radio" name="gyerek" value="0" <?php if ($adat["gyerek"]==0)echo 'checked';?> > <?= lan('nem');?>
 			  <input type="radio" name="gyerek" value="1" <?php if ($adat["gyerek"]==1)echo 'checked';?> > <?= lan('igen');?><br>
-    
+
+            <?= lan('telen'); ?>:
+			  <input type="radio" name="telen" value="0" <?php if ($adat["telen"]==0)echo 'checked';?> > <?= lan('nem');?>
+			  <input type="radio" name="telen" value="1" <?php if ($adat["telen"]==1)echo 'checked';?> > <?= lan('igen');?><br>
+
+            <?= lan('specdieta'); ?>:
+			  <input type="radio" name="specdieta" value="0" <?php if ($adat["specdieta"]==0)echo 'checked';?> > <?= lan('nem');?>
+			  <input type="radio" name="specdieta" value="1" <?php if ($adat["specdieta"]==1)echo 'checked';?> > <?= lan('igen');?><br>
+
+            <?= lan('medence'); ?>:
+			  <input type="radio" name="medence" value="0" <?php if ($adat["medence"]==0)echo 'checked';?> > <?= lan('nem');?>
+			  <input type="radio" name="medence" value="1" <?php if ($adat["medence"]==1)echo 'checked';?> > <?= lan('igen');?><br>
+
                 <?= lan('tamogat'); ?>:
 			  <input type="radio" name="support" value="0" <?php if ($adat["support"]==0)echo 'checked';?> > <?= lan('nem');?>
 			  <input type="radio" name="support" value="1" <?php if ($adat["support"]==1)echo 'checked';?> > <?= lan('igen');?><br>
-        	
-			<div>
-			<?php $Form_Class->selectbox2("szamlazas[varos]",$citys['datas'],array('value'=>'city_id','name'=>'city_name'),$adat["szamlazas"]["varos"],"Város");?>   
-			<?php echo lan('zip'); ?>:
-	        <input name="szamlazas[zip]" id="szamlazas[zip]" maxlength="5" type="text" value="<?php echo $Text_Class->htmlfromchars($adat["szamlazas"]["zip"]); ?>">
-			<?php echo lan('street'); ?>:
-            <input name="szamlazas[street]" id="szamlazas[street]" type="text" value="<?php echo $Text_Class->htmlfromchars($adat["szamlazas"]["street"]); ?>" maxlength="200" style="width: 217px;"/>            
-			<?php echo lan('hsz'); ?>:
-			<input name="szamlazas[hsz]" id="szamlazas[hsz]" type="text" value="<?php echo $Text_Class->htmlfromchars($adat["szamlazas"]["hsz"]); ?>" maxlength="20"/><br/>
-			<?php echo lan('szlanev'); ?>:
-			<input name="szamlazas[szla_nev]" id="szamlazas[szla_nev]" type="text" value="<?php echo $Text_Class->htmlfromchars($adat["szamlazas"]["szla_nev"]); ?>"/><br/>
-			<?php echo lan('adoszam'); ?>:
-			<input name="szamlazas[adoszam]" id="szamlazas[adoszam]" type="text" value="<?php echo $Text_Class->htmlfromchars($adat["szamlazas"]["adoszam"]); ?>" maxlength="20"/><br/>
-			</div>
-			<div>
-			<?php echo lan('kapcsolattartonev'); ?>:
-			<input name="szamlazas[kapcsolattartonev]" id="szamlazas[kapcsolattartonev]" type="text" value="<?php echo $Text_Class->htmlfromchars($adat["szamlazas"]["kapcsolattartonev"]); ?>" maxlength="200"/><br/>
-			<?php echo lan('kapcsolattartemail'); ?>:
-			<input name="szamlazas[kapcsolattartemail]" id="szamlazas[kapcsolattartemail]" type="text" value="<?php echo $Text_Class->htmlfromchars($adat["szamlazas"]["kapcsolattartemail"]); ?>" maxlength="200"/><br/>
-			<?php echo lan('kapcsolattartotel'); ?>:
-			<input name="szamlazas[kapcsolattartotel]" id="szamlazas[kapcsolattartotel]" type="text" value="<?php echo $Text_Class->htmlfromchars($adat["szamlazas"]["kapcsolattartotel"]); ?>" maxlength="200"/><br/>
-			</div>
-			<?php $form->hiddenbox("szamlazasicim", $Text_Class->htmlfromchars($adat["szamlazasicim"])) ?>
-		
-		
-		
+                <?= lan('szepkartya'); ?>:
+			  <input type="radio" name="szepkartya" value="0" <?php if ($adat["szepkartya"]==0)echo 'checked';?> > <?= lan('nem');?>
+			  <input type="radio" name="szepkartya" value="1" <?php if ($adat["szepkartya"]==1)echo 'checked';?> > <?= lan('igen');?><br>
+                <?= lan('erzsebetkartya'); ?>:
+			  <input type="radio" name="erzsebetkartya" value="0" <?php if ($adat["erzsebetkartya"]==0)echo 'checked';?> > <?= lan('nem');?>
+			  <input type="radio" name="erzsebetkartya" value="1" <?php if ($adat["erzsebetkartya"]==1)echo 'checked';?> > <?= lan('igen');?><br>
+                <?= lan('facebookoldal'); ?>: <?php $form->textbox("facebook", $Text_Class->htmlfromchars($adat["facebook"],lan('facebook'))) ?>
+                <?= lan('weboldal'); ?>: <?php $form->textbox("web", $Text_Class->htmlfromchars($adat["web"],lan('weboldal'))) ?>
+                <?= lan('email'); ?>: <?php $form->textbox("email", $Text_Class->htmlfromchars($adat["email"],lan('email'))) ?>
+            <?php echo lan('szamlazasicim'); ?>: <?php $form->textaera("szamlazasicim", $Text_Class->htmlfromchars($adat["szamlazasicim"],lan('szamlazasicim'))) ?>
 		
 			<?php
 			

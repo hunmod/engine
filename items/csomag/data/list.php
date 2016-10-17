@@ -59,7 +59,7 @@ $pos2.=',12';
 $pos3.=',13';
 
 
-$maxegyoldalon=8;
+$maxegyoldalon=3;
 if (($_GET["oldal"]=="") || ($_GET["oldal"]<=0)){
 	$oldal=0;
 }
@@ -69,14 +69,19 @@ else {
 
 
 
+
 //list
-$maxegyoldalon=100;
 $form=new formobjects();
 $status=$CsomagClass->status();
 //filters
-$filters['lang']=$_SESSION["lang"];
 
-if ($_GET["status"]){
+if(!$admintemplate){
+$filters['lang']=$_SESSION["lang"];	
+}
+
+
+
+if ($_GET["status"]&&$_GET["status"]!='all'){
     $filters['status']=$_GET["status"];
 }
 /*if ($_GET["name"]){

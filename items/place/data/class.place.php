@@ -684,5 +684,6 @@ $query.=" WHERE  `web_hir`.`id` =".$data["id"]." LIMIT 1 ;";
 //
 
 }
-
+$place_class=new place();
 ?>
+
