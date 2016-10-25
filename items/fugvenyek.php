@@ -58,6 +58,34 @@ function emailkuldes($email, $nev, $subject, $htmltext, $files = array())
 }
 
 
+define ('sparkRegisterKey','2a05ad20f11566523e801ce44dca8deac2d94a01');
+define ('sparkMessageKey','890033e454fc43503eb4b0ab13a24ea8ff9cc269');
+
+
+function sparkmailsend ($from, $to, $subject, $message, $spark_api_key, $reply_to='')
+{
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL,"https://api.sparkpost.com/api/v1/transmissions");
+    curl_setopt($ch,CURLOPT_HTTPHEADER,array('Authorization:'.$spark_api_key,"Content-Type: application/json"));
+    $marray["content"]=array(
+        'from'=>$from,
+        'html'=>$message,
+        'subject'=>$subject
+    );
+    if ($reply_to != '') $marray["content"]["reply_to"] = $reply_to;
+    $marray["recipients"]= array(
+        array("address"=> $to));
+    $message=json_encode($marray);
+    curl_setopt($ch, CURLOPT_POST, 1);
+    curl_setopt($ch, CURLOPT_POSTFIELDS,$message);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    $server_output = curl_exec ($ch);
+    curl_close ($ch);
+    return $server_output;
+}
+
+
+
 function emailkuldes_silent($email, $nev, $subject, $htmltext)
 {
     global $tbl, $adatbazis, $sitemail, $oldalneve;

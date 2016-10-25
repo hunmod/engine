@@ -10,11 +10,11 @@ $admintemplate = 1;
 /*$extrascript[]= '
 	<script src="'.$server_url.'scripts/jquery.ui.timepicker.js"></script>
 	<link rel="stylesheet" href="'.$server_url.'scripts/jquery.ui.timepicker.css" />
-	';
+	';*/
 $extrascript[] = '
 	<script src="' . $server_url . '/scripts/ckeditor/ckeditor.js" type="text/javascript"></script>
 	<script src="' . $server_url . '/scripts/ckfinder/ckfinder.js" type="text/javascript"></script>
-	';*/
+	';
 $extrascript[] = '
 	<script src="' . $homeurl . '/scripts/cropit-master/dist/jquery.cropit.js"></script>
 	';

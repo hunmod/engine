@@ -17,6 +17,12 @@ public function tipus(){
 	$status[5]=lan('ar');
 	return $status;
 }
+	public function kedvezmenytipus(){
+	global $lan;
+	$status[1]=lan('ar');
+	$status[2]=lan('szazalek');
+	return $status;
+}
 public function roomtipus(){
 	global $lan;
 	$status[1]=lan('duplaagy');
@@ -685,4 +691,5 @@ $RoomsClass->create_table_text('hu');
 $artipus=$RoomsClass->tipus();
 $roomtipus=$RoomsClass->roomtipus();
 $roomstatus=$RoomsClass->status();
+$kedvezmenytipus=$RoomsClass->kedvezmenytipus();
 ?>

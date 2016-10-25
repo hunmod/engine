@@ -305,7 +305,7 @@ public function get($filters,$order='',$page='all')
 
 if ($filters['maxegyoldalon']>0){
 	$maxegyoldalon=$filters['maxegyoldalon'];
-	}else{
+	}else if ($filters['maxegyoldalon']!='all'){
 	$maxegyoldalon=8;
 }
 

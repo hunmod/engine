@@ -170,8 +170,15 @@ class formobjects
 
     public function numbox($name, $value, $caption = "", $class = "control-label", $requied = 0, $min = NULL, $max = NULL)
     {
+        $reqval ='';
         if ($requied == 1) {
             $reqval = ' required="required"';
+        }
+        if ($min != NULL || $min === 0) {
+            $reqval .= ' min="'.$min.'"';
+        }
+        if ($max >0 ) {
+            $reqval .= ' max="'.$max.'"';
         }
 
         echo '<label for="inputHelptext" class="' . $class . '" id="label_' . $name . '">' . $caption . '</label>' .

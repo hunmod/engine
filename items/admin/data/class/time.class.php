@@ -13,14 +13,18 @@ public function get_time_difference( $start, $end )
         if( $uts['end'] >= $uts['start'] )
         {
             $diff    =    $uts['end'] - $uts['start'];
-            if( $days=intval((floor($diff/86400))) )
+            if( $years=intval((floor($diff/(86400*360)))) )
+                $diff = $diff % (86400*360);              
+			if( $months=intval((floor($diff/(86400*30)))) )
+                $diff = $diff % (86400*30);            
+			if( $days=intval((floor($diff/86400))) )
                 $diff = $diff % 86400;
             if( $hours=intval((floor($diff/3600))) )
                 $diff = $diff % 3600;
             if( $minutes=intval((floor($diff/60))) )
                 $diff = $diff % 60;
             $diff    =    intval( $diff );            
-            return( array('days'=>$days, 'hours'=>$hours, 'minutes'=>$minutes, 'seconds'=>$diff) );
+            return( array('years'=>$years,'months'=>$months,'days'=>$days, 'hours'=>$hours, 'minutes'=>$minutes, 'seconds'=>$diff) );
         }
         else
         {

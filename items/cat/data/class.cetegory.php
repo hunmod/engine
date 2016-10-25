@@ -64,6 +64,17 @@ class category extends sys
         $mezok[] = $mezo;
         $mezo = array();
 
+        $mezo["id"] = 'artipus';
+        $mezo["table"] = $table . '.' . '`' . $mezo["id"] . '`';
+        $mezo["name"] = "artipus";
+        $mezo["display"] = 0;
+        $mezo["type"] = 'text';
+        $mezo["displaylist"] = 1;
+        $mezo["value"] = $data[$mezo["id"]];
+        $mezo["sqlcreate"] = "  `".$mezo["id"]."` INT NULL DEFAULT 0,";
+        $mezok[] = $mezo;
+        $mezo = array();
+
         $mezo["id"] = 'class';
         $mezo["table"] = $table . '.' . '`' . $mezo["id"] . '`';
         $mezo["name"] = "class";

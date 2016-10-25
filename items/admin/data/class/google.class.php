@@ -6,7 +6,7 @@ public function get_google_geocoding($address)
 {
 	global $google_api_key;
 	$address=str_replace(" ", "+", $address);
-	$curl="https://maps.googleapis.com/maps/api/geocode/json?address=hu,".$address."&key=".$google_api_key;
+	$curl="https://maps.googleapis.com/maps/api/geocode/json?address=hungary,".$address."&key=".$google_api_key;
 	$ch = curl_init($curl);
 		curl_setopt($ch,CURLOPT_SSL_VERIFYPEER,false); 
 		curl_setopt($ch,CURLOPT_PORT,443); 
@@ -21,7 +21,7 @@ public function get_google_geocoding($address)
 	else
 	{
 	//    echo 'Operation completed without any errors';
-		echo $output;
+		//echo $output;
 		$mydata=(json_decode($output, TRUE));
 		if (count($mydata["results"]>0))
 		{

@@ -370,6 +370,118 @@ function writeCookie(name,value,days) {
 writeCookie('screenwidth',$(window).width(),100);
 writeCookie('screenheight',$(window).height(),100);
 
+/* Ország,Város lekérdezések*/
+function getjsonfromcity(myzip='',text='',country='',regio='') {
+	$.ajax({
+		type: "GET",
+		url: server_url + 'service.php?q=locations/citys_data&zip='+myzip+'&country='+country,
+		success: function (data) {
+			loadelements_citys(data);
+		}
+	});
+}
+function getjsonfromcountry(myzip) {
+	$.ajax({
+		type: "GET",
+		url: server_url + 'service.php?q=locations/countrys_data&id='+myzip,
+		success: function (data) {
+			loadelements_citys(data);
+		}
+	});
+}
+function getjsonfromcregions(country='',regio='',text='') {
+	params='';
+	if (country){
+		params+='&country_id='+country;
+	}
+	if (country){
+		params+='&regio_id='+regio;
+	}
+	if (country){
+		params+='&text='+text;
+	}
+
+	$.ajax({
+		type: "GET",
+		url: server_url + 'service.php?q=locations/regions_data'+params,
+		success: function (data) {
+			loadelements_regions(data);
+		}
+	});
+}
+function loadelements_citys(data) {
+	// console.log(data);
+	// console.log(data);
+
+	data2 = data.replace(/([\x00-\x7F]|[\xC0-\xDF][\x80-\xBF]|[\xE0-\xEF][\x80-\xBF]{2}|[\xF0-\xF7][\x80-\xBF]{3})|./g, "$1");
+	menudatas = jQuery.parseJSON(data2);
+	//  console.log(menudatas);
+	ideglenes=$("#city").val();
+	$("#itemcontainer").html('<select id="city" name="city" value="'+ideglenes+'" class="form-control"></select>');
+
+
+	var midsel = document.getElementById('city');
+	$.each(menudatas, function (key, value) {
+		console.log(value["city_id"]);
+		var opt = document.createElement('option');
+		opt.innerHTML = value["city_name"];
+		opt.value = value["city_id"];
+		midsel.appendChild(opt);
+	});
+
+	$("#city").val(ideglenes);
+}
+function loadelements_country(data) {
+	// console.log(data);
+	// console.log(data);
+
+	data2 = data.replace(/([\x00-\x7F]|[\xC0-\xDF][\x80-\xBF]|[\xE0-\xEF][\x80-\xBF]{2}|[\xF0-\xF7][\x80-\xBF]{3})|./g, "$1");
+	menudatas = jQuery.parseJSON(data2);
+	//  console.log(menudatas);
+	ideglenes=$("#country_id").val();
+	$("#country_id").html('<select id="country_id" name="country_id" value="'+ideglenes+'" class="form-control"></select>');
+
+
+	var midsel = document.getElementById('country_id');
+	$.each(menudatas, function (key, value) {
+		console.log(value["country_id"]);
+		var opt = document.createElement('option');
+		opt.innerHTML = value["country_name"];
+		opt.value = value["country_id"];
+		midsel.appendChild(opt);
+	});
+
+	$("#country_id").val(ideglenes);
+}
+function loadelements_regions(data) {
+	// console.log(data);
+	// console.log(data);
+
+	data2 = data.replace(/([\x00-\x7F]|[\xC0-\xDF][\x80-\xBF]|[\xE0-\xEF][\x80-\xBF]{2}|[\xF0-\xF7][\x80-\xBF]{3})|./g, "$1");
+	menudatas = jQuery.parseJSON(data2);
+	//  console.log(menudatas);
+	ideglenes=$("#regio_id").val();
+	$("#regio_id").html('<select id="regio_id" name="regio_id" value="'+ideglenes+'" class="form-control"></select>');
+
+
+	var midsel = document.getElementById('regio_id');
+	$.each(menudatas, function (key, value) {
+		console.log(value["regio_id"]);
+		var opt = document.createElement('option');
+		opt.innerHTML = value["regio_name"];
+		opt.value = value["regio_id"];
+		midsel.appendChild(opt);
+	});
+
+	$("#regio_id").val(ideglenes);
+}
+
+/* Ország,Város lekérdezések*/
+
+
+
+
+
 /* Session mod*/
 /*
 function SetSession(name,val)

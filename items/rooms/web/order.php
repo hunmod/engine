@@ -3,15 +3,15 @@ if ($getparams[2] > 0 && $getparams[3]=="room") {
     $filterroom['id'] = $getparams[2];
 }
 
-if ($getparams[2] > 0 && $getparams[3]=="pack") {
+if ($getparams[2] > 0 && $getparams[3]=="csomag") {
     $filtercsomag['id'] = $getparams[2];
 }
-if ($getparams[3]!="pack") {
+if ($getparams[3]=="room" || $getparams[3]=="") {
     $filterroom['lang'] = $_SESSION['lang'];
     $roomarray = $RoomsClass->get($filterroom, $order = '', $page = 'all');
     $rooms = $roomarray["datas"];
 }
-if ($getparams[3]!="room") {
+if ($getparams[3]=="csomag" || $getparams[3]=="") {
     $filtercsomag['lang'] = $_SESSION['lang'];
     $csomagok = $CsomagClass->get($filtercsomag, '', $page = 'all');
 }
@@ -38,26 +38,40 @@ if (!$order['tavozas']) {
         $order['tavozas'] = $_SESSION['to'];
     } else $order['tavozas'] = $dateprint;
 }
+
 ?>
 <script>
+
     function addgyerek() {
+        if (isNaN(childnum))childnum=0;
+
         var childataform = '<div class="childgroup">' + '<div class="col-sm-6"><?php $FormClass->datebox('child['."'+".'childnum'."+'".'][birth]',null,lan('birthdate'),'',1);?>' + '</div>' + '<div class="col-sm-6"><?php $FormClass->numbox('child['."'+".'childnum'."+'".'][age]','null',lan('age'),'',1);?>' + '</div></div>';
         $("#gyerekadat").append(childataform);
         childnum++;
         $('.childgroup .maskdatebox').blur(function (event) {
             name = $(this).attr('id');
             mydate = $(this).val();
+            name2 = name.replace('birth', "age");
             if (mydate) {
-                myage = agecalc(mydate);
-                name2 = name.replace('birth', "age");
-                agelement = document.getElementById(name2).value = myage;
-                SetSession(name, mydate, 'start/setsession');
-                SetSession(name2, myage, 'start/setsession');
+                myage = agecalc(mydate,null);
+                if (myage<18) {
+                    agelement = document.getElementById(name2).value = myage;
+                    SetSession(name, mydate, 'start/setsession');
+                    SetSession(name2, myage, 'start/setsession');
+                }else{
+                    $(this).val('');
+                    agelement = document.getElementById(name2).value = '';
+                    $('#gyerekminusf').click();
+                    $('#felnottplusf').click();
+                }
             }
-            babynum = countbabys(babyage);
+
+
+
             roomneed();
         });
         $('.maskdatebox').mask("9999.99.99", {placeholder: 'yyyy.mm.dd'});
+
         // console.log(childnum);
     }
 </script>
@@ -77,6 +91,19 @@ if (!$order['tavozas']) {
             <?php $FormClass->emailbox('email', $order['email'], lan('email'), 'hidden', 1); ?>
             <?php $FormClass->textbox('tel', $order['tel'], lan('tel'), 'hidden', 1); ?>
             <?php $FormClass->textaera('message', $order['message'], lan('message'), 'hidden', 0); ?>
+            <div class="info">
+                <div class="col-xs-6">
+                    <?= lan('roomneed') ?>
+                    <div class="clearfix"></div>
+                    <div id="roomneed"></div>
+                </div>
+                <div class="col-xs-6">
+                    <span onclick="roomorder();"> <?= lan('roomheave') ?></span>
+                    <div class="clearfix"></div>
+                    <div id="roomheave"></div>
+                </div>
+            </div>
+
         </div>
         <div class="col-sm-6">
             <div class="col-xs-6">
@@ -85,6 +112,7 @@ if (!$order['tavozas']) {
                 <input type="text" id="felnottnum" name="felnottnum" value="<?= $order["felnottnum"]; ?>" maxlength="3"
                        readonly>
                 <span class="plus" id="felnottplusf">+</span>
+
             </div>
             <div class="col-xs-6">
                 <b><?= lan('gyerek'); ?></b>
@@ -96,11 +124,10 @@ if (!$order['tavozas']) {
             <?php $FormClass->datebox('erkezes', $order['erkezes'], lan('erkezes'), 'hidden', 1); ?>
             <?php $FormClass->datebox('tavozas', $order['tavozas'], lan('tavozas'), 'hidden', 1); ?>
             <?php $FormClass->numbox('ejszam', $order['ejszam'], lan('ejszam'), '', 1); ?>
-            <div id="gyerekadat"></div>
+            <div id="gyerekadat">Gyerekek<br>
+            </div>
         </div>
-        <div>
-            <?= lan('roomneed') ?>:<span id="roomneed"></span>
-        </div>
+
         <div class="clearfix"></div>
         <?php
         //arraylist($rooms);
@@ -131,7 +158,6 @@ if (!$order['tavozas']) {
                         include('formelement_order_room.php');
                      $c++;
                  }
-
                 ?>
         <?php
         }
@@ -144,3 +170,19 @@ if (!$order['tavozas']) {
     </form>
 
 </div>
+    <div>
+    <?= lan('gyerekkedvezmeny')?>
+    </div>
+<?php foreach ($gyerekkedvezmenyek as $name=>$value){
+    if ($value['val']>0){
+    ?>
+    <div>
+        <div class="col-sm-6">
+            <?= lan($name) ?>
+        </div>
+        <div class="col-sm-6">
+            <?= $value['val'] ?>
+            <?= $kedvezmenytipus[$value['tip']] ?>
+        </div>
+    </div>
+<?php }} ?>

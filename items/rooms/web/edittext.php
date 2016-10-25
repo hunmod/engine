@@ -193,6 +193,14 @@
             <input name="priece" id="priece" type="text"
                    value="<?php echo $Text_Class->htmlfromchars($adat["priece"]); ?>"
                    maxlength="200"/><br/>
+            <?php echo $lan['priece1']; ?>:
+            <input name="priece1" id="priece1" type="text"
+                   value="<?php echo $Text_Class->htmlfromchars($adat["priece1"]); ?>"
+                   maxlength="200"/><br/>
+            <?php echo $lan['priece2']; ?>:
+            <input name="priece2" id="priece2" type="text"
+                   value="<?php echo $Text_Class->htmlfromchars($adat["priece2"]); ?>"
+                   maxlength="200"/><br/>
             <?php echo lan('artipus'); ?>:
             <?php  $form->selectboxeasy2("tip", $artipus, $adat["tip"], lan('artipus')); ?><br/>
             <?php echo lan('roomsize'); ?>:

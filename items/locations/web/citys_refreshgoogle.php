@@ -1,12 +1,12 @@
 <?php
-$cfilters['nolat']='1';
-$citysarray=$location_class->get_city($cfilters,' LIMIT 0,10');
+$cfilters['nolat']='nolat';
+$citysarray=$location_class->get_city($cfilters,' LIMIT 0,5');
 $citys=$citysarray["datas"];
-//arraylist($citysarray);
-/*
+arraylist($citysarray);
+
 foreach($citys as $adat){
-if($adat["city_name"]&&($adat["lati"]==0 ||!$adat["longi"]==0 )) {
-    ($gpsdatas = $Google_Class->get_google_geocoding($adat["city_name"]));
+if($adat["city_name"]&&($adat["lati"]==10 ||!$adat["longi"]==0 )) {
+    $gpsdatas = $Google_Class->get_google_geocoding($adat["city_name"]);
     $adat["lati"] = $gpsdatas[0]["geometry"]["location"]['lat'];
     $adat["longi"] = $gpsdatas[0]["geometry"]["location"]['lng'];
 
@@ -19,18 +19,25 @@ if($adat["city_name"]&&($adat["lati"]==0 ||!$adat["longi"]==0 )) {
             }
         }
     }
+    arraylist($gpsdatas);
+
     $location_class->save_city($adat);
     sleep(1);
 }
-    // arraylist($locdatas);
+     //arraylist($locdatas);
 
 }
+
+/*
+if($_GET["cn"])$gpsdatas = $Google_Class->get_google_geocoding($_GET["cn"]);
+arraylist($gpsdatas);
 */
+
 ?>
 
 <script>
     $( document ).ready(function() {
-       // setTimeout("location.reload(true);",10000);
+       //setTimeout("location.reload(true);",10000);
     });
 
 </script>
