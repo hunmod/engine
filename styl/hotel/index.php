@@ -161,8 +161,7 @@
 <div class="modal fade" id="error" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-400">
         <div class="modal-content">
-            <span type="button" onclick="$('#error').modal('hide');" class="close" data-dismiss="error"
-                  aria-label="Close"></span><!-- Sanyi - bekerült a close button-->
+            <span type="button" onclick="$('#error').modal('hide');" class="close" data-dismiss="error" aria-label="Close"></span>
             <?php if ($_SESSION["messageerror"] != '') {
                 echo '<div class="modal-head">Error</div>';
 

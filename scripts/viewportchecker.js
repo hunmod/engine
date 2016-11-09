@@ -66,3 +66,25 @@
         });
     };
 })(jQuery);
+
+/*animate script*/
+function scrollanimate(animatedelement,animationtype) {
+    var window_height = window.innerHeight;
+    var window_top_position = $(window).scrollTop();
+    var window_bottom_position = (window_top_position + window_height);
+    $.each($(animatedelement), function() {
+        var $element = $(this);
+        var element_height = $element.outerHeight();
+        var element_top_position = $element.offset().top;
+        var element_bottom_position = (element_top_position + element_height);
+        //check to see if this current container is within viewport
+       // if ((element_bottom_position >= window_top_position) &&(element_top_position <= window_bottom_position)) {
+        if ((element_bottom_position >= window_top_position) &&(element_top_position <= window_bottom_position)) {
+           // $element.addClass(animationtype);
+            $element.addClass('animated '+animationtype,100);
+        } else {
+           // $element.removeClass(animationtype);
+          //  $element.removeClass('animated '+animationtype,0);
+        }
+    });
+}

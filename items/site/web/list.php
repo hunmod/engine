@@ -99,3 +99,12 @@
     </div>
 
 </div>
+<script type="text/javascript">
+    function gomemove(){
+        scrollanimate('article','fadeIn');
+    }
+    jQuery(document).ready(function() {
+        $(window).on('scroll resize', gomemove);
+        $(window).trigger('scroll');
+    });
+</script>

@@ -5,8 +5,8 @@
     <!--[if lte IE 7]>
     <script src="css/icomoon-font/lte-ie7.js"></script>
     <![endif]-->
-    <!-- bootstrap css -->
-    <link href="<?php echo $server_url;?>styl/admin/css/bootstrap.css" rel="stylesheet">
+    <!-- bootstrap css >
+    <link href="<?php echo $server_url;?>styl/admin/css/bootstrap.css" rel="stylesheet"-->
    <!-- custom css -->
     <link href="<?php echo $server_url;?>styl/admin/css/main.css" rel="stylesheet">
     <link href="<?php echo $server_url; ?>scripts/jquery.modalbox-1.5.0/css/jquery.modalbox.min.css" rel="stylesheet">
@@ -583,7 +583,8 @@ if ($auser["jog"]>=3){
 
     </div>
     <!-- Main Container end -->
-
+<?php include_once("./items/footerscripts.php"); ?>
+<link href="<?php echo $server_url; ?>scripts/jquery.modalbox-1.5.0/css/jquery.modalbox.min.css" rel="stylesheet">
 
     <!-- Scripts -->
 
@@ -625,5 +626,16 @@ if ($auser["jog"]>=3){
       $('#rate1').raty({ score: 1 });
     });
     </script>
+	
+<div class="modal fade" id="hiddenbox" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-400">
+        <div class="modal-content">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                    onclick="$('#hiddenbox').modal('hide');"></button>
+            <div class="modal-head"></div>
+            <div id="hiddencontent" class="modal-body"></div>
+        </div>
+    </div>
+</div>	
   </body>
 </html>

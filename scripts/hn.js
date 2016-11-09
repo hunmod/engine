@@ -479,8 +479,41 @@ function loadelements_regions(data) {
 /* Ország,Város lekérdezések*/
 
 
+function isValidEmailAddress(emailAddress) {
+    var pattern = new RegExp(/^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i);
+    return pattern.test(emailAddress);
+};
 
 
+/*dátumszamolas*/
+
+function agecalc(birthdate, nowdate) {
+	if (!nowdate) {
+		var   datum1 = new Date();
+	} else {
+		// datum1 = new Date();
+		var   datum1arr = nowdate.split('.');
+		datum1 = new Date(datum1arr[0],datum1arr[1],datum1arr[2],0,0,0,0);
+	}
+	var datum2arr = birthdate.split('.');
+	datum2 = new Date(datum2arr[0],datum2arr[1],datum2arr[2],0,0,0,0);
+
+	//console.log(datum1);
+	//console.log(datum2);
+
+	kul = datum1.getTime() - datum2.getTime();
+	kor = Math.floor(kul / (1000 * 60 * 60 * 24) / 365);
+	return (kor);
+}
+function daycalc(firstdate, seconddate) {
+	var datum1arr = seconddate.split('.');
+	var datum2arr = firstdate.split('.');
+	var datum1 = new Date(datum1arr[0],datum1arr[1],datum1arr[2],0,0,0,0);
+	var  datum2 = new Date(datum2arr[0],datum2arr[1],datum2arr[2],0,0,0,0);
+	kul = datum1.getTime() - datum2.getTime();
+	kor = Math.floor(kul / (1000 * 60 * 60 * 24));
+	return (kor);
+}
 
 /* Session mod*/
 /*

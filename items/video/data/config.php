@@ -6,7 +6,7 @@ $file_structuct["modules"]="video";
 
 /*$file_structuct["name"]="oldalak listája";
 $file_structuct["file"]="list";
-$modules[]=$file_structuct;*/
+$modules[]=$file_structuct;
 $file_structuct["name"]="videos list";
 $file_structuct["file"]="list";
 $modules[]=$file_structuct;
@@ -17,7 +17,7 @@ $modules[]=$file_structuct;
 $file_structuct["name"]="Videos";
 $file_structuct["file"]="lista";
 $adminmenu[]=$file_structuct;
-
+*/
 
 include_once("video.class.php");
 $video_class=new video();

@@ -75,7 +75,7 @@
 
     $(function () {
         $("#from").datepicker({
-            altFormat: "yy-mm-dd",
+            altFormat: "yy.mm.dd",
             changeMonth: true,
             minDate: "<?= $onlydateprint?>",
             showOn: "button",
@@ -88,7 +88,7 @@
             beforeShowDay: function (date) {
                 var m = date.getMonth(), d = date.getDate(), y = date.getFullYear();
                 for (i = 0; i < disabledDays.length; i++) {
-                    if ($.inArray(y + '-' + (m + 1) + '-' + d, disabledDays) != -1) {
+                    if ($.inArray(y + '.' + (m + 1) + '.' + d, disabledDays) != -1) {
                         //return [false];
                         return [true, 'ui-state-disabled', ''];
                     }
@@ -99,7 +99,7 @@
 
 
         $("#to").datepicker({
-            altFormat: "yy-mm-dd",
+            altFormat: "yy.mm.dd",
             defaultDate: "+1w",
             changeMonth: true,
             showOn: "button",
@@ -111,7 +111,7 @@
             beforeShowDay: function (date) {
                 var m = date.getMonth(), d = date.getDate(), y = date.getFullYear();
                 for (i = 0; i < disabledDays.length; i++) {
-                    if ($.inArray(y + '-' + (m + 1) + '-' + d, disabledDays) != -1) {
+                    if ($.inArray(y + '.' + (m + 1) + '.' + d, disabledDays) != -1) {
                         //return [false];
                         return [true, 'ui-state-disabled', ''];
                     }

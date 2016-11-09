@@ -1,4 +1,4 @@
-﻿<script>
+<script>
 (function($) {
     $.fn.goTo = function() {
         $('html, body').animate({
