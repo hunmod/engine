@@ -76,7 +76,7 @@ h2{
 
 .maincontainer {
     /*margin-top: -22px !important;*/
-    margin-top: 118px !important;
+    margin-top: 100px !important;
 }
 
 .container {
@@ -108,7 +108,7 @@ news article img {
     color: #000;
     font-weight: bold;
     margin-left: 120px;
-    margin-top: -30px;
+    /*margin-top: -30px;*/
     z-index:10;
     font-size: 12px;
 }
@@ -170,7 +170,7 @@ padding-right: 15px;
 
 .navbar .c_head ul {
     display: block;
-    float: center;
+    padding: 0;
 }
 
 .navbar .c_head a {
@@ -186,8 +186,6 @@ text-transform: none;
     border-bottom: 1px solid #E0CFBF;
     display: block;
     text-align: center;
-	
-
 }
 
 .navbar .navbar-nav {
@@ -304,7 +302,7 @@ float:right;
 	color:#fff;
 	border-radius:;
 	font-size:17px;}
-	
+
 }
 
 @media only screen and (max-width: 480px) {
@@ -318,7 +316,7 @@ float:center;
 	color:#fff;
 	border-radius:;
 	font-size:17px;}
-	
+
 }
 #opentimesector {
     cursor: pointer;
@@ -484,7 +482,7 @@ ads iframe {
 
 .btn-white,
 .btn-creme-inv {
-    margin: 3px;
+    margin: 9px;
     color: #7B6857;
     border: solid 2px #7B6857;
     background-color: #fff;
@@ -499,7 +497,9 @@ ads iframe {
     transition: all 1s;
 
 }
-
+.csomagbox .csomag{
+    height: 100%;
+}
 .csomag  {
     position: relative;
 
@@ -535,7 +535,7 @@ ads iframe {
     display: block;
     position: absolute;
     top: 5px;
-
+    z-index: 2;
 }
 
 .csomag > div > .icon30 {
@@ -546,17 +546,17 @@ ads iframe {
 .csomag h3 {
     margin-bottom: 5px;
     padding: 5px;
-    background-color: rgba(255, 255, 255, 0.8);
+   /* background-color: rgba(255, 255, 255, 0.8);*/
 }
 .csomag .imgframe{
     position: relative;
 }
 .csomag .leiraslong h3{
     background-color: transparent;
-
 }
 .csomag .leiraslong {
 padding: 15px;
+padding-top: 35px;
 color: #fff;
     opacity: 0;
     position: absolute;
@@ -573,6 +573,64 @@ color: #fff;
     opacity: 1;
 
 }
+.csomag .leiraslong .btnframe{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+}
+.csomag_disp1 .imgframe .cim{
+    position: absolute;
+    width: 80%;
+    bottom: -5px;
+    margin: 0;
+    background-color: #fff;
+    left: 10%;
+    text-transform: uppercase;
+    font-family: Lato;
+    color:#A49383;
+}
+.csomag_disp1 {
+    min-height: 380px;
+}
+.csomag_disp1 .leiras {
+    background-color: rgba(255,255,255,0.8);
+    color:#A49383;
+}
+.csomag_disp1 .ar2,
+.csomag_disp1 .ar {
+    font-size: 40px;
+    font-weight: normal;
+    letter-spacing: 5px;
+    font-family: lato-regular;
+}
+.csomag_disp1 .ar2 {
+    font-size: 28px;
+}
+.csomag_disp1 .btn {
+    width: 80%;
+    padding:10px;
+}
+.csomag_disp1 .leiraslong .text-left{
+    position: relative;
+}
+
+.csomag_disp1 .leiraslong .text-left .icon {
+    display: inline-block;
+}
+.csomag_disp1 .leiraslong .text-left span {
+    padding-bottom: 3px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.csomag_disp1>div:first-child {
+    height: 100%;
+    border: 1px solid #EAD9C9;
+
+}
+
 .carousel-inner > .item > a > img,
 .carousel-inner > .item > img {
     width: 100%;
@@ -586,8 +644,12 @@ news article p,
 }
 
 /* fooldal egy link */
+.oneurl:first-child{
+   /* margin-top: 30px;*/
+}
 .oneurl {
     position: relative;
+    min-height: 250px;
     margin: 10px 0;
 }
 
@@ -647,14 +709,17 @@ font-family: Lato-Medium;
 }
 
 /* artablazat*/
-/*.priecetable {
+.priecetable {
     margin: auto;
     border: 2px solid #A49383;
     text-align: center;
+    min-width: 60%;
 }
 
 .priecetable th {
     font-weight: bold;
+    text-align: center;
+    text-transform: capitalize;
 }
 
 .priecetable td, .priecetable th {
@@ -665,7 +730,8 @@ font-family: Lato-Medium;
 .priecetable .icon30 {
     display: block;
     margin: auto;
-}*/
+}
+
 .ordertable .csomaginfo{
     border-radius: 100px 0px 0px 100px;
 
@@ -696,6 +762,9 @@ font-family: Lato-Medium;
 slider {
     margin-bottom: 10px;
     margin-top: 50px;
+}
+#myslider {
+    margin-top: 80px;
 }
 #myslider .item img{
     display: block;
@@ -729,7 +798,9 @@ slider {
     overflow:hidden;
     width:auto;
     min-width:30%;
+    width: 100%;
     color:#fff;
+    text-align: center;
 }
 .owl-prev{
 
@@ -759,7 +830,62 @@ slider {
 .owl-theme .owl-controls .owl-dot.active {
     background: #fff;
 }
-.owl-item{
+.owl-carousel .owl-controls .owl-nav .owl-prev,
+.owl-carousel .owl-controls .owl-nav .owl-next{
+    display: block;
+    position: absolute;
+    color: transparent;
+    top: 0;
+    width: 25%;
+    height: 100%;
+    font-size: 50px;
+    text-align: center;
+    /* Internet Explorer 10 */
+    display:-ms-flexbox;
+    -ms-flex-pack:center;
+    -ms-flex-align:center;
+
+    /* Firefox */
+    display:-moz-box;
+    -moz-box-pack:center;
+    -moz-box-align:center;
+
+    /* Safari, Opera, and Chrome */
+    display:-webkit-box;
+    -webkit-box-pack:center;
+    -webkit-box-align:center;
+
+    /* W3C */
+    display:box;
+    box-pack:center;
+    box-align:center;
+}
+
+.owl-carousel .owl-controls .owl-nav .owl-prev:hover,
+.owl-carousel .owl-controls .owl-nav .owl-next:hover{
+    color:#fff ;
+}
+
+.owl-carousel .owl-controls .owl-nav .owl-next{
+
+    right: 0;
+     background-image: -webkit-linear-gradient(left,rgba(0,0,0,.0001) 0,rgba(0,0,0,.5) 100%);
+     background-image: -o-linear-gradient(left,rgba(0,0,0,.0001) 0,rgba(0,0,0,.5) 100%);
+     background-image: -webkit-gradient(linear,left top,right top,from(rgba(0,0,0,.0001)),to(rgba(0,0,0,.5)));
+     background-image: linear-gradient(to right,rgba(0,0,0,.0001) 0,rgba(0,0,0,.5) 100%);
+     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#80000000', GradientType=1);
+     background-repeat: repeat-x;
+
+}
+.owl-carousel .owl-controls .owl-nav .owl-prev{
+    left: 0;
+    background-image: -webkit-linear-gradient(left,rgba(0,0,0,.5) 0,rgba(0,0,0,.0001) 100%);
+    background-image: -o-linear-gradient(left,rgba(0,0,0,.5) 0,rgba(0,0,0,.0001) 100%);
+    background-image: -webkit-gradient(linear,left top,right top,from(rgba(0,0,0,.5)),to(rgba(0,0,0,.0001)));
+    background-image: linear-gradient(to right,rgba(0,0,0,.5) 0,rgba(0,0,0,.0001) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', endColorstr='#00000000', GradientType=1);
+    background-repeat: repeat-x;
+
 }
 
 
@@ -770,6 +896,9 @@ slider {
     .oneurl .text {
 	text-align: center;
        width: 50%;
+    }
+    .container {
+        width: 80%;
     }
 }
 
@@ -785,9 +914,19 @@ slider {
     #breadCrumb {
         margin-left: 190px;
     }
+   /* .container {
+        width: 80%;
+        max-width: 1000px;
+    }*/
 }
 
 @media only screen and (min-width: 767px) {
+    .navbar .c_head {
+        margin-left: 15%;
+        width: 85%;
+    }
+
+
     .oneurl {
         padding: 0;
     }
@@ -796,16 +935,22 @@ slider {
 	text-align: center;
         position: absolute;
         height: 100%;
-        
+
         top: 0;
         right: 0;
     }
 
-    .oneurl:nth-child(2n+0) .text {
+    .pairunpair:nth-child(odd) .oneurl .text {
         left: 0;
         right: auto;
     }
-
+   /* .ajanlatcontainer .csomagbox:first-child {
+        padding-left: 0;
+    }
+    .ajanlatcontainer .csomagbox:last-child {
+        padding-right: 0;
+    }
+*/
 }
 
 @media only screen and (max-width: 979px) {
@@ -828,9 +973,16 @@ slider {
     .oneurl .text h3{
         margin-top: 0;
     }
+  /*  .container {
+        width: 800px;
+        max-width: 100%;
+    }*/
 }
 
 @media only screen and (max-width: 767px) {
+    .hiddenmobile{
+        display:none;
+    }
     .navbar .navbar-brand {
         position: relative;
         display: block;
@@ -902,7 +1054,6 @@ slider {
 }
 
 @media only screen and (max-width: 480px) {
-
     .navbar .c_head ul{
     }
     .oneurl .text {
@@ -1006,6 +1157,8 @@ slider {
 }
 
 /**/
+
+
 .ajanlatcontainer {
 text-align: center;
     margin-top: 20px;
@@ -1013,4 +1166,15 @@ text-align: center;
 
 .nofloat{
 float: none;
+}
+
+.pairunpair{
+    background: #fdfdfd;
+    background: #f0f0f0;
+}
+.pairunpair:nth-of-type(2n){
+background: none;
+}
+.pairunpair.container{
+padding: 5px 0;
 }

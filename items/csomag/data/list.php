@@ -59,7 +59,14 @@ $pos2.=',12';
 $pos3.=',13';
 
 
-$maxegyoldalon=3;
+if (!$filters['maxegyoldalon']) {
+	$filters['maxegyoldalon'] = $maxegyoldalon = 3;
+}
+if(!$admintemplate){
+$filters['today'] = $_SESSION["to"];
+	//echo $_SESSION["to"];
+}
+
 if (($_GET["oldal"]=="") || ($_GET["oldal"]<=0)){
 	$oldal=0;
 }
@@ -97,6 +104,7 @@ if ($_GET["tag"]){
 //if (!$adminv)$filters['ido']=$date;
 
 $qhir=$CsomagClass->get($filters,'',$_GET["page"]) ;
+//arraylist($qhir);
 $hirekelemek=($qhir['datas']);
 $hszlistacount=$qhir['count'];
 

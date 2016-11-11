@@ -27,12 +27,10 @@
 
                         <ul>
                             <li>
-                                <?= hotelicon_print("TELEFON", 10, 'greyishbeige'); ?><a
-                                    href="tel:<?= page_settings("c_telefon"); ?>"><?= page_settings("c_telefon"); ?></a>
+                                <a href="tel:<?= page_settings("c_telefon"); ?>"> <span class="glyphicon glyphicon-phone-alt"></span> <span class="hiddenmobile"><?= page_settings("c_telefon"); ?></span></a>
                             </li>
                             <li>
-                                <?= hotelicon_print("EMAIL", 10, 'greyishbeige'); ?><a
-                                    href="mailto:<?= page_settings("c_email"); ?>"><?= page_settings("c_email"); ?></a>
+                                <a href="mailto:<?= page_settings("c_email"); ?>"><span class="glyphicon glyphicon-envelope"></span>  <span class="hiddenmobile"><?= page_settings("c_email"); ?></span></a>
                             </li>
                             <?php if ($auser["id"] < 1) { ?>
                                 <li><a href="javascript:reg();"><span><?php echo $lan["reg"]; ?></span></a></li>
@@ -100,17 +98,17 @@
     <div class="container text-center">
         <h3><?= lan('miértfoglaljonnalunk'); ?></h3>
 
-        <div class="col-sm-4">
+        <div class="col-xs-4">
             <span class="icon50  FIZ-IGAZOLAS fekete" title="Fizetési igazolás"></span>
             <br>
             <?= lan('FIZ-IGAZOLAS'); ?>
         </div>
-        <div class="col-sm-4">
+        <div class="col-xs-4">
             <span class="icon50  BIZTONSAG fekete" title="Biztonság"></span>
             <br>
             <?= lan('BIZTONSAG'); ?>
         </div>
-        <div class="col-sm-4">
+        <div class="col-xs-4">
             <span class="icon50  ARGARANCIA fekete" title="ARGARANCIA"></span>
             <br>
             <?= lan('ARGARANCIA'); ?>

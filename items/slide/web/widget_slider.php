@@ -23,12 +23,14 @@ $(document).ready(function() {
       mergeFit:true,
       responsiveClass:true,
       stagePadding: 0,
-
-    autoPlay: 3000, //Set AutoPlay to 3 seconds
-    navigation : true, // Show next and prev buttons
+      loop:true,
+      autoplayHoverPause: true,
+      autoplay: true,
+      autoplayTimeout: 3000,
+      nav : true, // Show next and prev buttons
     slideSpeed : 300,
     paginationSpeed : 400,
-
+      navText:['&lsaquo;','&rsaquo;'],
     // "singleItem:true" is a shortcut for:
     // items : 1,
     // itemsDesktop : false,
@@ -48,7 +50,7 @@ $(document).ready(function() {
         foreach($sliderelements["datas"] as $slider){
         $img="picture2.php?picture=".encode($slider['imgurl'])."";
         ?>
-        <div class="item"><img src="<?php echo $server_url.$img;?>&x=1520&y=435" alt="The Last of us">
+        <div class="item"><img src="<?php echo $server_url.$img;?>&x=1520&y=533" alt="The Last of us">
         <div class="slideContent">
         <div class="slideText">
         <h2><?php echo $slider["name"]; ?></h2>

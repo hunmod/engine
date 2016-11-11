@@ -316,7 +316,7 @@ if ($filters['maxegyoldalon']>0){
 	}
 	else
 	{
-		$order=' ORDER BY '.$SD["table"].'.`id` DESC ';
+		$order=' ORDER BY '.$SD["table"].'.`sorrend` ASC ';
 	}
 
 	//a t�bla saj�t mez�i

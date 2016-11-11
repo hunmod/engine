@@ -24,7 +24,13 @@ class csomag
         $status[7] = lan('vasarnap');
         return $status;
     }
+    public function sorrend(){
+        for ($i = 1; $i <= 10; $i++)
+        {
+            $status[$i]=$i;	}
 
+        return $status;
+    }
     public function table_csomag_text($lang,$data=array())
     {
         global $adatbazis, $tbl;
@@ -444,7 +450,7 @@ class csomag
         if ($order != '') {
             $order = ' ORDER BY ' . $order;
         } else {
-            $order = ' ORDER BY ' . $SD["table"] . '.`id` DESC ';
+            $order = ' ORDER BY ' . $SD["table"] . '.`sorrend` ASC ';
         }
 
         //a t�bla saj�t mez�i
@@ -486,6 +492,12 @@ class csomag
         if ($filters[$fmezonev] != '') {
             $where .= $Sys_Class->andsupport($where);
             $where .= '(' . $SD["table"] . ".`id` in (" . $filters[$fmezonev] . ") ";
+        }
+
+        $fmezonev = 'today';
+        if ($filters[$fmezonev] != '') {
+            $where .= $Sys_Class->andsupport($where);
+            $where .= '(' . $SD["table"] . ".`fromshow` <= '" . $filters[$fmezonev] . "' AND " . $SD["table"] . ".`toshow` >= '" . $filters[$fmezonev] . "'  ) OR " . $SD["table"] . ".`toshow` = ''";
         }
 
 //ha van felt�tel el� csapjuk hogy WHERE	
@@ -677,4 +689,5 @@ $CsomagClass = new csomag();
 $CsomagClass->create_table();
 $CsomagClass->create_table_text('hu');
 $csomagtatus = $CsomagClass->status();
+$csomagsorrend = $CsomagClass->sorrend();
 ?>

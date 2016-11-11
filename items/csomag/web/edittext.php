@@ -18,7 +18,7 @@
     }
 </style>
 <script>
-    $(document).ready(function () {
+ /*   $(document).ready(function () {
 
         $('form').submit(function () {
             var imageData = $('.image-editor').cropit('export', {
@@ -54,7 +54,7 @@
             $('.image-editor').cropit('rotateCCW');
         });
     });
-
+*/
 </script>
 <div class="container">
     <div class="col-sm-12">
@@ -66,15 +66,19 @@
             <div class="form-group">
                 <div class="col-sm-12"><strong><?php echo $lan["profimg"]; ?></strong></div>
                 <div class="col-sm-12">
-                    <div class="image-editor">
+                    <img src="<?php echo($nimg); ?>">
+                    <br/>
+                    <input id="photo" name="photo" type="file">
+                    <div class="clearfix"></div>
+                    <!--div class="image-editor">
                         <input type="file" class="cropit-image-input">
 
                         <div class="cropit-preview"></div>
                         <div class="image-size-label"><?= lan("imageresize"); ?></div>
                         <input type="range" class="cropit-image-zoom-input">
-                        <!-- button class="rotate-ccw">Rotate counterclockwise</button>
-                        <button class="rotate-cw">Rotate clockwise</button -->
-                    </div>
+                        < button class="rotate-ccw">Rotate counterclockwise</button>
+                        <button class="rotate-cw">Rotate clockwise</button >
+                    </div-->
                 </div>
                 <div class="clearfix"></div>
             </div>
@@ -117,21 +121,39 @@
 
             <div>
                 <b><?= lan('valaszthatoszobak'); ?></b>
+                <div class="col-sm-12">
+                    <div class="col-xs-3">
+                        <?=  lan("nev") ?>
+                    </div>
+                    <div class="col-xs-2">
+                        <?=  lan("db") ?>
+                    </div>
+                    <div class="col-xs-2">
+                        <?=  lan("priece1person") ?>
+                    </div>
+                    <div class="col-xs-2">
+                        <?=  lan("priece2person") ?>
+                    </div>
+                    <div class="col-xs-3">
+                        <?=  lan("artipus") ?>
+                    </div>
+                </div>
+
                 <?php if ($roomslist) foreach ($roomslist as $room) { ?>
                     <div class="col-sm-12">
-                        <div class="col-sm-3">
+                        <div class="col-xs-3">
                             <?php $form->checkbox('services[rooms][' . $room['id'] . '][exist]',$adat['services']['rooms'][$room['id']]['exist'], $room['title'], $class = "checkbox"); ?>
                         </div>
-                        <div class="col-sm-2">
-                            <?php $form->textbox('services[rooms][' . $room['id'] . '][db]', $adat['services']['rooms'][$room['id']]['db'], lan("db")); ?>
+                        <div class="col-xs-2">
+                            <?php $form->textbox('services[rooms][' . $room['id'] . '][db]', $adat['services']['rooms'][$room['id']]['db'], lan("db"),'hidden'); ?>
                         </div>
-                        <div class="col-sm-2">
-                            <?php $form->textbox('services[rooms][' . $room['id'] . '][priece1]', $adat['services']['rooms'][$room['id']]['priece1'], lan("priece1person")); ?>
+                        <div class="col-xs-2">
+                            <?php $form->textbox('services[rooms][' . $room['id'] . '][priece1]', $adat['services']['rooms'][$room['id']]['priece1'], lan("priece1person"),'hidden'); ?>
                         </div>
-                        <div class="col-sm-2">
-                            <?php $form->textbox('services[rooms][' . $room['id'] . '][priece2]', $adat['services']['rooms'][$room['id']]['priece2'], lan("priece2person")); ?>
+                        <div class="col-xs-2">
+                            <?php $form->textbox('services[rooms][' . $room['id'] . '][priece2]', $adat['services']['rooms'][$room['id']]['priece2'], lan("priece2person"),'hidden'); ?>
                         </div>
-                        <div class="col-sm-3">
+                        <div class="col-xs-3">
                             <?php $form->selectboxeasy2('services[rooms][' . $room['id'] . '][tip]', $artipus, $adat["tip"], lan('artipus')); ?>
                         </div>
                         <?php $form->hiddenbox('services[rooms][' . $room['id'] . '][id]', $room['id']); ?>
@@ -151,8 +173,11 @@
                 <?php $form->selectboxeasy2("tip", $artipus, $adat["tip"], lan('artipus')); ?><br/>
             </div>
             <div class="col-sm-12">
-                <?php echo lan('sorrend'); ?>:
-                <?php $form->selectboxeasy2("sorrend", $sorrend, $adat["sorrend"], "sorrend"); ?>
+                <?php echo lan('sorrend');
+
+                if (!$adat["sorrend"])$adat["sorrend"]=5;
+                ?>:
+                <?php $form->selectboxeasy2("sorrend", $csomagsorrend, $adat["sorrend"], "sorrend"); ?>
             </div>
             <div class="col-sm-12">
                 <?php echo lan('status'); ?>:
@@ -191,10 +216,7 @@
 
 
 
-            <img src="<?php echo($nimg); ?>">
-            <br/>
-            <input id="photo" name="photo" type="file">
-            <div class="clearfix"></div>
+
 
                 <button type="submit" class="btn btn-success"><?php echo $lan['save']; ?> <i class="fa fa-arrow-right"></i></button>
 

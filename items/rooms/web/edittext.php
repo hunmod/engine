@@ -128,7 +128,7 @@
 
 </style>
 <script>
-    $(document).ready(function () {
+ /*   $(document).ready(function () {
 
         $('form').submit(function () {
             var imageData = $('.image-editor').cropit('export', {
@@ -160,7 +160,7 @@
         $('.rotate-ccw').click(function () {
             $('.image-editor').cropit('rotateCCW');
         });
-    });
+    });*/
 </script>
 <div class="container">
     <div class="col-sm-12">
@@ -170,16 +170,21 @@
             <?php $Form_Class->hiddenbox('nimg', ''); ?>
             <div class="form-group">
                 <div class="col-sm-12"><strong><?php echo $lan["profimg"]; ?></strong></div>
-                <div class="col-sm-12">
-                    <div class="image-editor">
+                <div-- class="col-sm-12">
+
+                    <img src="<?php echo($nimg); ?>">
+                    <br/>
+                    <input id="photo" name="photo" type="file">
+                    <br/>
+                    <!--div class="image-editor">
                         <input type="file" class="cropit-image-input">
 
                         <div class="cropit-preview"></div>
                         <div class="image-size-label"><?= lan("imageresize"); ?></div>
                         <input type="range" class="cropit-image-zoom-input">
-                        <!-- button class="rotate-ccw">Rotate counterclockwise</button>
-                        <button class="rotate-cw">Rotate clockwise</button -->
-                    </div>
+                        < button class="rotate-ccw">Rotate counterclockwise</button>
+                        <button class="rotate-cw">Rotate clockwise</button >
+                    </div-->
                 </div>
                 <div class="clearfix"></div>
             </div>
@@ -263,13 +268,6 @@
             </div>
             </div>
 
-
-            <img src="<?php echo($nimg); ?>">
-            <br/>
-            <input id="photo" name="photo" type="file">
-
-
-            <br/>
             <?php include('./items/cat/web/catform_1.php') ?>
             <hr>
             <div>

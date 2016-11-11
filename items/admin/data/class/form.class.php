@@ -108,7 +108,7 @@ class formobjects
             '<input type="text" class="form-control maskdatebox" name="' . $name . '" id="' . $name . '" placeholder="' . $caption . '" value="' . $value . '"' . $reqval . '>';
     }
 
-    public function textaera($name, $value, $caption = "", $class = "form-control", $requied = 0)
+    public function textaera($name, $value, $caption = "", $class = "control-label", $requied = 0)
     {
         if ($requied == 1) {
             $reqval = ' required="required"';

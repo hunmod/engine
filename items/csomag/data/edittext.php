@@ -76,7 +76,7 @@ if ($_POST['hirsave'] == '1') {
         file_put_contents($fileup, $data);
     }
 //from file
-    $target = $UploadClass->uploadimg('photo', $csomag_loc . '/' . $hirid, '' . $hirid, $imgx, $imgy, true, true, true);
+    $target = $UploadClass->uploadimg('photo', $csomag_loc . '/' . $hirid, '' . $hirid, 1024, 768, true, true, true);
 header("Location:".$homeurl."/csomag/edittext/".encode($hirid));
 }
 

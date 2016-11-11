@@ -4,7 +4,7 @@
     });
 </script>
 <style>
-    .cropit-preview {
+   /* .cropit-preview {
         background-color: #f8f8f8;
         background-size: cover;
         border: 1px solid #ccc;
@@ -24,11 +24,11 @@
 
     input, .export {
         display: block;
-    }
+    }*/
 
 </style>
 <script>
-    $(document).ready(function () {
+   /* $(document).ready(function () {
 
         $('form').submit(function () {
             var imageData = $('.image-editor').cropit('export', {
@@ -60,7 +60,7 @@
         $('.rotate-ccw').click(function () {
             $('.image-editor').cropit('rotateCCW');
         });
-    });
+    });*/
 </script>
 <div class="container">
     <div class="col-sm-12">
@@ -69,15 +69,20 @@
             <?php $Form_Class->hiddenbox('hirsave', '1') ?>
             <?php $Form_Class->hiddenbox('nimg', ''); ?>
             <div class="form-group">
+
                 <div class="col-sm-12"><strong><?php echo $lan["profimg"]; ?></strong></div>
                 <div class="col-sm-12">
-                    <div class="image-editor">
+                    <img src="<?php echo($nimg); ?>">
+                    <br/>
+                    <input id="photo" name="photo" type="file">
+
+                    <!-- div class="image-editor">
                         <input type="file" class="cropit-image-input">
 
                         <div class="cropit-preview"></div>
                         <div class="image-size-label"><?= lan("imageresize"); ?></div>
                         <input type="range" class="cropit-image-zoom-input">
-                        <!-- button class="rotate-ccw">Rotate counterclockwise</button>
+                        <button class="rotate-ccw">Rotate counterclockwise</button>
                         <button class="rotate-cw">Rotate clockwise</button -->
                     </div>
                 </div>
@@ -130,15 +135,12 @@
             </div>
             </div>
 
+    <br/>
+    <p>
+        <button type="submit" class="button enterButton"><?php echo $lan['save']; ?> <i
+                class="fa fa-arrow-right"></i></button>
+    </p>
 
-            <img src="<?php echo($nimg); ?>">
-            <br/>
-            <input id="photo" name="photo" type="file">
-            <br/>
-            <p>
-                <button type="submit" class="button enterButton"><?php echo $lan['save']; ?> <i
-                        class="fa fa-arrow-right"></i></button>
-            </p>
 
         </form>
 

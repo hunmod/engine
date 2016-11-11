@@ -9,8 +9,10 @@ header("Cache-Control: max-age=2592000");
     ini_set('html_errors',FALSE);
     ini_set('error_log','syslog/php_' . date('Y-m-d-H') . '.log');
     ini_set('display_errors',FALSE);*/
-error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED & ~E_WARNING);	
-if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) ob_start("ob_gzhandler"); else ob_start(); 
+//ini_set('error_reporting', E_ALL);
+
+error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED & ~E_WARNING);
+if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) ob_start("ob_gzhandler"); else ob_start();
 $start_time = MICROTIME(TRUE);
 //
 include_once("items/allpagedatas.php");

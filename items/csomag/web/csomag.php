@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 ?>
 <style>
@@ -36,9 +36,11 @@
             gallery: true,
             item: 1,
             loop: true,
-            thumbItem: 9,
+            thumbItem: 4,
             slideMargin: 0,
             enableDrag: false,
+            auto:true,
+            pause:7000,
             currentPagerPosition: 'left',
             onSliderLoad: function (el) {
                 el.lightGallery({
@@ -86,56 +88,40 @@
         }?>
     </div>
     <div class="bottomspace">
-        <div class="col-xs-7 match-height matchHeight">
+        <div class="col-sm-7 match-height matchHeight">
             <?php
             $id = ($getparams[2]);
             $menu = $MenuClass->get_one_menu($id);
             $mappa = 'uploads/' . $folders["uploads"] . "/" . $getparams[0] . "/" . $id . '/';
-            $mylist = $Upload_Class->folderlist($mappa, 600, 300, 70);
+            $mylist = $Upload_Class->folderlist($mappa, 150, 87,1000);
             //arraylist($mylist);
             ?>
 
             <ul id="lightSlider">
-                <li data-thumb="<?= $CsomagClass->getimg($adat['id'], 70, 39); ?>"
-                    data-src="<?= $CsomagClass->getimg($adat['id'], 70, 39); ?>">
-                    <img src="<?= $CsomagClass->getimg($adat['id'], 600, 300); ?>"/>
+                <li data-thumb="<?= $CsomagClass->getimg($adat['id'],150, 87); ?>"
+                    data-src="<?= $CsomagClass->getimg($adat['id'], 150, 87); ?>">
+                    <img src="<?= $CsomagClass->getimg($adat['id'], 1000, 533); ?>"/>
                 </li>
                 <?php foreach ($mylist as $onepic) { ?>
-
-                    <li data-thumb="<?= $homeurl . $onepic["url"] ?>" data-src="<?= $homeurl . $onepic["screen"] ?>">
-                        <img src="<?= $homeurl . $onepic["screen"] ?>"/>
+                    <li data-thumb="<?= $homeurl . $onepic["screen"] ?>" data-src="<?= $homeurl . $onepic["url"] ?>">
+                        <img src="<?= $homeurl . $onepic["url"] ?>"/>
                     </li>
                 <?php } ?>
             </ul>
         </div>
-        <div class="col-xs-5 match-height matchHeight">
+        <div class="col-sm-5 match-height matchHeight">
             <div>
                 <?= $adat["leadtext"]; ?>
             </div>
+            <?php $idservices=(json_decode($adat["connectedservices"],true));?>
 
             <div class="connectedservices">
-                <div class="col-sm-12">
-                    <?= hotelicon_print('SZOBATIPUS', 30, 'fekete') ?> <b><?= lan('SZOBATIPUS') ?></b> <br>
-                </div>
-                <div class="col-sm-12">
-                    <?= hotelicon_print('SZOBA-MERETE', 30, 'fekete') ?> <b><?= $adat["roomsize"]; ?> M2</b> <br>
-                </div>
-                <?php if ($adat["roomnum"] > 1) { ?>
-                    <div class="col-sm-12">
-                        <?= hotelicon_print('CSALADI', 30, 'fekete') ?> <b><?= lan('CSALADI'); ?></b> <br>
-                    </div>
-                    <?php
-                } else { ?>
-                    <div class="col-sm-12">
-                        <?= hotelicon_print('KET-FO', 30, 'fekete') ?> <b><?= lan('KET-FO') ?></b>
-                    </div>
-                    <?php
-                }
-                ?>
-                <?php if ($adat["roomtip"] == 3) { ?>
-                    <div class="col-sm-12">
-                        <?= hotelicon_print('kulonNAPPALI', 30, 'fekete') ?>
-                        <strong><?= lan('kulonNAPPALI'); ?></strong> <br>
+                <?php
+                foreach ($idservices["services"]["csomagkategoria"] as $s_show=>$val){
+                    $cscat =$category_class->get(array('id'=>$s_show,'lang'=>$_SESSION['lang'])) ;
+                    ?>
+                    <div class="col-sm-12 col-xs-6  text-left">
+                        <?= hotelicon_print($cscat['datas'][0]['class'], 30, 'fekete',$cscat['datas'][0]['nev'])?> <b><?= $cscat['datas'][0]['nev'];?></b>
                     </div>
                     <?php
                 }
@@ -147,7 +133,7 @@
                     <?= lan('artolutan') ?>
                 </div>
             </div>
-            <a href="<?php echo $homeurl.$separator."rooms/order/".($adat["id"]).'/csomag/'.$TextClass->to_link($adat["title"]);?>" class="btn btn-creme col-xs-12"><?= lan('megrendelem'); ?></a>
+            <a href="<?php echo $homeurl.$separator."rooms/request/".($adat["id"]).'/csomag/'.$TextClass->to_link($adat["title"]);?>" class="btn btn-creme col-xs-12"><?= lan('megrendelem'); ?></a>
             <span class="btn btn-creme-inv col-xs-12"><?= lan('kosarba'); ?></span>
         </div>
         <div class="clearfix "></div>

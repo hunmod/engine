@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 $csomag_loc = 'uploads/csomag';
 $tblmodulom = 'csomag';
 $tbl[$tblmodulom] = $adatbazis["db1_db"] . "." . $prefix . "csomag";
