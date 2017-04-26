@@ -1,1 +1,0 @@
-{"db_conf":{"db1_srv":"localhost","db1_db":"c4teszt","db1_user":"c4hdteszt","db1_pass":"Sz@4wfkRzGU"},"homefolder":"","oldalid":"delibab","prefix":"","prefix_pagesetting":"delibab_"}

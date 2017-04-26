@@ -6,8 +6,8 @@
 $stylefolder="/styl/hunmod2/";
 echo $homeurl.$stylefolder;?>css/bootstrap.min.css" rel="stylesheet">
 <link href="<?php echo $homeurl.$stylefolder;?>css/font-awesome.css" rel="stylesheet" type="text/css">
-<link href="<?php echo $homeurl.$stylefolder;?>css/LumiSys.css" rel="stylesheet" type="text/css">
-	<!--script src="<?php echo $homeurl.$stylefolder;?>/js/js.js"></script>
+<!--link href="<?php echo $homeurl.$stylefolder;?>css/LumiSys.css" rel="stylesheet" type="text/css">
+	<script src="<?php echo $homeurl.$stylefolder;?>/js/js.js"></script>
 	<script src="<?php echo $homeurl.$stylefolder;?>/js/jquery.masonry.min.js"></script-->
  
  </head>
@@ -28,24 +28,6 @@ echo $homeurl.$stylefolder;?>css/bootstrap.min.css" rel="stylesheet">
         </div>
         <div id="navbar" class="collapse navbar-collapse">
 		<?php include('menu.php');?>
-                                <!--ul class="nav navbar-nav navbar-right">
-<?php if ($auser["id"]<1){?>
-                                    <li><a href="javascript:reg();"><span><?php echo $lan["reg"]; ?></span></a></li>
-                                    <li><a href="javascript:login();"><span><?php echo $lan["login"]; ?></span></a></li>
-                                    
-<?php } else {?>
-                                    <li class="sub-menu"><a href="<?php echo $homeurl.'/'.$separator;?>user/profil"><span><?php echo $lan["profil"]; ?></span></a>
-                                    
-                                    <ul>
-		                               <li><a href="<?php echo $homeurl.'/'.$separator;?>user/logout"><?php echo $lan["logout"]; ?></a></li>
-
-                                    </ul>
-                                    
-                                    </li>                     
-<?php }?>                                    
-                                </--ul--!>
-          
-        </div><!--/.nav-collapse -->
       </div>
     </nav>                    
 		</div>
@@ -121,7 +103,7 @@ $_SESSION["messageok"]='';
 <?php } ?>        
         
 <noscript><img src="https://d5nxst8fruw4z.cloudfront.net/atrk.gif?account=Llnqi1asyr00q9" style="display:none" height="1" width="1" alt="" /></noscript>
-
-  
+    <div id="status">
+    </div>
   </body>
 </html>

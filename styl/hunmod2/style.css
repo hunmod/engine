@@ -142,6 +142,11 @@ padding:5px;
 .clear{
 	clear:both;
 }
+slider .img-responsive{
+	width: 100%;
+}
+
+
 /* PARALLAX */
 .parallax {
 	height: 310px;
@@ -156,6 +161,31 @@ padding:5px;
 }
 @media (max-width: 991px) {
 	.parallax { background-attachment: scroll !important; }
+}
+@media (max-width: 768px){
+	/* Menü*/
+
+	.navbar-fixed-bottom .navbar-collapse,
+	.navbar-fixed-top .navbar-collapse {
+		max-height: none!important;
+	}
+
+	.navbar ul li,
+.navbar-collapse .navbar-nav li{
+	display: block;
+	float: none;
+}
+	.navbar ul li ul{
+		display: block;
+		position: relative;
+	}
+	.navbar ul li ul li{
+		display: inline-block!important;
+			 }
+	.navbar ul li ul {
+		left: 0px;
+		padding-left: 10px;
+	}
 }
 
 .pagination>li>a, .pagination>li>span {

@@ -1,4 +1,0 @@
-<?php
-$admintemplate=1;
-
-?>

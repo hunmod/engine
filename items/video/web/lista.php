@@ -16,15 +16,7 @@ $qmenu=$MenuClass->menu_selectboxfilter(0,array(),$filtersm,$order='',$page='all
 ?>
 
 <div class="container">
-  <!--left class="col-md-3 col-sm-4" >
-<?php 
-$widgets[]="items/user/web/widget_user_menu.php";
-$widgets[]="items/ads/web/widget_side1.php";
-$widgets[]="items/konyha/web/widget_submenu.php";
-foreach ($widgets as $widget)if (file_exists($widget))include($widget);?>
-  </left-->
 
-  <!--section class="col-md-9 col-sm-8"-->
   <section class="col-md-12 col-sm-12">
   <div class="col-md-12">
     <div class="widget">

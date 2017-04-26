@@ -1,1 +1,0 @@
-{"db_conf":{"db1_srv":"localhost","db1_db":"balatonf_uj","db1_user":"balatonf_uj","db1_pass":"Ch4mp10n"},"homefolder":"","oldalid":"bf","prefix":"","prefix_pagesetting":"bf_"}

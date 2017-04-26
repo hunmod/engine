@@ -2,30 +2,13 @@
 $form=new formobjects();
 $status=array('2'=>'Active','3'=>'Suspended','4'=>'Deleted');
 $sorrend=$class_slider->get_sorrend();
-
-
-
 //$users=$jobclass->get_users(array());
 $slider=$class_slider->get($_GET);
-
-
 //arraylist($slider);
 $datas=$slider['datas'];
-
-
-
-
 ?>
 <div class="container">
-  <left class="col-md-3 col-sm-4" >
-<?php 
-$widgets[]="items/user/web/widget_user_menu.php";
-$widgets[]="items/ads/web/widget_side1.php";
-$widgets[]="items/konyha/web/widget_submenu.php";
-foreach ($widgets as $widget)if (file_exists($widget))include($widget);?>
-  </left> 
-  
-  <div class="col-md-9 col-sm-8 ">
+
         <a href="<?php echo $server_url.$separator."slide/slider";?>" class="btn btn-lg btn-success">
                     New Slide
                     </a>         
@@ -117,5 +100,4 @@ if ($oldal==$c)
         </div>
         <!-- Row end -->
         
-      </div>
  </div>
