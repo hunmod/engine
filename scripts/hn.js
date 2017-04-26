@@ -228,8 +228,8 @@ $.getJSON( server_url+"service.php?q=recipe/user_action&del=1&"+act+"="+jid, fun
 	$( '#'+act+jid ).text( json["count"] );
 	$("#"+act+"i"+jid).removeClass("active");
 	$("#"+act+"s"+jid).val("0");
-  
- });
+
+});
 }
 }
 function job_ua2(act,jid,del){
@@ -506,13 +506,25 @@ function agecalc(birthdate, nowdate) {
 	return (kor);
 }
 function daycalc(firstdate, seconddate) {
-	var datum1arr = seconddate.split('.');
-	var datum2arr = firstdate.split('.');
+	if (seconddate.indexOf(".")) {
+		var datum1arr = seconddate.split('.');
+	}
+	if (seconddate.indexOf("-")) {
+		var datum1arr = seconddate.split('-');
+	}
+	if (firstdate.indexOf(".")) {
+		var datum2arr = firstdate.split('.');
+	}
+	if (seconddate.indexOf("-")) {
+		var datum2arr = firstdate.split('-');
+	}
+
 	var datum1 = new Date(datum1arr[0],datum1arr[1],datum1arr[2],0,0,0,0);
 	var  datum2 = new Date(datum2arr[0],datum2arr[1],datum2arr[2],0,0,0,0);
 	kul = datum1.getTime() - datum2.getTime();
 	kor = Math.floor(kul / (1000 * 60 * 60 * 24));
 	return (kor);
+	console.log(datum2arr)
 }
 
 /* Session mod*/

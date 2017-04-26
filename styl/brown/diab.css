@@ -712,3 +712,7 @@ overflow:hidden;
 #captha{
 display:none;
 }
+.navbar-fixed-top {
+	top: 10px;
+}
+

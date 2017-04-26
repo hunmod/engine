@@ -503,7 +503,7 @@ public function createdir($dir){
 		else {$dirlist.='/'.$mappa;}
 		//echo $dirlist;
 	if (!is_dir($dirlist)&& $dirlist!='') {
-		echo "rrrr".$mappa;
+		//echo $mappa;
 		mkdir($dirlist,0777,true);
 		//mkdir($dirlist);
 		//chgrp($dirlist, "samba_users");
@@ -807,3 +807,4 @@ rename (  $old ,  $new  );
 	return $error;
 }
 }
+$UploadClass=new file_upload();

@@ -1,3 +1,0 @@
-<?php
-arraylist($lan);
-?>

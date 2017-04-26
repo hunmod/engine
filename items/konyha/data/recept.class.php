@@ -1402,5 +1402,5 @@ return $formelements;
 
 
 }
-
+$rec_class=new recept();
 ?>

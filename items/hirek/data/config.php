@@ -5,7 +5,7 @@ $file_structuct=array();
 $file_structuct["modules"]="hirek";
 
 
-/*admin menü*/
+//admin menü
 $file_structuct["name"]="Hirek lista";
 $file_structuct["file"]="lista";
 $adminmenu[]=$file_structuct;

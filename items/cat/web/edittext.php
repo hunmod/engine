@@ -63,23 +63,30 @@
         });
     });
 </script>
+<?php
+if ($adat["status"]<1)$adat["status"]=2;
+?>
 <div class="container">
     <div class="col-sm-12">
 
         <h1><?= $menudatcim.lan('kategoriaedit');?></h1>
         <form id="uploadForm" action="" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
             <?php $Form_Class->hiddenbox('catpost', '1'); ?>
-            <?php $Form_Class->hiddenbox('nimg', ''); ?>
+            <?php //$Form_Class->hiddenbox('nimg', ''); ?>
+
             <div class="form-group">
                 <div class="col-sm-12"><strong><?php echo lan("headerpic"); ?></strong></div>
                 <div class="col-sm-12">
                     <div class="image-editor">
-                        <input type="file" class="cropit-image-input">
+                        <img src="<?php echo ($homeurl.'/'.$nimg);?>">
+                        <br />
+                        <input id="photo" name="photo" type="file" >
+                        <!--input type="file" class="cropit-image-input">
 
                         <div class="cropit-preview"></div>
                         <div class="image-size-label"><?= lan("imageresize"); ?></div>
                         <input type="range" class="cropit-image-zoom-input">
-                        <!-- button class="rotate-ccw">Rotate counterclockwise</button>
+                         button class="rotate-ccw">Rotate counterclockwise</button>
                         <button class="rotate-cw">Rotate clockwise</button -->
                     </div>
                 </div>
@@ -90,6 +97,8 @@
             <?php $Form_Class->textbox("ar", $Text_Class->htmlfromchars($adat["ar"]),lan('priece')); ?>
             <?php $Form_Class->selectbox2("kat",$katmenu,array('value'=>'id','name'=>'nev'),$adat["kat"],lan("rootkat"));?>
             <?php $Form_Class->selectboxeasy2("status", $category_class->status(), $adat["status"], lan("status")); ?>
+            <?php echo lan('sorrend'); ?>:
+            <?php  $form->selectboxeasy2("sorrend", $sitessorrend, $adat["sorrend"], "sorrend"); ?>
 
 
             <div class="bootstrap-tabs" data-tab-set-title="mmt">

@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 $room_loc = 'uploads/rooms';
 $tblmodulom = 'rooms';
 $tbl[$tblmodulom] = $adatbazis["db1_db"] . "." . $prefix . "rooms";
@@ -10,6 +10,10 @@ $file_structuct["modules"] = "rooms";
 
 $file_structuct["name"] = "Szobák alatti szöveg";
 $file_structuct["file"] = "sitesettingroomsundertext";
+$adminmenu2[] = $file_structuct;
+
+$file_structuct["name"] = "Ajanlátkérésvége szöveg";
+$file_structuct["file"] = "thankyourequest";
 $adminmenu2[] = $file_structuct;
 $file_structuctb["modules"] = "cat";
 $file_structuctb["name"] = "Szobához ikonok";
@@ -28,13 +32,30 @@ $modules[] = $file_structuct;
 $file_structuct["name"] = "Egy szoba";
 $file_structuct["file"] = "room";
 $modules[] = $file_structuct;
+//
+$file_structuctb=$file_structuct=$adminmenu2=array();
+$file_structuctb["modules"] = "rooms";
+$file_structuctb["name"] = lan("gyerekkedvezmeny");
+$file_structuctb["file"] = "gyerekkedvezmeny";
+$adminmenu2[] = $file_structuctb;
+$file_structuctb["name"] = lan("elofoglalasikedvezmeny");
+$file_structuctb["file"] = "elofoglalasikedvezmeny";
+$adminmenu2[] = $file_structuctb;
+
+$file_structuct["modules"] = "rooms";
+$file_structuct["name"] = "Kedvezmények";
+$file_structuct["file"] = "gyerekkedvezmeny";
+$file_structuct["alatta"] = $adminmenu2;
+$adminmenu[] = $file_structuct;
+
 
 include('rooms.class.php');
 
 foreach ($avaibleLang as $alan){
     $RoomsClass->create_table_text($alan);
 }
-//mindenszobáhoztartozik
+
+/*/mindenszobáhoztartozik
 $szobahoztartozik[]='WIFI';
 $szobahoztartozik[]='LCD-TV';
 $szobahoztartozik[]='HAJSZARITO';
@@ -43,7 +64,14 @@ $szobahoztartozik[]='SZEF';
 $szobahoztartozik[]='MINIBAR';
 $szobahoztartozik[]='MAGNES-AJTOZAR';
 
+*/
+$gyerekkedvezmenyek=array();
+$gyerekkedvezmenyek['gyerekedvezmeny0']=array('tip'=>page_settings("gyerekedvezmeny0_tip"),'val'=>page_settings("gyerekedvezmeny0"));
+$gyerekkedvezmenyek['gyerekedvezmeny1']=array('tip'=>page_settings("gyerekedvezmeny1_tip"),'val'=>page_settings("gyerekedvezmeny1"));
+$gyerekkedvezmenyek['gyerekedvezmeny2']=array('tip'=>page_settings("gyerekedvezmeny2_tip"),'val'=>page_settings("gyerekedvezmeny2"));
+$gyerekkedvezmenyek['gyerekedvezmeny3']=array('tip'=>page_settings("gyerekedvezmeny3_tip"),'val'=>page_settings("gyerekedvezmeny3"));
 
+$elofoglalasikedvezmeny= json_decode(page_settings("elofoglalasikedvezmeny"),true);
 
 $icons_colors[]='fekete';
 $icons_colors[]='feher';
@@ -98,7 +126,7 @@ function hotelicon_print($class, $classize = 30,$color='fekete',$text='')
 function hotelcss_print($myicons,$color='fekete')
 {
     $back = '';
-        foreach ($myicons as $mylistb) {
+       if($myicons) foreach ($myicons as $mylistb) {
         foreach ($mylistb[$color] as $mlb) {
             $back .= '.' . $mlb["name"].'.' . $color. "{background:url('" . $mlb["imgurl"] . "');}";
         }

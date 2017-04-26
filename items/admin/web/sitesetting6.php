@@ -10,9 +10,14 @@
  				<?php $form->textbox('fb_ap_secret',page_settings("fb_ap_secret"),'facebook ap titkos kód');?>  
 
  				<?php $form->textbox('fb_page_id',page_settings("fb_page_id"),'Facebook oldal azonosító');?>  
- 				<?php $form->textbox('fb_page_name',page_settings("fb_page_name"),'Facebook oldal név');?>  
-                
-    <input name="" type="submit" value="Save" />
+ 				<?php $form->textbox('fb_page_name',page_settings("fb_page_name"),'Facebook oldal név');?>
+
+
+        <a href="https://console.developers.google.com/" target="_blank">googlemaps apikey</a>
+        <?php $form->textbox('google_api_key',page_settings("google_api_key"),'google API key');?>
+
+
+        <input name="" type="submit" value="Save" />
         </form>
         </section>   
 

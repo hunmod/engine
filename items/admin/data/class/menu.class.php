@@ -1,5 +1,12 @@
 <?php
 class menu{
+public function sorrend(){
+	for ($i = 1; $i <= 10; $i++) 
+	{
+	$status[$i]=$i;	}
+
+	return $status;
+}
 
 public function jog(){
 	$status[0]='Everyone';
@@ -476,11 +483,39 @@ $q="CREATE TABLE IF NOT EXISTS ".$SD["table"]." (
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10;
 ";
-	
+	echo $q.'<br>';
+
 	$result =db_Query($q, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"],$adatbazis["db1_srv"],$adatbazis["db1_db"], "CREATE");	
-		//echo $q.'<br>';
-		//echo $error;			
+		//echo $error;
 }
+function shorturl_get_data($getq){
+	global $tbl,$adatbazis,$SysClass;
+	$eredmeny=$SysClass->shorturl_get_data($getq);
+
+		return $eredmeny;
+
+}
+
+
+	public function shorturl_get($q){
+		$q=str_replace('//','/',$q);
+		$qex=explode('/',$q);
+		if (count($qex)<4 ){
+			$q=($this->shorturl_get_data($q));
+			$qex=explode('/',$q);
+			if ($qex[0]=='m' && $qex[1]>0){
+				$menudatas=$this->get_one_menu($qex[1]);
+				//var_dump($menudatas);
+				if ($menudatas['id']>0){
+					if ($menudatas['item']==''){$menudatas['item']=$menudatas['id'];}
+					$gk=$menudatas['modul'].'/'.$menudatas['file'].'/'.$menudatas['item'];
+					//var_dump($gk);
+					$q=($this->shorturl_get_data($gk));
+				}
+			}
+		}
+		return	$q;
+	}
 
 
 public function printmenu($menuarray,$level=3,$mylevel=0){
@@ -533,44 +568,11 @@ echo '</ul>';
 }
 }
 
-function shorturl_get_data($getq){
-global $tbl,$adatbazis;	
-$q="SELECT get,params FROM ".$tbl["short_url"]." WHERE `params` LIKE '".$getq."' LIMIT 1";
-	$eredmeny=db_query($q, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"],$adatbazis["db1_srv"],'', 'select');
-//echo $q;
-	if (isset($eredmeny[0]['get'])&& $eredmeny[0]['get']!=""){
-		return $eredmeny[0]['get'];
-	}
-	else{
-		return $getq;
-	}
-}
-
-
-public function shorturl_get($q){
-	$q=str_replace('//','/',$q);
-	$qex=explode('/',$q);
-	if (count($qex)<4 ){
-	$q=($this->shorturl_get_data($q));
-	$qex=explode('/',$q);
-	if ($qex[0]=='m' && $qex[1]>0){
-		$menudatas=$this->get_one_menu($qex[1]);
-		//var_dump($menudatas);
-		if ($menudatas['id']>0){
-			if ($menudatas['item']==''){$menudatas['item']=$menudatas['id'];}
-			$gk=$menudatas['modul'].'/'.$menudatas['file'].'/'.$menudatas['item'];
-		//var_dump($gk);
-			$q=($this->shorturl_get_data($gk));
-		}
-	}
-	}
-	return	$q;
-}
 
 }
 $tblmodul = 'menu';
 $tbl[$tblmodul] = $adatbazis["db1_db"] . "." . $prefix . "menu";
 $MenuClass = new menu();
 $menustatusarray=$MenuClass->status();
-
+//$MenuClass->create_table();
 ?>

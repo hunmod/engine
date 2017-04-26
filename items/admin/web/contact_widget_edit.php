@@ -1,4 +1,4 @@
-﻿<?php $form=new formobjects();?>
+<?php $form=new formobjects();?>
 	<section class="col-sx-12">
 	<h1>Kapcsolati form beállítása</h1>
 	<form id="form_title" name="form_title" method="post" action="">

@@ -1,6 +1,6 @@
 <?php
 $tbl['category']=$adatbazis["db1_db"].".".$prefix."categories";
-$tbl['categorymenu']=$adatbazis["db1_db"].".".$prefix."categoriesmenu";
+//$tbl['categorymenu']=$adatbazis["db1_db"].".".$prefix."categoriesmenu";
 $tbl['category_text']=$adatbazis["db1_db"].".".$prefix."category_text";
 class category extends sys
 {
@@ -86,6 +86,17 @@ class category extends sys
         $mezok[] = $mezo;
         $mezo = array();
 
+	$mezo=array();
+	$mezo["id"]='sorrend';
+	$mezo["table"]=$table.'.'.'`'.$mezo["id"].'`';
+	$mezo["name"]="sorrend";
+	$mezo["display"]=0;
+	$mezo["type"]='int';
+	$mezo["displaylist"]=1;
+	$mezo["mysql_field"]="`".$mezo["id"]."` INT NOT NULL DEFAULT  '5',";
+	$mezo["value"]=$data[$mezo["id"]];
+	$mezok[]=$mezo;
+
         $mezo["id"] = 'status';
         $mezo["table"] = $table . '.' . '`' . $mezo["id"] . '`';
         $mezo["name"] = "status";
@@ -104,7 +115,7 @@ class category extends sys
     public function table_text($data=array(),$lang='hu')
     {
         global $adatbazis, $tbl;
-        $table=$tbl['category_text_'.$lang]=$adatbazis["db1_db"].".".$prefix."category_text_".$lang;
+        $table=$tbl['category_text'].'_'.$lang;
 
         $mezo = array();
         $mezo["id"] = 'id';
@@ -426,7 +437,7 @@ class category extends sys
     }
     public function savetext($lang='hu',$datas)
     {
-        global $adatbazis;
+        global $adatbazis,$Text_Class;
         $Sys_Class=new sys();
         //tábla adatai
         $SD=$this->table_text($datas,$lang);
@@ -459,7 +470,7 @@ class category extends sys
 	";
         $result =db_Query($q, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"],$adatbazis["db1_srv"],$adatbazis["db1_db"], "CREATE");
         //echo $q.'<br>';
-        //echo $error;
+       // echo $error;
     }
     public function create_table_text($langg='hu'){
         global $adatbazis, $tbl,$prefix;
@@ -510,4 +521,4 @@ class category extends sys
     }
 $category_class=new category();
 $category_class->create_table();
-$category_class->create_table_text();
+$category_class->create_table_text('hu');

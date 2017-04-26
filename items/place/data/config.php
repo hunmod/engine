@@ -5,7 +5,7 @@ $file_structuct=array();
 $file_structuct["modules"]="place";
 
 
-/*admin menü*/
+/*admin menü
 $file_structuct["name"]="Hely lista";
 $file_structuct["file"]="list";
 $adminmenu[]=$file_structuct;
@@ -16,7 +16,7 @@ $modules[]=$file_structuct;
 $file_structuct["name"]="Egy hely";
 $file_structuct["file"]="place";
 $modules[]=$file_structuct;
-
+*/
 
 
 

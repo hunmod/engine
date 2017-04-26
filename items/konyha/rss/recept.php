@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 	$mappa=$folders["uploads"]."konyha/".$recept_data["id"];
 	$img=randomimgtofldr("uploads/".$mappa);
 	if ($img!="none"){

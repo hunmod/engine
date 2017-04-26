@@ -4,16 +4,9 @@
                 <a href="<?php echo $homeurl;?>">Home</a> / <span><a href="<?php echo $homeurl.$separator.'/videos';?>">Videos</a></span>   / <span><strong><?php echo $qmenu['datas'][0]['nev'];?></strong></span>
             </div>
             
-  <left class="col-md-3 col-sm-4" >
-<?php 
-$widgets[]="items/user/web/widget_user_menu.php";
-$widgets[]="items/konyha/web/widget_submenu.php";
-$widgets[]="items/ads/web/widget_side1.php";
 
-foreach ($widgets as $widget)if (file_exists($widget))include($widget);?>
-  </left>       
             
-                  <section class="col-md-9 col-sm-8 videos">
+                  <section class="col-sm-12 videos">
                         <h1>Videos / <?php echo $qmenu['datas'][0]['nev'];?></h1>
 
 

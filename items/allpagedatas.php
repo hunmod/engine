@@ -52,10 +52,10 @@ switch ($_SESSION['lang']) {
         break;
 
 }
-
 //default lang
 $inputFileName = './lang.xls';
 $lan = $lang_Class->xlstoarray($inputFileName, $xlslangid);
+
 
 //abrakahasbanhoz kell az egyéb szövegek miatt
 $inputFileName = 'items/' . 'konyha' . '/lang/lang.xls';
@@ -74,6 +74,7 @@ $Translate = $trnslate = new yandextranslate();
 $avaibleLang[] = 'hu';
 $avaibleLang[] = 'en';
 $avaibleLang[] = 'de';
+
 /*
 if ($_SESSION["country_code"] == "") {
     $json = file_get_contents('http://getcitydetails.geobytes.com/GetCityDetails?fqcn=' . $Sys_Class->getIP_cdata());
@@ -149,7 +150,10 @@ if (page_settings("description_" . $_SESSION["lang"]) != "") $meta_description =
 if (page_settings("sitemail") != "") $sitemail = page_settings("sitemail");
 if (page_settings("analitics_id") != "") $analitics_id = page_settings("analitics_id");
 if (page_settings("googleplus_id") != "") $googleplus_id = page_settings("googleplus_id");
-if (page_settings("google_api_key") != "") $google_api_key = page_settings("google_api_key");
+if (page_settings("google_api_key") != "") {$google_api_key = page_settings("google_api_key");
+define("google_api_key", $google_api_key);
+
+}
 if (page_settings("fb_ap_id") != "") $fb_ap_id = page_settings("fb_ap_id");
 if (page_settings("google_ad_client") != "") $google_ad_client = page_settings("google_ad_client");
 if (page_settings("fb_ap_secret") != "") $fb_ap_secret = page_settings("fb_ap_secret");
@@ -158,6 +162,12 @@ if (page_settings("fb_page_name") != "") $fb_page_name = page_settings("fb_page_
 //ezt még a nyelvekhez kell hangolni.....
 if (page_settings("menu_root_" . $_SESSION["lang"]) != "") $menustart = page_settings("menu_root_" . $_SESSION["lang"]);
 if (page_settings("menu_root_admin") != "") $menuadmin = page_settings("menu_root_admin");
+
+if (page_settings("sparkapikey") != "") {
+    $sparkapikey = page_settings("sparkapikey");
+    define("sparkapikey",$sparkapikey);
+}
+
 
 if (page_settings("start_page_" . $_SESSION["lang"]) != "") {
     if (!isset($_GET["q"]) && $_GET["q"] == '') {
@@ -183,13 +193,43 @@ $keywords = $metakeywords;
 include('items/user/data/login.php');
 
 
+
+//seourlmentese
+$SysClass->shorturl_create('hu');
+$SysClass->shorturl_create('en');
+$SysClass->shorturl_create('de');
+$tbl["short_url"] ="short_url";
+
+
+if (($_POST["paramsseo"]!="")&&($_POST["getseo"]!="")&&($_POST["getseo"]!=$_POST["paramsseo"])){
+   // arraylist($_POST);
+    $savesodata['get']=$_POST["getseo"];
+    $savesodata['params']=$_POST["paramsseo"];
+    $savesodata['status']='2';
+    $SysClass->shorturl_setprams($savesodata,$_SESSION["lang"]);
+}
+
+//seourlmentese
+
 //Modul Select
 if ($_GET["q"] != "") {
     $getparams = explode("/", $_GET["q"]);
+    $shorturledit=$getparams[0]."/".$getparams[1];
+
+    if ($getparams[2]!=""){
+        $shorturledit.="/".$getparams[2];
+        $shorturltext=$Sys_Class->shorturl_get_data($shorturledit);
+
+    }
+    else{
+
+    }
     //ha egy elemből áll a kapott érték
     if (count($getparams) == 1) {
         //SEO URL
         $getparams = explode("/", $Sys_Class->shorturl_getparams($_GET["q"]));
+        $shorturledit=$Sys_Class->shorturl_getparams($_GET["q"]);
+        $shorturltext=$_GET["q"];
     }
     //other routes
     include("seoredirect.php");
@@ -225,6 +265,7 @@ $file = array();
 if (isset($getparams[0]) && isset($getparams[1]))
     if (($getparams[0] != '') && ($getparams[1] != '')) {
         $file['web'] = "items/" . $getparams[0] . "/web/" . $getparams[1] . ".php";
+        $file['api'] = "items/" . $getparams[0] . "/api/" . $getparams[1] . ".php";
         $file['css'] = "items/" . $getparams[0] . "/css/" . $getparams[1] . ".css";
         $file['js'] = "/items/" . $getparams[0] . "/js/" . $getparams[1] . ".js";
         $file['rss'] = "items/" . $getparams[0] . "/rss/" . $getparams[1] . ".php";

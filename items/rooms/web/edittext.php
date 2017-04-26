@@ -214,24 +214,27 @@
                    maxlength="200"/> m2<br/>
             <?php echo lan('roomtip'); ?>:
             <?php  $form->selectboxeasy2("roomtip", $roomtipus, $adat["roomtip"], lan('roomtip')); ?><br/>
-            <?=  lan('guestbad'); ?>:
-            <input name="guestbad" id="guestbad" type="number"
+            <input name="guestbad" id="guestbad" type="hidden"
                    value="<?php echo $Text_Class->htmlfromchars($adat["guestbad"]); ?>"
-                   maxlength="200"/><br/>
-            <?=  lan('childbad'); ?>:
-            <input name="childbad" id="childbad" type="number"
-                   value="<?php echo $Text_Class->htmlfromchars($adat["childbad"]); ?>"
-                   maxlength="200"/><br/>
-            <?= lan('roomnum'); ?>:
-            <input name="roomnum" id="roomnum" type="number"
-                   value="<?php echo $Text_Class->htmlfromchars($adat["roomnum"]); ?>"
-                   maxlength="200"/><br/>
-            <?php echo lan('bathroom'); ?>:
-            <input name="bathroom" id="bathroom" type="text"
+                   maxlength="200"/>
+    <?php
+    $FormClass->checkbox('roomnum', $adat["roomnum"], lan('nappali'), $class = "checkbox-inline");
+    ?><br/>
+    <?php
+    $FormClass->checkbox('childbad', $adat["childbad"], lan('childbad'), $class = "checkbox-inline");
+    ?><br/>
+    <?php
+    $FormClass->checkbox('erkely', $adat["erkely"], lan('erkely'), $class = "checkbox-inline");
+    ?><br/>
+    <?php
+    $FormClass->checkbox('osszenyithato', $adat["osszenyithato"], lan('osszenyithato'), $class = "checkbox-inline");
+    ?><br/>
+
+
+            <input name="bathroom" id="bathroom" type="hidden"
                    value="<?php echo $Text_Class->htmlfromchars($adat["bathroom"]); ?>"
-                   maxlength="200"/><br/>
-            <?php echo lan('kitchen'); ?>:
-            <input name="kitchen" id="kitchen" type="text"
+                   maxlength="200"/>
+            <input name="kitchen" id="kitchen" type="hidden"
                    value="<?php echo $Text_Class->htmlfromchars($adat["kitchen"]); ?>"
                    maxlength="200"/><br/>
             <?php echo lan('sorrend'); ?>:

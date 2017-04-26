@@ -1,17 +1,17 @@
 <?php
-if ($getparams[2] > 0 && $getparams[3]=="room") {
+if ($getparams[2] > 0 && $getparams[3] == "room") {
     $filterroom['id'] = $getparams[2];
 }
 
-if ($getparams[2] > 0 && $getparams[3]=="csomag") {
+if ($getparams[2] > 0 && $getparams[3] == "csomag") {
     $filtercsomag['id'] = $getparams[2];
 }
-if ($getparams[3]=="room" || $getparams[3]=="") {
+if ($getparams[3] == "room" || $getparams[3] == "") {
     $filterroom['lang'] = $_SESSION['lang'];
     $roomarray = $RoomsClass->get($filterroom, $order = '', $page = 'all');
     $rooms = $roomarray["datas"];
 }
-if ($getparams[3]=="csomag" || $getparams[3]=="") {
+if ($getparams[3] == "csomag" || $getparams[3] == "") {
     $filtercsomag['lang'] = $_SESSION['lang'];
     $csomagok = $CsomagClass->get($filtercsomag, '', $page = 'all');
 }
@@ -43,7 +43,7 @@ if (!$order['tavozas']) {
 <script>
 
     function addgyerek() {
-        if (isNaN(childnum))childnum=0;
+        if (isNaN(childnum))childnum = 0;
 
         var childataform = '<div class="childgroup">' + '<div class="col-sm-6"><?php $FormClass->datebox('child['."'+".'childnum'."+'".'][birth]',null,lan('birthdate'),'',1);?>' + '</div>' + '<div class="col-sm-6"><?php $FormClass->numbox('child['."'+".'childnum'."+'".'][age]','null',lan('age'),'',1);?>' + '</div></div>';
         $("#gyerekadat").append(childataform);
@@ -53,19 +53,18 @@ if (!$order['tavozas']) {
             mydate = $(this).val();
             name2 = name.replace('birth', "age");
             if (mydate) {
-                myage = agecalc(mydate,null);
-                if (myage<18) {
+                myage = agecalc(mydate, null);
+                if (myage < 18) {
                     agelement = document.getElementById(name2).value = myage;
                     SetSession(name, mydate, 'start/setsession');
                     SetSession(name2, myage, 'start/setsession');
-                }else{
+                } else {
                     $(this).val('');
                     agelement = document.getElementById(name2).value = '';
                     $('#gyerekminusf').click();
                     $('#felnottplusf').click();
                 }
             }
-
 
 
             roomneed();
@@ -83,7 +82,7 @@ if (!$order['tavozas']) {
         <span><?php echo "" . ($adat["order"]); ?></span>
     </div>
     <div>
-    <h2><?= lan('order');?></h2>
+        <h2><?= lan('order'); ?></h2>
     </div>
     <form method="post">
         <div class="col-sm-6">
@@ -99,6 +98,7 @@ if (!$order['tavozas']) {
                 </div>
                 <div class="col-xs-6">
                     <span onclick="roomorder();"> <?= lan('roomheave') ?></span>
+
                     <div class="clearfix"></div>
                     <div id="roomheave"></div>
                 </div>
@@ -133,56 +133,61 @@ if (!$order['tavozas']) {
         //arraylist($rooms);
         ?>
         <div class="clearfix"></div>
-        <div  class="priecelist">
+        <div class="priecelist">
             <?php foreach ($rooms as $roomdatas) {
-                 //lenesarray['datas'][0];
+                //lenesarray['datas'][0];
                 // arraylist($roomdatas);
                 include('formelement_order_room.php');
-            ?>
-        <?php
-        $c++;
-        } ?>
-        <?php foreach ($csomagok["datas"] as $csomag) {
-                $csomag["connectedservices"]=csomagtags_json_from($csomag);
-              // arraylist($elem["connectedservices"]['services']['rooms']);
-                    //rooms
-                 foreach ($csomag["connectedservices"]['services']['rooms'] as $room){
-                     $filterssubroom['lang'] = $_SESSION['lang'];
-                     $order['rooms'][$c]["id"] = $filterssubroom['id'] = $room['id'];
-                     $order['rooms'][$c]["csomagid"]=$csomag['id']+2;
-                     $order['rooms'][$c]["person"]=2-$order['rooms'][$c]["foglalt"];
-                     $ideglenesarray = $RoomsClass->get($filterssubroom, '', $page = 'all');
-
-                     $roomdatas=$ideglenesarray['datas'][0];
-                    // arraylist($roomdatas);
-                        include('formelement_order_room.php');
-                     $c++;
-                 }
                 ?>
-        <?php
-        }
-        //arraylist($order);
-        ?>
-        <div class="clearfix"></div>
-</div>
+                <?php
+                $c++;
+            } ?>
+            <?php foreach ($csomagok["datas"] as $csomag) {
+                $csomag["connectedservices"] = csomagtags_json_from($csomag);
+                // arraylist($elem["connectedservices"]['services']['rooms']);
+                //rooms
+                foreach ($csomag["connectedservices"]['services']['rooms'] as $room) {
+                    $filterssubroom['lang'] = $_SESSION['lang'];
+                    $order['rooms'][$c]["id"] = $filterssubroom['id'] = $room['id'];
+                    $order['rooms'][$c]["csomagid"] = $csomag['id'] + 2;
+                    $order['rooms'][$c]["person"] = 2 - $order['rooms'][$c]["foglalt"];
+                    $ideglenesarray = $RoomsClass->get($filterssubroom, '', $page = 'all');
+
+                    $roomdatas = $ideglenesarray['datas'][0];
+                    // arraylist($roomdatas);
+                    include('formelement_order_room.php');
+                    $c++;
+                }
+                ?>
+                <?php
+            }
+            //arraylist($order);
+            ?>
+            <div class="clearfix"></div>
+        </div>
         <input type="submit" class="btn btn-creme">
 
     </form>
 
 </div>
-    <div>
-    <?= lan('gyerekkedvezmeny')?>
-    </div>
-<?php foreach ($gyerekkedvezmenyek as $name=>$value){
-    if ($value['val']>0){
-    ?>
-    <div>
-        <div class="col-sm-6">
+<table class="priecetable">
+    <tr>
+        <th colspan="2">
+            <?= lan('gyerekkedvezmeny') ?>
+        </th>
+    <tr>
+        <?php foreach ($gyerekkedvezmenyek as $name => $value){
+        if ($value['val'] > 0){
+        ?>
+    <tr>
+        <td class="col-sm-6">
             <?= lan($name) ?>
-        </div>
-        <div class="col-sm-6">
+        </td>
+        <td class="col-sm-6">
             <?= $value['val'] ?>
             <?= $kedvezmenytipus[$value['tip']] ?>
-        </div>
-    </div>
-<?php }} ?>
+        </td>
+    </tr>
+    <?php }
+    } ?>
+</table>

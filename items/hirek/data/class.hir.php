@@ -217,7 +217,7 @@ if ($filters[$fmezonev]!=''){
 }
 
 $fmezonev='mid';
-if ($filters[$fmezonev]!=''){
+if ($filters[$fmezonev]!='' && $filters[$fmezonev]!='all'){
 		$where.=$Sys_Class->andsupport($where);
 		$where.=''.$SD["table"].".`".$fmezonev."` in(".$filters[$fmezonev].") ";
 }

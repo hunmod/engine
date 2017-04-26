@@ -65,6 +65,16 @@ class location extends sys
         $mezo["value"] = $data[$mezo["id"]];
         $mezok[] = $mezo;
         $mezo = array();
+        $mezo["id"] = 'zip1';
+        $mezo["table"] = $table . '.' . '`' . $mezo["id"] . '`';
+        $mezo["name"] = "zipto";
+        $mezo["display"] = 1;
+        $mezo["type"] = 'varchar';
+        $mezo["requied"] = 1;
+        $mezo["displaylist"] = 1;
+        $mezo["value"] = $data[$mezo["id"]];
+        $mezok[] = $mezo;
+        $mezo = array();
 
         $mezo["id"] = 'lati';
         $mezo["table"] = $table . '.' . '`' . $mezo["id"] . '`';
@@ -198,6 +208,10 @@ class location extends sys
             $where .= $Sys_Class->andsupport($where);
             $where .= 'city_id=' . $filters['id'];
         }
+        if ($filters['name']) {
+            $where .= $Sys_Class->andsupport($where);
+            $where .= "city_name LIKE '%" . $filters['name'] . "%'";
+        }
         if ($filters['city_name']) {
             $where .= $Sys_Class->andsupport($where);
             $where .= "city_name LIKE '" . $filters['city_name'] . "'";
@@ -206,10 +220,25 @@ class location extends sys
             $where .= $Sys_Class->andsupport($where);
             $where .= "city_name LIKE '%" . $filters['city_name_like'] . "%'";
         }
-        if ($filters['zip']) {
-            $where .= $Sys_Class->andsupport($where);
-            $where .= "zip LIKE '" . $filters['zip'] . "%'";
-        }
+
+        if ($filters['zip'])
+            if (strlen ($filters['zip'])<4)
+            {
+                $where .= $Sys_Class->andsupport($where);
+                $where .= "zip LIKE '" . $filters['zip'] . "%'";
+            }else
+            {
+                $mezok .= $Sys_Class->comasupport($mezok);
+                $mezok .='CAST(zip AS zipi)  ';
+
+                $where .= $Sys_Class->andsupport($where);
+                $where .= "zip  <=" . $filters['zip'] . " ";
+
+                $where .= $Sys_Class->andsupport($where);
+                $where .= "zip1  >=" . $filters['zip'] . " ";
+
+            }
+
         if ($filters['nozip']) {
             $where .= $Sys_Class->andsupport($where);
             $where .= "zip LIKE ''";
@@ -253,6 +282,7 @@ ORDER BY  `location_citys_data`.`center` DESC,city_name ASC " . $limit . "";
         $result['datas'] = db_Query($query, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"], $adatbazis["db1_srv"], $adatbazis["db1_db"], "select");
         $result['query'] = $query;
         $result['error'] = $error;
+       // arraylist($result);
         return $result;
 
     }

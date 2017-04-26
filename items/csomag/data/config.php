@@ -40,12 +40,14 @@ function csomagtags_json_from($data)
     $data["services"]=array();
     $data["wellnes"]=array();
     $data["foglalasinfok"]=array();
+    $data["paymentservices"]=array();
     return  json_decode($data['connectedservices'],true);
 }
 
 function csomagtags_json_to($data){
     $data["connectedservices"]='';
     if ($data["services"])$back["services"]=$data["services"];
+    if ($data["paymentservices"])$back["paymentservices"]=$data["paymentservices"];
    // if ($data["wellnes"])$back["wellnes"]=$data["wellnes"];
     //if ($data["foglalasinfok"])$back["foglalasinfok"]=$data["foglalasinfok"];
     return json_encode($back);

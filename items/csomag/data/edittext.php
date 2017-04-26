@@ -60,6 +60,9 @@ if ($_POST['hirsave'] == '1') {
     foreach ($avaibleLang as $alan) {
         if ($_POST[$alan]) {
             $_POST[$alan]['id'] = $_POST["id"];
+            $_POST[$alan]['leadtext'] = $Text_Class->htmltochars($adat[$alan]["leadtext"]);
+            $_POST[$alan]['title'] = $Text_Class->htmltochars($adat[$alan]["title"]);
+            $_POST[$alan]['longtext'] = $Text_Class->htmltochars($adat[$alan]["longtext"]);
              $CsomagClass->save_text($alan,$_POST[$alan]);
         }
     }

@@ -17,6 +17,7 @@ if ($puffer1['services']['rooms']) foreach ($puffer1['services']['rooms'] as $my
     $roompuff = $RoomsClass->get(array('id' => $myrooms['id'], 'lang' => $_SESSION['lang']));
     //arraylist($roompuff['datas'][0]);
     $myrooms['title'] = $roompuff['datas'][0]['title'];
+    $myrooms['datas'] = $roompuff['datas'][0];
     $pufferrooms[] = $myrooms;
 
 }

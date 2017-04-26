@@ -2,8 +2,7 @@
 
 $form=new formobjects();
 $status=$bf_class->status();
-
-$myparams='bf/lista';
+/*
 foreach ($_GET as $nam=>$req )
 {
     if ($nam!='PHPSESSID'&&$nam!='q'&&$nam!='CKFinder_Path'&&$nam!='googtrans'&&$nam!='oldal'&&$nam!='cpsession'&&$nam!='langedit'&&$nam!='lang'&&$nam!='cprelogin'&&$nam!='page'&&$nam!='mr')
@@ -11,7 +10,7 @@ if  ($myparams==''){$myparams.='?'.$nam.'='.$req;}
 else{
    $myparams.='&'.$nam.'='.$req;
 }
-}
+}*/
 $adminv=1;
 
 if ($auser["jog"]>=3){
@@ -36,15 +35,18 @@ else{
                 <form class="form-inline" role="form">
                   <div class="form-group">
 					<?php //$form->hiddenbox('q',$_GET["q"]);?>
-					<?php $form->textbox('name',$_GET["name"],'name',"sr-only");?>
+					<?php $form->textbox('s',$_GET["s"],lan('name'),"sr-only");?>
                   </div>
                   <div class="form-group">
 					<?php  $form->selectboxeasy2("status",$status,$_GET["status"],"status");?>
-                  </div>  
-                  
-                  <div class="form-group">
-					<?php $Form_Class->selectbox2("mid",$menuk,array('value'=>'id','name'=>'nev'),$_GET["mid"],"Menu");?>                  
-                  </div>  
+                  </div>
+                    <div class="form-group">
+                        <?php
+                        /*$Form_Class->selectbox2("varos",$citys['datas'],array('value'=>'city_id','name'=>'city_name'),$adat["varos"],"Város");*/
+                        $form->textbox('citytxt',$_GET["citytxt"],lan('city'),'hidden');
+
+                        ?>
+                    </div>
                   <button type="submit" class="btn btn-success" data-original-title=""><?= lan('search');?></button>
                 </form>
               </div>
@@ -71,38 +73,75 @@ else{
                   <table class="table table-condensed table-striped table-hover table-bordered pull-left" id="data-table">    
                     <thead>
                       <tr>
-                        <th style="width:5%">Id</th>
-                        <th style="width:65%">Name</th>
-                        <th style="width:5%" class="hidden-phone">Status</th>
+                        <th style="width:20%">Name</th>
+                        <th style="width:40%">Zip</th>
+                        <th style="width:40%">Város</th>
+                        <th style="width:40%">Cim</th>
+                        <th style="">tel</th>
+                        <th style="">email</th>
+                        <th style="">web</th>
+                        <th style="">facebook</th>
+                        <th style="">kategoria</th>
 
-                        <th style="width:10%" class="hidden-phone">Actions</th>
+                          <th >pos</th>
+                          <th >wifi</th>
+                          <th >bringa</th>
+                          <th >dohanyzo</th>
+                          <th >sport</th>
+                          <th >allat</th>
+                          <th >roki</th>
+                          <th >konyha</th>
+                          <th >medence</th>
+                          <th >gyerek</th>
+                          <th >specdieta</th>
+                          <th >szepkartya</th>
+                          <th >erzsebetkartya</th>
+                          <th >telen</th>
+                          <th >support</th>
+                          <th >balatonltav</th>
+
+
+                          <th style="width:5%" class="hidden-phone">Status</th>
                       </tr>
                     </thead>
                     <tbody>
                     
-                    <?php 
+                    <?php
 					if (($hirekelemek))foreach ($hirekelemek as $data){?>
 
 
                       <tr class="gradeX">
-                        <td><?php echo $data['id']; ?></td>
                         <td><?php echo $data['nev']; ?></td>
-                        <td class="hidden-phone"><?php echo $status[$data['status']]; ?></td>
+                        <td><?= $data['zip']; ?> </td><td><?= $data['varos_nev']; ?> </td><td><?= $data['street']; ?> <?= $data['hsz']; ?></td>
+                        <td><?php echo $data['telefon']; ?></td>
+                        <td><?php echo $data['email']; ?></td>
+                        <td><?php echo $data['web']; ?></td>
+                        <td><?php echo $data['facebook']; ?></td>
+                       <td ><?php echo $data['cat']; ?></td>
+                          <td ><?php $what="pos"; if ($data[$what]==1)echo lan('Igen');?></td>
+                          <td ><?php $what="wifi"; if ($data[$what]==1)echo lan('Igen');?></td>
+                          <td ><?php $what="bringa"; if ($data[$what]==1)echo lan('Igen');?></td>
+                          <td ><?php $what="dohanyzo"; if ($data[$what]==1)echo lan('Igen');?></td>
+                          <td ><?php $what="sport"; if ($data[$what]==1)echo lan('Igen');?></td>
+                          <td ><?php $what="allat"; if ($data[$what]==1)echo lan('Igen');?></td>
+                          <td ><?php $what="roki"; if ($data[$what]==1)echo lan('Igen');?></td>
+                          <td ><?php $what="konyha"; if ($data[$what]==1)echo lan('Igen');?></td>
+                          <td ><?php $what="medence"; if ($data[$what]==1)echo lan('Igen');?></td>
+                          <td ><?php $what="gyerek"; if ($data[$what]==1)echo lan('Igen');?></td>
+                          <td ><?php $what="specdieta"; if ($data[$what]==1)echo lan('Igen');?></td>
+                          <td ><?php $what="szepkartya"; if ($data[$what]==1)echo lan('Igen');?></td>
+                          <td ><?php $what="erzsebetkartya"; if ($data[$what]==1)echo lan('Igen');?></td>
+                          <td ><?php $what="telen"; if ($data[$what]==1)echo lan('Igen');?></td>
+                          <td ><?php $what="support"; if ($data[$what]==1)echo lan('Igen');?></td>
+                          <td ><?php $what="balatonltav"; if ($data[$what]>0)echo $data[$what];?></td>
+                          <td class="hidden-phone"><?php echo $status[$data['status']]; ?></td>
 
-                        <td class="hidden-phone">
-                          <a href="<?php echo $server_url.$separator."".$getparams[0]."/edittext/".encode($data['id']);?>" class="actions-icons">
-                            <img src="<?php echo $server_url;?>styl/admin/img/edit-icon.png" alt="edit" class="icons">
-                          </a>
-                          <a href="<?php echo $server_url.$separator.$_GET['q'].$separator2."dtag=".$data['id'];?>" class="delete-row" data-original-title="Delete">
-                            <img src="<?php echo $server_url;?>styl/admin/img/trash-icon.png" alt="trash">
-                          </a>
-                        </td>
-                      </tr>
-                    
+                   </tr>
+
                     <?php ?>
-                    
+
                     <?php }?>
-                    
+
                     </tbody>
                   </table>
                   <div class="clearfix"></div>

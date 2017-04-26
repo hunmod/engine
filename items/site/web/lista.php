@@ -15,7 +15,7 @@
                                 <?php $form->textbox('name',$_GET["name"],'name',"sr-only");?>
                             </div>
                             <div class="form-group">
-                                <?php  $form->selectboxeasy2("status",$status,$_GET["status"],"status");?>
+                                <?php  $form->selectboxeasy2("status", $sitestatus, $adat["status"], lan("status")); ?>
                             </div>
 
                             <div class="form-group">
@@ -44,6 +44,7 @@
                                 <tr>
                                     <th style="width:5%"><?= lan('id');?></th>
                                     <th style="width:5%"><?= lan('nev');?></th>
+                                    <th style="width:5%"><?= lan('status');?></th>
                                     <th style="width:10%" class="hidden-phone"><?= lan('actions')?></th>
                                 </tr>
                                 </thead>
@@ -54,6 +55,9 @@
                                     <td><?php echo $data['id']; ?></td>
                                     <td><?php
                                         echo $data["title"];
+                                        ?></td>
+                                    <td><?php
+                                        echo ($sitestatus[$data["status"]]);
                                         ?></td>
                                     <td class="hidden-phone">
                                         <a href="<?php echo $server_url.$separator."".$getparams[0]."/edittext/".encode($data['id']);?>" class="actions-icons">

@@ -31,7 +31,8 @@
 			if ($gpp!=$getparams[0] && $gpp!=$getparams[1])$getparams[]=$gpp;
 		}
 	}
-/*	if ($getparams[0]=='konyha' && $getparams[1]!='edit' )
+/*
+	if ($getparams[0]=='konyha' && $getparams[1]!='edit' )
 	{
 		$gp=$getparams;
 		$getparams=array();	
@@ -41,6 +42,7 @@
 			if ($gpp!='konyha'||$gpp!='recept'||$gpp!='list')$getparams[]=$gpp;
 		}	
 	}
+*/
 	if ($getparams[0]=='recept' )
 	{
 		$gp=$getparams;
@@ -50,7 +52,8 @@
 		foreach($gp as $gpp){
 			if ($gpp!=$getparams[0] &&$gpp!=$getparams[1])$getparams[]=$gpp;
 		}	
-	}*/
+	}
+/*
 if ($getparams[0]=='recept' )
 	{
 		$gp=$getparams;
@@ -60,5 +63,5 @@ if ($getparams[0]=='recept' )
 		foreach($gp as $gpp){
 			if ($gpp!=$getparams[0] &&$gpp!=$getparams[1])$getparams[]=$gpp;
 		}
-	}
+	}*/
 ?>

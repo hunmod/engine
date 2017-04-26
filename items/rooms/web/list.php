@@ -21,10 +21,21 @@
         <news itemscope="" itemtype="http://schema.org/WebPage">
             <div class="text-center">
                 <h3><?= lan('mindenszobahoztartozik'); ?></h3>
+            </div>
+            <div class="bottomspace mindenhezhead">
                 <?php
-                foreach ($szobahoztartozik as $mlb) {
-                    echo hotelicon_print($mlb, 50,'fekete');
-                } ?>
+                $filterssubcat["lang"]=$filtersrootcat["lang"]=$_SESSION["lang"];
+                $filtersrootcat["kat"]="mindenszobahoztartoz";
+                $filtersrootcat["status"]="2";
+                $qrootcat=$category_class->get($filtersrootcat,'','all') ;
+                if ($qrootcat['datas'])
+                    foreach ($qrootcat['datas'] as $rcat){
+                        ?>
+                        <div class="mindeheztartozik">
+                            <?= $caption=hotelicon_print($rcat['class'], 50, 'fekete',$rcat['nev']);?><br>
+                            <?= $rcat['nev'] ?>
+                        </div>
+                    <?php }?>
             </div>
             <h1>
                 <?php echo $menu["nev"];
@@ -138,3 +149,12 @@
     </div>
 
 </div>
+<script type="text/javascript">
+    function gomemove(){
+        scrollanimate('article','fadeIn');
+    }
+    jQuery(document).ready(function() {
+        $(window).on('scroll resize', gomemove);
+        $(window).trigger('scroll');
+    });
+</script>

@@ -16,7 +16,7 @@
                                 <?php $form->textbox('name',$_GET["name"],'name',"sr-only");?>
                             </div>
                             <div class="form-group">
-                                <?php  $form->selectboxeasy2("status",$status,$_GET["status"],"status");?>
+                                <?php  $form->selectboxeasy2("status", $roomstatus, $adat["status"], lan('status')); ?>
                             </div>
 
                             <div class="form-group">

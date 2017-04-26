@@ -32,8 +32,7 @@ $datas=$class_recipe->get_list('cuisine',array());
         <div class="col-xs-12">
             <div id="map" style="height: 300px;"></div>
         </div>
-        <script src="https://maps.googleapis.com/maps/api/js?key=<?= $gps_class->getapikey(); ?>&callback=initMap" async
-                defer>
+        <script src="https://maps.googleapis.com/maps/api/js?key=<?= $google_api_key ?>&callback=initMap" async defer>
         </script>
         <div class="row">
             <div class="col-md-12">

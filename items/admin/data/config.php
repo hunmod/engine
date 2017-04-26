@@ -34,9 +34,6 @@ $file_structuct["name"] = "Menü";
 $file_structuct["file"] = "menu";
 $adminmenu2[] = $file_structuct;
 
-$file_structuct["name"] = "varoslista";
-$file_structuct["file"] = "citys";
-$adminmenu2[] = $file_structuct;
 //
 $file_structuct["name"] = "Email";
 $file_structuct["file"] = "setemail1";
@@ -48,12 +45,30 @@ $file_structuct["name"] = "Kapcsolati adatok";
 $file_structuct["file"] = "contact_widget_edit";
 $adminmenu2[] = $file_structuct;
 
+
+
+
+$file_structuct["name"] = "Kezdöoldal - hotel";
+$file_structuct["modules"] = "rooms";
+$file_structuct["file"] = "home_admin";
+$adminmenu2[] = $file_structuct;
+$file_structuct["modules"] = "admin";
+
+
 $file_structuct["name"] = "Oldal beállításai";
 $file_structuct["file"] = "sitesetting5";
 $file_structuct["alatta"] = $adminmenu2;
-
-
 $adminmenu[] = $file_structuct;
+$adminmenu2[] = array();
+
+$file_structuct=array();
+$file_structuct["modules"] = "home";
+$file_structuct["name"] = "Kezdöoldal";
+$file_structuct["file"] = "home_admin";
+$adminmenu[] = $file_structuct;
+
+
+
 
 unset($adminmenu2);
 unset($file_structuct["alatta"]);

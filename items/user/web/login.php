@@ -5,18 +5,18 @@ color:#FFF !important;
 </style>
 <div class="modal-body">
 
-<?php 
+<?php
+
 	if (($fb_ap_id!="")&&($fb_ap_secret!=""))
 	{
-?>  
+            ?>
+            <a href="#" class="button facebookButton">
+                <?php echo $lan["loginw"]; ?> Facebook<?php echo $lan["al"]; ?> <i class="fa fa-facebook"></i></a>
+            <br>
+            <hr>
+            <div class="text-center or"><span><?php echo $lan["or"]; ?></span></div>
 
-                            <a href="<?php echo $homeurl."?fblog=1"?>" class="button facebookButton">
-							<?php echo $lan["loginw"]; ?> Facebook<?php echo $lan["al"]; ?> <i class="fa fa-facebook"></i></a>
-                        <br>
-                        <hr>
-                        <div class="text-center or"><span><?php echo $lan["or"]; ?></span></div>
-
-<?php 
+            <?php
 	}
 ?>    
 <form id="login" name="login" method="post">
@@ -51,10 +51,10 @@ color:#FFF !important;
                         </div>
                         <p><?php echo $lan["passlost"]; ?> <a href="javascript:newpas();"><?php echo $lan["kattints"]; ?> <?php echo $lan["here"]; ?></a>.</p>
     <input name="loginform_id" type="hidden" value="x" />
+    <div id="fblogg" style="display: none;"></div>
 
                     </form>
                     
-
 
 
 <span class="error"><?php echo $loginerror; ?></span>
@@ -62,4 +62,26 @@ color:#FFF !important;
 
    </div>
 
+<script>
 
+    $('.facebookButton').on('click',function() {
+
+        FB.login(function(response) {
+            if (response.authResponse) {
+                console.log('Welcome!  Fetching your information.... ');
+                FB.api('/me', function(response) {
+                    console.log('Good to see you, ' + response.name + '.');
+                    phpopenf('fblogg','includeajax','q=user/fblogin')
+
+                });
+            } else {
+                console.log('User cancelled login or did not fully authorize.');
+            }
+        });
+
+         /*FB.api('/me', function(response) {
+         document.cookie= 'fbuserid='+response.id;
+         });*/
+    });
+
+</script>

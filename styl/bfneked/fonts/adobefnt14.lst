@@ -1,0 +1,763 @@
+%!Adobe-FontList 1.14
+%Locale:0x405
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:ACaslonPro-Bold
+FamilyName:Adobe Caslon Pro
+StyleName:Bold
+MenuName:Adobe Caslon Pro Bold
+StyleBits:0
+WeightClass:700
+WidthClass:5
+AngleClass:0
+FullName:Adobe Caslon Pro Bold
+WritingScript:Roman
+OutlineFileName:\ACaslonPro-Bold.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+FileLength:143368
+FileModTime:1407708769
+DesignSize:120
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:ACaslonPro-Regular
+FamilyName:Adobe Caslon Pro
+StyleName:Regular
+MenuName:Adobe Caslon Pro
+StyleBits:0
+WeightClass:400
+WidthClass:5
+AngleClass:0
+FullName:Adobe Caslon Pro
+WritingScript:Roman
+OutlineFileName:\ACaslonPro-Regular.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+FileLength:167536
+FileModTime:1407708769
+DesignSize:120
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:AngelWarriors
+FamilyName:Angel Warriors
+StyleName:Regular
+MenuName:Angel Warriors
+StyleBits:0
+WeightClass:400
+WidthClass:5
+AngleClass:0
+FullName:Angel Warriors
+WritingScript:Roman
+OutlineFileName:\Angel Warriors.otf
+DataFormat:sfntData
+FileLength:101024
+FileModTime:1415186648
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Baskerville-Bold
+FamilyName:Baskerville
+StyleName:Bold
+MenuName:Baskerville
+StyleBits:2
+WeightClass:700
+WidthClass:5
+AngleClass:0
+FullName:Baskerville Bold
+WritingScript:Roman
+OutlineFileName:\Baskerville.ttc
+TTCOffset:48
+DataFormat:sfntData
+FileLength:1277484
+FileModTime:1449970985
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Baskerville-BoldItalic
+FamilyName:Baskerville
+StyleName:Bold Italic
+MenuName:Baskerville
+StyleBits:3
+WeightClass:700
+WidthClass:5
+AngleClass:1
+FullName:Baskerville Bold Italic
+WritingScript:Roman
+OutlineFileName:\Baskerville.ttc
+TTCOffset:284
+DataFormat:sfntData
+FileLength:1277484
+FileModTime:1449970985
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Baskerville-Italic
+FamilyName:Baskerville
+StyleName:Italic
+MenuName:Baskerville
+StyleBits:1
+WeightClass:400
+WidthClass:5
+AngleClass:1
+FullName:Baskerville Italic
+WritingScript:Roman
+OutlineFileName:\Baskerville.ttc
+TTCOffset:536
+DataFormat:sfntData
+FileLength:1277484
+FileModTime:1449970985
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Baskerville
+FamilyName:Baskerville
+StyleName:Regular
+MenuName:Baskerville
+StyleBits:0
+WeightClass:400
+WidthClass:5
+AngleClass:0
+FullName:Baskerville
+WritingScript:Roman
+OutlineFileName:\Baskerville.ttc
+TTCOffset:788
+DataFormat:sfntData
+FileLength:1277484
+FileModTime:1449970985
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Baskerville-SemiBold
+FamilyName:Baskerville
+StyleName:SemiBold
+MenuName:Baskerville
+StyleBits:0
+WeightClass:600
+WidthClass:5
+AngleClass:0
+FullName:Baskerville SemiBold
+WritingScript:Roman
+OutlineFileName:\Baskerville.ttc
+TTCOffset:1024
+DataFormat:sfntData
+FileLength:1277484
+FileModTime:1449970985
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Baskerville-SemiBoldItalic
+FamilyName:Baskerville
+StyleName:SemiBold Italic
+MenuName:Baskerville
+StyleBits:1
+WeightClass:600
+WidthClass:5
+AngleClass:1
+FullName:Baskerville SemiBold Italic
+WritingScript:Roman
+OutlineFileName:\Baskerville.ttc
+TTCOffset:1260
+DataFormat:sfntData
+FileLength:1277484
+FileModTime:1449970985
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:CenturyGothic
+FamilyName:Century Gothic
+StyleName:Regular
+MenuName:Century Gothic
+StyleBits:0
+WeightClass:400
+WidthClass:5
+AngleClass:0
+FullName:Century Gothic
+WritingScript:Roman
+OutlineFileName:\Century Gothic
+DataFormat:sfntResource
+ResourceID:12004
+FileLength:262993
+FileModTime:1299744000
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:CenturyGothic-Bold
+FamilyName:Century Gothic
+StyleName:Bold
+MenuName:Century Gothic
+StyleBits:2
+WeightClass:700
+WidthClass:5
+AngleClass:0
+FullName:Century Gothic Bold
+WritingScript:Roman
+OutlineFileName:\Century Gothic
+DataFormat:sfntResource
+ResourceID:12005
+FileLength:262993
+FileModTime:1299744000
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:CenturyGothic-Italic
+FamilyName:Century Gothic
+StyleName:Italic
+MenuName:Century Gothic
+StyleBits:1
+WeightClass:400
+WidthClass:5
+AngleClass:1
+FullName:Century Gothic Italic
+WritingScript:Roman
+OutlineFileName:\Century Gothic
+DataFormat:sfntResource
+ResourceID:12006
+FileLength:262993
+FileModTime:1299744000
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:CenturyGothic-BoldItalic
+FamilyName:Century Gothic
+StyleName:Bold Italic
+MenuName:Century Gothic
+StyleBits:3
+WeightClass:700
+WidthClass:5
+AngleClass:1
+FullName:Century Gothic Bold Italic
+WritingScript:Roman
+OutlineFileName:\Century Gothic
+DataFormat:sfntResource
+ResourceID:12007
+FileLength:262993
+FileModTime:1299744000
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Suitcase
+FontName:CenturyGothic
+OutlineFileName:\Century Gothic
+ResourceID:2004
+MacStyle:0
+FileLength:262993
+FileModTime:1299744000
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Suitcase
+FontName:CenturyGothic-Bold
+OutlineFileName:\Century Gothic
+ResourceID:2004
+MacStyle:1
+FileLength:262993
+FileModTime:1299744000
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Suitcase
+FontName:CenturyGothic-Italic
+OutlineFileName:\Century Gothic
+ResourceID:2004
+MacStyle:2
+FileLength:262993
+FileModTime:1299744000
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Suitcase
+FontName:CenturyGothic-BoldItalic
+OutlineFileName:\Century Gothic
+ResourceID:2004
+MacStyle:3
+FileLength:262993
+FileModTime:1299744000
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:HappyFox-Condensed
+FamilyName:Happy Fox
+StyleName:Condensed
+MenuName:Happy Fox Condensed
+StyleBits:0
+WeightClass:400
+WidthClass:3
+AngleClass:0
+FullName:Happy Fox Condensed
+WritingScript:Roman
+OutlineFileName:\HappyFox-Condensed.ttf
+DataFormat:sfntData
+FileLength:40444
+FileModTime:1424883218
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:MetaPro-Black
+FamilyName:MetaPro
+StyleName:Black
+MenuName:MetaPro-Black
+StyleBits:0
+WeightClass:900
+WidthClass:5
+AngleClass:0
+FullName:MetaPro-Black
+WritingScript:Roman
+OutlineFileName:\MetaPro-Black.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+FileLength:112260
+FileModTime:1196021152
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:MetaPro-BlackItalic
+FamilyName:MetaPro
+StyleName:BlackItalic
+MenuName:MetaPro-BlackItalic
+StyleBits:0
+WeightClass:900
+WidthClass:5
+AngleClass:0
+FullName:MetaPro-BlackItalic
+WritingScript:Roman
+OutlineFileName:\MetaPro-BlackItalic.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+FileLength:128396
+FileModTime:1196021154
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:MetaPro-Bold
+FamilyName:MetaPro
+StyleName:Bold
+MenuName:MetaPro-Bold
+StyleBits:0
+WeightClass:700
+WidthClass:5
+AngleClass:0
+FullName:MetaPro-Bold
+WritingScript:Roman
+OutlineFileName:\MetaPro-Bold.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+FileLength:123824
+FileModTime:1196021156
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:MetaPro-BoldItalic
+FamilyName:MetaPro
+StyleName:BoldItalic
+MenuName:MetaPro-BoldItalic
+StyleBits:0
+WeightClass:700
+WidthClass:5
+AngleClass:0
+FullName:MetaPro-BoldItalic
+WritingScript:Roman
+OutlineFileName:\MetaPro-BoldItalic.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+FileLength:123232
+FileModTime:1196021158
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:MetaPro-Book
+FamilyName:MetaPro
+StyleName:Book
+MenuName:MetaPro-Book
+StyleBits:0
+WeightClass:500
+WidthClass:5
+AngleClass:0
+FullName:MetaPro-Book
+WritingScript:Roman
+OutlineFileName:\MetaPro-Book.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+FileLength:115428
+FileModTime:1196021160
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:MetaPro-Medium
+FamilyName:MetaPro
+StyleName:Medium
+MenuName:MetaPro-Medium
+StyleBits:0
+WeightClass:500
+WidthClass:5
+AngleClass:0
+FullName:MetaPro-Medium
+WritingScript:Roman
+OutlineFileName:\MetaPro-Medium.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+FileLength:119012
+FileModTime:1196021164
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:MetaPro-MediumItalic
+FamilyName:MetaPro
+StyleName:MediumItalic
+MenuName:MetaPro-MediumItalic
+StyleBits:0
+WeightClass:500
+WidthClass:5
+AngleClass:0
+FullName:MetaPro-MediumItalic
+WritingScript:Roman
+OutlineFileName:\MetaPro-MediumItalic.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+FileLength:117140
+FileModTime:1196021166
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:MetaPro-Normal
+FamilyName:MetaPro
+StyleName:Normal
+MenuName:MetaPro-Normal
+StyleBits:0
+WeightClass:400
+WidthClass:5
+AngleClass:0
+FullName:MetaPro-Normal
+WritingScript:Roman
+OutlineFileName:\MetaPro-Normal.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+FileLength:117928
+FileModTime:1196021166
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:MetaPro-NormalItalic
+FamilyName:MetaPro
+StyleName:NormalItalic
+MenuName:MetaPro-NormalItalic
+StyleBits:0
+WeightClass:400
+WidthClass:5
+AngleClass:0
+FullName:MetaPro-NormalItalic
+WritingScript:Roman
+OutlineFileName:\MetaPro-NormalItalic.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+FileLength:122216
+FileModTime:1196021168
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:MinionPro-Regular
+FamilyName:Minion Pro
+StyleName:Regular
+MenuName:Minion Pro
+StyleBits:0
+WeightClass:400
+WidthClass:5
+AngleClass:0
+FullName:Minion Pro
+WritingScript:Roman
+OutlineFileName:\MinionPro-Regular.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+FileLength:218640
+FileModTime:1433335536
+DesignSize:110
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:MyriadPro-It
+FamilyName:Myriad Pro
+StyleName:Italic
+MenuName:Myriad Pro
+StyleBits:1
+WeightClass:400
+WidthClass:5
+AngleClass:1
+FullName:Myriad Pro Italic
+WritingScript:Roman
+OutlineFileName:\MyriadPro-It.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+FileLength:105656
+FileModTime:1407708637
+DesignSize:110
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:MyriadPro-Regular
+FamilyName:Myriad Pro
+StyleName:Regular
+MenuName:Myriad Pro
+StyleBits:0
+WeightClass:400
+WidthClass:5
+AngleClass:0
+FullName:Myriad Pro
+WritingScript:Roman
+OutlineFileName:\MyriadPro-Regular.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+FileLength:101732
+FileModTime:1407708637
+DesignSize:110
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:MyriadPro-Semibold
+FamilyName:Myriad Pro
+StyleName:Semibold
+MenuName:Myriad Pro Light
+StyleBits:2
+WeightClass:600
+WidthClass:5
+AngleClass:0
+FullName:Myriad Pro Semibold
+WritingScript:Roman
+OutlineFileName:\MyriadPro-Semibold.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+FileLength:103564
+FileModTime:1407708637
+DesignSize:110
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:Nickainley-Normal
+FamilyName:Nickainley
+StyleName:Normal
+MenuName:Nickainley Normal
+StyleBits:0
+WeightClass:400
+WidthClass:5
+AngleClass:1
+FullName:Nickainley Normal
+WritingScript:Roman
+OutlineFileName:\Nickainley-Normal.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+FileLength:43748
+FileModTime:1446199513
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:OpenSans-Bold
+FamilyName:Open Sans
+StyleName:Bold
+MenuName:Open Sans
+StyleBits:2
+WeightClass:700
+WidthClass:5
+AngleClass:0
+FullName:Open Sans Bold
+WritingScript:Roman
+OutlineFileName:\OpenSans-Bold.ttf
+DataFormat:sfntData
+FileLength:224592
+FileModTime:315446400
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:OpenSans-BoldItalic
+FamilyName:Open Sans
+StyleName:Bold Italic
+MenuName:Open Sans
+StyleBits:3
+WeightClass:700
+WidthClass:5
+AngleClass:1
+FullName:Open Sans Bold Italic
+WritingScript:Roman
+OutlineFileName:\OpenSans-BoldItalic.ttf
+DataFormat:sfntData
+FileLength:213292
+FileModTime:315446400
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:OpenSans-Extrabold
+FamilyName:Open Sans
+StyleName:Extrabold
+MenuName:Open Sans Extrabold
+StyleBits:0
+WeightClass:800
+WidthClass:5
+AngleClass:0
+FullName:Open Sans Extrabold
+WritingScript:Roman
+OutlineFileName:\OpenSans-ExtraBold.ttf
+DataFormat:sfntData
+FileLength:222584
+FileModTime:315446400
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:OpenSans-Italic
+FamilyName:Open Sans
+StyleName:Italic
+MenuName:Open Sans
+StyleBits:1
+WeightClass:400
+WidthClass:5
+AngleClass:1
+FullName:Open Sans Italic
+WritingScript:Roman
+OutlineFileName:\OpenSans-Italic.ttf
+DataFormat:sfntData
+FileLength:212896
+FileModTime:315446400
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:OpenSans-Light
+FamilyName:Open Sans
+StyleName:Light
+MenuName:Open Sans Light
+StyleBits:0
+WeightClass:300
+WidthClass:5
+AngleClass:0
+FullName:Open Sans Light
+WritingScript:Roman
+OutlineFileName:\OpenSans-Light.ttf
+DataFormat:sfntData
+FileLength:222412
+FileModTime:315446400
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:OpenSans
+FamilyName:Open Sans
+StyleName:Regular
+MenuName:Open Sans
+StyleBits:0
+WeightClass:400
+WidthClass:5
+AngleClass:0
+FullName:Open Sans
+WritingScript:Roman
+OutlineFileName:\OpenSans-Regular.ttf
+DataFormat:sfntData
+FileLength:217360
+FileModTime:315446400
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:OratorStd
+FamilyName:Orator Std
+StyleName:Medium
+MenuName:Orator Std
+StyleBits:0
+WeightClass:400
+WidthClass:5
+AngleClass:0
+FullName:Orator Std Medium
+WritingScript:Roman
+OutlineFileName:\OratorStd.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+FileLength:35676
+FileModTime:1407708775
+DesignSize:120
+%EndFont
+

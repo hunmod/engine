@@ -265,18 +265,89 @@ public function getIP_cdata(){
 		}
 	}
 //Seo_url
-public function shorturl_getparams($getq)
+public function shorturl_getparams($getq,$lang=null)
 {
 	global $tbl, $adatbazis;
-	$q = "SELECT * FROM " . $tbl["short_url"] . " WHERE `get` LIKE '" . $getq . "' LIMIT 1";
+	if (!$lang){
+		$lang=$_SESSION["lang"];
+	}
+	$q = "SELECT * FROM " . $tbl["short_url"] . "_".$lang." WHERE `get` LIKE '" . $getq . "' LIMIT 1";
 	$eredmeny = db_query($q, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"], $adatbazis["db1_srv"], '', 'select');
-
+//echo $q;
 	if (isset($eredmeny[0]['params']) && $eredmeny[0]['params'] != "") {
 		return $eredmeny[0]['params'];
 	} else {
 		return $getq;
 	}
 }
+public function shorturl_setprams($data,$lang=null){
+	global $tbl, $adatbazis;
+
+	if (!$lang){
+		$lang=$_SESSION["lang"];
+	}
+	$query="REPLACE INTO  ". $tbl["short_url"] . "_".$lang." (`get` ,`params` ,`status`)VALUES ('".$data['get']."',  '".$data['params']."','".$data['status']."');";
+	db_query($query, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"], $adatbazis["db1_srv"], '', 'insert');
+
+	return($data);
+}
+public function shorturl_create($lang,$lang=null){
+	global $tbl, $adatbazis;
+	if (!$lang){
+		$lang=$_SESSION["lang"];
+	}
+	$q1="CREATE TABLE " . $tbl["short_url"] . "_".$lang." (
+`get` varchar(100) NOT NULL,
+`params` varchar(100) NOT NULL,
+`status` varchar(100) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;";
+	$q2="ALTER TABLE " . $tbl["short_url"] . "_".$lang."
+ADD PRIMARY KEY (`params`),
+ADD KEY `get` (`get`);";
+
+	//echo $q;
+	db_query($q1, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"], $adatbazis["db1_srv"], '', 'create');
+	db_query($q2, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"], $adatbazis["db1_srv"], '', 'create');
+
+
+}
+	function shorturl_get_data($getq,$lang=null){
+		global $tbl,$adatbazis,$_SESSION;
+		if (!$lang){
+			$lang=$_SESSION["lang"];
+		}
+		$q="SELECT * FROM ".$tbl["short_url"]. "_".$lang." WHERE `params` LIKE '".$getq."' LIMIT 1";
+		$eredmeny=db_query($q, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"],$adatbazis["db1_srv"],'', 'select');
+//echo $q;
+		if (isset($eredmeny[0]['get'])&& $eredmeny[0]['get']!=""){
+			return $eredmeny[0]['get'];
+		}
+		else{
+			return $getq;
+		}
+	}
+
+
+	public function shorturl_get($q){
+		$q=str_replace('//','/',$q);
+		$qex=explode('/',$q);
+		if (count($qex)<4 ){
+			$q=($this->shorturl_get_data($q));
+			$qex=explode('/',$q);
+			if ($qex[0]=='m' && $qex[1]>0){
+				$menudatas=$this->get_one_menu($qex[1]);
+				//var_dump($menudatas);
+				if ($menudatas['id']>0){
+					if ($menudatas['item']==''){$menudatas['item']=$menudatas['id'];}
+					$gk=$menudatas['modul'].'/'.$menudatas['file'].'/'.$menudatas['item'];
+					//var_dump($gk);
+					$q=($this->shorturl_get_data($gk));
+				}
+			}
+		}
+		return	$q;
+	}
+
 }
 $SysClass=new sys();
 

@@ -16,7 +16,7 @@ if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) ob_start("ob_gzhandl
 $start_time = MICROTIME(TRUE);
 //
 include_once("items/allpagedatas.php");
-define('FACEBOOK_SDK_V4_SRC_DIR', './Facebook/src/Facebook/');
+//define('FACEBOOK_SDK_V4_SRC_DIR', './Facebook/src/Facebook/');
 include ('./Facebook/autoload.php');
 
  if (is_file($urlpre.$template.".php"))

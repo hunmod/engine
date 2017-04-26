@@ -8,17 +8,19 @@ var babynum3 = 0;
 var roomheave = [];
 
 function loadchildrens(data) {
-    data2 = data.replace(/([\x00-\x7F]|[\xC0-\xDF][\x80-\xBF]|[\xE0-\xEF][\x80-\xBF]{2}|[\xF0-\xF7][\x80-\xBF]{3})|./g, "$1");
-    mysession = jQuery.parseJSON(data2);
-  //  console.log(mysession);
+    if (data) {
+        data2 = data.replace(/([\x00-\x7F]|[\xC0-\xDF][\x80-\xBF]|[\xE0-\xEF][\x80-\xBF]{2}|[\xF0-\xF7][\x80-\xBF]{3})|./g, "$1");
+        mysession = jQuery.parseJSON(data2);
+        //  console.log(mysession);
 
-    for (i = 0; i < childnum; i++) {
-        sessoinvarname1 = 'child[' + i + '][birth]';
-        sessoinvarname2 = 'child[' + i + '][age]';
-        $.each(mysession, function (key, value) {
-            if (key == sessoinvarname1) if (document.getElementById(sessoinvarname1))document.getElementById(sessoinvarname1).value = value;
-            if (key == sessoinvarname2) if (document.getElementById(sessoinvarname2))document.getElementById(sessoinvarname2).value = value;
-        });
+        for (i = 0; i < childnum; i++) {
+            sessoinvarname1 = 'child[' + i + '][birth]';
+            sessoinvarname2 = 'child[' + i + '][age]';
+            $.each(mysession, function (key, value) {
+                if (key == sessoinvarname1) if (document.getElementById(sessoinvarname1))document.getElementById(sessoinvarname1).value = value;
+                if (key == sessoinvarname2) if (document.getElementById(sessoinvarname2))document.getElementById(sessoinvarname2).value = value;
+            });
+        }
     }
     roomneed();
 
@@ -73,33 +75,7 @@ function roomneed() {
     $('#roomneed').html(htmltext);
     roomorder();
 }
-function agecalc(birthdate, nowdate) {
-    if (!nowdate) {
-        var   datum1 = new Date();
-    } else {
-       // datum1 = new Date();
-        var   datum1arr = nowdate.split('.');
-        datum1 = new Date(datum1arr[0],datum1arr[1],datum1arr[2],0,0,0,0);
-    }
-    var datum2arr = birthdate.split('.');
-    datum2 = new Date(datum2arr[0],datum2arr[1],datum2arr[2],0,0,0,0);
 
-    //console.log(datum1);
-    //console.log(datum2);
-
-    kul = datum1.getTime() - datum2.getTime();
-    kor = Math.floor(kul / (1000 * 60 * 60 * 24) / 365);
-    return (kor);
-}
-function daycalc(firstdate, seconddate) {
-    var datum1arr = seconddate.split('.');
-    var datum2arr = firstdate.split('.');
-    var datum1 = new Date(datum1arr[0],datum1arr[1],datum1arr[2],0,0,0,0);
-    var  datum2 = new Date(datum2arr[0],datum2arr[1],datum2arr[2],0,0,0,0);
-    kul = datum1.getTime() - datum2.getTime();
-    kor = Math.floor(kul / (1000 * 60 * 60 * 24));
-    return (kor);
-}
 function nigthwrite() {
     firstdate = $('#erkezes').val();
     seconddate = $('#tavozas').val();
@@ -470,7 +446,7 @@ function roomorder()
         else{
             $('#'+'rooms_' + roomid + '_gyerekedvezmeny3_div').removeClass('hidden');
         }
-
+        orderroomnumberinput=null;
 });
 
 
@@ -576,12 +552,49 @@ $(window).load(function () {
     });
     $('.maskdatebox').mask("9999.99.99", {placeholder: 'yyyy.mm.dd'});
 
+    $('.plusmnum').click(function(){
+        thmyelement=document.getElementById($(this).attr("conn"));
+        ismynum=parseInt(thmyelement.value);
+        if (isNaN(ismynum)){
+            ismynum=0;
+        }
+        ismynum++;
+        thmyelement.value=ismynum;
+      // console.log( $('#'+$(this).attr("conn")).val());
+        roomneed();
 
+    });
+
+    $('.minusmnum').click(function(){
+        thmyelement=document.getElementById($(this).attr("conn"));
+        ismynum=parseInt(thmyelement.value);
+        if (isNaN(ismynum)){
+            ismynum=0;
+        }
+        ismynum--;
+        if (ismynum<0)ismynum=0;
+        thmyelement.value=ismynum;
+        roomneed();
+
+        //thmyelement.change();
+    });
+/*
     $('#erkezes').blur(function (event) {
         nigthwrite()
     });
     $('#tavozas').blur(function (event) {
         nigthwrite()
+    });
+*/
+    $('#erkezes').on('change',function (event) {
+        nigthwrite()
+        SetSession('from', $('#erkezes').val(), 'start/setsession');
+
+    });
+    $('#tavozas').on('change',function (event) {
+        nigthwrite()
+        SetSession('to', $('#tavozas').val(), 'start/setsession');
+
     });
 
 

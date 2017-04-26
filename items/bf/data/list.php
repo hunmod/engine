@@ -1,4 +1,5 @@
-<?php 
+<?php
+
 
 $Sys_Class=new sys();
 
@@ -13,28 +14,54 @@ $_SESSION["utolso_lap"]=$_SERVER["REQUEST_URI"];
 
 
 $maxegyoldalon=8;
+if ($_GET["page"])$_GET["oldal"]=$_GET["page"];
+
 if (($_GET["oldal"]=="") || ($_GET["oldal"]<=0)){
 	$oldal=0;
 }
 else {
-	$oldal=$_GET["oldal"];
+	$oldal=$_REQUEST["oldal"];
 }
 
 if ($_GET["tipus"]){
-	$filters['tipus']=$_GET["tipus"];	
+	$filters['tipus']=$_GET["tipus"];
 }
 if ($_GET["name"]){
-	$filters['cim']=$_GET["name"];	
+	$filters['cim']=$_GET["name"];
 }
 if ($_GET["s"]){
-	$filters['s']=$_GET["s"];	
+	$filters['s']=$_GET["s"];
+}
+if ($_GET["citytxt"]){
+
+	$citysarray=$location_class->get_city(array("name"=>$_GET["citytxt"]));
+	$citysmarr=$citysarray["datas"];
+	foreach ($citysmarr as $cmar){
+		if ($filters['varos'])$filters['varos'].=',';
+		$filters['varos'].=$cmar['city_id'];
+	}
+//arraylist($filters);
+}
+if ($_GET["cats"]){
+	$filterscatarr=array();
+	if (is_array($_GET["cats"]))foreach($_GET["cats"] as $name=>$value){
+		$filterscatarr[]=$name;
+	}
+	$filters['cats']=$filterscatarr;
+}
+if ($_GET['mylat'] && $_GET['mylon']& $_GET['km']){
+    $filters+=$Google_Class->latlngmaxmin($_GET['mylat'],$_GET['mylon'],$_GET['km']);
 }
 
-$qhir=$bf_class->get($filters,'',$_GET["page"]) ;
+
+$filters['maxegyoldalon']=30;
+
+$qhir=$bf_class->get($filters,$_GET["order"],$_GET["page"]) ;
 $hirekelemek=($qhir['datas']);
 $hszlistacount=$qhir['count'];
 
 //arraylist($qhir);
+$bfallcat=$category_class->get(array('status'=>'2','lang'=>'hu','kat'=>'bfcat'));
 
 //arraylist($qhir);
 
@@ -86,8 +113,10 @@ foreach($hirekelemek as $egy){
 		$hirekelemek[$n][$megegyname]=$Text_Class->htmlfromchars($megegy);
 		
 	}
+	$citydata=$Location_Class->get_city(array('id'=>$hirekelemek[$n]["varos"]));
+	$hirekelemek[$n]["varos_nev"]=$citydata['datas'][0]["city_name"];
 	//kép
-	//$hirekelemek[$n]["image"]=$homeurl.$hir_class->getimg($egy["id"]) ;
+	$hirekelemek[$n]["image"]=$bf_class->getimg($elem["id"],200,200);
 	$hirekids.=$Sys_Class->comasupport($hirekids);
 	$hirekids.=$hirekelemek[$n]["id"];
 	

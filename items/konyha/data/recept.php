@@ -22,7 +22,6 @@ FROM  ".$tbl['recept']." WHERE id=".$getparams[2]."
 $egyelem=db_Query($qlekerdez, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"],$adatbazis["db1_srv"],'', "select");*/
 $filters["id"]=$getparams[2];
 $egyelem=$rec_class->get($filters,$order='',$page='all');
-
 $recept_data=$egyelem['datas'][0];
 if(count($recept_data))foreach ($recept_data as $megegyname=>$megegy)
 {

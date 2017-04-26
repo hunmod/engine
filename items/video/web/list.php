@@ -7,17 +7,10 @@
     <!--div id="breadCrumb">
 		<a href="<?php echo $homeurl;?>">Home</a> / <span><strong>Videos</strong></span>
     </div-->
-  <left class="col-md-3 col-sm-4" >
-<?php 
-$widgets[]="items/user/web/widget_user_menu.php";
-$widgets[]="items/ads/web/widget_side1.php";
-$widgets[]="items/konyha/web/widget_submenu.php";
-foreach ($widgets as $widget)if (file_exists($widget))include($widget);?>
-  </left>                           
-	<section class="col-md-9 col-sm-8 videolist">
+
+	<section class="col-sm-12 videolist">
 <h3><?php echo $thmenu["nev"];?></h3>	
-		<div class="">
-<?php foreach ($qmenu as $data){?>   
+<?php foreach ($qmenu as $data){?>
 			<h3><?php echo $data["nev"]; ?></h3>
  			<div class="row">
 <?php
@@ -30,7 +23,9 @@ foreach ($datas["datas"] as $mdata){
 	if ($c>2){break;}
 	?>
     <onevideo class="col-md-6" itemscope itemtype="http://schema.org/VideoObject">
-        <div align="center" class="box embed-responsive embed-responsive-16by9">
+		<?php echo $mdata["nev"]; ?><br>
+
+		<div align="center" class="box embed-responsive embed-responsive-16by9">
             <iframe class="embed-responsive-item" src="<?php echo $mdata["url"]; ?>" frameborder="0" allowfullscreen="" itemprop="url"></iframe>
         </div>
     </onevideo>
@@ -44,9 +39,9 @@ foreach ($datas["datas"] as $mdata){
 	</div>
 
 
- <?php } ?>  
+ <?php } ?>
  </section>
                     
                     
-        </div>                  
+</div>
 

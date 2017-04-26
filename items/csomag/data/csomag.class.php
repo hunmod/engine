@@ -182,6 +182,18 @@ class csomag
         $mezo["value"] = $data[$mezo["id"]];
         $mezok[] = $mezo;
 
+
+        $mezo = array();
+        $mezo["id"] = 'unnepnapon';
+        $mezo["table"] = $table . '.' . '`' . $mezo["id"] . '`';
+        $mezo["name"] = "unnepnapon";
+        $mezo["display"] = 0;
+        $mezo["type"] = 'int';
+        $mezo["displaylist"] = 1;
+        $mezo["mysql_field"] = "`" . $mezo["id"] . "` INT NOT NULL DEFAULT  '0',";
+        $mezo["value"] = $data[$mezo["id"]];
+        $mezok[] = $mezo;
+
         $mezo = array();
         $mezo["id"] = 'weekday';
         $mezo["table"] = $table . '.' . '`' . $mezo["id"] . '`';
@@ -372,8 +384,6 @@ class csomag
 //ez kell az �sszes tal�lat megsz�mol�s�hoz
         $mezokc .= 'count(' . $SD["table"] . '.id) as count';
 
-
-//sz�mos felt�telek
         $fmezonev = 'id';
         if ($filters[$fmezonev] != '') {
             $where .= $Sys_Class->andsupport($where);
@@ -497,7 +507,43 @@ class csomag
         $fmezonev = 'today';
         if ($filters[$fmezonev] != '') {
             $where .= $Sys_Class->andsupport($where);
-            $where .= '(' . $SD["table"] . ".`fromshow` <= '" . $filters[$fmezonev] . "' AND " . $SD["table"] . ".`toshow` >= '" . $filters[$fmezonev] . "'  ) OR " . $SD["table"] . ".`toshow` = ''";
+            $where .= '((' . $SD["table"] . ".`fromshow` <= '" . $filters[$fmezonev] . "' AND " . $SD["table"] . ".`toshow` >= '" . $filters[$fmezonev] . "'  ) OR " . $SD["table"] . ".`toshow` = '')";
+        }
+
+        $fmezonev = 'mindate';
+        if ($filters[$fmezonev] != '') {
+            $where .= $Sys_Class->andsupport($where);
+            $where .= ' ' . $SD["table"] . ".`fromshow` >= '" . $filters[$fmezonev] . "' ";
+        }
+        $fmezonev = 'fromshow';
+        if ($filters[$fmezonev] != '') {
+            $where .= $Sys_Class->andsupport($where);
+            $where .= ' ' . $SD["table"] . ".`fromshow` <= '" . $filters[$fmezonev] . "' ";
+        }
+        $fmezonev = 'toshow';
+        if ($filters[$fmezonev] != '') {
+            $where .= $Sys_Class->andsupport($where);
+            $where .= ' ' . $SD["table"] . ".`toshow` >=  '" . $filters[$fmezonev] . "' ";
+        }
+
+        $fmezonev = 'mindfrom';
+        if ($filters[$fmezonev] != '') {
+            $where .= $Sys_Class->andsupport($where);
+            $where .= ' ' . $SD["table"] . ".`fromshow` >= '" . $filters[$fmezonev] . "' ";
+        }
+
+
+        $fmezonev = 'connectedservices';
+        if ($filters[$fmezonev] != '') {
+            $where .= $Sys_Class->andsupport($where);
+            $where .= '(' . $SD["table"] . ".`" . $fmezonev . "` like '%" . $filters[$fmezonev] . "%') ";
+        }
+
+        $fmezonev = 'room';
+        if ($filters[$fmezonev] != '') {
+            $where .= $Sys_Class->andsupport($where);
+            //$where .= '(' . $SD["table"] . '.`connectedservices` like \'%"rooms":%"id":%"' . $filters[$fmezonev] . "%\"') ";
+            $where .= '(' . $SD["table"] . '.`connectedservices` like  \'%"rooms":%"id":%"' . $filters[$fmezonev] . '"%\')';
         }
 
 //ha van felt�tel el� csapjuk hogy WHERE	
@@ -683,6 +729,11 @@ class csomag
 
 
 }
+
+
+
+
+
 
 $CsomagClass = new csomag();
 

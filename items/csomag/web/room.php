@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 $filters['id'] = $getparams[2];
 $news = $CsomagClass->get($filters, $order = '', $page = 'all');
@@ -110,6 +110,10 @@ arraylist($filters);
                 <?= $adat["hu"]["longtext"]; ?>
             </div>
             <div class="connectedservices">
+                <div class="col-sm-12">
+                    <b><?= lan('SZOBATIPUS') ?></b>  <br>
+                </div>
+
                 <div class="col-sm-12">
                     <?= hotelicon_print('SZOBATIPUS', 30, 'fekete') ?> <b><?= lan('SZOBATIPUS') ?></b>  <br>
                 </div>

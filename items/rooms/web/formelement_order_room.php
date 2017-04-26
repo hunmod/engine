@@ -17,13 +17,17 @@
     $xclass='';
     if($csomag['id'])$xclass='csomaggal';
     ?>
-    <div class="col-sm-2 col-xs-4"><?= $FormClass->numbox('rooms['.$c.'][ordernum]',$order['rooms'][$c]["ordernum"], 'db', 0); ?></div>
+    <div class="col-sm-2 col-xs-4">
+        <?= $FormClass->numbox('rooms['.$c.'][ordernum]',$order['rooms'][$c]["ordernum"], 'db', '0'); ?>
+        <span class="minusmnum nimus" conn="<?='rooms['.$c.'][ordernum]'?>">-</span>
+        <span class="plusmnum plus" conn="<?='rooms['.$c.'][ordernum]'?>">+</span>
+    </div>
     <div class="col-sm-4 col-xs-8">
         <div>
-        <?php if ($csomag['id']) {?>
-            <name class="szobanev"><?= $csomag['title'] ?> - </name>
-        <?php } ?>
-        <name class="szobanev"><?php echo $roomdatas["title"]; ?></name>
+            <?php if ($csomag['id']) {?>
+                <name class="szobanev"><?= $csomag['title'] ?> - </name>
+            <?php } ?>
+            <name class="szobanev"><?php echo $roomdatas["title"]; ?></name>
         </div>
         <?php if ($csomag['id']) {?>
             <img itemprop="image" class="csomaginfo" src="<?php echo $nimg = $CsomagClass->getimg($csomag['id'], 100, 100); ?>" alt="<?php echo $csomag["title"]; ?>"><?php

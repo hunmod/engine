@@ -50,6 +50,8 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
     <!--script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script-->
     <link rel="stylesheet" href="<?php echo $homeurl; ?><?php echo $makemin->css('/scripts/jquery-ui.css', '/scripts/jquery-ui.min.css') ?>"/>
+    <link rel="stylesheet" href="<?php echo $homeurl; ?><?php echo $makemin->css('/scripts/animate.css', '/scripts/animate.min.css') ?>"/>
+    <script src="<?= $homeurl.('/scripts/viewportchecker.js') ?>" /></script>
     <script src="<?php echo $server_url; ?>scripts/jquery-ui.min.js"></script>
     <script src="<?php echo $homeurl; ?>/scripts/jquery.matchHeight-min.js"></script>
     <script src="<?php echo $homeurl; ?>/scripts/jquery.maskedinput.js"></script>
@@ -60,6 +62,86 @@
         <script src="<?php echo $homeurl.$file['js']; ?>"></script>
     <?php }?>
     <script src="<?php echo $homeurl; ?><?php echo $makemin->js($stylefolder33 . '/scripts/hn.js', $stylefolder33 . '/scripts/hn.min.js', false) ?>"></script>
+
+
+
+    <?php if($fb_ap_id){
+        //facebook api js
+        ?>
+        <script>
+            window.fbAsyncInit = function() {
+                FB.init({
+                    appId      : '<?= $fb_ap_id?>',
+                    xfbml      : true,
+                    version    : 'v2.9'
+                });
+                FB.AppEvents.logPageView();
+            };
+            (function(d, s, id){
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) {return;}
+                js = d.createElement(s); js.id = id;
+                js.src = "//connect.facebook.net/en_US/sdk.js";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+
+            function statusChangeCallback(response) {
+                console.log('statusChangeCallback');
+                console.log(response);
+                if (response.status === 'connected') {
+                    testAPI();
+                } else {
+                    document.getElementById('status').innerHTML = 'Please log ' +
+                        'into this app.';
+                }
+            }
+
+            function checkLoginState() {
+                FB.getLoginStatus(function(response) {
+                    statusChangeCallback(response);
+                });
+            }
+
+            window.fbAsyncInit = function() {
+                FB.init({
+                    appId      : '<?= $fb_ap_id?>',
+                    cookie     : true,  // enable cookies to allow the server to access
+                                        // the session
+                    xfbml      : true,  // parse social plugins on this page
+                    version    : 'v2.8' // use graph api version 2.8
+                });
+                FB.getLoginStatus(function(response) {
+                    statusChangeCallback(response);
+                });
+
+            };
+
+            // Load the SDK asynchronously
+            (function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = "//connect.facebook.net/en_US/sdk.js";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+
+            function testAPI() {
+                console.log('Welcome!  Fetching your information.... ');
+                FB.api('/me', function(response) {
+
+//                    console.log(document.cookie);
+ //                   console.log(response);
+                    document.cookie= 'fbuserid='+response.id;
+                });
+            }
+
+        </script>
+
+
+
+     <?php
+    }
+    ?>
 
     <?php
     // Google analitics (konfig DB-ből olvassa)

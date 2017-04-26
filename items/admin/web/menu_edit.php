@@ -44,7 +44,8 @@ $msbx["id"]=1;
 $msbx["nev"]="Gyökér";
 $menupontselectbox[]=$msbx;
 */
-$status=$MenuClass->status();		
+$status=$MenuClass->status();
+$sorrendarray=$MenuClass->sorrend();		
 $jog=$MenuClass->jog();
 //$menupontselectbox=menupontselectbox(0,$onearray,'','','');
 $qmenu=$MenuClass->menu_selectbox(0,array(),$filtersm,$order='',$page='all');
@@ -114,7 +115,11 @@ if ($filters2['id']>0){
 </div>
 <?php $Form_Class->selectboxeasy("jogid",$jog,$dbadat['jogid'],$lan['jogid'],"form-control");?>
 <?php $Form_Class->selectboxeasy("status",$status,$dbadat['status'],$lan['status'],"form-control");?>
-<?php $Form_Class->selectbox("sorrend",$sorrendarray,array('value'=>'id','name'=>'nev'),$dbadat['sorrend'],$lan['sorrend'],$class="form-control");?>
+
+
+            <?php  $Form_Class->selectboxeasy2("sorrend", $sorrendarray, $dbadat["sorrend"], "sorrend"); ?>
+
+
 <input name="smbt" type="submit" value="<?php echo $lan['save']; ?>" />
 </form>
 </article>

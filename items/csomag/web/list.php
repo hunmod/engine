@@ -12,7 +12,12 @@
         width: 100%;
     }
 </style>
-<div class="container roomlist">
+
+<?php
+
+?>
+
+<div class="container roomlist csomaglist">
     <div id="breadCrumb">
         <a href="<?php echo $homeurl;?>"><?=lan('home');?></a> >
         <a href="<?php echo $homeurl.'/'.$separator.shorturl_get("m/1");?>"> <?=lan('csomaglista');?></a> >
@@ -49,13 +54,37 @@
                 }
                 ?>
             </h1>
+            <div>
             <?php
             if ($auser["jog"] > 2) {
                 ?>
                 <a href="<?php echo $homeurl . $separator . $getparams[0]; ?>/edittext"><?= lan('ujcsomag')?></a>
             <?php } ?>
+            </div>
+            <div class="col-xs-12 text-center filtericons">
+                <?php
+                $filtersextcat="csomagkategoria";
+                $filterssubcat["lang"]=$filtersrootcat["lang"]=$_SESSION["lang"];
+                $filterssubcat["kat"]=$filtersextcat;
+                $qsubroot=$category_class->get($filterssubcat,'',$_GET["page"]) ;
+                if ($qsubroot['datas'])
+                    foreach ($qsubroot['datas'] as $scat){
+                        $aactive='';
+                        $acolor='greyishbeige';
+                        if ($_GET['cn']==$scat['id']){
+                            $aactive='active';
+                            $acolor='feher';
+
+                        }
+                        $caption=hotelicon_print($scat['class'], 50, $acolor,$scat['nev']);
 
 
+                        ?>
+                        <a href="<?= $myparams1 ?>cn=<?= $scat['id']?>" class="<?= $aactive; ?>"><?= $caption ?></a>
+                    <?php } ?>
+
+            </div>
+<div class="clearfix"></div>
             <?php
             //arraylist($hirekelemek);
             if (count($hirekelemek) > 0) {
@@ -70,23 +99,13 @@
                     $elem['hu'] = $elemhuid['datas'][0];*/
                     $elem['url'] = $CsomagClass->createurl($elem);;
                     // arraylist($elemhuid);
-//article
-                    $thenum = $numh - $counter;
-//echo $thenum.':'.$che.'-'.$stn.'|';
-                    if ($che < 1) {
-                        if (($thenum) % 3 == 0) {
-                            $stn = 3;
-                            $che = $stn;
-                        } else
-                            if (($thenum) % 2 == 0) {
-                                $stn = 2;
-                                $che = $stn;
-                            } else {
-                                $stn = 1;
-                                $che = $stn;
-                            }
-                    }
-                    include('room_display1.php');
+?>
+
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+      <?php              include('csomag_display2.php');?>
+                    </div>
+ <?php
+
                 }
             }
             ?>
@@ -144,5 +163,8 @@
     jQuery(document).ready(function() {
         $(window).on('scroll resize', gomemove);
         $(window).trigger('scroll');
+        $('.matchHeight').matchHeight();
+
     });
 </script>
+

@@ -9,7 +9,11 @@ function db_Query($sql, &$error, $user, $password, $server, $dbase, $mode = "sel
         global $mysqlLink;
     }
     if (!isset($GLOBALS['mysqlLink'][$user])) {
-        $GLOBALS['mysqlLink'][$user] = mysql_connect($server, $user, $password, true) or die(mysql_error());
+       $GLOBALS['mysqlLink'][$user] = mysql_connect($server, $user, $password, true) or die(mysql_error());
+       // $GLOBALS['mysqlLink'][$user] = mysqli_connect($server, $user, $password, true) or die(mysql_error());
+
+
+
     }
     /*mysql_query("SET character_set_results = 'utf8'");
     mysql_query("SET character_set_server = 'utf8'");
@@ -19,6 +23,7 @@ function db_Query($sql, &$error, $user, $password, $server, $dbase, $mode = "sel
     mysql_select_db($dbase, $GLOBALS['mysqlLink'][$user]);
     $error = "";
     $db_res = mysql_query($sql, $GLOBALS['mysqlLink'][$user]) or setStr(mysql_error($GLOBALS['mysqlLink'][$user]), $error);
+ //   $db_res = mysql_query($sql, $GLOBALS['mysqlLink'][$user]) or setStr(mysqli_connect_error($GLOBALS['mysqlLink'][$user]), $error);
     if ($error == "") {
         if ($mode == "select") {
             $out = array();

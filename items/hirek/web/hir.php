@@ -73,13 +73,13 @@
         </news>
 
 </div>
-<div class="col-sm-4 col-xs-12 leftcol">
+<div class="col-sm-4 col-xs-12">
     <?php include ('./items/csomag/web/sidelist.php');?>
-<?php
-include('items/files/web/list.php');
-    ?>
-</div>
 
+</div>
+    <?php
+    include('items/files/web/list.php');
+    ?>
 </div>
 <script>
     function carusel_top(){

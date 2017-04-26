@@ -64,6 +64,16 @@ public function table($data=array()){
 	$mezo["displaylist"]=1;
 	$mezo["value"]=$data[$mezo["id"]];
 		$mezok[]=$mezo;
+
+	$mezo=array();
+	$mezo["id"]='cat';
+	$mezo["table"]=$table.'.'.'`'.$mezo["id"].'`';
+	$mezo["name"]="cat";
+	$mezo["display"]=0;
+	$mezo["type"]='int';
+	$mezo["displaylist"]=1;
+	$mezo["value"]=$data[$mezo["id"]];
+		$mezok[]=$mezo;
 		$mezo=array();
 
 	$mezo=array();
@@ -343,6 +353,34 @@ public function table($data=array()){
 	$mezo["value"]=$data[$mezo["id"]];
 	$mezok[]=$mezo;
 
+	$mezo["id"]='telefon2';
+	$mezo["table"]=$table.'.'.'`'.$mezo["id"].'`';
+	$mezo["name"]="telefon";
+	$mezo["display"]=0;
+	$mezo["type"]='varchar';
+	$mezo["displaylist"]=0;
+	$mezo["value"]=$data[$mezo["id"]];
+	$mezok[]=$mezo;
+
+
+	$mezo["id"]='longi';
+	$mezo["table"]=$table.'.'.'`'.$mezo["id"].'`';
+	$mezo["name"]="longi";
+	$mezo["display"]=0;
+	$mezo["type"]='varchar';
+	$mezo["displaylist"]=0;
+	$mezo["value"]=$data[$mezo["id"]];
+	$mezok[]=$mezo;
+
+	$mezo["id"]='lati';
+	$mezo["table"]=$table.'.'.'`'.$mezo["id"].'`';
+	$mezo["name"]="lati";
+	$mezo["display"]=0;
+	$mezo["type"]='varchar';
+	$mezo["displaylist"]=0;
+	$mezo["value"]=$data[$mezo["id"]];
+	$mezok[]=$mezo;
+
 
 	$mezo["id"]='support';
 	$mezo["table"]=$table.'.'.'`'.$mezo["id"].'`';
@@ -435,6 +473,31 @@ if ($filters[$fmezonev]!=''){
 }
 
 
+if ($filters['maxlat']!="" ){
+    $where.=$Sys_Class->andsupport($where);
+    $where.='('.$SD["table"].".`lati` <= ".$filters['maxlat'].") ";
+}
+if ($filters['minlat']!="" ){
+    $where.=$Sys_Class->andsupport($where);
+    $where.='('.$SD["table"].".`lati` >= ".$filters['minlat'].") ";
+}
+if ($filters['maxlon']!="" ){
+    $where.=$Sys_Class->andsupport($where);
+    $where.='('.$SD["table"].".`longi` <= ".$filters['maxlon'].") ";
+}
+if ($filters['minlon']!="" ){
+    $where.=$Sys_Class->andsupport($where);
+    $where.='('.$SD["table"].".`longi` >= ".$filters['minlon'].") ";
+}
+
+
+	$fmezonev='varos';
+if ($filters[$fmezonev]!="" && $filters[$fmezonev]!="all"){
+		$where.=$Sys_Class->andsupport($where);
+		$where.='('.$SD["table"].".`".$fmezonev."` in (".$filters[$fmezonev].")) ";
+}
+
+
 $fmezonev='notid';
 if ($filters[$fmezonev]!=''){
 		$where.=$Sys_Class->andsupport($where);
@@ -459,29 +522,103 @@ if ($filters[$fmezonev]>0){
 		$where.=$Sys_Class->andsupport($where);
 		$where.=$SD["table"].".`".$fmezonev."`='".$filters[$fmezonev]."'";
 }
-else 
-	if ($filters[$fmezonev]!='all'){
-		$where.=$Sys_Class->andsupport($where);
-		$where.=$SD["table"].".`".$fmezonev."`='2'";
-	}
 
-
-$fmezonev='tag';
-if ($filters[$fmezonev]!=''){
-	$tables.=',hir_tags,tags';
-	$where.=$Sys_Class->andsupport($where);
-	$where.=$SD["table"].".id=hir_tags.rec_id";
-	$where.=$Sys_Class->andsupport($where);
-	$where.="tags.id=hir_tags.tag_id";
-	
-	
+if ($filters["notaddr"]=='1'){
 		$where.=$Sys_Class->andsupport($where);
-		$where.="tags.name LIKE '".$filters[$fmezonev]."'";
+		$where.=$SD["table"].".`street`=''";
+}
+
+$fmezonev='pos';
+if ($filters[$fmezonev]=='1'){
+		$where.=$Sys_Class->andsupport($where);
+		$where.=$SD["table"].".`".$fmezonev."`=1 ";
+}
+$fmezonev='wifi';
+if ($filters[$fmezonev]=='1'){
+		$where.=$Sys_Class->andsupport($where);
+		$where.=$SD["table"].".`".$fmezonev."`=1 ";
+}
+$fmezonev='bringa';
+if ($filters[$fmezonev]=='1'){
+		$where.=$Sys_Class->andsupport($where);
+		$where.=$SD["table"].".`".$fmezonev."`=1 ";
+}
+$fmezonev='dohanyzo';
+if ($filters[$fmezonev]=='1'){
+		$where.=$Sys_Class->andsupport($where);
+		$where.=$SD["table"].".`".$fmezonev."`=1 ";
+}
+$fmezonev='sport';
+if ($filters[$fmezonev]=='1'){
+		$where.=$Sys_Class->andsupport($where);
+		$where.=$SD["table"].".`".$fmezonev."`=1 ";
+}
+$fmezonev='allat';
+if ($filters[$fmezonev]=='1'){
+		$where.=$Sys_Class->andsupport($where);
+		$where.=$SD["table"].".`".$fmezonev."`=1 ";
+}
+$fmezonev='roki';
+if ($filters[$fmezonev]=='1'){
+		$where.=$Sys_Class->andsupport($where);
+		$where.=$SD["table"].".`".$fmezonev."`=1 ";
+}
+$fmezonev='konyha';
+if ($filters[$fmezonev]=='1'){
+		$where.=$Sys_Class->andsupport($where);
+		$where.=$SD["table"].".`".$fmezonev."`=1 ";
+}
+$fmezonev='medence';
+if ($filters[$fmezonev]=='1'){
+		$where.=$Sys_Class->andsupport($where);
+		$where.=$SD["table"].".`".$fmezonev."`=1 ";
+}
+$fmezonev='gyerek';
+if ($filters[$fmezonev]=='1'){
+		$where.=$Sys_Class->andsupport($where);
+		$where.=$SD["table"].".`".$fmezonev."`=1 ";
+}
+$fmezonev='specdieta';
+if ($filters[$fmezonev]=='1'){
+		$where.=$Sys_Class->andsupport($where);
+		$where.=$SD["table"].".`".$fmezonev."`=1 ";
+}
+$fmezonev='szepkartya';
+if ($filters[$fmezonev]=='1'){
+		$where.=$Sys_Class->andsupport($where);
+		$where.=$SD["table"].".`".$fmezonev."`=1 ";
+}
+$fmezonev='erzsebetkartya';
+if ($filters[$fmezonev]=='1'){
+		$where.=$Sys_Class->andsupport($where);
+		$where.=$SD["table"].".`".$fmezonev."`=1 ";
+}
+
+$fmezonev='telen';
+if ($filters[$fmezonev]=='1'){
+		$where.=$Sys_Class->andsupport($where);
+		$where.=$SD["table"].".`".$fmezonev."`=1 ";
+}
+
+$fmezonev='support';
+if ($filters[$fmezonev]=='1'){
+		$where.=$Sys_Class->andsupport($where);
+		$where.=$SD["table"].".`".$fmezonev."`=1 ";
 }
 
 
-//szöveges feltételek	
-$fmezonev='cim';
+
+
+
+//szöveges feltételek
+	$fmezonev='nev';
+
+	if ($filters[$fmezonev]!=''){
+		$where.=$Sys_Class->andsupport($where);
+		$where.=$SD["table"].".`".$fmezonev."`LIKE'%".$filters[$fmezonev]."%'";
+	}
+
+	$fmezonev='cim';
 if ($filters[$fmezonev]!=''){
 		$where.=$Sys_Class->andsupport($where);
 		$where.=$SD["table"].".`".$fmezonev."`LIKE'%".$filters[$fmezonev]."%'";
@@ -490,25 +627,42 @@ if ($filters[$fmezonev]!=''){
 $fmezonev='s';
 if ($filters[$fmezonev]!=''){
 		$where.=$Sys_Class->andsupport($where);
-		$where.="(".$SD["table"].".`cim`LIKE'%".$filters[$fmezonev]."%'";
-		$where.=" OR ".$SD["table"].".`hir`LIKE'%".$filters[$fmezonev]."%'";		
-		$where.=" OR ".$SD["table"].".`hir2`LIKE'%".$filters[$fmezonev]."%')";				
+		$where.="(".$SD["table"].".`nev`LIKE'%".$filters[$fmezonev]."%'";
+		$where.=" OR ".$SD["table"].".`cat`LIKE'%".$filters[$fmezonev]."%'";
+		$where.=" OR ".$SD["table"].".`telefon`LIKE'%".$filters[$fmezonev]."%'";
+		$where.=" OR ".$SD["table"].".`telefon2`LIKE'%".$filters[$fmezonev]."%')";
 }
 
-$fmezonev='fav';
-if ($filters[$fmezonev]!=''){
-	$tables.=',user_favorite_hir';
-	$mezokc.=',user_favorite_hir.status as lstat';
-	$mezok.=',user_favorite_hir.status as lstat';
-	
-	$where.=$Sys_Class->andsupport($where);
-	$where.=$SD["table"].".id=user_favorite_hir.ad_id";
-	
-	
+	if (is_array($filters["cats"])){
+		$wheresub1='';
 		$where.=$Sys_Class->andsupport($where);
-		$where.="user_favorite_hir.user_id IN (".$filters[$fmezonev].") AND user_favorite_hir.status!=4 ";
-}
 
+		$where.='(';
+		foreach($filters["cats"] as $selcat){
+				$wheresub1.=$Sys_Class->andsupport($wheresub1);
+				$wheresub1.=$SD["table"].".`cat`LIKE'%".$selcat."%'";
+		}
+		$where.=$wheresub1.')';
+	}
+	$idarr=explode(',',$filters["catstext"]);
+
+	if (is_array($idarr)){
+		$wheresub1='';
+		$where.=$Sys_Class->andsupport($where);
+		$where.='(';
+		foreach($idarr as $selcat){
+				$wheresub1.=$Sys_Class->andsupport($wheresub1);
+				$wheresub1.=$SD["table"].".`cat`LIKE'%".$selcat."%'";
+		}
+		$where.=$wheresub1.')';
+	}
+
+if ($filters['mylat']!='' && $filters['mylon']!=''  ){
+    $mezok.= "  , ( 3959 * acos( cos( radians(".$filters['mylon'].") ) * cos( radians( ".$SD["table"].".lati ) ) 
+   * cos( radians(".$SD["table"].".longi) - radians(".$filters['mylat'].")) + sin(radians(".$filters['mylon'].")) 
+   * sin( radians( ".$SD["table"].".lati)))) AS distance ";
+
+}
 
 
 //ha van feltétel elé csapjuk hogy WHERE	
@@ -584,8 +738,8 @@ public function save($datas)
 		$query="INSERT INTO  ".$SD["table"]." (".$mezok.")VALUES (".$datasb.")";
 		$result =db_Query($query, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"],$adatbazis["db1_srv"],$adatbazis["db1_db"], "INSERT");
 		//echo($query);
-		echo '<br>'.'<br>'.'<br>'.'<br>'.'<br>'.$query.'<br>';
-		echo $error;		
+		//echo '<br>'.'<br>'.'<br>'.'<br>'.'<br>'.$query.'<br>';
+		//echo $error;
 		$res=mysql_insert_id();
 	}
 	else
@@ -636,7 +790,7 @@ public function create_table(){
 public function getimg($id,$x=369,$y=247){
 	global $adatbazis,$folders,$defaultimg,$bfimg_loc,$homeurl;
 	
-	$img=$bfimg_loc.''.$id.'/'.$id.'.jpg';
+	$img=$bfimg_loc.'/'.$id.'.jpg';
 	//$img=randomimgtofldr($mappa);
 	//echo $img;
 if (is_file($img)){
@@ -663,12 +817,12 @@ $img=$homeurl."/picture2.php?picture=".encode($img)."&x=".$x."&y=".$y."&ext=.jpg
 
 public function createurl($hir){
 global $Text_Class,$homeurl,$separator;
-	return $homeurl.$separator."hir/".$Text_Class->to_link($hir["cim"])."/".($hir["id"]);
+	return $homeurl.$separator."bf/hir/".$Text_Class->to_link($hir["nev"])."/".($hir["id"]);
 }
 //
 
 
 
 }
-
+$bfclass=new bf();
 ?>

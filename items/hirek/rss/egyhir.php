@@ -1,4 +1,4 @@
-﻿<?php foreach ($hirekarray as $elem){?>
+<?php foreach ($hirekarray as $elem){?>
 <div class="egyelem">
 <div>
 Hírek-<?php echo $elem['menu_cim']; ?>

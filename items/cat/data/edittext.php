@@ -1,23 +1,28 @@
 <?php
-$myicons['CSOMAGAJANLAT'] = hotelcss_data('CSOMAGAJANLAT');
-$myicons['FOGLALAS-INFOK'] = hotelcss_data('FOGLALAS+INFOK');
-$myicons['NYELV'] = hotelcss_data('NYELV');
-$myicons['SZOBA'] = hotelcss_data('SZOBA');
-$myicons['WELLNESS-KOZOSSEGI'] = hotelcss_data('WELLNESS+KOZOSSEGI');
-$myicons['RENDEZVENY'] = hotelcss_data('RENDEZVENY');
+if(function_exists ( 'hotelcss_data')){
+    $myicons['CSOMAGAJANLAT'] = hotelcss_data('CSOMAGAJANLAT');
+    $myicons['FOGLALAS-INFOK'] = hotelcss_data('FOGLALAS+INFOK');
+    $myicons['NYELV'] = hotelcss_data('NYELV');
+    $myicons['SZOBA'] = hotelcss_data('SZOBA');
+    $myicons['WELLNESS-KOZOSSEGI'] = hotelcss_data('WELLNESS+KOZOSSEGI');
+    $myicons['RENDEZVENY'] = hotelcss_data('RENDEZVENY');
+}  else {
+    $myicons=array();
+}
 if ($auser["jog"] < 3) {
     header("Location:" . $homeurl);
 }
-$imgx = 900;
+$imgx = 200;
 $imgy = 320;
 $admintemplate = 1;
 $extrascript[] = '
 	<script src="' . $server_url . '/scripts/ckeditor/ckeditor.js" type="text/javascript"></script>
 	<script src="' . $server_url . '/scripts/ckfinder/ckfinder.js" type="text/javascript"></script>
 	';
-$extrascript[] = '
+/*$extrascript[] = '
 	<script src="' . $homeurl . '/scripts/cropit-master/dist/jquery.cropit.js"></script>
 	';
+*/
 $form = new formobjects();
 $form = new formobjects();
 $UploadClass = new file_upload();
@@ -35,6 +40,11 @@ if ($_POST['catpost'] == '1') {
         if (isset($_POST[$mlan])) {
             $savesubdata = $_POST[$mlan];
             $savesubdata['id'] = $_POST["id"];
+            $savesubdata['id'] = $_POST["id"];
+            $savesubdata["nev"] = $Text_Class->htmltochars($savesubdata["nev"]);
+            $savesubdata['leiras'] = $Text_Class->htmltochars($savesubdata["leiras"]);
+            $savesubdata['leirash'] = $Text_Class->htmltochars($savesubdata["leirash"]);
+
             $category_class->savetext($mlan, $savesubdata);
         }
     }

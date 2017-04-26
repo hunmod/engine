@@ -50,7 +50,7 @@
                     $elem['url'] = $SiteClass->createurl($elem);;
                     // arraylist($elemhuid);
 					//article
-                    include('display1.php');
+                    include('display2.php');
                 }
             }
             ?>

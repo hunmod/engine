@@ -17,11 +17,15 @@ $(document).ready(function() {
       animateOut: 'fadeOut',
       animateIn: 'fadeIn',
       items:1,
+       itemsDesktop : 1,
+       itemsDesktopSmall : 1,
+       itemsTablet: 1,
+       itemsMobile : 1,
       margin:0,
       stagePadding:30,
       smartSpeed:450,
       mergeFit:true,
-      responsiveClass:true,
+      responsiveClass:false,
       stagePadding: 0,
       loop:true,
       autoplayHoverPause: true,
@@ -50,7 +54,7 @@ $(document).ready(function() {
         foreach($sliderelements["datas"] as $slider){
         $img="picture2.php?picture=".encode($slider['imgurl'])."";
         ?>
-        <div class="item"><img src="<?php echo $server_url.$img;?>&x=1520&y=533" alt="The Last of us">
+        <div class="item"><img src="<?php echo $server_url.$img;?>&x=1520&y=533" alt="<?php echo $slider["name"]; ?>">
         <div class="slideContent">
         <div class="slideText">
         <h2><?php echo $slider["name"]; ?></h2>

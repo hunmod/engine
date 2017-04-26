@@ -7,12 +7,12 @@ $filters=$_GET;
 $_SESSION["utolso_lap"]=$_SERVER["REQUEST_URI"];
 
 $maxegyoldalon=8;
-
+if($filterscim['maxegyoldalon'])$maxegyoldalon=$filters['maxegyoldalon']=$filterscim['maxegyoldalon'];
 
 /* Kategória root lekérdezése*/
 $filtersmenu['lang']='hu';
 $filtersmenu['kat']='root';
-$menudata1= $category_class->get($filtersmenu, $order = '', $page = 'all');
+$menudata1= $category_class->get($filtersmenu, ' sorrend ASC', $page = 'all');
 // arraylist($menudata1);
 $katmenu=array();
 $katmenuelem['id']='root';
@@ -43,11 +43,11 @@ $filters["lang"]='hu';
 
 //if (!$adminv)$filters['ido']=$date;
 
-$qhir=$category_class->get($filters,'',$_GET["page"]) ;
+$qhir=$category_class->get($filters,' sorrend ASC',$_GET["page"]) ;
 $hszlistacount=$qhir['count'];
 $hirekelemek=$qhir['datas'];
 
-//arraylist($qhir);
+//arraylist($filters);
 
 //arraylist($qhir);
 

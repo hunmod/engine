@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 $site_loc = 'uploads/site';
 $tblmodulom = 'site';
 $tbl[$tblmodulom] = $adatbazis["db1_db"] . "." . $prefix . "site";
@@ -11,15 +11,21 @@ $file_structuct["modules"] = "site";
 
 
 
-$file_structuct["name"] = "Sitelista";
+$file_structuct["name"] = "Oldalak";
 $file_structuct["file"] = "lista";
 //$file_structuct["alatta"] = $adminmenu2;
 $adminmenu[] = $file_structuct;
 
-$file_structuct["name"] = "Sitelista";
+$file_structuct["name"] = "Oldalak lista";
 $file_structuct["file"] = "list";
 $modules[] = $file_structuct;
-$file_structuct["name"] = "Egy site";
+$file_structuct["name"] = "Oldalak lista1";
+$file_structuct["file"] = "list1";
+$modules[] = $file_structuct;
+$file_structuct["name"] = "Oldalak lista2";
+$file_structuct["file"] = "list2";
+$modules[] = $file_structuct;
+$file_structuct["name"] = "Egy Oldal";
 $file_structuct["file"] = "site";
 $modules[] = $file_structuct;
 

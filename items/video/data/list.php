@@ -10,8 +10,8 @@ $qmenu=$MenuClass->menu_selectbox($getparams[2],array(),$filtersm,$order='',$pag
 
 
 $video_class=new video();
-$datas=$video_class->get($_GET);
-
+$vdatas=$video_class->get($_GET);
+//arraylist($datas);
 
 
 $page_keywords=$page_description="Videos";

@@ -240,7 +240,6 @@
 
             <br/>
 
-
             <input name="id" id="id" type="hidden" value="<?php echo decode($getparams[2]); ?>"/>
             <?php echo $lan['cim']; ?>:
             <input name="cim" id="cim" type="text" value="<?php echo $Text_Class->htmlfromchars($adat["cim"]); ?>"

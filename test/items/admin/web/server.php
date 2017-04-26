@@ -1,4 +1,0 @@
-<?php
-
-arraylist($_SERVER);
-?>

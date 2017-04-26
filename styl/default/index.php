@@ -140,10 +140,22 @@ $_SESSION["messageok"]='';
 <script>
         reg();
 </script>
-<?php } ?>        
-        
-<noscript><img src="https://d5nxst8fruw4z.cloudfront.net/atrk.gif?account=Llnqi1asyr00q9" style="display:none" height="1" width="1" alt="" /></noscript>
+<?php } ?>
 
-  
+
+    <?php
+    //var_dump($auser);
+
+    if($auser["jogid"]>=3){?>
+        <div class="adminseourl">SEO-URL<br />
+            <form action="" method="post">
+                <input name="paramsseo" type="hidden" value="<?php echo $shorturledit; ?>"/>
+                <?php echo $shorturledit;
+                ?><br />
+                <input name="getseo" type="text" value="<?php echo $shorturltext; ?>"/>
+                <input name="" type="submit" />
+            </form>
+        </div>
+    <?php } ?>
   </body>
 </html>

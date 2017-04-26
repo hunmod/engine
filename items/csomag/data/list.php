@@ -86,7 +86,11 @@ if(!$admintemplate){
 $filters['lang']=$_SESSION["lang"];	
 }
 
+if($_GET["cn"]){
+$filters['connectedservices']=$_GET["cn"];
+}
 
+//arraylist($filters);
 
 if ($_GET["status"]&&$_GET["status"]!='all'){
     $filters['status']=$_GET["status"];
@@ -104,7 +108,6 @@ if ($_GET["tag"]){
 //if (!$adminv)$filters['ido']=$date;
 
 $qhir=$CsomagClass->get($filters,'',$_GET["page"]) ;
-//arraylist($qhir);
 $hirekelemek=($qhir['datas']);
 $hszlistacount=$qhir['count'];
 
@@ -178,5 +181,44 @@ $page_description.=$Text_Class->levag($Text_Class->tageketcsupaszit($hirekelemek
 //$tags=$class_recipe->get_list('tags',array("status"=>2),"all");
 
 //echo $hirekids;
+
+foreach ($_GET as $nam=>$req ) {
+	if ($nam != 'PHPSESSID' && $nam != 'q' && $nam != 'CKFinder_Path' && $nam != 'googtrans'  && $nam != 'cpsession' && $nam != 'langedit' && $nam != 'cn' && $nam != 'lang' && $nam != 'cprelogin' &&  $nam != 'mr')
+	{
+		if ($myparams){
+			$myparams.='&';
+		}else{
+			$myparams.='?';
+
+		}
+
+		$myparams.=$nam.'='.$req;
+	}
+}
+
+if ($myparams){
+	$myparams.='&';
+}else{
+	$myparams.='?';
+
+}
+$myparams1=$homeurl.'/'.$getparams[0].'/'.$getparams[1].'/csomag/lista'.$myparams;
+
+$myparams='';
+foreach ($_GET as $nam=>$req ) {
+	if ($nam != 'PHPSESSID' && $nam != 'q' && $nam != 'CKFinder_Path' && $nam != 'googtrans'  && $nam != 'cpsession' && $nam != 'langedit' && $nam != 'lang' && $nam != 'cprelogin' && $nam != 'page' && $nam != 'oldal' && $nam != 'mr')
+	{
+		if ($myparams){
+			$myparams.='&';
+		}else{
+			$myparams.='?';
+
+		}
+
+		$myparams.=$nam.'='.$req;
+	}
+}
+$myparams='csomag/lista'.$myparams;
+
 
 ?>

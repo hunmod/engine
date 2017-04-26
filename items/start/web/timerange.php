@@ -17,21 +17,23 @@
         opacity: 0;
     }
 .timeselectframe.showdiv{
-    width: 320px!important;opacity: 1;
+    min-width: 320px!important;
+    opacity: 1;
 }
+    #roomkosar{
+        overflow: auto;
+        height: 80%;
+    }
 </style>
 <script>
     <?php
+        if (strtotime($_SESSION["from"])<strtotime($ClassTime->dateprintshort($date)))$_SESSION["from"]=$ClassTime->dateprintshort($date);
+        if (strtotime($_SESSION["to"])<strtotime($ClassTime->dateprintshort($date)))$_SESSION["to"]=$ClassTime->dateprintshort($date);
         if (!$_SESSION["from"])$_SESSION["from"]=$onlydateprint;
         if (!$_SESSION["to"])$_SESSION["to"]=$onlydateprint;
         if (!$_SESSION["felnott"])$_SESSION["felnott"]='0';
         if (!$_SESSION["gyerek"])$_SESSION["gyerek"]='0';
     ?>
-    $('#opentimesector').click(function() {
-
-        $( ".timeselectframe" ).toggleClass( "showdiv" );
-
-    });
     //var disabledDays = ["2016-5-21","2016-5-24","2016-5-27","2016-5-28"];
     var disabledDays = [];
     jQuery(function ($) {
@@ -80,7 +82,6 @@
             minDate: "<?= $onlydateprint?>",
             showOn: "button",
             numberOfMonths: 1,
-
             onClose: function (selectedDate) {
                 $("#to").datepicker("option", "minDate", selectedDate);
                 $("#fromtext").html(datestring(selectedDate));
@@ -123,7 +124,7 @@
 
     function datestring(selectedDate) {
         var dateString = new Date(selectedDate);
-        return dateString.getFullYear() + '.' + dateString.getUTCMonth() + '<br><b>' + dateString.getUTCDate() + '</b>';
+        return dateString.getFullYear() + '.' + dateString.getUTCMonth()+1 + '<br><b>' + dateString.getUTCDate() + '</b>';
     }
     function valboxplus(mit){
         var mynum=parseInt($('#'+mit).val())+1;
@@ -170,10 +171,11 @@
        });
 
     }
+
     $(window).load(function () {
-      /*  $(".timeselecthead").on('click', function (a) {
-            $(".timeselectcontent").slideToggle('slow');
-        });*/
+        $('#opentimesector,#closetimeselector,.timeselecthead').click(function() {
+            $( ".timeselectframe" ).toggleClass( "showdiv" );
+        });
         $("#fromtext").html(datestring('<?= $_SESSION["from"]?>'));
         $("#totext").html(datestring('<?= $_SESSION["to"]?>'));
         $('#to').on('change', function (a) {
@@ -204,7 +206,6 @@
             SetSession('gyerek', valboxminus('gyerek'), 'start/setsession');
             //alert('ch');
         });
-
     });
 
 </script>
@@ -233,9 +234,16 @@
                 <span class="plus" id="gyerekminus">-</span>  <input type="text" id="gyerek" name="gyerek" value="<?= $_SESSION["gyerek"]; ?>"> <span class="plus" id="gyerekplus">+</span>
             </div>
             <div class="text-center">
-            <input type="submit" class="btn btn-creme-inv"></input>
+                <a href="<?= $homeurl ?>/rooms/request" class="btn btn-creme-inv"><?= lan('ajanlatotkerek');?></a>
+                <a href="<?= $homeurl ?>/rooms/list" class="hidden btn btn-creme-inv"><?= lan('szobak');?></a>
+                <a href="<?= $homeurl ?>/csomag/list" class="hidden btn btn-creme-inv"><?= lan('csomagok');?></a>
+                <a id="closetimeselector" class="btn btn-creme-inv"><?= lan('close');?></a>
             </div>
         </form>
+    </div>
+    <div id="roomkosar">
+        <?php include('items/rooms/data/kosar.php');?>
+        <?php include('items/rooms/web/kosar.php');?>
     </div>
 </div>
 

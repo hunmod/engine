@@ -206,6 +206,28 @@ public function table_room(){
 	$mezok[]=$mezo;
 
 	$mezo=array();
+	$mezo["id"]='osszenyithato';
+	$mezo["table"]=$table.'.'.'`'.$mezo["id"].'`';
+	$mezo["name"]="osszenyithato";
+	$mezo["display"]=0;
+	$mezo["type"]='int';
+	$mezo["displaylist"]=1;
+	$mezo["mysql_field"]="`".$mezo["id"]."` INT NOT NULL DEFAULT  '0',";
+	$mezo["value"]=$data[$mezo["id"]];
+	$mezok[]=$mezo;
+
+	$mezo=array();
+	$mezo["id"]='erkely';
+	$mezo["table"]=$table.'.'.'`'.$mezo["id"].'`';
+	$mezo["name"]="erkely";
+	$mezo["display"]=0;
+	$mezo["type"]='int';
+	$mezo["displaylist"]=1;
+	$mezo["mysql_field"]="`".$mezo["id"]."` INT NOT NULL DEFAULT  '0',";
+	$mezo["value"]=$data[$mezo["id"]];
+	$mezok[]=$mezo;
+
+	$mezo=array();
 	$mezo["id"]='guestbad';
 	$mezo["table"]=$table.'.'.'`'.$mezo["id"].'`';
 	$mezo["name"]="potagy";

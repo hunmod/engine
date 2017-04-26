@@ -28,7 +28,7 @@ padding:15px;
 
 <?php
 	
-   $json = file_get_contents('http://getcitydetails.geobytes.com/GetCityDetails?fqcn='. getIP_cdata()); 
+  // $json = file_get_contents('http://getcitydetails.geobytes.com/GetCityDetails?fqcn='. getIP_cdata());
    $data = json_decode($json,true);
 	//arraylist($data);
 ?>

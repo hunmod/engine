@@ -86,19 +86,23 @@ top:-1000px;
 <?php 
 	if (($fb_ap_id!="")&&($fb_ap_secret!=""))
 	{
-?>  					
-				<form name="regfb"  id="regfb" method="post" action="<?php echo $homeurl.'/user/fbreg';?>"></form>
-                <div class="fblog">	
-					<?php echo $lan["regfb"]; ?>
-				</div>
-                            <a href="<?php echo $homeurl."?fblog=1"?>" class="button facebookButton">
-							<?php echo $lan["loginw"]; ?> Facebook<?php echo $lan["al"]; ?> <i class="fa fa-facebook"></i></a>
+?>
+		<a href="#" class="button facebookButton">
+			<?php echo $lan["regfb"]; ?> Facebook<?php echo $lan["al"]; ?> <i class="fa fa-facebook"></i></a>
+
+		<!--form name="regfb"  id="regfb" method="post" action="<?php echo $homeurl.'/user/fbreg';?>"></form>
+        <div class="fblog">
+            <?php echo $lan["regfb"]; ?>
+        </div>
+                    <a href="<?php echo $homeurl."?fblog=1"?>" class="button facebookButton">
+                    <?php echo $lan["loginw"]; ?> Facebook<?php echo $lan["al"]; ?> <i class="fa fa-facebook"></i></a-->
 <?php 
 	}
 ?>    					
 			</div>
 		</div>
 	</div>
+<div id="fblogg" style="display: none;"></div>
 <script>
 
 
@@ -196,4 +200,26 @@ function chk_ureg(){
   $( "input[name=email]" ).keyup(validate);
   $( "#unev" ).keyup(validate);
   $( "#nev" ).keyup(validate);*/
+</script>
+<script>
+
+	$('.facebookButton').on('click',function() {
+
+		FB.login(function(response) {
+			if (response.authResponse) {
+				console.log('Welcome!  Fetching your information.... ');
+				FB.api('/me', function(response) {
+					console.log('Good to see you, ' + response.name + '.');
+					phpopenf('fblogg','includeajax','q=user/fblogin')
+				});
+			} else {
+				console.log('User cancelled login or did not fully authorize.');
+			}
+		});
+
+		/*FB.api('/me', function(response) {
+		 document.cookie= 'fbuserid='+response.id;
+		 });*/
+	});
+
 </script>

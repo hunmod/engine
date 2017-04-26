@@ -114,8 +114,12 @@ public function get($filters,$order='',$page='all')
 {
 	global $adatbazis,$tbl,$Sys_Class;
 
-	$maxegyoldalon=8;
-	$SD=$this->table_fields();	
+    if ($filters['maxegyoldalon']>0){
+        $maxegyoldalon=$filters['maxegyoldalon'];
+    }else{
+        $maxegyoldalon=8;
+    }
+    $SD=$this->table_fields();
 	
 	if ($order!='')	{
 		$order=' ORDER BY '.$order;

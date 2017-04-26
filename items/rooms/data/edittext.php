@@ -36,6 +36,13 @@ if ($_POST['hirsave'] == '1') {
     $_POST["kitchen"]=$Text_Class->htmltochars($_POST["kitchen"]);
     $_POST["connectedservices"]=$Text_Class->htmltochars($_POST["connectedservices"]);
     //$_POST["connectedservices"]=szobatags_csv_to($_POST);
+
+    if (!$_POST["roomnum"])$_POST["roomnum"]='0';
+    if (!$_POST["childbad"])$_POST["childbad"]='0';
+    if (!$_POST["erkely"])$_POST["erkely"]='0';
+    if (!$_POST["osszenyithato"])$_POST["osszenyithato"]='0';
+
+
     $_POST["connectedservices"]=szobatags_json_to($_POST);
     $_POST["services"]=array();
     $hirid = $RoomsClass->save($_POST);
@@ -56,16 +63,16 @@ if ($_POST['hirsave'] == '1') {
     $targetfldr = $room_loc.'/'.$hirid.'/';
     $fileup = $room_loc.'/'.$hirid.'/'.$hirid.'.jpg';
 //fromtext
-    if ($_POST['nimg'] !=''){
+ /*   if ($_POST['nimg'] !=''){
         $UploadClass->createdir($targetfldr);
         $data = $_POST['nimg'];
         list($type, $data) = explode(';', $data);
         list(, $data)      = explode(',', $data);
         $data = base64_decode($data);
         file_put_contents($fileup, $data);
-    }
+    }*/
 //from file
-    $target = $UploadClass->uploadimg('photo', $room_loc . '/' . $hirid, '' . $hirid, $imgx,$imgy, true, true, true);
+    $target = $UploadClass->uploadimg('photo', $room_loc . '/' . $hirid, '' . $hirid, 1024,768, true, true, true);
 header("Location:".$homeurl."/rooms/edittext/".encode($hirid));
 }
 

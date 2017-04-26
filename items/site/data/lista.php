@@ -28,7 +28,17 @@ if ($_GET["tag"]){
 }
     $filters['lang']=$_SESSION["lang"];
 
+
+
+$myparams=$getparams[0]."/".$getparams[1];
+foreach ($_GET as $nam=>$req )
+{
+    if ($nam!='PHPSESSID'&&$nam!='q'&&$nam!='CKFinder_Path'&&$nam!='googtrans'&&$nam!='oldal'&&$nam!='cpsession'&&$nam!='langedit'&&$nam!='lang'&&$nam!='cprelogin'&&$nam!='page'&&$nam!='mr')
+
+        $myparams.='&'.$nam.'='.$req;
+}
 //if (!$adminv)$filters['ido']=$date;
+$filters['maxegyoldalon']=$maxegyoldalon;
 
 $qhir=$SiteClass->get($filters,'',$_GET["page"]) ;
 $hirekelemek=($qhir['datas']);

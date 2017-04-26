@@ -80,10 +80,35 @@
 			Hsz:
 			<input name="hsz" id="hsz" type="text" value="<?php echo $Text_Class->htmlfromchars($adat["hsz"]); ?>" maxlength="20"/><br/>
 				   
-			<?php $Form_Class->textbox('telefon', $adat["telefon"],lan("tel")) ?>
+			<?php $Form_Class->textbox('longi', $adat["longi"],lan("longi")) ?>
+			<?php $Form_Class->textbox('lati', $adat["lati"],lan("lati")) ?>
 
-	                <?= lan('weboldal'); ?>: <?php $form->textbox("web", $Text_Class->htmlfromchars($adat["web"],lan('weboldal'))) ?>
-                <?= lan('email'); ?>: <?php $form->textbox("email", $Text_Class->htmlfromchars($adat["email"],lan('email'))) ?>
+			<?php $Form_Class->textbox('telefon', $adat["telefon"],lan("tel")) ?>
+			<?php $Form_Class->textbox('telefon2', $adat["telefon2"],lan("tel")) ?>
+			<?php //$Form_Class->textbox('cat', $adat["cat"],lan("cat")) ?>
+<div>
+    <?php foreach($bfallcat['datas'] as $onecat){?>
+       <?php
+
+        $cats=explode(',',$adat["cat"]);
+        $cval=0;
+        foreach($cats as $onecatx){
+            if($onecatx==$onecat['id']){
+                $cval=1;
+            }
+        }
+        $form->checkbox('cats['.$onecat['id'].']', $cval, $onecat['nev'], $class = "checkbox-inline");?>
+
+    <?php } ?>
+
+</div>
+
+
+
+            <?= lan('weboldal'); ?>: <?php $form->textbox("web", $Text_Class->htmlfromchars($adat["web"],lan('weboldal'))) ?>
+            <?= lan('email'); ?>: <?php $form->textbox("email", $Text_Class->htmlfromchars($adat["email"],lan('email'))) ?>
+            <?= lan('facebookoldal'); ?>: <?php $form->textbox("facebook", $Text_Class->htmlfromchars($adat["facebook"],lan('facebook'))) ?>
+
             <?php echo lan('szamlazasicim'); ?>: <?php $form->textaera("szamlazasicim", $Text_Class->htmlfromchars($adat["szamlazasicim"],lan('szamlazasicim'))) ?>
 
 			
@@ -93,26 +118,9 @@
             <?php echo lan('megjegyzes'); ?>: <?php $form->textaera("megjegyzes", $Text_Class->htmlfromchars($adat["megjegyzes"],lan('megjegyzes'))) ?>
             <br/>
 			
-             <?= lan('facebookoldal'); ?>: <?php $form->textbox("facebook", $Text_Class->htmlfromchars($adat["facebook"],lan('facebook'))) ?>
 <br>
 
-<?php
- if (!isset($adat["pos"]))$adat["pos"]=1;
- if (!isset($adat["wifi"]))$adat["wifi"]=1;
- if (!isset($adat["bringa"]))$adat["bringa"]=1;
- if (!isset($adat["dohanyzo"]))$adat["dohanyzo"]=1;
- if (!isset($adat["sport"]))$adat["sport"]=1;
- if (!isset($adat["allat"]))$adat["allat"]=1;
- if (!isset($adat["roki"]))$adat["roki"]=1;
- if (!isset($adat["konyha"]))$adat["konyha"]=1;
- if (!isset($adat["medence"]))$adat["medence"]=1;
- if (!isset($adat["gyerek"]))$adat["gyerek"]=1;
- if (!isset($adat["specdieta"]))$adat["specdieta"]=1;
- if (!isset($adat["szepkartya"]))$adat["szepkartya"]=1;
- if (!isset($adat["erzsebetkartya"]))$adat["erzsebetkartya"]=1;
- if (!isset($adat["telen"]))$adat["telen"]=1;
- if (!isset($adat["support"]))$adat["support"]=1;
-?>
+
 
                 <?= lan('bankterminal'); ?>:
 			  <input type="radio" name="pos" value="0" <?php if ($adat["pos"]==0)echo 'checked';?> > <?= lan('nem');?>
@@ -189,7 +197,7 @@
         <?php
         if ($hirid > 0) {
             $getparams[2] = $hirid;
-            include('items/files/web/list.php');
+            include('items/files/web/list2.php');
 
             ?>
             <a href="<?php echo str_replace('admin.', "", $homeurl) . "hirek/hir/" . $hirid . "?forcelook=1"; ?>"
@@ -206,3 +214,63 @@
 <?php include("items/user/web/widget_user_menu.php") ?>
 </div-->
 </div>
+<script>
+    function loadelements_citys_loc(data) {
+        // console.log(data);
+        // console.log(data);
+
+        data2 = data.replace(/([\x00-\x7F]|[\xC0-\xDF][\x80-\xBF]|[\xE0-\xEF][\x80-\xBF]{2}|[\xF0-\xF7][\x80-\xBF]{3})|./g, "$1");
+        menudatas = jQuery.parseJSON(data2);
+        ideglenes=$("#varos").val();
+
+        console.log(menudatas);
+        // $("#itemcontainer").html('<select id="city" name="city" value="'+ideglenes+'" class="form-control"></select>');
+
+
+        var midsel = document.getElementById('varos');
+        $.each(menudatas, function (key, value) {
+            var opt = document.createElement('option');
+            opt.innerHTML = value["city_name"];
+            opt.value = value["city_id"];
+            midsel.appendChild(opt);
+        });
+
+        $("#varos").val(ideglenes);
+    }
+    function getjsonfromcityloc(myid='',myzip='',text='',country='',regio='') {
+        var selectBox = document.getElementById("varos");
+        selectBox.innerHTML = "";
+        $.ajax({
+            type: "GET",
+            url: server_url + 'service.php?q=locations/citys_data&zip='+myzip+'&country='+country+'&id='+myid,
+            success: function (data) {
+                //  console.log(data);
+
+                loadelements_citys_loc(data);
+            }
+        });
+        // console.log(server_url + 'service.php?q=locations/citys_data&zip='+myzip+'&country='+country+'&id='+myid);
+
+    }
+
+    $('documentd').ready(function () {
+        $('#zip').on('keyup',
+            function (){
+                if(this.value.length>3)getjsonfromcityloc('',this.value);
+
+            }
+        );
+        $('#city').on('change',
+            function (){
+                // console.log(this.value);
+                // console.log(getjsonfromcityloc(this.value));
+                //   getjsonfromcityloc(this.value);
+            }
+        );
+
+    });
+    $('#street').on('change',function(){
+        $('#longi').val('');
+        $('#lati').val('');
+    });
+</script>

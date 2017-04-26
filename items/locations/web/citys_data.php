@@ -1,5 +1,7 @@
 <?php
 $cfilters['zip']=$_REQUEST["zip"];
+$cfilters['id']=$_REQUEST["id"];
+$cfilters['country']=$_REQUEST["country"];
 
 
 $citysarray=$location_class->get_city($cfilters,' LIMIT 0,10');

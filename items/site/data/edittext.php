@@ -52,8 +52,8 @@ if ($_POST['hirsave'] == '1') {
         file_put_contents($fileup, $data);
     }
 //from file
-    $target = $UploadClass->uploadimg('photo', $site_loc . '/' . $hirid, '' . $hirid, $imgx,$imgy, true, true, true);
-//header("Location:".$homeurl."/rooms/edittext/".encode($hirid));
+    $target = $UploadClass->uploadimg('photo', $site_loc . '/' . $hirid, '' . $hirid, 1024,768, true, true, true);
+header("Location:".$homeurl."/site/edittext/".encode($hirid));
 }
 
 if (decode($getparams[2]) > 0) {
@@ -63,9 +63,12 @@ if ($hirid > 0 && !isset($adat)) {
     $filters['id'] = $hirid;
     $news = $SiteClass->get($filters, $order = '', $page = 'all');
     $adat = $news['datas'][0];
+    foreach ($avaibleLang as $alan){
+        $adatd[$alan]=$SiteClass->get_text($alan,array('id'=>$adat['id']));
+        //arraylist($adatd);
 
-    $adatd["hu"]=$SiteClass->get_text('hu',array('id'=>$adat['id']));
-    $adat["hu"]=$adatd["hu"]["datas"][0];
+        $adat[$alan]=$adatd[$alan]["datas"][0];
+    }
     $nimg = $SiteClass->getimg($adat['id'],$imgx,$imgy);
 }else  
 $nimg = $SiteClass->getimg($adat['id'],$imgx,$imgy);

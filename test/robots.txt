@@ -1,9 +1,0 @@
-User-agent: *
-Disallow: /admin/
-Disallow: /items/
-Disallow: /scripts/
-Disallow: /style/
-Disallow: /Facebook/
-Disallow: /includeajax.php
-
-SITEMAP: /sitemap

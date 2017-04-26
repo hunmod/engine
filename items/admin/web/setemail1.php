@@ -35,6 +35,10 @@
         <h1>Oldal email beállításai</h1>
 
         <form id="form_title" name="form_title" method="post" action="">
+            <?php $form->textbox('sparkapikey', page_settings("sparkapikey"), 'sparkpost apikey'); ?>
+            <div>
+                <a href="https://app.sparkpost.com/auth" target="_blank">sparkpost</a>
+                </div>
             <?php $form->textbox('sitemail', page_settings("sitemail"), 'Kimenő levelek email címe'); ?>
             <?php $form->textbox('sitemailname', page_settings("sitemailname"), 'Kimenő levelek feladó neve'); ?>
             <?php $form->textaera('email_header', page_settings("email_header"), 'Email header'); ?>

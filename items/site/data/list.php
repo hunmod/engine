@@ -20,8 +20,8 @@ $filters=$_GET;
 
 $_SESSION["utolso_lap"]=$_SERVER["REQUEST_URI"];
 
+if($maxegyoldalon<1){$maxegyoldalon=8;}else{$filters['maxegyoldalon']=$maxegyoldalon;}
 
-$maxegyoldalon=8;
 if (($_GET["oldal"]=="") || ($_GET["oldal"]<=0)){
 	$oldal=0;
 }
@@ -32,7 +32,6 @@ else {
 
 
 //list
-$maxegyoldalon=10;
 $form=new formobjects();
 $status=$SiteClass->status();
 
@@ -41,6 +40,7 @@ $status=$SiteClass->status();
 if ($_GET["status"]){
     $filters['status']=$_GET["status"];
 }
+else $filters['status']=2;
 $filters['lang']=$_SESSION['lang'];
 if ($getparams[2]){
     $filters['mid']=$getparams[2];
@@ -75,11 +75,11 @@ if ($oldal>=$oldalakszama){
     $oldal=$oldalakszama-1;
 }
 //oldalak kiszámolása
-
+/*
 if ($oldalakszama!=""){
     $limit= "LIMIT ".($oldal*$maxegyoldalon).",".$maxegyoldalon;
 }
-
+*/
 $page_keywords="";
 $page_ogimage="";
 $page_description="";

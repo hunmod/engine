@@ -355,6 +355,10 @@ $fmezonev='mid';
 if ($filters[$fmezonev]!=''){
 		$where.=$Sys_Class->andsupport($where);
 		$where.='('.$SD["table"].".`".$fmezonev."`='".$filters[$fmezonev]."') ";
+}$fmezonev='status';
+if ($filters[$fmezonev]!=''&& $filters[$fmezonev]!='all'){
+		$where.=$Sys_Class->andsupport($where);
+		$where.='('.$SD["table"].".`".$fmezonev."`='".$filters[$fmezonev]."') ";
 }
 $fmezonev='ids';
 if ($filters[$fmezonev]!=''){
@@ -483,8 +487,9 @@ return($res);//csak id-t ad vissza
 }
 
 public function getimg($id,$x=369,$y=247){
-	global $adatbazis,$folders,$defaultimg,$site_loc,$homeurl;
 
+	global $adatbazis,$folders,$defaultimg,$site_loc,$homeurl;
+	$defaultimg='noimage.jpg';
 	$img=$site_loc.'/'.$id.'/'.$id.'.jpg';
 	//$img=randomimgtofldr($mappa);
 	//echo $img;
@@ -492,7 +497,7 @@ public function getimg($id,$x=369,$y=247){
 		$img=$img;
 	}
 	else{
-		$img="/uploads/".$defaultimg;
+		$img="./uploads/".$defaultimg;
 	}
 	$img=$homeurl."/picture2.php?picture=".encode($img)."&x=".$x."&y=".$y."&ext=.jpg";
 	return($img);

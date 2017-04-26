@@ -4,12 +4,17 @@
 class texttotext
 {
 
+    public function numbers($c){
+        return preg_replace('/\D/', '', $c);
+
+    }
+
     public function telnumber_at($text)
     {
-        $text = numbers($text);
+        //$text = numbers($text);
         if ((strlen($text) < 16) && (strlen($text) > 11)) {
             if (substr($text, 0, 2) == "06") {
-                $text = substr_replace($text, "436", 0, 2);
+                $text = substr_replace($text, "43", 0, 2);
             };
             if (substr($text, 0, 3) == "430") {
                 $text = substr_replace($text, "43", 0, 3);
@@ -22,19 +27,24 @@ class texttotext
 
     public function telnumber_hu($text)
     {
-        $text = numbers($text);
+        $original=$text;
+       // $text = $this->numbers($text);
+        $text=str_replace(array(" ","/","-"),"",$text);
+        if ((strlen($text)== 9)||(strlen($text)== 8)||(strlen($text)== 7)){
+            $text="+36".$text;
+        }
         if ((strlen($text) < 13) && (strlen($text) > 10)) {
             if (substr($text, 0, 2) == "06") {
-                $text = substr_replace($text, "36", 0, 2);
+                $text = substr_replace($text, "+36", 0, 2);
             };
-            if (substr($text, 0, 3) == "+36") {
-                $text = substr_replace($text, "36", 0, 3);
-            };
+            /*if (substr($text, 0, 3) == "+36") {
+                $text = substr_replace($text, "+36", 0, 3);
+            };*/
             if (substr($text, 0, 2) == "36") {
-                $text = substr_replace($text, "36", 0, 2);
+                $text = substr_replace($text, "+36", 0, 2);
             };
         } else {
-            $text = "";
+            $text = $original;
         }
         return $text;
     }
@@ -246,7 +256,7 @@ class texttotext
 
     public function ekezetekeoda($rizsa)
     {
-        $mire = array("'", 'ő', 'ű', 'Á', 'á', 'É', 'é', 'Ú', 'ú', 'Ó', 'ó', 'Ü', 'ü', 'Ö', 'ö', 'Ű', 'ű', 'Ő', 'ő', 'Í', 'í', 'ű');
+        $mire = array("'", 'ő', 'ű', 'Á', 'á', 'É', 'é', 'Ú', 'ú', 'Ó', 'ó', 'Ü', 'ü', 'Ö', 'ö', 'Ű', 'ű', 'Ő', 'ő', 'Í', 'í', 'ű');
         $mirol = array('&#39;', '&#337;', '&#369;', '&Aacute;', '&aacute;', '&Eacute;', '&eacute;', '&Uacute;', '&uacute;', '&Oacute;', '&oacute;', '&Uuml;', '&uuml;',
             '&Ouml;', '&ouml;', '&#368;', '&#369;', '&#336;', '&#337;', '&Iacute;', '&iacute;', '&ucirc;');
         //return iconv("UTF-8", "ISO-8859-2", str_replace($mirol, $mire, $rizsa));
@@ -272,7 +282,7 @@ class texttotext
 
     public function ekezeteketvissza($rizsa)
     {
-        $mire = array("'", 'ő', 'ű', 'Á', 'á', 'É', 'é', 'Ú', 'ú', 'Ó', 'ó', 'Ü', 'ü', 'Ö', 'ö', 'Ű', 'ű', 'Ő', 'ő', 'Í', 'í', 'ű');
+        $mire = array("'", 'ő', 'ű', 'Á', 'á', 'É', 'é', 'Ú', 'ú', 'Ó', 'ó', 'Ü', 'ü', 'Ö', 'ö', 'Ű', 'ű', 'Ő', 'ő', 'Í', 'í', 'ű');
         $mirol = array('&#39;', '&#337;', '&#369;', '&Aacute;', '&aacute;', '&Eacute;', '&eacute;', '&Uacute;', '&uacute;', '&Oacute;', '&oacute;', '&Uuml;', '&uuml;',
             '&Ouml;', '&ouml;', '&#368;', '&#369;', '&#336;', '&#337;', '&Iacute;', '&iacute;', '&ucirc;');
 

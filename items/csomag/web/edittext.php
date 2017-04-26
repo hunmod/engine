@@ -202,6 +202,9 @@
             <div class="col-sm-6">
                 <?php $form->datebox('toshow',$adat['toshow'], lan("ig"),null,1); ?>
             </div>
+            <div class="col-sm-6">
+                <?php $form->textbox('unnepnapon', $adat['unnepnapon'], lan("unnepnapon")); ?>
+            </div>
             <div class="clearfix"></div>
             <?php
             $filtersextcat="csomagkategoria";
@@ -210,6 +213,9 @@
             <?php
             $filtersextcat="csomagkategoria";
             include('./items/cat/web/catform_r.php') ?>
+            <?php
+            $filtersextcat="csomaghozfizetos";
+            include('./items/cat/web/catform_1.php') ?>
 
             <div class="clearfix"></div>
 

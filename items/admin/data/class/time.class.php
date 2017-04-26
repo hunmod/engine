@@ -162,4 +162,5 @@ function date_strip($date){
 
 	
 }
+$ClassTime=new time();
 ?>

@@ -1,0 +1,1 @@
+{"db_conf":{"db1_srv":"localhost","db1_db":"hunmod_engine","db1_user":"root","db1_pass":"Ch4mp10n"},"homefolder":"\/engine","oldalid":"engine","prefix":"","prefix_pagesetting":"engine_"}

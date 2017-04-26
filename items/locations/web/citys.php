@@ -1,32 +1,39 @@
 <?php
 //$cfilters['nolat']='1';
+
+
+if ($_GET){
+    $cfilters=$_GET;
+}
 $citysarray=$location_class->get_city($cfilters,'',$_GET['page']);
 $citys=$citysarray["datas"];
 //arraylist($citysarray);
+
+/*
 foreach($citys as $adat){
 
-    /*
- if($adat["city_name"]&&($adat["lati"]==0 ||!$adat["longi"]==0 )) {
-     ($gpsdatas = $Google_Class->get_google_geocoding($adat["city_name"]));
-     $adat["lati"] = $gpsdatas[0]["geometry"]["location"]['lat'];
-     $adat["longi"] = $gpsdatas[0]["geometry"]["location"]['lng'];
 
-     if ($adat["zip"]=='' && $adat["lati"]!=0){
-         $locdatas = $Google_Class->get_google_geocdata($adat["longi"], $adat["lati"]);
-         $citylocdatas = array();
-         foreach ($locdatas[0]["address_components"] as $adddat) {
-             if ($adddat['types'][0] == 'postal_code') {
-                 $adat["zip"] = $adddat['long_name'];
-             }
+if($adat["city_name"]&&($adat["lati"]==0 ||!$adat["longi"]==0 )) {
+ ($gpsdatas = $Google_Class->get_google_geocoding($adat["city_name"]));
+ $adat["lati"] = $gpsdatas[0]["geometry"]["location"]['lat'];
+ $adat["longi"] = $gpsdatas[0]["geometry"]["location"]['lng'];
+
+ if ($adat["zip"]=='' && $adat["lati"]!=0){
+     $locdatas = $Google_Class->get_google_geocdata($adat["longi"], $adat["lati"]);
+     $citylocdatas = array();
+     foreach ($locdatas[0]["address_components"] as $adddat) {
+         if ($adddat['types'][0] == 'postal_code') {
+             $adat["zip"] = $adddat['long_name'];
          }
      }
-     $location_class->save_city($adat);
-     sleep(1);
+ }
+ $location_class->save_city($adat);
+ sleep(1);
 }
-    // arraylist($locdatas);
-*/
-}
+// arraylist($locdatas);
 
+}
+*/
 ?>
 
 <script>
@@ -49,7 +56,8 @@ foreach($citys as $adat){
                         <form class="form-inline" role="form">
                             <div class="form-group">
                                 <?php //$form->hiddenbox('q',$_GET["q"]);?>
-                                <?php $FormClass->textbox('name',$_GET["name"],'name',"sr-only");?>
+                                <?php $FormClass->textbox('nev',$_GET["nev"],lan('name'),"sr-only");?>
+                                <?php $FormClass->textbox('zip',$_GET["zip"],lan('zip'),"sr-only");?>
                             </div>
 
                             <button type="submit" class="btn btn-success" data-original-title=""><?= lan("search");?></button>

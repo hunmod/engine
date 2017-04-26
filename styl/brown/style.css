@@ -287,12 +287,12 @@ background:url(image/pirosx.gif) no-repeat;
 display:none;	
 }
 header{
-    margin-top: -1.5em;
+	/*   margin-top: -1.5em;
 
-/*	position: fixed;
-	left: 0;
-	right: 0;
-	z-index: 100;*/
+   /*	position: fixed;
+       left: 0;
+       right: 0;
+       z-index: 100;*/
 }
 header::after{
 	margin-bottom: 120px;

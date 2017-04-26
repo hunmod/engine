@@ -138,10 +138,10 @@
             </script>
         </div>
         <div class="clearfix"></div>
+        <!--div class="col-sm-4 match-height matchHeight"><?php include('items/newsletter/web/widget_felirtatkozom.php') ?></div-->
         <div class="col-sm-4 match-height matchHeight"><?= page_settings('footerblock4_' . $_SESSION["lang"]) ?></div>
-        <div class="col-sm-4 match-height matchHeight"><?= page_settings('footerblock4_' . $_SESSION["lang"]) ?></div>
-        <div class="col-sm-4 match-height matchHeight"><?= page_settings('footerblock4_' . $_SESSION["lang"]) ?></div>
-
+        <div class="col-sm-4 match-height matchHeight"><?= page_settings('footerblock5_' . $_SESSION["lang"]) ?></div>
+        <div class="col-sm-4 match-height matchHeight"><?= page_settings('footerblock6_' . $_SESSION["lang"]) ?></div>
     </div>
 </footer>
 <?php include_once("./items/footerscripts.php"); ?>

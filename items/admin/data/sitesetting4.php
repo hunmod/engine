@@ -13,7 +13,7 @@ $extrascript[]= '
 
 foreach ($_POST as $name=>$value){
 if ($name!=""){
-	updt_page_settings($name,$value);
+	updt_page_settings($name,$Text_Class->htmltochars($value));
 }
 }
 ?>
