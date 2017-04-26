@@ -306,8 +306,6 @@ class texttotext
     {
         return base64_decode($string);
     }
-
-
 }
 $TextClass= new texttotext();
 ?>
