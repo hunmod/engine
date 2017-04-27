@@ -483,9 +483,9 @@ $q="CREATE TABLE IF NOT EXISTS ".$SD["table"]." (
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10;
 ";
-	echo $q.'<br>';
+	//echo $q.'<br>';
 
-	$result =db_Query($q, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"],$adatbazis["db1_srv"],$adatbazis["db1_db"], "CREATE");	
+	$result =db_Query($q, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"],$adatbazis["db1_srv"],$adatbazis["db1_db"], "CREATE");
 		//echo $error;
 }
 function shorturl_get_data($getq){
@@ -570,9 +570,8 @@ echo '</ul>';
 
 
 }
-$tblmodul = 'menu';
-$tbl[$tblmodul] = $adatbazis["db1_db"] . "." . $prefix . "menu";
+//$tblmodul = 'menu';
+//$tbl[$tblmodul] = $adatbazis["db1_db"] . "." . $prefix . "menu";
 $MenuClass = new menu();
 $menustatusarray=$MenuClass->status();
-//$MenuClass->create_table();
 ?>

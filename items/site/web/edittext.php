@@ -3,65 +3,7 @@
 
     });
 </script>
-<style>
-   /* .cropit-preview {
-        background-color: #f8f8f8;
-        background-size: cover;
-        border: 1px solid #ccc;
-        border-radius: 3px;
-        margin-top: 7px;
-        width: <?=$imgx?>px;
-        height: <?=$imgy?>px;
-    }
 
-    .cropit-preview-image-container {
-        cursor: move;
-    }
-
-    .image-size-label {
-        margin-top: 10px;
-    }
-
-    input, .export {
-        display: block;
-    }*/
-
-</style>
-<script>
-   /* $(document).ready(function () {
-
-        $('form').submit(function () {
-            var imageData = $('.image-editor').cropit('export', {
-                type: 'image/jpeg',
-                quality: .9,
-                originalSize: true
-            });
-
-            document.getElementById("nimg").value = imageData;
-
-            // Print HTTP request params
-            var formValue = $(this).serialize();
-            $('#result-data').text(formValue);
-
-            // Prevent the form from actually submitting
-            return true;
-        });
-
-
-        $('.image-editor').cropit({
-            imageState: {
-                src: '<?php echo $nimg;?>',
-            },
-        });
-
-        $('.rotate-cw').click(function () {
-            $('.image-editor').cropit('rotateCW');
-        });
-        $('.rotate-ccw').click(function () {
-            $('.image-editor').cropit('rotateCCW');
-        });
-    });*/
-</script>
 <div class="container">
     <div class="col-sm-12">
         <h1><?= lan('siteedit');?></h1>

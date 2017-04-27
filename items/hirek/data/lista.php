@@ -13,14 +13,7 @@ if (!isset($menustart))$menustart='0';
 
 $menuk=$MenuClass->menu_selectboxfilter($menustart,array("modul"=>"hirek"),$filtersm,$order='',$page='all');
 
-//arraylist($menuk);
-$myparams='hirek/lista';
-foreach ($_GET as $nam=>$req )
-{
-if ($nam!='PHPSESSID'&&$nam!='q'&&$nam!='CKFinder_Path'&&$nam!='googtrans'&&$nam!='oldal'&&$nam!='cpsession'&&$nam!='langedit'&&$nam!='lang'&&$nam!='cprelogin'&&$nam!='page'&&$nam!='mr')
-	
-$myparams.='&'.$nam.'='.$req;
-}
+
 $adminv=1;
 
 if ($auser["jog"]>=3){

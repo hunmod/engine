@@ -1,5 +1,5 @@
 <?php
-$site_loc = 'uploads/site';
+$site_loc = 'uploads/'.uploadfolder.'/site';
 $tblmodulom = 'site';
 $tbl[$tblmodulom] = $adatbazis["db1_db"] . "." . $prefix . "site";
 $file_structuct = array();

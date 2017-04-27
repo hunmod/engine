@@ -5,7 +5,7 @@ $class_hir=new hir();
 $form=new formobjects();
 $status=$class_hir->status();
 
-$myparams='rooms/lista';
+$myparams='hirek/lista';
 foreach ($_GET as $nam=>$req )
 {
     if ($nam!='PHPSESSID'&&$nam!='q'&&$nam!='CKFinder_Path'&&$nam!='googtrans'&&$nam!='oldal'&&$nam!='cpsession'&&$nam!='langedit'&&$nam!='lang'&&$nam!='cprelogin'&&$nam!='page'&&$nam!='mr')

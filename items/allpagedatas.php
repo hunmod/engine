@@ -85,6 +85,12 @@ if ($_SESSION["country_code"] == "") {
 */
 
 include_once("config.php");
+//menü tábla létrehozása
+$tblmodul = 'menu';
+$tbl[$tblmodul] = $adatbazis["db1_db"] . "." . $prefix . "menu";
+$MenuClass->create_table();
+
+
 
 //pagesetup
 if (isset($_SESSION["page_install"]) && $_SESSION["page_install"] == "1") {
