@@ -139,12 +139,12 @@ class formobjects
     public function kcebox($name, $value, $caption = "", $param = array())
     {
         global $editorcolor, $homeurl, $Text_Class;
-        $kcescript = '<label for="inputHelptext">' . $caption . '</label><textarea cols="80" id="' . $name . '"' . ' name="' . $name . '">' . $Text_Class->htmlfromchars($value) . '</textarea>';
-        $kcescript .= '<script type="text/javascript">'
+        $kcescript = '<label for="inputHelptext">' . $caption . '</label><textarea class="editor" cols="80" id="' . $name . '"' . ' name="' . $name . '">' . $Text_Class->htmlfromchars($value) . '</textarea>';
+       $kcescript .= '<script type="text/javascript">'
             . "CKEDITOR.replace('" . $name . "', {";
 
         if (!isset($param['minimal'])) {
-            /*$kcescript.= "toolbar : [
+           $kcescript.= "toolbar : [
             ['Source','-','Preview','-','Templates'],
             ['Cut','Copy','Paste','PasteText','PasteFromWord','-','SelectAll','RemoveFormat'],
             ['Undo','Redo','-','Find','Replace'],
@@ -153,9 +153,8 @@ class formobjects
             ['Bold','Italic','Underline','Strike','-','Subscript','Superscript'],
             ['JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock'],
             ['Format','Font','FontSize'],['TextColor','BGColor'],
-            ['Link','Unlink','Anchor'],['NumberedList','BulletedList'],
-            '/',
-            ['widgetfoundationAccordion','WidgetTemplateMenu']],";*/
+            ['Link','Unlink','Anchor']],
+        ";
         } else {
             $kcescript .= "toolbar : [
 	['Source'],['Cut','Copy','Paste','PasteText','PasteFromWord','-','SelectAll','RemoveFormat'],
