@@ -1,4 +1,5 @@
 <?php
+error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED & ~E_WARNING);
 
 //include system classes
 include_once("remotedb3.php");

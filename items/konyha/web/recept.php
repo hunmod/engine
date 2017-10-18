@@ -1,3 +1,10 @@
+<style>
+    images .container:last-child:after {
+        display: none;
+    }    images .container{
+        width: 100%!important;
+    }
+</style>
 <div class="container">
 <?php if (count($widgets)){?>
   <left class="col-md-3 col-sm-4" >

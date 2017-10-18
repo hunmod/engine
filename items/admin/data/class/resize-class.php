@@ -259,7 +259,7 @@ switch ($extension) {
 			imagepng($this->imageResized);
 		}	
 		else{
-			imagejpeg($this->imageResized, NULL, 100);
+			imagejpeg($this->imageResized, NULL, $imageQuality);
 		}
 		imagedestroy($this->imageResized);
 		//imagedestroy($image_out);

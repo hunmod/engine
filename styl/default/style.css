@@ -151,3 +151,25 @@ padding:5px;
 .visibleb{
 	opacity: 1;
 }
+
+element.style {
+}
+
+.carousel-inner>.item>a>img, .carousel-inner>.item>img, .img-responsive, .thumbnail a>img, .thumbnail>img {
+	width: 100%;
+}
+news article .text{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	background: rgba(255,255,255,0.6);
+	display: block;
+	padding: 30px;
+}
+news article{
+	padding-bottom: 30px;
+}
+news article .text .btn{
+	text-align: left;
+}

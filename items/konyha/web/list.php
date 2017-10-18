@@ -1,5 +1,6 @@
 <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 <style>
+
 /*.keresett{
 background-color:#3FF;	
 }
@@ -70,7 +71,7 @@ $recip=$kiemeltrecept;
 include("recipe_box2.php");
 
 if ($_GET["q"]=='konyha/list/72'){
-	$_GET["q"]='konyha';
+	//$_GET["q"]='konyha';
 	}
 ?>
 

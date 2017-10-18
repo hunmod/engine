@@ -9,19 +9,20 @@ if ($_GET['picture'] != "") {
 		$x = 120;
 
 		list($width, $height, $type, $attr)= getimagesize($theimage, $info);
-		if (($_GET['x'] == "")&($_GET['y'] == "")) {
-			$y=$x/$width*$height;
+
+		if (($_GET['x'] == "")&&($_GET['y'] == "")) {
+            $_GET['y']=$y=$x/$width*$height;
 		}
-		if (($_GET['x'] != "")&($_GET['y'] == "")) {
+		if (($_GET['x'] != "")&&($_GET['y'] == "")) {
 			$x = $_GET['x'];
-			$y=$x/$width*$height;
+            $_GET['y']=$y=$x/$width*$height;
 		}
-		if (($_GET['y'] != "")&($_GET['x'] == "")) {
+		if (($_GET['y'] != "")&&($_GET['x'] == "")) {
 			$y = $_GET['y'];
-			$x=$width*$y/$height;
+            $_GET['x']=$x=$width*$y/$height;
 		}		
 
-		if (($_GET['x'] != "")& ($_GET['y'] != "")){
+		if (($_GET['x'] != "")&& ($_GET['y'] != "")){
 			$x = $_GET['x'];
 			$y = $_GET['y'];
 			if ($width<$height){
@@ -46,7 +47,7 @@ $resizeObj = new resize($theimage);
 $resizeObj -> resizeImage($_GET['x'], $_GET['y'], 'crop');
  
 // *** 3) Save image
-$resizeObj -> showImage($theimage, 100);
+$resizeObj -> showImage($theimage, 68);
 }
 }
 

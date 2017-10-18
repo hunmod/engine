@@ -1,5 +1,7 @@
 <?php session_start();?>
 <?php header('Content-Type: application/xml; charset=utf-8');
+error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED & ~E_WARNING);
+
 echo'<?xml version="1.0" encoding="UTF-8"?>';
 $smmode=1;
 include_once("items/allpagedatas.php");
