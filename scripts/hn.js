@@ -147,7 +147,7 @@ function numericFilter(txb) {
 function listbox_short(listbox) {
 	  var $r = $("#"+listbox+" option");
 	  $r.sort(function(a, b) {
-		if (a.text < b.text) return -1;
+		if (a.text < b.text) return -1;z
 		if (a.text == b.text) return 0;
 		return 1;
 	  });
@@ -162,7 +162,7 @@ function clone_listbox(listbox,clone)
 		var fox=new Array;
 		$('#'+listbox+' option').each(function(i, value){ 
 			  foo[i] = $(value).text(); 
-			  fox[i] = $(value).val(); 
+			  fox[i] = $(value).val();
 			secondbox.options.add(new Option(foo[i],fox[i]));
 	}); 
 		listbox_short(clone);
@@ -341,8 +341,8 @@ function movebottompos(location){
 }
 function ocmenu(){
 	$('#hmenu').toggle('slow');
-  }  
-  
+  }
+
   
 function mlogin(){
 phpopenf3('service','q=user/loginpls');	  

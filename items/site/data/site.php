@@ -17,4 +17,10 @@ $mappa = 'uploads/' . $folders["uploads"] . "/" . $getparams[0] . "/" . $id . '/
 $mylist = $Upload_Class->folderlist($mappa, 1520, 533, 70);
 
 $page_ogimage=$data['image'];
+
+$page_keywords.=$Text_Class->tageketcsupaszit($Text_Class->htmlfromchars($adat["title"]));
+$page_description=$Text_Class->levag($Text_Class->tageketcsupaszit($Text_Class->htmlfromchars($adat["leadtext"])),350);
+$pagetitle=" ".$adat["title"];
+
+
 ?>

@@ -202,7 +202,7 @@ public function get_list($table,$filter,$order='ORDER BY  `name` ASC')
 	$q="SELECT * FROM  `".$table."`".$where." ".$order;
 	$result =db_Query($q, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"],$adatbazis["db1_srv"],$adatbazis["db1_db"], "select");
 	//var_dump($filter);
-	echo $q;
+	//echo $q;
 	return $result;
 
 }

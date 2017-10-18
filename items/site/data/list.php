@@ -108,7 +108,7 @@ foreach($hirekelemek as $egy){
 	foreach ($egy as $megegyname=>$megegy)
 	{
 		$hirekelemek[$n][$megegyname]=$Text_Class->htmlfromchars($megegy);
-		
+
 	}
 	//kép
 	/*$hirekelemek[$n]["image"]=$homeurl.$hir_class->getimg($egy["id"]) ;
@@ -120,18 +120,20 @@ foreach($hirekelemek as $egy){
 	
 //kulcsszavak
 $page_keywords.=$Text_Class->htmlfromchars($egy["title"]);
-if ($page_keywords!=""){$page_keywords.=',';}	
+  $page_description.=$Text_Class->levag($Text_Class->tageketcsupaszit($Text_Class->htmlfromchars($egy["leadtext"])),50);
+
+if ($page_keywords!=""){$page_keywords.=',';}
 	
 $n++;	
 }
 //arraylist($hirekelemek);
 
-$page_keywords.=$Text_Class->htmlfromchars($egy["title"]);
+/*$page_keywords.=$Text_Class->htmlfromchars($egy["title"]);
 
 $page_description.=$Text_Class->levag($Text_Class->tageketcsupaszit($hirekelemek[0]["hir"]),200);
 //$tags=$hir_class->get_ad_tag(array("ad"=>$hirekids));
 //$tags=$class_recipe->get_list('tags',array("status"=>2),"all");
-
+*/
 //echo $hirekids;
 
 ?>
