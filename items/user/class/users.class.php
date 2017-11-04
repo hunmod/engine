@@ -42,6 +42,18 @@ class user
 		return $status;
 	}
 
+	public function tipus()
+	{
+		global $lan;
+
+		$status[1] = $lan['usertip1'];
+		$status[2] = $lan['usertip2'];
+		$status[3] = $lan['usertip3'];
+		$status[4] = $lan['usertip4'];
+		$status[5] = $lan['usertip5'];
+		return $status;
+	}
+
 
 	public function table()
 	{
@@ -139,6 +151,17 @@ class user
 		$mezo["values_type"] = '0';//array('id'=>idmezoneve,'value'=ertekmezoneve)
 		$mezok[] = $mezo;
 		$mezo = array();
+
+		$mezo["id"] = 'tip';
+		$mezo["table"] = $table . '.' . '`' . $mezo["id"] . '`';
+		$mezo["name"] = $lan[$mezo["id"]];
+		$mezo["display"] = 1;
+		$mezo["type"] = 'array';
+		$mezo["values"] = $this->status();
+		$mezo["values_type"] = '0';//array('id'=>idmezoneve,'value'=ertekmezoneve)
+		$mezok[] = $mezo;
+		$mezo = array();
+
 		$mezo["id"] = 'lastactive';
 		$mezo["table"] = $table . '.' . '`' . $mezo["id"] . '`';
 		$mezo["name"] = "lastactive";
@@ -522,6 +545,7 @@ CREATE TABLE IF NOT EXISTS ".$SD["table"]." (
   `fbid` varchar(40) DEFAULT NULL,
   `hirlevel` int(1) NOT NULL DEFAULT '1',
   `status` int(11) NOT NULL DEFAULT '1',
+  `tip` int(11) NOT NULL DEFAULT '1',
   `lastactive` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `fbtoken` VARCHAR( 500 ) NOT NULL,
   PRIMARY KEY (`id`),

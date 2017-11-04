@@ -1,4 +1,8 @@
+
 <?php
+//error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED & ~E_WARNING);
+//error_reporting(E_ALL );
+
 if ($_POST['server']!=""){
 $adatbazis["db1_srv"]=$_POST['server'];
 $adatbazis["db1_db"]=$_POST['database'];
@@ -18,9 +22,10 @@ file_put_contents($file,json_encode($datas));
 header("Location: index.php?q=user/enter");
 exit;
 }
-if ($_GET["filename"]){
+//print_r ($_SERVER['HTTP_HOST']);
+if ($_SERVER['SERVER_NAME']){
 ?>
-<h1>HUNMOD WEB ENGINR INSTALL</h1>
+<h1>HUNMOD WEB ENGINE INSTALL</h1>
 
 <form action="" method="post">
 
