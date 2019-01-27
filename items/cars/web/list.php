@@ -54,7 +54,7 @@ foreach ($widgets as $widget)if (file_exists($widget))include($widget);?>
 				 <?php
                if ($auser["jog"]>2){
 				?>
-                <a href="<?php echo $homeurl.$separator;?>hirek/edittext">Új hír</a>
+                <a href="<?php echo $homeurl.$separator;?>cars/edittext">Új hír</a>
                 <?php }?>
           
 </div>

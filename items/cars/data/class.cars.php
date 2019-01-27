@@ -414,15 +414,17 @@ public function create_table(){
   `ido` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `status` smallint(6) DEFAULT '1',
   `sorrend` int(11) NOT NULL DEFAULT '10',
-  `like_count` INT NOT NULL,
-  `favorite_count` INT NOT NULL,
+  `elso` int(11) NOT NULL DEFAULT '0',
+  `ora` int(11) NOT NULL DEFAULT '0',
+  `videk` int(11) NOT NULL DEFAULT '0',
+  `kiallas` int(11) NOT NULL DEFAULT '0',
   
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 	";
 		$result =db_Query($q, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"],$adatbazis["db1_srv"],$adatbazis["db1_db"], "CREATE");	
 		//echo $q.'<br>';
-		//echo $error;			
+		//echo $error;
 }
 public function getimg($id,$x=369,$y=247){
 	global $adatbazis,$folders,$defaultimg,$carimg_loc,$homeurl;
