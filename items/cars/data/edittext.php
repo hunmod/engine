@@ -62,9 +62,9 @@ if ($hirid > 0) {
 //arraylist($menupontselectbox);
 
 /* Kategória root lekérdezése*/
-$filtersmenu['lang']='hu';
-$filtersmenu['kat']='cars';
-$katmenu= $category_class->get($filtersmenu, $order = '', $page = 'all');
+$filterscmenu['lang']='hu';
+$filterscmenu['kat']='cars';
+$carskatmenu= $category_class->get($filterscmenu, $order = '', $page = 'all');
 
 
 ?>
