@@ -21,7 +21,7 @@ $_SESSION["utolso_lap"]=$_SERVER["REQUEST_URI"];
 
 
 
-$maxegyoldalon=12;
+$filters["maxegyoldalon"]=$maxegyoldalon=12;
 if (($_GET["oldal"]=="") || ($_GET["oldal"]<=0)){
 	$oldal=0;
 }
