@@ -194,7 +194,7 @@ owner img {
 }
 .carname
 {
-    height: auto;
+    height: 3em;
     background: rgba(255,255,255,0.6);
     display: block;
     padding: 6px;

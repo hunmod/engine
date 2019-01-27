@@ -49,7 +49,7 @@ if ($_GET["s"]){
 
 if (!$adminv)$filters['ido']=$date;	
 
-$qhir=$car_class->get($filters,'',$_GET["page"]) ;
+$qhir=$car_class->get($filters,' cim asc ',$_GET["page"]) ;
 $hirekelemek=($qhir['datas']);
 $hszlistacount=$qhir['count'];
 
