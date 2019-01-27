@@ -1,14 +1,4 @@
 <?php
-if(function_exists ( 'hotelcss_data')){
-    $myicons['CSOMAGAJANLAT'] = hotelcss_data('CSOMAGAJANLAT');
-    $myicons['FOGLALAS-INFOK'] = hotelcss_data('FOGLALAS+INFOK');
-    $myicons['NYELV'] = hotelcss_data('NYELV');
-    $myicons['SZOBA'] = hotelcss_data('SZOBA');
-    $myicons['WELLNESS-KOZOSSEGI'] = hotelcss_data('WELLNESS+KOZOSSEGI');
-    $myicons['RENDEZVENY'] = hotelcss_data('RENDEZVENY');
-}  else {
-    $myicons=array();
-}
 if ($auser["jog"] < 3) {
     header("Location:" . $homeurl);
 }
