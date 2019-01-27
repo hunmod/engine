@@ -107,11 +107,12 @@ $che--;
 //include('hir_display_short_first.php');
 
 ?>
+    <div class="clearfix"></div>
     <div class="clear"></div>
 <?php if ($oldalakszama>1){
 //oldalazó	?>
 
-                        <nav class="text-center">
+                        <nav class="text-center col-sm-12">
                           <ul class="pagination">
                             <li>
                                 <a href="<?php echo $homeurl.$separator.$_GET["q"].$separator2."page=0"; ?>" aria-label="First">
@@ -145,6 +146,7 @@ for ($c=0;$c<=$oldalakszama-1;$c++){
 <?php	
 //oldalazó
 }?>
+
 </news>
 
 
