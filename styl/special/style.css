@@ -157,7 +157,7 @@ owner img {
 
 /* cartip */
 .ot{
-    background: image('img/usflag.jpg');
+    background: image('img/usflag.jpg') cover center;
 }
 
 
