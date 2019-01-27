@@ -59,7 +59,7 @@
                     ?>
                     <div><b><?= lan("ev")?>:</b> <?= $aprodata["ev"]?> </div>
                 <?php }?>
-                <?php if ($aprodata["szin"]>0) {
+                <?php if ($aprodata["szin"]) {
                     ?>
                     <div><b><?= lan("szin")?>:</b> <?= $aprodata["szin"]?> </div>
                 <?php }?>
