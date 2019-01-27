@@ -86,14 +86,13 @@ class category extends sys
         $mezok[] = $mezo;
         $mezo = array();
 
-	$mezo=array();
 	$mezo["id"]='sorrend';
 	$mezo["table"]=$table.'.'.'`'.$mezo["id"].'`';
 	$mezo["name"]="sorrend";
 	$mezo["display"]=0;
 	$mezo["type"]='int';
 	$mezo["displaylist"]=1;
-	$mezo["mysql_field"]="`".$mezo["id"]."` INT NOT NULL DEFAULT  '5',";
+	$mezo["sqlcreate"]="`".$mezo["id"]."` INT NOT NULL DEFAULT  '5',";
 	$mezo["value"]=$data[$mezo["id"]];
 	$mezok[]=$mezo;
 
@@ -430,7 +429,7 @@ class category extends sys
             }
             $query="REPLACE INTO  ".$SD["table"]." (".$mezok.")VALUES (".$datasb.")";
             $result =db_Query($query, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"],$adatbazis["db1_srv"],$adatbazis["db1_db"], "INSERT");
-          //  echo $query.'<br>';
+            echo $query.'<br>';
           //  echo $error.'<br>';
              $res=$datas["id"];
         return($res);//csak id-t ad vissza
