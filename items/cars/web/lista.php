@@ -84,6 +84,10 @@ $datas=$class_recipe->get_list('cuisine',array());
                       <tr>
                         <th style="width:5%">Id</th>
                         <th style="width:65%">Name</th>
+                        <th style="width:65%">kat</th>
+                        <th style="width:65%">ev</th>
+                        <th style="width:65%">szin</th>
+                        <th style="width:5%">fő</th>
                         <th style="width:5%" class="hidden-phone">Status</th>
 
                         <th style="width:10%" class="hidden-phone">Actions</th>
@@ -98,6 +102,10 @@ $datas=$class_recipe->get_list('cuisine',array());
                       <tr class="gradeX">
                         <td><?php echo $data['id']; ?></td>
                         <td><?php echo $data['cim']; ?></td>
+                        <td><?php echo $data['mid']; ?></td>
+                        <td><?php echo $data['ev']; ?></td>
+                        <td><?php echo $data['szin']; ?></td>
+                        <td><?php echo $data['szem']; ?></td>
                         <td class="hidden-phone"><?php echo $status[$data['status']]; ?></td>
 
                         <td class="hidden-phone">

@@ -4,6 +4,7 @@ if ($auser["jog"] < 3) {
     header("Location:" . $homeurl);
 }
 $admintemplate=1;
+$hirimg_loc='uploads/hirek/';
 
 $extrascript[]= '
 	<script src="'.$server_url.'scripts/jquery.ui.timepicker.js"></script> 

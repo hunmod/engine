@@ -32,7 +32,7 @@ if ($_POST['hirsave'] == '1') {
 
     $target = $UploadClass->uploadimg('photo', $carimg_loc . '/' . $hirid, '' . $hirid, 800, 600, true, true, true);
 //echo $target;
-//header("Location:".$homeurl."/cars/edittext/".encode($hirid));
+header("Location:".$homeurl."/cars/edittext/".encode($hirid));
 
 }
 
