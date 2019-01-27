@@ -193,7 +193,12 @@ owner img {
     background-size: cover; /* Resize the background image to cover the entire container */
 }
 .carname
-{height: 4 em;}
+{
+    height: auto;
+    background: rgba(255,255,255,0.6);
+    display: block;
+    padding: 6px;
+}
 .car{
     padding: 15px;
 }
