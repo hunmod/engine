@@ -1,1 +1,1 @@
-{"db_conf":{"db1_srv":"localhost","db1_db":"specialc_db","db1_user":"specialc_web","db1_pass":"N1k1P3t1"},"homefolder":"\/","oldalid":"spec","prefix":"spec","prefix_pagesetting":"spec_"}
+{"db_conf":{"db1_srv":"localhost","db1_db":"specialc_db","db1_user":"specialc_web","db1_pass":"N1k1P3t1"},"homefolder":"","oldalid":"spec","prefix":"spec","prefix_pagesetting":"spec_"}
