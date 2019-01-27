@@ -9,7 +9,7 @@ if ($activateuser["status"]!=4){
 	$saved["id"]=$activateuser["id"];
 	$saved["status"]=2;	
 	$User_Class->save($saved);
-	$_SESSION["messageok"]="fokját aktiváltuk!";	
+	$_SESSION["messageok"]="fiokját aktiváltuk!";
 
 }
 

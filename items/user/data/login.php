@@ -5,21 +5,25 @@ if ($_SESSION["uid"]<1)
 if ($_GET["fblog"]==1){	
 
 }
-	
-if (isset($_POST["loginform_id"]))
+ //   echo '<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>';
+  //  arraylist($_POST);
+
+    if (isset($_POST))
 if ($_POST["loginform_id"])
 {
 	//$ideglenes=login($_POST["uname"],$_POST["pass"]);
 	$ideglenes=$User_Class->userlogin($_POST["email"],$_POST["pass"]);
-	//arraylist($ideglenes);
-	if ($ideglenes["id"]>0) 
+
+   // arraylist($ideglenes);
+   // echo($ideglenes);
+	if ($ideglenes["id"]>0)
 	{
 		$_SESSION["uid"]=$ideglenes["id"];
 		$redi=1;
 	}
 	else
 	{
-		$_SESSION["messageerror"]="Hibás felhasználóinév vagy jelszó!";	
+		$_SESSION["messageerror"]="Hibás felhasználóinév vagy jelszó!".arraylist($ideglenes);;
 	}
 }
 //arraylist($_SESSION);
