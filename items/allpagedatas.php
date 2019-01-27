@@ -213,7 +213,9 @@ if (($_POST["paramsseo"]!="")&&($_POST["getseo"]!="")&&($_POST["getseo"]!=$_POST
     $savesodata['get']=$_POST["getseo"];
     $savesodata['params']=$_POST["paramsseo"];
     $savesodata['status']='2';
-    $SysClass->shorturl_setprams($savesodata,$_SESSION["lang"]);
+    $jaaj=$SysClass->shorturl_setprams($savesodata,$_SESSION["lang"]);
+    vardump($jaaj);
+    arraylist($jaaj);
 }
 
 //seourlmentese
