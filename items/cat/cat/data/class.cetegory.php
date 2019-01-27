@@ -427,7 +427,7 @@ class category extends sys
             }
             $query="REPLACE INTO  ".$SD["table"]." (".$mezok.")VALUES (".$datasb.")";
             $result =db_Query($query, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"],$adatbazis["db1_srv"],$adatbazis["db1_db"], "INSERT");
-          //  echo $query.'<br>';
+            echo '<br>'.'<br>'.'<br>'.'<br>'.'<br>'.'<br>'.$query.'<br>';
           //  echo $error.'<br>';
              $res=$datas["id"];
         return($res);//csak id-t ad vissza
