@@ -2,7 +2,7 @@
     <div class="col-sm-12">
         <form id="uploadForm" action="" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
             <?php $Form_Class->hiddenbox('hirsave', '1') ?>
-            <?php echo $lan['menu'];
+            <?php
 
             //arraylist($auser);
             if (!isset($menustart)) $menustart = '0';
@@ -10,11 +10,15 @@
             $filtersm["jog"] = "5";
 
 
-            ?>:
+            ?>
+            <?php echo $lan['nev']; ?>:
+            <input name="cim" id="cim" type="text" value="<?php echo $Text_Class->htmlfromchars($adat["cim"]); ?>"
+                   maxlength="200" style="  width: 217px;"/><br/>
 
             <?php //$Form_Class->selectbox2("mid", $menuk, array('value' => 'id', 'name' => 'nev'), $adat["mid"], "Menu"); ?>
             <?php
             //arraylist($carskatmenu);
+            echo lan('kat');
             $Form_Class->selectbox2("mid",$carskatmenu['datas'],array('value'=>'id','name'=>'nev'),$adat["mid"],lan("rootkat"));?>
 
 
@@ -31,13 +35,10 @@
             <br/>
 
             <input name="id" id="id" type="hidden" value="<?php echo decode($getparams[2]); ?>"/>
-            <?php echo $lan['cim']; ?>:
-            <input name="cim" id="cim" type="text" value="<?php echo $Text_Class->htmlfromchars($adat["cim"]); ?>"
-                   maxlength="200" style="  width: 217px;"/><br/>
-            <?php echo $lan['innertext']; ?>:
+            <?php echo lan('rovidleiras'); ?>:
             <?php $form->kcebox("hir", $Text_Class->htmlfromchars($adat["hir"])) ?>
             <br/>
-            <?php echo $lan['outertext']; ?>: <?php $form->kcebox("hir2", $Text_Class->htmlfromchars($adat["hir2"])) ?>
+            <?php echo lan('leiras'); ?>: <?php $form->kcebox("hir2", $Text_Class->htmlfromchars($adat["hir2"])) ?>
             <br/>
             <?php echo $lan['status']; ?>:<?php
 

@@ -3,9 +3,9 @@
 
 $class_hir=new hir();
 $form=new formobjects();
-$status=$class_hir->status();
+$status=$car_class->status();
 
-$myparams='hirek/lista';
+$myparams='cars/lista';
 foreach ($_GET as $nam=>$req )
 {
     if ($nam!='PHPSESSID'&&$nam!='q'&&$nam!='CKFinder_Path'&&$nam!='googtrans'&&$nam!='oldal'&&$nam!='cpsession'&&$nam!='langedit'&&$nam!='lang'&&$nam!='cprelogin'&&$nam!='page'&&$nam!='mr')
@@ -64,7 +64,7 @@ $datas=$class_recipe->get_list('cuisine',array());
 </div>  
 
                     <a href="<?php echo $homeurl.$separator."".$getparams[0]."/edittext";?>" class="btn btn-success">
-                    New Magazine
+                    új autó
                     </a>
 <!-- Row start -->
         <div class="row">
@@ -72,7 +72,7 @@ $datas=$class_recipe->get_list('cuisine',array());
             <div class="widget">
               <div class="widget-header">
                 <div class="title">
-                  <span class="fs1" aria-hidden="true" data-icon="&#xe14a;"></span>Magazine<br />
+                  <span class="fs1" aria-hidden="true" data-icon="&#xe14a;"></span>Autók<br />
 
                 </div>
               </div>

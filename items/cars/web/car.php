@@ -1,9 +1,4 @@
 <div class="container">
-    <div id="breadCrumb">
-        <a href="<?php echo $homeurl;?>">Home</a> >
-        <a href="<?php echo $homeurl.'/'.$separator.shorturl_get("m/".$menu["id"]);?>"><?php echo $menu["nev"];?> </a> >
-        <span><?php echo "". ($Text_Class->htmlfromchars($aprodata["cim"]));?></span>
-    </div>
     <div class="row  text-center">
     <h1><?php echo "". ($Text_Class->htmlfromchars($aprodata["cim"]));?></h1>
 </div>
@@ -32,16 +27,6 @@
 <?php ?>
 
               </div>
-
-              <!-- Controls -->
-              <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-              </a>
-              <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-              </a>
             </div>
 </slider>
 <div class="container">
@@ -64,9 +49,30 @@
                         </p>
         </div>
     </top-->
-            <description class="col-sm-12" itemprop="description">
+            <description class="col-sm-8" itemprop="description">
                 <?php echo "". ($Text_Class->youtoubecserel($Text_Class->htmlfromchars($aprodata["hir2"])));?>
             </description>
+            <description class="col-sm-4" itemprop="Priece">
+                <?php if ($aprodata["elso"]>0) {
+                    ?>
+                    <div><b><?= lan("elosora")?>:</b> <?= $aprodata["elso"]?> <?= lan("ft")?></div>
+                <?php }?>
+                <?php if ($aprodata["ora"]>0) {
+                    ?>
+                    <div><?= $aprodata["ora"]?> <?= lan("ft/h")?></div>
+                <?php }?>
+                <?php if ($aprodata["videk"]>0) {
+                    ?>
+                    <div><?= $aprodata["videk"]?> <?= lan("ft/km")?></div>
+                <?php }?>
+                <?php if ($aprodata["kiallas"]>0) {
+                    ?>
+                    <div>+ <?= $aprodata["kiallas"]?> <?= lan("ft")?> <?= lan("kiállás")?></div>
+                <?php }?>
+
+            </description>
+
+
             <?php if ($auser["jog"]>2){?>
                 <a itemprop="url" class="button enterButton moreButton" href="<?php echo $homeurl.$separator."cars/edittext/".encode($aprodata["id"]);;?>"><?php echo $lan["edit"];?></a>
             <?php }?>
