@@ -33,8 +33,7 @@ $elem["url"]=$hir_class->createurl($elem);
 ;?>" alt="<?php echo $Text_Class->htmlfromchars($elem["cim"]);?>"  title="<?php echo $Text_Class->htmlfromchars($elem["cim"]);?>"  >
                             </div>
                             <div class="upArrowDecor"></div>
-                            <h2 itemprop="name"><?php echo $Text_Class->htmlfromchars($elem["cim"]);?></h2>
-							<p itemprop="description"><?php echo substr($Text_Class->tageketcsupaszit($Text_Class->htmlfromchars($elem["hir"])),0,130).'...';?></p>
+                            <span class="namefield" itemprop="name"><?php echo $Text_Class->htmlfromchars($elem["cim"]);?></span>
 
                         </a>
                     </car>
