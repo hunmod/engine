@@ -289,6 +289,7 @@ public function shorturl_setprams($data,$lang=null){
 	}
 	$query="REPLACE INTO  ". $tbl["short_url"] . "_".$lang." (`get` ,`params` ,`status`)VALUES ('".$data['get']."',  '".$data['params']."','".$data['status']."');";
 	db_query($query, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"], $adatbazis["db1_srv"], '', 'insert');
+    $data["q"]=$query;
 
 	return($data);
 }
