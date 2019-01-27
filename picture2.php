@@ -47,7 +47,7 @@ $resizeObj = new resize($theimage);
 $resizeObj -> resizeImage($_GET['x'], $_GET['y'], 'crop');
  
 // *** 3) Save image
-$resizeObj -> showImage($theimage, 68);
+$resizeObj -> showImage($theimage, 90);
 }
 }
 

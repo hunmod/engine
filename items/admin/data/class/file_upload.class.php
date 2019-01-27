@@ -753,7 +753,7 @@ if (count($foe)>0){
 		case "png":	
 		case "bmp":	
 			$egyelem["type"]='img';
-			$egyelem["screen"]='/picture.php?picture='.encode($egyelem["filepath"])."&x=".$x."&y=".$y;
+			$egyelem["screen"]='/picture2.php?picture='.encode($egyelem["filepath"])."&x=".$x."&y=".$y;
 			$egyelem["url"]='/picture.php?picture='.encode($egyelem["filepath"])."&x=".$big;
 		break;
 		default:

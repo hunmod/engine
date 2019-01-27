@@ -32,7 +32,7 @@ $data_folderpage2='/'.$folders["uploads"].'/'.$getparams[0]."/".$id.'/';
 
 	$mappa='uploads/'.$folders["uploads"]."/".$getparams[0]."/".$id.'/';
 	//echo $mappa;
-	$mylist=$Upload_Class->folderlist($mappa,400,400,900);
+	$mylist=$Upload_Class->folderlist($mappa,600,600,900);
 
 ?>
 
