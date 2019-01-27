@@ -356,7 +356,7 @@ public function save($datas)
 		//insert		
 		foreach ($mtbl["mezok"] as $mezoe)
 		{
-		    if ($mezoe['table']!='id') {
+		    if ($mezoe['id']!='id') {
 
                 $mezok .= $Sys_Class->comasupport($mezok);
                 $mezok .= $mezoe['table'];
