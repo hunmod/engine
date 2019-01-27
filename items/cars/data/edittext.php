@@ -18,7 +18,6 @@ $status = $car_class->status();
 $sorrend = $car_class->sorrend();
 $form = new formobjects();
 $UploadClass = new file_upload();
-$car_class = new hir();
 $hirid=decode($getparams[2]);
 if ($_POST['hirsave'] == '1') {
    // arraylist($_POST);
