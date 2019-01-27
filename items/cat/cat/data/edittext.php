@@ -22,6 +22,7 @@ $sorrend= $category_class->sorrend();
 
 //$adat['id']=$hirid;
 if ($_POST['catpost'] == '1') {
+    arraylist($_POST);
     $hirid = $category_class->save($_POST);
     $_POST["id"] = $hirid;
     foreach ($avaibleLang as $mlan) {
