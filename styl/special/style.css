@@ -193,8 +193,10 @@ owner img {
     background-size: cover; /* Resize the background image to cover the entire container */
 }
 .carname
-{height: 2em;}
-
+{height: 4 em;}
+.car{
+    padding: 15px;
+}
 
 
 /* selectbox_roll */
