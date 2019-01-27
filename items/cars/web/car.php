@@ -49,9 +49,28 @@
                         </p>
         </div>
     </top-->
-            <description class="col-sm-8" itemprop="description">
+            <description class="col-sm-4" itemprop="description">
                 <?php echo "". ($Text_Class->youtoubecserel($Text_Class->htmlfromchars($aprodata["hir2"])));?>
             </description>
+
+            <description class="col-sm-4" itemprop="Priece">
+                <h3><?= lan("Adatok")?></h3>
+                <?php if ($aprodata["ev"]>0) {
+                    ?>
+                    <div><b><?= lan("ev")?>:</b> <?= $aprodata["ev"]?> </div>
+                <?php }?>
+                <?php if ($aprodata["szin"]>0) {
+                    ?>
+                    <div><b><?= lan("szin")?>:</b> <?= $aprodata["szin"]?> </div>
+                <?php }?>
+                <?php if ($aprodata["szem"]>0) {
+                    ?>
+                    <div><b><?= lan("szállithato")?>:</b> <?= $aprodata["szem"]?><?= lan("fő")?> </div>
+                <?php }?>
+
+            </description>
+
+
             <description class="col-sm-4" itemprop="Priece">
                 <h3><?= lan("Bérleti díj")?></h3>
                 <?php if ($aprodata["elso"]>0) {
