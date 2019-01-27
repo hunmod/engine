@@ -53,6 +53,7 @@
                 <?php echo "". ($Text_Class->youtoubecserel($Text_Class->htmlfromchars($aprodata["hir2"])));?>
             </description>
             <description class="col-sm-4" itemprop="Priece">
+                <h3><?= lan("Bérleti díj")?></h3>
                 <?php if ($aprodata["elso"]>0) {
                     ?>
                     <div><b><?= lan("elosora")?>:</b> <?= $aprodata["elso"]?> <?= lan("ft")?></div>
