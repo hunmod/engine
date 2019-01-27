@@ -273,6 +273,7 @@ public function shorturl_getparams($getq,$lang=null)
 	}
 	$q = "SELECT * FROM " . $tbl["short_url"] . "_".$lang." WHERE `get` LIKE '" . $getq . "' LIMIT 1";
 	$eredmeny = db_query($q, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"], $adatbazis["db1_srv"], '', 'select');
+    $getq["q"]=$q;
 //echo $q;
 	if (isset($eredmeny[0]['params']) && $eredmeny[0]['params'] != "") {
 		return $eredmeny[0]['params'];
