@@ -46,16 +46,6 @@
 
     });
 </script>
-<div class="container">
-    <div id="breadCrumb">
-        <a href="<?php echo $homeurl; ?>"><?= lan('home'); ?></a> >
-        <a href="<?php echo $homeurl . '/' . $separator . shorturl_get("m/" . $menu["id"]); ?>"><?php echo $menu["nev"]; ?> </a>
-        >
-        <span><?php echo "" . ($Text_Class->htmlfromchars($adat["title"])); ?></span>
-    </div>
-    <h1><?php echo "" . ($Text_Class->htmlfromchars($adat["title"])); ?></h1>
-
-</div>
 <slider>
     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
@@ -99,7 +89,9 @@
         </a>
     </div>
 </slider>
-
+<div class="container">
+    <h1><?php echo "" . ($Text_Class->htmlfromchars($adat["title"])); ?></h1>
+</div>
 <div class="container">
 
     <div class="col-xs-12">
