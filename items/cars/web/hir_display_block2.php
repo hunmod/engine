@@ -34,7 +34,7 @@ $elem["url"]=$car_class->createurl($elem);
                             </div>
                             <div class="upArrowDecor"></div>
                             <h2 itemprop="name"><?php echo $Text_Class->htmlfromchars($elem["cim"]);?></h2>
-							<p itemprop="description"><?php echo substr($Text_Class->tageketcsupaszit($Text_Class->htmlfromchars($elem["hir"])),0,130).'...';?></p>
+							<p itemprop="description"><?php echo substr($Text_Class->tageketcsupaszit($Text_Class->htmlfromchars($elem["hir"])),0,100).'...';?></p>
 
                         </a>
                     </new>
