@@ -447,7 +447,7 @@ $img=$homeurl."/picture2.php?picture=".encode($img)."&x=".$x."&y=".$y."&ext=.jpg
 
 public function createurl($hir){
 global $Text_Class,$homeurl,$separator;
-	return $homeurl.$separator."car/".$Text_Class->to_link($hir["cim"])."/".($hir["id"]);
+	return $homeurl.$separator."cars"."/car/".($hir["id"])."/".$Text_Class->to_link($hir["cim"]);
 }
 
 
