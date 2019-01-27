@@ -223,12 +223,12 @@ if ($filters['maxegyoldalon']>0){
 
 
 //menu kapcsolat
-	$mezok.=$Sys_Class->comasupport($mezok);	
+/*	$mezok.=$Sys_Class->comasupport($mezok);
 	$mezok.=$prefix."menu.nev as menu_name";	
 	$tables.=','.$prefix.'menu';
 	$where.=$Sys_Class->andsupport($where);
 	$where.=$SD["table"].".mid=".$prefix."menu.id";
-
+*/
 //számos feltételek	
 $fmezonev='id';
 if ($filters[$fmezonev]!=''){
@@ -367,8 +367,8 @@ public function save($datas)
 		$query="INSERT INTO  ".$SD["table"]." (".$mezok.")VALUES (".$datasb.")";
 		$result =db_Query($query, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"],$adatbazis["db1_srv"],$adatbazis["db1_db"], "INSERT");
 		//echo($query);
-		echo '<br>'.'<br>'.'<br>'.'<br>'.'<br>'.$query.'<br>';
-		echo $error;		
+		//echo '<br>'.'<br>'.'<br>'.'<br>'.'<br>'.$query.'<br>';
+		//echo $error;
 		$res=mysql_insert_id();
 	}
 	else

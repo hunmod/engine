@@ -14,7 +14,7 @@ $extrascript[]= '	<script src="'.$server_url.'/scripts/ckeditor/ckeditor.js" typ
 $extrascript[]= "<script>$(document).ready(function () { $( 'textarea.editor' ).ckeditor(); });</script>";
 
 $form = new formobjects();
-$status = $car_class->status();
+$carstatus = $car_class->status();
 $sorrend = $car_class->sorrend();
 $form = new formobjects();
 $UploadClass = new file_upload();
@@ -28,11 +28,11 @@ if ($_POST['hirsave'] == '1') {
     $_POST["id"] = $hirid;
 //$car_class->save_ad_tags_field($_POST);
 //echo $hirid;
-//echo "!!!!!!!!!!!!!! ".$hirimg_loc . '/' . $hirid;
+//echo "!!!!!!!!!!!!!! ".$carimg_loc . '/' . $hirid;
 
     $target = $UploadClass->uploadimg('photo', $carimg_loc . '/' . $hirid, '' . $hirid, 800, 600, true, true, true);
 //echo $target;
-//header("Location:".$homeurl."/hirek/edittext/".encode($hirid));
+//header("Location:".$homeurl."/cars/edittext/".encode($hirid));
 
 }
 

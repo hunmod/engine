@@ -41,7 +41,8 @@
             <?php echo $lan['outertext']; ?>: <?php $form->kcebox("hir2", $Text_Class->htmlfromchars($adat["hir2"])) ?>
             <br/>
             <?php echo $lan['status']; ?>:<?php
-            $form->selectbox2("status", $status, array('value' => 'id', 'name' => 'nev'),  $adat["status"], "status");
+
+            $form->selectboxeasy2("status", $carstatus,   $adat["status"], "status");
             ?>
             <br/>
             <?php echo $lan['sorrend']; ?>:<?php

@@ -1,6 +1,4 @@
 <?php 
-
-
 $Sys_Class=new sys();
 
 if ($_GET["s"]!=""){
@@ -20,30 +18,7 @@ if ($_GET["tag"]!=""){
 $filters=$_GET;
 
 $_SESSION["utolso_lap"]=$_SERVER["REQUEST_URI"];
-if($getparams[2]!=''){
-	//$menu=egymenuadat($getparams[2]);
-	$menu=$MenuClass->get_one_menu($getparams[2]);
-	//arraylist($menu);
-	$menualatta=$MenuClass->get_menus_down($getparams[2],array());
-	//arraylist($menualatta);
-	$menufelette=$MenuClass->menulistafel($getparams[2]);
-	//arraylist($menufelette);
-	$wherein.=$Sys_Class->comasupport($wherein);
-	$wherein.=$getparams[2];
-}
 
-
-
-if (count($menualatta))
-{
-	foreach($menualatta as $mea)
-	{
-		$wherein.=$Sys_Class->comasupport($wherein);
-		$wherein.=$mea["id"];
-	}
-}
-//echo  $wherein;
-$menukalatta=$wherein;
 
 
 $maxegyoldalon=8;
@@ -55,7 +30,6 @@ else {
 }
 
 
-if($menukalatta!="")$filters['mid']=$menukalatta;
 
 /*if ($auser["jog"]>=3){
 $filters['status']='all';
@@ -71,9 +45,6 @@ if ($_GET["name"]){
 }
 if ($_GET["s"]){
 	$filters['s']=$_GET["s"];	
-}
-if ($_GET["tag"]){
-	$filters['tag']=$_GET["tag"];	
 }
 
 if (!$adminv)$filters['ido']=$date;	
@@ -117,16 +88,6 @@ $n=0;
 
 $c=1;
 
-				unset($menufelette[count($menufelette)-1]);
-               if(count($menufelette)) foreach(array_reverse($menufelette) as $mef){
-                     if ($c<count($menufelette)){$xper=' / ';}
-					else {$xper='';}
-					$c++;
-                                        $breadtext.=$mef["nev"].$xper;
-                                         
-                                        }
-                                       
-$page_description.=str_replace(' / ', '-', $breadtext);
 if(count($hirekelemek)>0)
 foreach($hirekelemek as $egy){
 	foreach ($egy as $megegyname=>$megegy)
