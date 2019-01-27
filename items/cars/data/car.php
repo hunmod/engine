@@ -56,7 +56,7 @@ if ($count>3)break;
 
 
 $page_keywords="";
-$page_ogimage=$homeurl.'/'.$car_class->getimg($hirid,800,533) ;
+$page_ogimage=$car_class->getimg($hirid,800,533) ;
 $page_description="";
 //$aprodata["image"]=$homeurl."/".$img;
 $page_keywords=$Text_Class->tageketcsupaszit($aprodata["cim"]).",".$Text_Class->tageketcsupaszit($aprodata["hir"]);
