@@ -30,7 +30,7 @@ $qhir=$car_class->get($filters) ;
 $aprodata=($qhir['datas'][0]);
 
 //
-$aprodata["image"]=$car_class->getimg($hirid,1000,300) ;
+$aprodata["image"]=$car_class->getimg($hirid,1000,600) ;
 	//arraylist($aprodata);
 if (count($aprodata)>0)
 foreach ($aprodata as $megegyname=>$megegy)
