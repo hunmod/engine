@@ -19,10 +19,10 @@ $hirid = decode($getparams[2]);
 $sorrend= $category_class->sorrend();
 
 
+arraylist($_POST);
 
 //$adat['id']=$hirid;
 if ($_POST['catpost'] == '1') {
-    arraylist($_POST);
     $hirid = $category_class->save($_POST);
     $_POST["id"] = $hirid;
     foreach ($avaibleLang as $mlan) {
