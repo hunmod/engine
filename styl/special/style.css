@@ -197,7 +197,8 @@ owner img {
     height: 3em;
     background: rgba(255,255,255,0.6);
     display: block;
-    padding: 6px;
+    padding: 5px;
+    color: #000000;
 }
 .car{
     padding: 15px;
