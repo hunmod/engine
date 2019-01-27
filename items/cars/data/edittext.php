@@ -61,6 +61,10 @@ if ($hirid > 0) {
 //$menupontselectbox=menupontselectbox($menustart,$modul,'','','');
 //arraylist($menupontselectbox);
 
+/* Kategória root lekérdezése*/
+$filtersmenu['lang']='hu';
+$filtersmenu['kat']='cars';
+$katmenu= $category_class->get($filtersmenu, $order = '', $page = 'all');
 
 
 ?>

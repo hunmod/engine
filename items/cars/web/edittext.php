@@ -13,8 +13,8 @@
 
             ?>:
 
-            <?php 
-			$Form_Class->selectbox2("mid", $menuk, array('value' => 'id', 'name' => 'nev'), $adat["mid"], "Menu"); ?>
+            <?php //$Form_Class->selectbox2("mid", $menuk, array('value' => 'id', 'name' => 'nev'), $adat["mid"], "Menu"); ?>
+            <?php $Form_Class->selectbox2("mid",$katmenu,array('value'=>'id','name'=>'nev'),$adat["kat"],lan("rootkat"));?>
 
 
             <?php

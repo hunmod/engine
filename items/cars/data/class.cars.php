@@ -239,7 +239,7 @@ if ($filters[$fmezonev]!=''){
 $fmezonev='mid';
 if ($filters[$fmezonev]!='' && $filters[$fmezonev]!='all'){
 		$where.=$Sys_Class->andsupport($where);
-		$where.=''.$SD["table"].".`".$fmezonev."` in(".$filters[$fmezonev].") ";
+		$where.=''.$SD["table"].".`".$fmezonev."` LIKE ('".$filters[$fmezonev]."') ";
 }
 
 $fmezonev='notid';
@@ -272,19 +272,6 @@ else
 		$where.=$SD["table"].".`".$fmezonev."`='2'";
 	}
 
-
-$fmezonev='tag';
-if ($filters[$fmezonev]!=''){
-	$tables.=',hir_tags,tags';
-	$where.=$Sys_Class->andsupport($where);
-	$where.=$SD["table"].".id=hir_tags.rec_id";
-	$where.=$Sys_Class->andsupport($where);
-	$where.="tags.id=hir_tags.tag_id";
-	
-	
-		$where.=$Sys_Class->andsupport($where);
-		$where.="tags.name LIKE '".$filters[$fmezonev]."'";
-}
 
 
 //szöveges feltételek	
@@ -406,7 +393,7 @@ public function create_table(){
 	$q="
 	CREATE TABLE IF NOT EXISTS ".$SD["table"]." (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `mid` bigint(20) NOT NULL DEFAULT '0',
+  `mid` varchar(20) DEFAULT NULL,
   `cim` varchar(200) NOT NULL,
   `hir` text NOT NULL,
   `hir2` text NOT NULL,
