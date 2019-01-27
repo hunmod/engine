@@ -23,7 +23,7 @@ $modules[]=$file_structuct;
 $carimg_loc='uploads/cars/';
 
 include_once("class.cars.php");
-$car_class=new car();
+$car_class=new cars();
 
 $car_class->create_table();
 
