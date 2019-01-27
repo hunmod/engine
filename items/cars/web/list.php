@@ -172,6 +172,14 @@ for ($c=0;$c<=$oldalakszama-1;$c++){
 
 
 <script>
+
+    function gomemove(){
+        scrollanimate('car','fadeIn');
+    }
+    jQuery(document).ready(function() {
+        $(window).on('scroll resize', gomemove);
+        $(window).trigger('scroll');
+    });
     $(function() {
         $('.matchHeight768').matchHeight();
     });
