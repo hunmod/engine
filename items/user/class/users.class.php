@@ -152,7 +152,7 @@ class user
 		$mezok[] = $mezo;
 		$mezo = array();
 
-		$mezo["id"] = 'tip';
+		/*$mezo["id"] = 'tip';
 		$mezo["table"] = $table . '.' . '`' . $mezo["id"] . '`';
 		$mezo["name"] = $lan[$mezo["id"]];
 		$mezo["display"] = 1;
@@ -161,7 +161,7 @@ class user
 		$mezo["values_type"] = '0';//array('id'=>idmezoneve,'value'=ertekmezoneve)
 		$mezok[] = $mezo;
 		$mezo = array();
-
+*/
 		$mezo["id"] = 'lastactive';
 		$mezo["table"] = $table . '.' . '`' . $mezo["id"] . '`';
 		$mezo["name"] = "lastactive";
@@ -225,7 +225,7 @@ class user
 		$filters['email'] = $email;
 		$filters['pass'] = $pass;
 		$users = $this->get_users($filters, '', 'all');
-		//arraylist($users);
+		arraylist($users);
 		return $users["datas"][0];
 	}
 
