@@ -23,7 +23,7 @@ $elem["url"]=$car_class->createurl($elem);
 
 ?>
 
-<new class="col-md-6 col-sm-6 mhbl2" itemscope="" itemtype="http://schema.org/WebPage">
+<car class="col-md-6 col-sm-6 mhbl2 <?= $elem["mid"]?>" itemscope="" itemtype="http://schema.org/WebPage">
                         <a href="<?php echo $elem["url"];?>" class="box <?php echo $fcolor;?>"  itemprop="url">
                             <!--h2><?php echo $elem["menu_name"];?></h2-->
                             <div class="imgWrap">
@@ -37,4 +37,4 @@ $elem["url"]=$car_class->createurl($elem);
 							<p itemprop="description"><?php echo substr($Text_Class->tageketcsupaszit($Text_Class->htmlfromchars($elem["hir"])),0,130).'...';?></p>
 
                         </a>
-                    </new>
+                    </car>

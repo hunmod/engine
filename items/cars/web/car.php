@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container <?=$aprodata["mid"]?>">
     <div class="row  text-center">
     <h1><?php echo "". ($Text_Class->htmlfromchars($aprodata["cim"]));?></h1>
 </div>

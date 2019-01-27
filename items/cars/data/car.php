@@ -61,7 +61,7 @@ $page_description="";
 //$aprodata["image"]=$homeurl."/".$img;
 $page_keywords=$Text_Class->tageketcsupaszit($aprodata["cim"]).",".$Text_Class->tageketcsupaszit($aprodata["hir"]);
 $page_description=$Text_Class->levag($Text_Class->tageketcsupaszit($aprodata["hir"]),350);
-$pagetitle=" ".$aprodata["cim"];
+$pagetitle=" ".$aprodata["cim"]." - ";
 
 
 ?>
