@@ -54,7 +54,7 @@ foreach ($widgets as $widget)if (file_exists($widget))include($widget);?>
 				 <?php
                if ($auser["jog"]>2){
 				?>
-                <a href="<?php echo $homeurl.$separator;?>cars/edittext">Új hír</a>
+                <a href="<?php echo $homeurl.$separator;?>cars/edittext">Új autó</a>
                 <?php }?>
           
 </div>
@@ -84,21 +84,23 @@ if ($che<1){
 			$che=$stn;
 	}
 }	
-	switch($stn){
+/*	switch($stn){
 	case 1:	
-		include('items/hirek/web/hir_display_short.php');	
+		include('items/cars/web/hir_display_short.php');
 	break;
 	case 2:	
-		include('items/hirek/web/hir_display_block1.php');
+		include('items/cars/web/hir_display_block1.php');
 	break;	
 	case 3:	
-		include('items/hirek/web/hir_display_block2.php');	
+		include('items/cars/web/hir_display_block2.php');
 	break;
 
 
 	default:
-		include('items/hirek/web/hir_display_short_first.php');
-	}
+		include('items/hirek/web/hir_display_block1.php');
+	}*/
+    include('items/cars/web/hir_display_block2.php');
+
 $counter++;
 $che--;
 }}

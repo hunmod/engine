@@ -18,7 +18,7 @@ switch ($elem['mid']) {
 }
 //$elem["url"]=$homeurl.$separator.$getparams[0]."/hir/".($elem["id"]);
 //$elem["url"]=$homeurl.$separator."hirek/hir/".$Text_Class->to_link($elem["menu_name"])."/".$Text_Class->to_link($elem["cim"])."/".($elem["id"]);
-$elem["url"]=$hir_class->createurl($elem);
+$elem["url"]=$car_class->createurl($elem);
 
 
 ?>
@@ -28,7 +28,7 @@ $elem["url"]=$hir_class->createurl($elem);
                             <!--h2><?php echo $elem["menu_name"];?></h2-->
                             <div class="imgWrap">
                                         <img itemprop="image" src="<?php 
-										$nimg=$hir_class->getimg($elem['id'],300,148);
+										$nimg=$car_class->getimg($elem['id'],300,148);
 											echo $nimg.'';
 ;?>" alt="<?php echo $Text_Class->htmlfromchars($elem["cim"]);?>"  title="<?php echo $Text_Class->htmlfromchars($elem["cim"]);?>"  >
                             </div>

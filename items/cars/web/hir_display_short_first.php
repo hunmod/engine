@@ -21,7 +21,7 @@ switch ($elem['mid']) {
 	$fcolor="kekeszold";
         break;				
 }
-$elem["url"]=$kezdooldal.$separator.$getparams[0]."/hir/".($elem["id"]);
+$elem["url"]=$kezdooldal.$separator.$getparams[0]."/car/".($elem["id"]);
 $elem["url"]=$kezdooldal.$separator."magazine/".$Text_Class->to_link($elem["menu_name"])."/".$Text_Class->to_link($elem["cim"])."/".($elem["id"]);
 
 ?>
@@ -31,7 +31,7 @@ $elem["url"]=$kezdooldal.$separator."magazine/".$Text_Class->to_link($elem["menu
                                     <div class="upArrowDecor" style="top: 107px;"></div>
                                     <div class="imgWrap">
                                         <a href="<?php echo $elem["url"];?>"> <img src="<?php 
-										$nimg=$hir_class->getimg($elem['id'],800,533);
+										$nimg=$car_class->getimg($elem['id'],800,533);
 											echo $homeurl.'/'.$nimg.'';
 ;?>" alt="alt"></a>
                                     </div>
@@ -45,6 +45,6 @@ $elem["url"]=$kezdooldal.$separator."magazine/".$Text_Class->to_link($elem["menu
                             </div>
                             <a itemprop="url" class="button enterButton moreButton" href="<?php echo $elem["url"];?>"><?php echo $lan["more"];?></a>
 <?php if ($auser["jog"]>2){?>                            
-                            <a itemprop="url" class="button enterButton moreButton" href="<?php echo $homeurl.$separator."hirek/edittext/".encode($elem["id"]);;?>"><?php echo $lan["edit"];?></a>
+                            <a itemprop="url" class="button enterButton moreButton" href="<?php echo $homeurl.$separator."cars/edittext/".encode($elem["id"]);;?>"><?php echo $lan["edit"];?></a>
                             <?php }?>
 </div>
