@@ -15,8 +15,8 @@
 
             <?php //$Form_Class->selectbox2("mid", $menuk, array('value' => 'id', 'name' => 'nev'), $adat["mid"], "Menu"); ?>
             <?php
-            arraylist($carskatmenu);
-            $Form_Class->selectbox2("mid",$carskatmenu,array('value'=>'id','name'=>'nev'),$adat["kat"],lan("rootkat"));?>
+            //arraylist($carskatmenu);
+            $Form_Class->selectbox2("mid",$carskatmenu['datas'],array('value'=>'id','name'=>'nev'),$adat["kat"],lan("rootkat"));?>
 
 
             <?php
