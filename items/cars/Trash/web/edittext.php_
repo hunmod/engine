@@ -1,0 +1,80 @@
+<?php 
+if ($getparams[2]!=''){
+$qadatok="SELECT * FROM  ".$tbl['hir']." WHERE id='".base64_decode($getparams[2])."'";
+$adatok=db_Query($qadatok, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"],$adatbazis["db1_srv"],'', "select");
+$adat=$adatok[0];
+}
+
+$menupontselectbox=array();
+$menupontselectbox=menupontselectbox(1,$onearray,'',$getparams[0],'');
+//$menupontselectbox= menualatta(0,$modul);
+//arraylist($menupontselectbox);
+?>
+
+
+	<form action="<?php echo $kezdooldal.$separator.$getparams[0]."/savetext/".base64_encode ($elem["id"]);?>" method="post">
+    
+    Menü:<select name="mid">
+<?php 
+//$feltetfomenu=" WHERE status!=".$status['del']; 
+?>
+<?php  foreach ($menupontselectbox as $elem){	 ?>   
+ <option value="<?php echo $elem["id"]; ?>" <?php if ($elem["id"]==$adat["mid"]) {echo $selected;}?>><?php echo $elem["nev"]; ?></option>
+  <?php }?>
+  
+</select>
+<br />
+
+    
+    <input name="id" id="id" type="hidden" value="<?php echo base64_decode($getparams[2]); ?>" />
+	Cím:<input name="cim" id="cim"  type="text" value="<?php echo $adat["cim"]; ?>" /><br />
+	Bevezető:<textarea cols="80" id="hir" name="hir" rows="10">
+        <?php echo $adat["hir"]; ?>
+        </textarea>
+        <br />
+    Belső:<textarea cols="80" id="hir2" name="hir2" rows="10">
+        <?php echo $adat["hir2"]; ?>
+        </textarea>
+        <br /><select name="status" id="status" >
+   	    <option value="1">Aktiv</option>
+	        <option value="3">Felfüggesztve</option>
+            <option value="4">Törölt</option>
+  </select>
+			<script type="text/javascript">
+			//<![CDATA[
+				CKEDITOR.replace( 'hir', {
+					toolbar : [ 
+					 ['Source','-','Preview','-','Templates'],
+    ['Cut','Copy','Paste','PasteText','PasteFromWord','-','SelectAll','RemoveFormat'],['Undo','Redo','-','Find','Replace'],['Image','Flash','Table','HorizontalRule','Smiley','SpecialChar','PageBreak'],['Maximize', 'ShowBlocks'],'/',['Bold','Italic','Underline','Strike','-','Subscript','Superscript'],['JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock'],['Format','Font','FontSize'],['TextColor','BGColor'],  ['Link','Unlink','Anchor'],['NumberedList','BulletedList']
+					]
+					,language: 'hu',uiColor: '<?php echo $editorcolor;?>'
+				});
+				CKEDITOR.replace( 'hir2', {
+					toolbar : [ 
+					 ['Source','-','Preview','-','Templates'],
+    ['Cut','Copy','Paste','PasteText','PasteFromWord','-','SelectAll','RemoveFormat'],['Undo','Redo','-','Find','Replace'],['Image','Flash','Table','HorizontalRule','Smiley','SpecialChar','PageBreak'],['Maximize', 'ShowBlocks'],'/',['Bold','Italic','Underline','Strike','-','Subscript','Superscript'],['JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock'],['Format','Font','FontSize'],['TextColor','BGColor'],  ['Link','Unlink','Anchor'],['NumberedList','BulletedList']
+					]
+					,language: 'hu',uiColor: '<?php echo $editorcolor;?>'
+				});
+				
+
+			//]]>
+			</script>
+<p>
+<select name="sorrend">
+     <?php for ($i = 1; $i <= 30; $i++) {?>
+            <option value="<?php echo $i; ?>" <?php if ($i==$adat["sorrend"]) {echo $selected;}?>><?php echo $i; ?></option>
+     <?php }?> 
+</select>       
+</p>
+<p>
+			<input type="submit" value="Submit" />
+		</p>
+	</form>
+
+<?php
+if ($adat["id"]>0){
+	$getparams[2]=decode($getparams[2]);
+include_once("./items/files/web/list.php");	
+}
+?>     
