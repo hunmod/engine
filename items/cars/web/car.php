@@ -46,7 +46,7 @@
 </slider>
 <div class="container">
 
-<div class="col-sm-8 col-xs-12">
+<div class="col-sm-12 col-xs-12">
 
         <news itemscope="" itemtype="http://schema.org/WebPage">
             <h1 itemprop="name"><?php echo "". ($Text_Class->htmlfromchars($aprodata["cim"]));?></h1>
@@ -68,13 +68,9 @@
                 <?php echo "". ($Text_Class->youtoubecserel($Text_Class->htmlfromchars($aprodata["hir2"])));?>
             </description>
             <?php if ($auser["jog"]>2){?>
-                <a itemprop="url" class="button enterButton moreButton" href="<?php echo $homeurl.$separator."hirek/edittext/".encode($aprodata["id"]);;?>"><?php echo $lan["edit"];?></a>
+                <a itemprop="url" class="button enterButton moreButton" href="<?php echo $homeurl.$separator."cars/edittext/".encode($aprodata["id"]);;?>"><?php echo $lan["edit"];?></a>
             <?php }?>
         </news>
-
-</div>
-<div class="col-sm-4 col-xs-12">
-    <?php include ('./items/csomag/web/sidelist.php');?>
 
 </div>
     <?php
