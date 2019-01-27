@@ -1,7 +1,7 @@
 Options +FollowSymlinks
 RewriteEngine On
-RewriteBase /engine/
-#RewriteBase /
+#RewriteBase /engine/
+RewriteBase /
 #RewriteBase /
 
 
