@@ -40,8 +40,9 @@ $data_folderpage2='/'.$folders["uploads"].'/'.$getparams[0]."/".$id.'/';
 
 
 <div class="container">
-<a href="<?php echo $homeurl."/files/list2/".($getparams[2]); ?>"> admin</a>
-
+    <?php if ($auser["jog"]>3){?>
+        <a href="<?php echo $homeurl."/files/list2/".($getparams[2]); ?>"> admin</a>
+    <?php }  ?>
 <div class="demo-gallery">
     <ul id="lightgallery" class="list-unstyled row">
         <?php
