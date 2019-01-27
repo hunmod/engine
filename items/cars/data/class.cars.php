@@ -160,6 +160,38 @@ public function table($data=array()){
     $mezo["displaylist"]=0;
     $mezo["value"]=$data[$mezo["id"]];
     $mezok[]=$mezo;
+    $mezo=array();
+
+    $mezo["id"]='ev';
+    $mezo["table"]=$table.'.'.'`'.$mezo["id"].'`';
+    $mezo["name"]="ev";
+    $mezo["display"]=0;
+    $mezo["type"]='int';
+    $mezo["displaylist"]=0;
+    $mezo["value"]=$data[$mezo["id"]];
+    $mezok[]=$mezo;
+    $mezo=array();
+
+    $mezo["id"]='szin';
+    $mezo["table"]=$table.'.'.'`'.$mezo["id"].'`';
+    $mezo["name"]="szin";
+    $mezo["display"]=0;
+    $mezo["type"]='int';
+    $mezo["displaylist"]=0;
+    $mezo["value"]=$data[$mezo["id"]];
+    $mezok[]=$mezo;
+    $mezo=array();
+
+    $mezo["id"]='szem';
+    $mezo["table"]=$table.'.'.'`'.$mezo["id"].'`';
+    $mezo["name"]="szem";
+    $mezo["display"]=0;
+    $mezo["type"]='int';
+    $mezo["displaylist"]=0;
+    $mezo["value"]=$data[$mezo["id"]];
+    $mezok[]=$mezo;
+    $mezo=array();
+
 //
 	$datas['table']=$table;
 	$datas['mezok']=$mezok;
@@ -409,7 +441,10 @@ public function create_table(){
   `ora` int(11) NOT NULL DEFAULT '0',
   `videk` int(11) NOT NULL DEFAULT '0',
   `kiallas` int(11) NOT NULL DEFAULT '0',
-  
+  `szem` int(11) NOT NULL DEFAULT '0',
+  `ev` int(11) NOT NULL DEFAULT '0',
+  `szin` varchar(100) NOT NULL,
+
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 	";
