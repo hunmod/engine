@@ -352,13 +352,17 @@ public function save($datas)
 //arraylist($datas);
 	if ($datas["id"]<1)
 	{
+
 		//insert		
 		foreach ($mtbl["mezok"] as $mezoe)
 		{
-			$mezok.=$Sys_Class->comasupport($mezok);	
-			$mezok.=$mezoe['table'];	
-			$datasb.=$Sys_Class->comasupport($datasb);	
-			$datasb.="'".($datas[$mezoe['id']])."'";
+		    if ($mezoe['table']!='id') {
+
+                $mezok .= $Sys_Class->comasupport($mezok);
+                $mezok .= $mezoe['table'];
+                $datasb .= $Sys_Class->comasupport($datasb);
+                $datasb .= "'" . ($datas[$mezoe['id']]) . "'";
+            }
 		}
 		$query="INSERT INTO  ".$SD["table"]." (".$mezok.")VALUES (".$datasb.")";
 		$result =db_Query($query, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"],$adatbazis["db1_srv"],$adatbazis["db1_db"], "INSERT");
