@@ -86,17 +86,7 @@
         <?php } ?>
     </news>
     <div>
-        <strong>Áraink nettó árak.</strong>
-        <p>Budapesti kiállás esetén, csak óradíjjal számolunk. </p>
-        <p>Budapesten kívüli kiállás esetén, az óradíjon túl kilométer díjjal egészülnek ki áraink.</p>
-        <p>Az autók minimum 3 órás időtartamra vehetők ígénybe, 8 órás időtartamon túli megrendelés
-
-            esetén, napidíjjal számolunk, amely tipustól függően változik.</p>
-        <p>Járműveink, kizárólag saját gépjárművezetővel állnak rendelkezésre. </p>
-        <p>Az üzemanyagárak és a gépjárművek fenntartási költségeinek esetleges módosulásai miatt, az
-
-            árváltoztatás jogát fenntartjuk.</p>
-        <p>Ágostonné Faludi Ildikó<br><em>cégvezető</em></p>
+        <?= page_settings("footerblock1_hu") ?>
     </div>
 <?php
 include('items/files/web/list.php');
