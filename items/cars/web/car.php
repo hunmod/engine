@@ -1,7 +1,10 @@
 <div class="container <?=$aprodata["mid"]?>">
+    <div class="col-sm-12 col-xs-12">
+
     <div class="row  text-center">
     <h1><?php echo "". ($Text_Class->htmlfromchars($aprodata["cim"]));?></h1>
 </div>
+
 
 <slider>
         	<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
@@ -29,7 +32,6 @@
             </div>
 </slider>
 
-<div class="col-sm-12 col-xs-12">
 
         <news itemscope="" itemtype="http://schema.org/WebPage">
             <h1 itemprop="name"><?php echo "". ($Text_Class->htmlfromchars($aprodata["cim"]));?></h1>
