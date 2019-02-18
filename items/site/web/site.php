@@ -46,6 +46,8 @@
 
     });
 </script>
+<div class="container">
+
 <slider>
     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
@@ -89,7 +91,6 @@
         </a>
     </div>
 </slider>
-<div class="container">
     <h1><?php echo "" . ($Text_Class->htmlfromchars($adat["title"])); ?></h1>
 </div>
 <div class="container">

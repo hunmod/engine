@@ -2,7 +2,6 @@
     <div class="row  text-center">
     <h1><?php echo "". ($Text_Class->htmlfromchars($aprodata["cim"]));?></h1>
 </div>
-</div>
 
 <slider>
         	<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
@@ -29,7 +28,6 @@
               </div>
             </div>
 </slider>
-<div class="container">
 
 <div class="col-sm-12 col-xs-12">
 
