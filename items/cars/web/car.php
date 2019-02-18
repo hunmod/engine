@@ -1,9 +1,9 @@
 <news class="container" style="display: block">
     <div class="col-sm-12 col-xs-12 <?= $aprodata["mid"] ?>">
 
-        <div class="row  text-center">
+        <!--div class="row  text-center">
             <h1><?php echo "" . ($Text_Class->htmlfromchars($aprodata["cim"])); ?></h1>
-        </div>
+        </div-->
 
 
         <slider>
