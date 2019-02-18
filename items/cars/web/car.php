@@ -3,7 +3,8 @@
 
     <div class="row  text-center">
     <h1><?php echo "". ($Text_Class->htmlfromchars($aprodata["cim"]));?></h1>
-</div>
+    </div>
+        <div class="container >
 
 
 <slider>
@@ -32,6 +33,7 @@
             </div>
 </slider>
 
+</div>
 
         <news itemscope="" itemtype="http://schema.org/WebPage">
             <h1 itemprop="name"><?php echo "". ($Text_Class->htmlfromchars($aprodata["cim"]));?></h1>
