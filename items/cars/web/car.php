@@ -1,5 +1,5 @@
-<news class="container <?= $aprodata["mid"] ?>">
-    <div class="col-sm-12 col-xs-12">
+<news class="container" style="display: block">
+    <div class="col-sm-12 col-xs-12 <?= $aprodata["mid"] ?>">
 
         <div class="row  text-center">
             <h1><?php echo "" . ($Text_Class->htmlfromchars($aprodata["cim"])); ?></h1>
@@ -103,7 +103,6 @@ include('items/files/web/list.php');
 ?>
 
     </news>
-ffffffffffffffffffffffffff
 <script>
     function carusel_top() {
         if ($('body').width() > 742) {
