@@ -103,7 +103,7 @@ include('items/files/web/list.php');
 ?>
 
     </news>
-
+ffffffffffffffffffffffffff
 <script>
     function carusel_top() {
         if ($('body').width() > 742) {
