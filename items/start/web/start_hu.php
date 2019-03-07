@@ -2,7 +2,8 @@
 <div class="container"> 
 <section>
 <newsbig>
-<?php 
+<?php
+echo  $Text_Class->htmlfromchars( page_settings('footerblock2_hu'));
 //arraylist($hirekelemek);
 //if (count($hirekelemek1)>0)
 $mc=0;/*
@@ -47,6 +48,10 @@ foreach($catlist['datas'] as $elem){
 }
 ?>
 <div class="clear"></div>
+    <?php
+    echo  $Text_Class->htmlfromchars( page_settings('footerblock3_hu'));?>
+
+
 <?php 
 if (isset($hirekelemek2))foreach($hirekelemek2 as $elem){
 		//include('items/hirek/web/hir_display_block_paralax_one.php');
