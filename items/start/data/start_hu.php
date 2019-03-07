@@ -12,9 +12,9 @@ $extrascript[]= '
 
 $cfilters["status"]=2;
 
-$category_class->get($cfilters,' sorrend ASC',$_GET["page"]) ;
+$qhir=$category_class->get($cfilters,' sorrend ASC',$_GET["page"]) ;
 $hszlistacount=$qhir['count'];
-$catlist=$qhir['datas'];
+$catlist=$qhir;
 
 
 //$page_ogimage=$homeurl.'/'.$stylefolder.'img/fblink.jpg';
