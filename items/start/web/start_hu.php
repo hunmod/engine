@@ -18,7 +18,8 @@ if ($mc>2 && $mc<=5)include('items/hirek/web/hir_display_block2.php');
 ?>
 </newsbig>  
 
-<?php 
+<?php
+arraylist($catlist);
 foreach($catlist as $elem){
 
 
