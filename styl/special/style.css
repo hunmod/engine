@@ -611,11 +611,12 @@ slider {
 
 
 
-.kategoria.redony. {
+.kategoria.redony.name {
+    color: #fbfbfb;
+    text-shadow: #0a0a0a 5px 5px 5px;
 }
 .kategoria.redony{
-}
-    position: absolute;
+   position: absolute;
     top: 0;
     left: 0;
     width: 100%;

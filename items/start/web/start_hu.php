@@ -30,14 +30,14 @@ foreach($catlist['datas'] as $elem){
         <div class="img-100 col-xs-12">
             <a href="<?= $homeurl ?>/autok?kat=<?= $elem['id']?>" ><img src="<?=$elem['img']?>"></a>
         </div>
-        <div item-prop="name" class="img-100 col-xs-12">
+        <div item-prop="name" class="col-xs-12">
             <?= $elem['textd']['datas'][0]['nev']?>
         </div>
-        <div item-prop="desctription" class="img-100 col-xs-12">
+        <div item-prop="desctription" class="col-xs-12">
             <?= $elem['textd']['datas'][0]['leiras']?>
         </div>
         <div class="redony">
-            <div item-prop="name" class="kat" class="img-100 col-xs-12">
+            <div item-prop="name" class="kat" class=" col-xs-12">
                 <?= $elem['textd']['datas'][0]['nev']?>
             </div>
         </div>
