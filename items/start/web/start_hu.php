@@ -28,7 +28,7 @@ foreach($catlist['datas'] as $elem){
     ?>
     <div class="col-sm-4">
         <div class="img-100">
-            <img src="<?=$elem['img']?>">
+            <a href="<?= $homeurl ?>?kat="<?=$elem['id']?> ><img src="<?=$elem['img']?>"></a>
         </div>
         <div item-prop="name">
             <?= $elem['textd']['datas'][0]['nev']?>
