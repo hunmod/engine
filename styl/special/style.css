@@ -611,7 +611,12 @@ slider {
 
 
 
-.kategoria .redony .name {
+.kategoria .redony .kat {
+    display: block;
+    margin: 20px;
+    padding: 40px 20px;
+    background: #ff2222;
+    border: dotted #fbf069 10px;
     color: #fbfbfb;
     text-shadow: #0a0a0a 5px 5px 5px;
 }
