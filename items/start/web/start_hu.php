@@ -26,8 +26,8 @@ foreach($catlist['datas'] as $elem){
     $elem['textd']=$category_class->get_text($_SESSION['lang'],$filtert,'','all') ;
 
     ?>
-    <div class="col-sm-4 <?= $elem['id']?>">
-        <div class="img-100">
+    <div class="col-sm-4">
+        <div class="img-100 col-xs-12">
             <a href="<?= $homeurl ?>/autok?kat=<?= $elem['id']?>" ><img src="<?=$elem['img']?>"></a>
         </div>
         <div item-prop="name">
