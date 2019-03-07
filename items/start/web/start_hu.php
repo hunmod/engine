@@ -19,10 +19,10 @@ if ($mc>2 && $mc<=5)include('items/hirek/web/hir_display_block2.php');
 </newsbig>  
 
 <?php
-arraylist($catlist);
-foreach($catlist as $elem){
-    $elem['img']=$category_class->getimg($elem['id'],$x=369,$y=247);
-    $filtert['id']=$elem['id'];
+//arraylist($catlist);
+foreach($catlist['datas'] as $elem){
+    $elem['img']=$category_class->getimg($elem['kat'],$x=369,$y=247);
+    $filtert['id']=$elem['kat'];
     $elem['textd']=$category_class->get_text($_SESSION['lang'],$filtert,'','all') ;
 
     ?>
@@ -31,9 +31,12 @@ foreach($catlist as $elem){
             <img src="<?=$elem['img']?>">
         </div>
         <div item-prop="name">
-            <?= $elem['textd']['datas'][0]?>
+            <?= $elem['textd']['datas'][0]['nev']?>
         </div>
-    <?php arraylist($elem);?>
+        <div item-prop="desctription">
+            <?= $elem['textd']['datas'][0]['leiras']?>
+        </div>
+    <?php //arraylist($elem);?>
     </div>
     <?php
 
