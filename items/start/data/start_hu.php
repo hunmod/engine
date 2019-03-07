@@ -11,6 +11,7 @@
 */
 
 $cfilters["status"]=2;
+$cfilters["kat"]='cars';
 $qhir=$category_class->get($cfilters,'',$_GET["page"]) ;
 $catlist=$qhir;
 

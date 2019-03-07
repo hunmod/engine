@@ -21,10 +21,18 @@ if ($mc>2 && $mc<=5)include('items/hirek/web/hir_display_block2.php');
 <?php
 arraylist($catlist);
 foreach($catlist as $elem){
-
+    $elem['img']=$category_class->getimg($elem['id'],$x=369,$y=247);
+    $filtert['id']=$elem['id'];
+    $elem['textd']=$category_class->get_text($_SESSION['lang'],$filtert,'','all') ;
 
     ?>
     <div class="col-sm-4">
+        <div class="img-100">
+            <img src="<?=$elem['img']?>">
+        </div>
+        <div item-prop="name">
+            <?= $elem['textd']['datas'][0]?>
+        </div>
     <?php arraylist($elem);?>
     </div>
     <?php
