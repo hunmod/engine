@@ -4,7 +4,7 @@
 <newsbig>
 <?php 
 //arraylist($hirekelemek);
-if (count($hirekelemek1)>0)
+//if (count($hirekelemek1)>0)
 $mc=0;/*
 foreach($hirekelemek1 as $elem){
 $mc++;
@@ -29,7 +29,7 @@ foreach($catlist as $elem){
     </div>
     <?php
 
-		/include('items/hirek/web/hir_display_block_paralax.php');
+		//include('items/hirek/web/hir_display_block_paralax.php');
 }
 ?>
 <div class="clear"></div>
