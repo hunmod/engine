@@ -21,7 +21,7 @@ if ($mc>2 && $mc<=5)include('items/hirek/web/hir_display_block2.php');
 <?php
 //arraylist($catlist);
 foreach($catlist['datas'] as $elem){
-    $elem['img']=$category_class->getimg($elem['id'],$x=369,$y=247);
+    $elem['img']=$category_class->getimg($elem['id'],$x=500,$y=500);
     $filtert['id']=$elem['id'];
     $elem['textd']=$category_class->get_text($_SESSION['lang'],$filtert,'','all') ;
 
