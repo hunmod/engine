@@ -29,7 +29,7 @@ foreach($catlist['datas'] as $elem){
     ?>
     <div class="col-xs-12 col-sm-4 kategoria">
         <div class="img-100 col-xs-12">
-            <a href="<?= $homeurl ?>/autok?kat=<?= $elem['id']?>" ><img src="<?=$elem['img']?>"></a>
+            <a href="<?= $homeurl ?>/autok?kat=<?= $elem['id']?>" ><img class="img-100" src="<?=$elem['img']?>"></a>
         </div>
         <div item-prop="desctription" class="col-xs-12">
             <?= $elem['textd']['datas'][0]['leiras']?>
