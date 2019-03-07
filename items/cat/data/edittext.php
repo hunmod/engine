@@ -12,8 +12,8 @@ if(function_exists ( 'hotelcss_data')){
 if ($auser["jog"] < 3) {
     header("Location:" . $homeurl);
 }
-$imgx = 200;
-$imgy = 320;
+$imgx = 1280;
+$imgy = 1024;
 $admintemplate = 1;
 $extrascript[] = '
 	<script src="' . $server_url . '/scripts/ckeditor/ckeditor.js" type="text/javascript"></script>
