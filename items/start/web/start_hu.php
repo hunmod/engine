@@ -26,18 +26,20 @@ foreach($catlist['datas'] as $elem){
     $elem['textd']=$category_class->get_text($_SESSION['lang'],$filtert,'','all') ;
 
     ?>
-    <div class="col-sm-4">
+    <div class="col-sm-4 kategoria">
         <div class="img-100 col-xs-12">
             <a href="<?= $homeurl ?>/autok?kat=<?= $elem['id']?>" ><img src="<?=$elem['img']?>"></a>
         </div>
-        <div item-prop="name">
+        <div item-prop="name" class="img-100 col-xs-12">
             <?= $elem['textd']['datas'][0]['nev']?>
         </div>
-        <div item-prop="desctription">
+        <div item-prop="desctription" class="img-100 col-xs-12">
             <?= $elem['textd']['datas'][0]['leiras']?>
         </div>
         <div class="redony">
-
+            <div item-prop="name" class="kat" class="img-100 col-xs-12">
+                <?= $elem['textd']['datas'][0]['nev']?>
+            </div>
         </div>
     <?php //arraylist($elem);?>
     </div>
