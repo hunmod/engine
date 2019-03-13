@@ -78,8 +78,6 @@
             <?php } ?>
 
         </description>
-        <a itemprop="url" class="button enterButton moreButton"
-           href="<?php echo $homeurl . $separator . "cars/order/" . encode($aprodata["id"]);; ?>"><?php echo lan("Megrendel"); ?></a>
 
 
         <?php if ($auser["jog"] > 2) { ?>
@@ -91,6 +89,10 @@
     </news>
     <div>
         <?= page_settings("footerblock1_hu") ?>
+
+        <a itemprop="url" class="button btn-success"
+           href="<?php echo $homeurl . $separator . "cars/order/" . encode($aprodata["id"]);; ?>"><?php echo lan("Megrendel"); ?></a>
+
     </div>
 <?php
 include('items/files/web/list.php');

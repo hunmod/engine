@@ -55,7 +55,7 @@ $qhir=$car_class->get($filters,' cim asc ',$_GET["page"]) ;
 $hirekelemek=($qhir['datas']);
 $hszlistacount=$qhir['count'];
 
-arraylist($qhir);
+//arraylist($qhir);
 
 //arraylist($qhir);
 
