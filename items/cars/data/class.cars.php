@@ -268,7 +268,7 @@ if ($filters[$fmezonev]!=''){
 		$where.='('.$SD["table"].".`".$fmezonev."`='".$filters[$fmezonev]."') ";
 }
 
-$fmezonev='kat';
+$fmezonev='mid';
 if ($filters[$fmezonev]!='' && $filters[$fmezonev]!='all'){
 		$where.=$Sys_Class->andsupport($where);
 		$where.=''.$SD["table"].".`".$fmezonev."` LIKE ('".$filters[$fmezonev]."') ";
