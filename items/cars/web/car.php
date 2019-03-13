@@ -78,12 +78,16 @@
             <?php } ?>
 
         </description>
+        <a itemprop="url" class="button enterButton moreButton"
+           href="<?php echo $homeurl . $separator . "cars/order/" . encode($aprodata["id"]);; ?>"><?php echo lan("Megrendel"); ?></a>
 
 
         <?php if ($auser["jog"] > 2) { ?>
             <a itemprop="url" class="button enterButton moreButton"
                href="<?php echo $homeurl . $separator . "cars/edittext/" . encode($aprodata["id"]);; ?>"><?php echo $lan["edit"]; ?></a>
         <?php } ?>
+
+
     </news>
     <div>
         <?= page_settings("footerblock1_hu") ?>

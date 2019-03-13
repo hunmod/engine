@@ -1,4 +1,10 @@
-
+<?php
+$filterc['id']=decode($getparams[2]);
+if ($filterc['id']>0) {
+    $car_datas = $car_class->get($filterc, '', 'all');
+    $car_data=$car_datas['data'][0];
+}
+?>
 <div class="container">
     <section>
 <?= $Text_Class->htmlfromchars( page_settings('footerblock4_hu'));?>
@@ -19,7 +25,9 @@
                 <?php $form->textbox("cim", $Text_Class->htmlfromchars($adat["cim"]),lan('cim')) ?>
             </div>
             <div class="col-sm-12">
-                <?php $form->textbox("carid", $Text_Class->htmlfromchars($adat["carid"])) ?>
+                <?php $form->textbox("carid", $Text_Class->htmlfromchars($adat["carid"]))
+                arraylist($car_data);
+                ?>
             </div>
             <div class="col-sm-12">
                 <?php $form->datebox('ido',$adat["ido"],lan('idopont')) ?>
