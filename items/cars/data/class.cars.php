@@ -286,13 +286,13 @@ if ($filters[$fmezonev]>0){
 		$where.=$SD["table"].".`".$fmezonev."`='".$filters[$fmezonev]."'";
 }
 
-
+/*
 $fmezonev='ido';
 if ($filters[$fmezonev]>0){
 		$where.=$Sys_Class->andsupport($where);
 		$where.=$SD["table"].".`".$fmezonev."`<='".$filters[$fmezonev]."'";
 }
-
+*/
 $fmezonev='status';
 if ($filters[$fmezonev]>0){
 		$where.=$Sys_Class->andsupport($where);

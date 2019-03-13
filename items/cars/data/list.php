@@ -50,7 +50,6 @@ if ($_GET["kat"]){
 	$filters['kat']=$_GET["kat"];
 }
 
-if (!$adminv)$filters['ido']=$date;	
 
 $qhir=$car_class->get($filters,' cim asc ',$_GET["page"]) ;
 $hirekelemek=($qhir['datas']);

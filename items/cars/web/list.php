@@ -107,7 +107,7 @@ $che--;
 }}
 //include('hir_display_short_first.php');
 
-?>zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
+?>
     <div class="clearfix"></div>
     <div class="clear"></div>
 <?php if ($oldalakszama>1){
