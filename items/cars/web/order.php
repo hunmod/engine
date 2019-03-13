@@ -2,7 +2,7 @@
 $filterc['id']=decode($getparams[2]);
 if ($filterc['id']>0) {
     $car_datas = $car_class->get($filterc, '', 'all');
-    $car_data=$car_datas['data'][0];
+    $car_data=$car_datas['datas'][0];
 }
 ?>
 <div class="container">
@@ -42,7 +42,7 @@ if ($filterc['id']>0) {
                         <?php $Form_Class->textbox("perc_".$c, $Text_Class->htmlfromchars($adat["perc_".$c])); ?>
                     </div>
                     <div class="col-sm-6" >
-                        <?php $Form_Class->textbox("cim_".$c, $Text_Class->htmlfromchars($adat["cim_".$c])); ?>
+                        <?php $Form_Class->textbox("cim_".$c, $Text_Class->htmlfromchars($adat["cim_".$c]),lan('cim')); ?>
                     </div>
 
                 </div>
