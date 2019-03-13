@@ -46,6 +46,9 @@ if ($_GET["name"]){
 if ($_GET["s"]){
 	$filters['s']=$_GET["s"];	
 }
+if ($_GET["kat"]){
+	$filters['kat']=$_GET["kat"];
+}
 
 if (!$adminv)$filters['ido']=$date;	
 

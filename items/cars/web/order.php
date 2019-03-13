@@ -25,8 +25,9 @@ if ($filterc['id']>0) {
                 <?php $Form_Class->textbox("cim", $Text_Class->htmlfromchars($adat["cim"]),lan('cim')) ?>
             </div>
             <div class="col-sm-12">
-                <?php $Form_Class->textbox("carid", $Text_Class->htmlfromchars($adat["carid"]));
-                arraylist($car_data);
+                <?php $Form_Class->textbox("carid", $Text_Class->htmlfromchars($car_data["id"]));
+               echo $car_data['cim'];
+                //arraylist($car_data);
                 ?>
             </div>
             <div class="col-sm-12">
