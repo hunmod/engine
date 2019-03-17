@@ -93,7 +93,7 @@
 
     <div class="col-sm-12">
 
-        <a itemprop="url" class="button btn-success"
+        <a itemprop="url" class="urlbutton"
            href="<?php echo $homeurl . $separator . "cars/order/" . encode($aprodata["id"]);; ?>"><?php echo lan("Megrendel"); ?></a>
 
     </div>
