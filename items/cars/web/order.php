@@ -31,7 +31,7 @@ if ($filterc['id']>0) {
                 ?>
             </div>
             <div class="col-sm-12">
-               <span><?= lan('idopont')?></span> <?php $Form_Class->datebox('ido',$adat["ido"]) ?>
+                <?php $Form_Class->datebox('ido',$adat["ido"],lan('idopont')) ?>
             </div>
             <div class="col-sm-12">
             <?php for ($c = 1; $c <= 10; $c++) { ?>
