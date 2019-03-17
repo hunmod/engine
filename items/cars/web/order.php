@@ -9,8 +9,9 @@ if ($filterc['id']>0) {
 
 if ($_POST){
     $adat=$_POST;
-    $emltxt='<h2>'.lan('kedves').' '.$adat['nev'].'!</h2>';
-    $emltxt.='<div>'.lan('megrendelesadatai').'!</div>';
+    $emltxt='<h2>'.lan("megrendeles").'</h2>';
+    $emltxt.='<div>'.lan('Alulírott megrendelem az alábbiakban leírt járművet').'</div>';
+    $emltxt.='<div>'.lan('megrendeloadatai').'</div>';
     $emltxt.='<b>'.lan('nev').': </b>'.$adat['nev'].'<br>';
     $emltxt.='<b>'.lan('email').': </b>'.$adat['email'].'<br>';
     $emltxt.='<b>'.lan('tel').': </b>'.$adat['tel'].'<br>';
@@ -23,7 +24,7 @@ if ($_POST){
 
     }
     $emltxt.='<b>'.lan('ido').': </b>'.$adat['ido'].'<br>';
-    $emltxt.='<table border="1">';
+    $emltxt.='<table border="1" style="width: 100%">';
     $emltxt.='<tr>';
     $emltxt.='<td>'.lan('ido').'</td>';
     $emltxt.='<td>'.lan('helyszin').'</td>';
@@ -37,10 +38,38 @@ if ($_POST){
         }
 
     }
+    $emltxt.='</table>';
+    $emltxt.='<div style="width: 50%;float: left">';
 
-    $emltxt.='<b>'.lan('idotartalm').': </b>'.$adat['idotartalm'].'<br>';
+    $emltxt.='<table border="1" style="width: 100%">';
+    $emltxt.='<tr>';
+    $emltxt.='<td>'.lan('idotartalm').'</td>';
+    $emltxt.='<td>'.$adat['idotartalm'].'</td>';
+    $emltxt.='</tr>';
+    $emltxt.='<tr>';
+    $emltxt.='<td>'.lan('óradíj').'</td>';
+    $emltxt.='<td>'.$adat['óradíj'].'</td>';
+    $emltxt.='</tr>';
+    $emltxt.='<tr>';
+    $emltxt.='<td>'.lan('kilométerdíj').'</td>';
+    $emltxt.='<td>'.$adat['kilométerdíj'].'</td>';
+    $emltxt.='</tr>';
+    $emltxt.='<tr>';
+    $emltxt.='<td>'.lan('bérleti díj').'</td>';
+    $emltxt.='<td>'.$adat['bérleti díj'].'</td>';
+    $emltxt.='</tr>';
+    $emltxt.='<tr>';
+    $emltxt.='<td>'.lan('foglaló').'</td>';
+    $emltxt.='<td>'.$adat['foglaló'].'</td>';
+    $emltxt.='</tr>';
 
     $emltxt.='</table>';
+    $emltxt.='</div>';
+    $emltxt.='<div style="width: 50%;float: left">';
+    $emltxt.=lan('A fennmaradó összeg').':_____________</br>';
+    $emltxt.=lan('Kifizetésének módja').':_____________</br>';
+
+    $emltxt.='</div>';
 
     echo $emltxt;
 }
