@@ -24,16 +24,15 @@ if ($_POST){
     }
     $emltxt.='<b>'.lan('ido').': </b>'.$adat['ido'].'<br>';
     $emltxt.='<table border="1">';
-    $emltxt.='<td>';
-    $emltxt.='<tr>'.lan('ido').'</tr>';
-    $emltxt.='<tr>'.lan('helyszin').'</tr>';
-    $emltxt.='</td>';
-    $emltxt.='<b>'.lan('utvonal').': </b>'.'<br>';
+    $emltxt.='<tr>';
+    $emltxt.='<td>'.lan('ido').'</td>';
+    $emltxt.='<td>'.lan('helyszin').'</td>';
+    $emltxt.='</tr>';
     for ($c = 1; $c <= 10; $c++) {
         if ($adat["cim_".$c]!='') {
-            $emltxt.='<td>';
-            $emltxt.= '<tr>'.$adat["ora_" . $c] . ':' . $adat["perc_" . $c] . '</tr><tr>' . $Text_Class->htmlfromchars($adat["cim_" . $c]) . '</tr>';
-            $emltxt.='</td>';
+            $emltxt.='<tr>';
+            $emltxt.= '<td>'.$adat["ora_" . $c] . ':' . $adat["perc_" . $c] . '</td><td>' . $Text_Class->htmlfromchars($adat["cim_" . $c]) . '</td>';
+            $emltxt.='</tr>';
 
         }
 
