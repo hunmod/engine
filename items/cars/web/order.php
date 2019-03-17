@@ -18,9 +18,9 @@ if ($_POST){
         $emltxt.='<b>'.lan('car').': </b>'.$car_datae['cim'].'<br>';
     }
 
-    $emltxt='<h2>'.lan("megrendeles").'</h2>';
-    $emltxt='<div style="width: 50%;float: left"> <img src=/" '.$car_datae['img'].'"></div>';
-    $emltxt='<div style="width: 50%;float: left">';
+    $emltxt.='<h2>'.lan("megrendeles").'</h2>';
+    $emltxt.='<div style="width: 50%;float: left"> <img src=" '.$car_datae['img'].'"></div>';
+    $emltxt.='<div style="width: 50%;float: left">';
     $emltxt.='<div>'.lan('Alulírott megrendelem az alábbiakban leírt járművet').'</div>';
     $emltxt.='<div>'.lan('megrendeloadatai').'</div>';
     $emltxt.='<b>'.lan('nev').': </b>'.$adat['nev'].'<br>';
