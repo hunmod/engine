@@ -37,6 +37,9 @@ if ($_POST){
         }
 
     }
+
+    $emltxt.='<b>'.lan('idotartalm').': </b>'.$adat['idotartalm'].'<br>';
+
     $emltxt.='</table>';
 
     echo $emltxt;
@@ -94,6 +97,13 @@ if ($_POST){
 
                 <?php } ?>
             </div>
+            <div class="col-sm-12">
+                <?php $Form_Class->textbox("idotartalm", $Text_Class->htmlfromchars($adat["idotartalm"]),lan('idotartalm')) ?>
+            </div>
+
+
+
+
             <input type="submit" class="btn-success" >save</input>
         </form>
     </section>
