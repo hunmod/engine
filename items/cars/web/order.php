@@ -23,13 +23,22 @@ if ($_POST){
 
     }
     $emltxt.='<b>'.lan('ido').': </b>'.$adat['ido'].'<br>';
+    $emltxt.='<table border="1">';
+    $emltxt.='<td>';
+    $emltxt.='<tr>'.lan('ido').'</tr>';
+    $emltxt.='<tr>'.lan('helyszin').'</tr>';
+    $emltxt.='</td>';
     $emltxt.='<b>'.lan('utvonal').': </b>'.'<br>';
     for ($c = 1; $c <= 10; $c++) {
         if ($adat["cim_".$c]!='') {
-            $emltxt .= $adat["ora_" . $c] . ':' . $adat["perc_" . $c] . ' ' . $Text_Class->htmlfromchars($adat["cim_" . $c]) . '<br>';
+            $emltxt.='<td>';
+            $emltxt.= '<tr>'.$adat["ora_" . $c] . ':' . $adat["perc_" . $c] . '</tr><tr>' . $Text_Class->htmlfromchars($adat["cim_" . $c]) . '</tr>';
+            $emltxt.='</td>';
+
         }
 
     }
+    $emltxt.='</table>';
 
     echo $emltxt;
 }
