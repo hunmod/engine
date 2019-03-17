@@ -31,7 +31,7 @@ if ($filterc['id']>0) {
                 ?>
             </div>
             <div class="col-sm-12">
-                <?php $Form_Class->datebox('ido',$adat["ido"],lan('idopont')) ?>
+               <span><?= lan('idopont')?></span> <?php $Form_Class->datebox('ido',$adat["ido"]) ?>
             </div>
             <div class="col-sm-12">
             <?php for ($c = 1; $c <= 10; $c++) { ?>
@@ -43,7 +43,7 @@ if ($filterc['id']>0) {
                         <?php $Form_Class->textbox("perc_".$c, $Text_Class->htmlfromchars($adat["perc_".$c])); ?>
                     </div>
                     <div class="col-sm-10" >
-                        <?php $Form_Class->textbox("cim_".$c, $Text_Class->htmlfromchars($adat["cim_".$c]),lan('cim')); ?>
+                        <?php $Form_Class->textbox("cim_".$c, $Text_Class->htmlfromchars($adat["cim_".$c])); ?>
                     </div>
 
                 </div>
