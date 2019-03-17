@@ -1,3 +1,4 @@
+<img src="">
 <?php
 $filterc['id']=decode($getparams[2]);
 if ($filterc['id']>0) {
@@ -18,7 +19,7 @@ if ($_POST){
     }
 
     $emltxt='<h2>'.lan("megrendeles").'</h2>';
-    $emltxt='<div style="width: 50%;float: left"> <img src=" '.$car_datae['img'].'"></div>';
+    $emltxt='<div style="width: 50%;float: left"> <img src=/" '.$car_datae['img'].'"></div>';
     $emltxt='<div style="width: 50%;float: left">';
     $emltxt.='<div>'.lan('Alulírott megrendelem az alábbiakban leírt járművet').'</div>';
     $emltxt.='<div>'.lan('megrendeloadatai').'</div>';
