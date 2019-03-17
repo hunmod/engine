@@ -22,11 +22,8 @@ if ($_POST){
     if ($adat['carid']>0) {
         $filterce['id']=$adat['carid'];
         $car_datase = $car_class->get($filterce, '', 'all');
-        $car_datae=$car_datase['datas'][0];
-        =$car_class->getimg($filterce['id'],640,480) ;;
-
+        $car_datase['img'] =$car_class->getimg($filterce['id'],640,480) ;
         $emltxt.='<b>'.lan('car').': </b>'.$car_datae['cim'].'<br>';
-
     }
     $emltxt.='<b>'.lan('ido').': </b>'.$adat['ido'].'<br>';
 
