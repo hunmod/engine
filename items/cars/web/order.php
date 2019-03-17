@@ -50,7 +50,7 @@ if ($filterc['id']>0) {
 
                 <?php } ?>
             </div>
-            <submit class="Button" >save</submit>
+            <input type="submit" class="btn-success" >save</input>
         </form>
     </section>
     <div class="clear"></div>
