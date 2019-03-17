@@ -4,7 +4,8 @@ $filterc['id']=decode($getparams[2]);
 if ($filterc['id']>0) {
     $car_datas = $car_class->get($filterc, '', 'all');
     $car_data=$car_datas['datas'][0];
-    $car_data['img']=$car_class->getimg($filterc['id'],320,240) ;;
+    $car_data['img']=$car_class->getimg($filterc['id'],320,240) ;
+    var_dump( $car_data['img']);
 }
 
 
@@ -14,7 +15,8 @@ if ($_POST){
     if ($adat['carid']>0) {
         $filterce['id']=$adat['carid'];
         $car_datase = $car_class->get($filterce, '', 'all');
-        $car_datase['img'] =$car_class->getimg($filterce['id'],640,480) ;
+        $car_datae=$car_datase['datas'][0];
+        $car_datae['img'] =$car_class->getimg($filterce['id'],640,480) ;
         $emltxt.='<b>'.lan('car').': </b>'.$car_datae['cim'].'<br>';
     }
 
@@ -78,6 +80,8 @@ if ($_POST){
     $emltxt.='</div>';
 
     echo $emltxt;
+    var_dump( $car_datase['img']);
+
 }
 
 
