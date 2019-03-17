@@ -4,6 +4,42 @@ if ($filterc['id']>0) {
     $car_datas = $car_class->get($filterc, '', 'all');
     $car_data=$car_datas['datas'][0];
 }
+
+
+
+if ($_POST){
+    $adat=$_POST;
+    $emltxt='<h2>'.lan('kedves').' '.$adat['nev'].'!</h2>';
+    $emltxt.='<div>'.lan('megrendelesadatai').'!</div>';
+    $emltxt.='<b>'.lan('nev').': </b>'.$adat['nev'].'<br>';
+    $emltxt.='<b>'.lan('email').': </b>'.$adat['email'].'<br>';
+    $emltxt.='<b>'.lan('tel').': </b>'.$adat['tel'].'<br>';
+    $emltxt.='<b>'.lan('cim').': </b>'.$adat['cim'].'<br>';
+    if ($adat['carid']>0) {
+        $filterce['id']=$adat['carid'];
+        $car_datase = $car_class->get($filterce, '', 'all');
+        $car_datae=$car_datase['datas'][0];
+        $emltxt.='<b>'.lan('car').': </b>'.$car_datae['cim'].'<br>';
+
+    }
+    $emltxt.='<b>'.lan('ido').': </b>'.$adat['ido'].'<br>';
+    $emltxt.='<b>'.lan('utvonal').': </b>'.'<br>';
+    for ($c = 1; $c <= 10; $c++) {
+        if ($adat["cim_".$c]!='') {
+            $emltxt .= $adat["ora_" . $c] . ':' . $adat["perc_" . $c] . ' ' . $Text_Class->htmlfromchars($adat["cim_" . $c]) . '<br>';
+        }
+
+    }
+
+    echo $emltxt;
+}
+
+
+
+
+
+
+
 ?>
 <div class="container">
     <section>
