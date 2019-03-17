@@ -122,7 +122,6 @@ if ($_POST){
             </div>
     <div class="col-sm-6">
 <?=lan('megrendelodatai')?>
-    </div>
             <div class="col-sm-12">
                 <?php $Form_Class->textbox("nev", $Text_Class->htmlfromchars($adat["nev"]),lan('nev')) ?>
             </div>
@@ -135,6 +134,8 @@ if ($_POST){
             <div class="col-sm-12">
                 <?php $Form_Class->textbox("cim", $Text_Class->htmlfromchars($adat["cim"]),lan('cim')) ?>
             </div>
+    </div>
+
             <div class="col-sm-12">
                 <?php $Form_Class->hiddenbox("carid", $Text_Class->htmlfromchars($car_data["id"]));
                 //arraylist($car_data);
