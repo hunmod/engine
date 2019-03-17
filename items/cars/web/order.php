@@ -3,6 +3,7 @@ $filterc['id']=decode($getparams[2]);
 if ($filterc['id']>0) {
     $car_datas = $car_class->get($filterc, '', 'all');
     $car_data=$car_datas['datas'][0];
+    $car_data['img']=$car_class->getimg($filterc['id'],320,240) ;;
 }
 
 
@@ -10,6 +11,8 @@ if ($filterc['id']>0) {
 if ($_POST){
     $adat=$_POST;
     $emltxt='<h2>'.lan("megrendeles").'</h2>';
+    $emltxt='<div style="width: 50%;float: left"> <img src=" '.$car_datae['img'].'"></div>';
+    $emltxt='<div style="width: 50%;float: left">';
     $emltxt.='<div>'.lan('Alulírott megrendelem az alábbiakban leírt járművet').'</div>';
     $emltxt.='<div>'.lan('megrendeloadatai').'</div>';
     $emltxt.='<b>'.lan('nev').': </b>'.$adat['nev'].'<br>';
@@ -20,10 +23,14 @@ if ($_POST){
         $filterce['id']=$adat['carid'];
         $car_datase = $car_class->get($filterce, '', 'all');
         $car_datae=$car_datase['datas'][0];
+        =$car_class->getimg($filterce['id'],640,480) ;;
+
         $emltxt.='<b>'.lan('car').': </b>'.$car_datae['cim'].'<br>';
 
     }
     $emltxt.='<b>'.lan('ido').': </b>'.$adat['ido'].'<br>';
+
+    $emltxt.='</div>';
     $emltxt.='<table border="1" style="width: 100%">';
     $emltxt.='<tr>';
     $emltxt.='<td>'.lan('ido').'</td>';
