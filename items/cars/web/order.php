@@ -10,6 +10,13 @@ if ($filterc['id']>0) {
 
 if ($_POST){
     $adat=$_POST;
+    if ($adat['carid']>0) {
+        $filterce['id']=$adat['carid'];
+        $car_datase = $car_class->get($filterce, '', 'all');
+        $car_datase['img'] =$car_class->getimg($filterce['id'],640,480) ;
+        $emltxt.='<b>'.lan('car').': </b>'.$car_datae['cim'].'<br>';
+    }
+
     $emltxt='<h2>'.lan("megrendeles").'</h2>';
     $emltxt='<div style="width: 50%;float: left"> <img src=" '.$car_datae['img'].'"></div>';
     $emltxt='<div style="width: 50%;float: left">';
@@ -19,12 +26,6 @@ if ($_POST){
     $emltxt.='<b>'.lan('email').': </b>'.$adat['email'].'<br>';
     $emltxt.='<b>'.lan('tel').': </b>'.$adat['tel'].'<br>';
     $emltxt.='<b>'.lan('cim').': </b>'.$adat['cim'].'<br>';
-    if ($adat['carid']>0) {
-        $filterce['id']=$adat['carid'];
-        $car_datase = $car_class->get($filterce, '', 'all');
-        $car_datase['img'] =$car_class->getimg($filterce['id'],640,480) ;
-        $emltxt.='<b>'.lan('car').': </b>'.$car_datae['cim'].'<br>';
-    }
     $emltxt.='<b>'.lan('ido').': </b>'.$adat['ido'].'<br>';
 
     $emltxt.='</div>';
