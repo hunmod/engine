@@ -100,22 +100,22 @@ if ($_POST){
         <form method="post">
             <div class="col-sm-6">
                 <?= $car_data['cim']?><br>
-                <img src="<?= $car_data["img"]?>">
-                <?php if ($aprodata["elso"] > 0) {
+                <img class="img-100" src="<?= $car_data["img"]?>">
+                <?php if ($car_data["elso"] > 0) {
                     ?>
-                    <div><b><?= lan("elosora") ?>:</b> <?= $aprodata["elso"] ?> <?= lan("ft") ?></div>
+                    <div><b><?= lan("elosora") ?>:</b> <?= $car_data["elso"] ?> <?= lan("ft") ?></div>
                 <?php } ?>
-                <?php if ($aprodata["ora"] > 0) {
+                <?php if ($car_data["ora"] > 0) {
                     ?>
-                    <div><?= $aprodata["ora"] ?> <?= lan("ft/h") ?></div>
+                    <div><?= $car_data["ora"] ?> <?= lan("ft/h") ?></div>
                 <?php } ?>
-                <?php if ($aprodata["videk"] > 0) {
+                <?php if ($car_data["videk"] > 0) {
                     ?>
-                    <div><?= $aprodata["videk"] ?> <?= lan("ft/km") ?></div>
+                    <div><?= $car_data["videk"] ?> <?= lan("ft/km") ?></div>
                 <?php } ?>
-                <?php if ($aprodata["kiallas"] > 0) {
+                <?php if ($car_data["kiallas"] > 0) {
                     ?>
-                    <div>+ <?= $aprodata["kiallas"] ?> <?= lan("ft") ?> <?= lan("kiállás") ?></div>
+                    <div>+ <?= $car_data["kiallas"] ?> <?= lan("ft") ?> <?= lan("kiállás") ?></div>
                 <?php } ?>
 
 
