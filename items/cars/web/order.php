@@ -15,7 +15,7 @@ if ($_POST){
         $filterce['id']=$adat['carid'];
         $car_datase = $car_class->get($filterce, '', 'all');
         $car_datae=$car_datase['datas'][0];
-        $car_datae['img'] =$car_class->getimg($filterce['id'],640,480) ;
+        $car_datae['img'] =$car_class->getimg($filterce['id'],320,240) ;
     }
 
     $emltxt.='<h2>'.lan("megrendeles").'</h2>';
@@ -98,7 +98,29 @@ if ($_POST){
     <section>
 <?= $Text_Class->htmlfromchars( page_settings('footerblock4_hu'));?>
         <form method="post">
-    <div class="col-sm-12">
+            <div class="col-sm-6">
+                <?= $car_data['cim']?><br>
+                <img src="<?= $car_data["img"]?>">
+                <?php if ($aprodata["elso"] > 0) {
+                    ?>
+                    <div><b><?= lan("elosora") ?>:</b> <?= $aprodata["elso"] ?> <?= lan("ft") ?></div>
+                <?php } ?>
+                <?php if ($aprodata["ora"] > 0) {
+                    ?>
+                    <div><?= $aprodata["ora"] ?> <?= lan("ft/h") ?></div>
+                <?php } ?>
+                <?php if ($aprodata["videk"] > 0) {
+                    ?>
+                    <div><?= $aprodata["videk"] ?> <?= lan("ft/km") ?></div>
+                <?php } ?>
+                <?php if ($aprodata["kiallas"] > 0) {
+                    ?>
+                    <div>+ <?= $aprodata["kiallas"] ?> <?= lan("ft") ?> <?= lan("kiállás") ?></div>
+                <?php } ?>
+
+
+            </div>
+    <div class="col-sm-6">
 <?=lan('megrendelodatai')?>
     </div>
             <div class="col-sm-12">
@@ -114,8 +136,7 @@ if ($_POST){
                 <?php $Form_Class->textbox("cim", $Text_Class->htmlfromchars($adat["cim"]),lan('cim')) ?>
             </div>
             <div class="col-sm-12">
-                <?php $Form_Class->textbox("carid", $Text_Class->htmlfromchars($car_data["id"]));
-               echo $car_data['cim'];
+                <?php $Form_Class->hiddenbox("carid", $Text_Class->htmlfromchars($car_data["id"]));
                 //arraylist($car_data);
                 ?>
             </div>
