@@ -20,7 +20,7 @@ if ($_POST){
 
     $emltxt.='<h2>'.lan("megrendeles").'</h2>';
     $emltxt.='<div style="width: 50%;float: left">';
-    $emltxt.='<b>'.$car_datae['cim'].'</b>';
+    $emltxt.='<b>'.$car_datae['cim'].'</b><br>';
     $emltxt.='<img src=" '.$car_datae['img'].'">';
     $emltxt.='</div>';
     $emltxt.='<div style="width: 50%;float: left">';
@@ -77,6 +77,8 @@ if ($_POST){
     $emltxt.='<div style="width: 50%;float: left">';
     $emltxt.=lan('A fennmaradó összeg').':_____________</br>';
     $emltxt.=lan('Kifizetésének módja').':_____________</br>';
+    $emltxt.='</div>';
+    $emltxt.='<div style="width: 100%;float: left">';
 
     $emltxt.='</div>';
 
@@ -141,10 +143,10 @@ if ($_POST){
                 <?php $Form_Class->textbox("idotartalm", $Text_Class->htmlfromchars($adat["idotartalm"]),lan('idotartalm')) ?>
             </div>
 
+            <div class="col-sm-12">
+                <input type="submit" class="btn-success" >save</input>
+            </div>
 
-
-
-            <input type="submit" class="btn-success" >save</input>
         </form>
     </section>
     <div class="clear"></div>

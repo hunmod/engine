@@ -87,8 +87,11 @@
 
 
     </news>
-    <div>
+    <div class="col-sm-12">
         <?= page_settings("footerblock1_hu") ?>
+    </div>
+
+    <div class="col-sm-12">
 
         <a itemprop="url" class="button btn-success"
            href="<?php echo $homeurl . $separator . "cars/order/" . encode($aprodata["id"]);; ?>"><?php echo lan("Megrendel"); ?></a>
