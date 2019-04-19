@@ -26,6 +26,7 @@ font-size:23px;
 <?php if (count($widgets)){?>
   <left class="col-md-3 col-sm-4" >
 <?php
+$gparam='';
 foreach ($_GET as $gnam=>$gval){
     if ($gnam!='page')
     $gparam.='&'.$gnam."=". $gval;
@@ -122,7 +123,7 @@ $che--;
                         <nav class="text-center col-sm-12">
                           <ul class="pagination">
                             <li>
-                                <a href="<?php echo $homeurl.$separator.$_GET["q"].$separator2."page=0"; ?>" aria-label="First">
+                                <a href="<?php echo $homeurl.$separator.$_GET["q"].$separator2."page=0".$gparam; ?>" aria-label="First">
                                     <span aria-hidden="true"><i class="fa fa-angle-double-left"></i></span>
                                 </a>
                             </li>
