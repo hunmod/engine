@@ -187,11 +187,7 @@ if ($_POST){
 
 <script language="JavaScript">
 
-        $('#ido').timepicker({
-            showLeadingZero: false,
-            onHourShow: tpStartOnHourShowCallback,
-            onMinuteShow: tpStartOnMinuteShowCallback
-        });
+        $('#ido').timepicker();
 
 
 </script>
