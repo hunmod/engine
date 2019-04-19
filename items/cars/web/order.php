@@ -189,7 +189,7 @@ if ($_POST){
 
         $('#ido').datepicker({
             format: 'yyyy-mm-dd',
-            startDate: '+10d'
+            startDate: '+10d',
             language: 'hu-HU',
             locale: 'hu'
         });
