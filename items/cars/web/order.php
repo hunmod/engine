@@ -159,7 +159,7 @@ if ($_POST){
                 <?php for ($c = 1; $c <= 10; $c++) { ?>
                 <div>
                     <div class="col-sm-1 dt1 ordertime" >
-                        <?php $Form_Class->textbox("ora_".$c, $Text_Class->htmlfromchars($adat["ora_".$c])); ?>:
+                        <?php $Form_Class->textbox("ora_".$c, $Text_Class->htmlfromchars($adat["ora_".$c])); ?>
                     </div>
                     <div class="col-sm-1 ordertime" >
                         <?php $Form_Class->textbox("perc_".$c, $Text_Class->htmlfromchars($adat["perc_".$c])); ?>
@@ -184,3 +184,13 @@ if ($_POST){
     </section>
     <div class="clear"></div>
 </div>
+<script>
+    $(document).ready(function() {
+        $('#ido').timepicker({
+            showLeadingZero: false,
+            onHourShow: tpStartOnHourShowCallback,
+            onMinuteShow: tpStartOnMinuteShowCallback
+        });
+    });
+
+</script>
