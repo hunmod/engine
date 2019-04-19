@@ -35,6 +35,14 @@
             nowButtonText: 'Now',           // Text for the now button
             deselectButtonText: 'Deselect'  // Text for the deselect button
         };
+        this.regional['hu'] = { // Default regional settings
+            hourText: 'Óra',           // Display text for hours section
+            minuteText: 'Perc',       // Display text for minutes link
+            amPmText: ['DE', 'DU'],     // Display text for AM PM
+            closeButtonText: 'Ok',        // Text for the confirmation button (ok button)
+            nowButtonText: 'ost',           // Text for the now button
+            deselectButtonText: 'Deselect'  // Text for the deselect button
+        };
         this._defaults = { // Global defaults for all the time picker instances
             showOn: 'focus',    // 'focus' for popup on focus,
                                 // 'button' for trigger button, or 'both' for either (not yet implemented)

@@ -672,3 +672,6 @@ slider {
     background-color: #5cb85c;
     border-radius: 5px;
 }
+.ui-timepicker-table td a {
+    width: auto;
+}

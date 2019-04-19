@@ -158,13 +158,13 @@ if ($_POST){
 
                 <?php for ($c = 1; $c <= 10; $c++) { ?>
                 <div>
-                    <div class="col-sm-1 dt1 ordertime" >
+                    <div class="col-xs-2 dt1 ordertime" >
                         <?php $Form_Class->textbox("ora_".$c, $Text_Class->htmlfromchars($adat["ora_".$c]),lan(ido)); ?>
                     </div>
-                    <div class="col-sm-1 ordertime" >
+                    <!--div class="col-sm-1 ordertime" >
                         <?php $Form_Class->textbox("perc_".$c, $Text_Class->htmlfromchars($adat["perc_".$c])); ?>
-                    </div>
-                    <div class="col-sm-10 ordertime" >
+                    </div-->
+                    <div class="col-xs-10 ordertime" >
                         <?php $Form_Class->textbox("cim_".$c, $Text_Class->htmlfromchars($adat["cim_".$c])); ?>
                     </div>
 
@@ -187,8 +187,14 @@ if ($_POST){
 
 <script language="JavaScript">
 
-        $('#ido').datepicker();
-        $('.dt1 .form-control').timepicker();
+        $('#ido').datepicker({
+            format: 'yyyy.mm.dd hh:ii',
+            language: 'hu'
+        });
+        $('.dt1 .form-control').timepicker({
+            // Options
+            regional: 'hu'
+        });
 
 
 </script>
