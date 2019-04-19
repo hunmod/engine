@@ -25,7 +25,6 @@ font-size:23px;
 
 <?php $gparam='';
 foreach ($_GET as $gnam=>$gval){
-    var_dump($gnam);
     if ($gnam!='page' && $gnam!='q' )
         $gparam.='&'.$gnam."=". $gval;
 

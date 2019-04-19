@@ -225,7 +225,7 @@ class user
 		$filters['email'] = $email;
 		$filters['pass'] = $pass;
 		$users = $this->get_users($filters, '', 'all');
-		arraylist($users);
+		//arraylist($users);
 		return $users["datas"][0];
 	}
 
