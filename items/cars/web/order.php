@@ -188,12 +188,17 @@ if ($_POST){
 <script language="JavaScript">
 
         $('#ido').datepicker({
-            format: 'yyyy.mm.dd hh:ii',
-            language: 'hu'
+            format: 'yyyy-mm-dd',
+            language: 'hu',
+            locale: 'hu'
         });
         $('.dt1 .form-control').timepicker({
             // Options
-            regional: 'hu'
+            regional: 'hu',
+            hourText: 'Óra',             // Define the locale text for "Hours"
+            minuteText: 'Perc',         // Define the locale text for "Minute"
+            amPmText: ['DE', 'DU'],       // Define the locale text for periods
+            showPeriod: false
         });
 
 
