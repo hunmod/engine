@@ -673,5 +673,5 @@ slider {
     border-radius: 5px;
 }
 .ui-timepicker-table td a {
-    width: auto;
+    width: auto!important;
 }
