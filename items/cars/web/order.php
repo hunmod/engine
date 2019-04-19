@@ -187,12 +187,17 @@ if ($_POST){
 
 <script language="JavaScript">
 
-        $('#ido').datepicker({
+    $.datepicker.setDefaults($.datepicker.regional['hu']);
+    $("#ido").datepicker();
+    $('#ido').datepicker('option', 'dateFormat', 'yy-mm-dd');
+
+
+  /*  $('#ido').datepicker({
             format: 'yyyy-mm-dd',
             startDate: '+10d',
             language: 'hu-HU',
             locale: 'hu'
-        });
+        });*/
         $('.dt1 .form-control').timepicker({
             // Options
             regional: 'hu',
