@@ -23,16 +23,16 @@ font-size:23px;
                 <div class="row">
 
 
-<?php if (count($widgets)){?>
-  <left class="col-md-3 col-sm-4" >
-<?php
-$gparam='';
+<?php $gparam='';
 foreach ($_GET as $gnam=>$gval){
     var_dump($gnam);
     if ($gnam!='page')
-    $gparam.='&'.$gnam."=". $gval;
+        $gparam.='&'.$gnam."=". $gval;
 
 }
+if (count($widgets)){?>
+  <left class="col-md-3 col-sm-4" >
+<?php
 
 foreach ($widgets as $widget)if (file_exists($widget))include($widget);?>
   </left>  
