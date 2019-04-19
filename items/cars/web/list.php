@@ -5,8 +5,8 @@ height: 420px;
 .mhbl2 h2{
 font-size:23px;
 }
-
 </style>
+
 
 <div class="container">
             <!--div id="breadCrumb">
@@ -25,7 +25,13 @@ font-size:23px;
 
 <?php if (count($widgets)){?>
   <left class="col-md-3 col-sm-4" >
-<?php 
+<?php
+foreach ($_GET as $gnam=>$gval){
+    if ($gnam!='page')
+    $gparam.='&'.$gnam."=". $gval;
+
+}
+
 foreach ($widgets as $widget)if (file_exists($widget))include($widget);?>
   </left>  
 
@@ -121,24 +127,24 @@ $che--;
                                 </a>
                             </li>
                             <li>
-                                <a href="<?php echo $homeurl.$separator.$_GET["q"].$separator2."page=".($oldal-1); ?>" aria-label="Previous">
+                                <a href="<?php echo $homeurl.$separator.$_GET["q"].$separator2."page=".($oldal-1).$gparam; ?>" aria-label="Previous">
                                     <span aria-hidden="true"><i class="fa fa-angle-left"></i></span>
                                 </a>
                             </li>
     <?php
 for ($c=0;$c<=$oldalakszama-1;$c++){
-	?><li><a href="<?php echo $homeurl.$separator.$_GET["q"].$separator2."page=".$c; ?>"><?php echo $c+1;?></a></li>
+	?><li><a href="<?php echo $homeurl.$separator.$_GET["q"].$separator2."page=".$c.$gparam; ?>"><?php echo $c+1;?></a></li>
 	<?php	}
 	?>
                             <!--li class="active"><a href="#">2</a></li-->
 
                             <li>
-                              <a href="<?php echo $homeurl.$separator.$_GET["q"].$separator2."page=".($oldal+1); ?>" aria-label="Next">
+                              <a href="<?php echo $homeurl.$separator.$_GET["q"].$separator2."page=".($oldal+1).$gparam; ?>" aria-label="Next">
                                 <span aria-hidden="true"><i class="fa fa-angle-right"></i></span>
                               </a>
                             </li>
                             <li>
-                                <a href="<?php echo $homeurl.$separator.$_GET["q"]."&page=".($oldalakszama-1); ?>" aria-label="Last">
+                                <a href="<?php echo $homeurl.$separator.$_GET["q"]."&page=".($oldalakszama-1).$gparam; ?>" aria-label="Last">
                                     <span aria-hidden="true"><i class="fa fa-angle-double-right"></i></span>
                                 </a>
                             </li>
