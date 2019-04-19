@@ -184,13 +184,14 @@ if ($_POST){
     </section>
     <div class="clear"></div>
 </div>
-<script>
-    $(document).ready(function() {
+
+<script language="JavaScript">
+
         $('#ido').timepicker({
             showLeadingZero: false,
             onHourShow: tpStartOnHourShowCallback,
             onMinuteShow: tpStartOnMinuteShowCallback
         });
-    });
+
 
 </script>
