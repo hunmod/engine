@@ -188,7 +188,7 @@ if ($_POST){
 <script language="JavaScript">
 
         $('#ido').datepicker();
-        $('.dt1.form-control').timepicker();
+        $('.dt1 .form-control').timepicker();
 
 
 </script>
