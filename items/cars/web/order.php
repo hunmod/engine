@@ -148,7 +148,7 @@ if ($_POST){
             <div class="col-sm-12">
                 <div>
                     <div class="col-sm-2 dt1 ordertime" >
-                        <?= lan('ido o/p') ?>
+                        <?= lan('ido') ?>
                     </div>
                     <div class="col-sm-10 ordertime" >
                         <?= lan('hely') ?>
@@ -159,13 +159,13 @@ if ($_POST){
                 <?php for ($c = 1; $c <= 10; $c++) { ?>
                 <div>
                     <div class="col-xs-2 dt1 ordertime" >
-                        <?php $Form_Class->textbox("ora_".$c, $Text_Class->htmlfromchars($adat["ora_".$c]),lan(ido)); ?>
+                        <?php $Form_Class->textbox("ora_".$c, $Text_Class->htmlfromchars($adat["ora_".$c]),lan('ido')); ?>
                     </div>
                     <!--div class="col-sm-1 ordertime" >
                         <?php $Form_Class->textbox("perc_".$c, $Text_Class->htmlfromchars($adat["perc_".$c])); ?>
                     </div-->
                     <div class="col-xs-10 ordertime" >
-                        <?php $Form_Class->textbox("cim_".$c, $Text_Class->htmlfromchars($adat["cim_".$c])); ?>
+                        <?php $Form_Class->textbox("cim_".$c, $Text_Class->htmlfromchars($adat["cim_".$c]),lan('hely')); ?>
                     </div>
 
                 </div>
@@ -177,7 +177,7 @@ if ($_POST){
             </div>
 
             <div class="col-sm-12">
-                <input type="submit" class="btn-success" >save</input>
+                <input type="submit" class="btn-success" >
             </div>
 
         </form>
@@ -189,7 +189,8 @@ if ($_POST){
 
         $('#ido').datepicker({
             format: 'yyyy-mm-dd',
-            language: 'hu',
+            startDate: '+10d'
+            language: 'hu-HU',
             locale: 'hu'
         });
         $('.dt1 .form-control').timepicker({
