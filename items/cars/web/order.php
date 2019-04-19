@@ -142,7 +142,7 @@ if ($_POST){
                 ?>
             </div>
             <div class="col-sm-12">
-                <?php $Form_Class->datebox('ido',$adat["ido"],lan('idopont')) ?>
+                <?php $Form_Class->datebox('ido',$adat["ido"],lan('idopont'),'control-label') ?>
             </div>
 
             <div class="col-sm-12">
