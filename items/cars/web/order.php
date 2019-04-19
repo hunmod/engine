@@ -87,7 +87,7 @@ if ($_POST){
     emailkuldes(page_settings("c_email"), $oldalneve, 'Megrendelés', $emltxt);
     emailkuldes($_POST["email"], $oldalneve, 'Megrendeleés', $emltxt);
 
-    header("Location:".$homeurl);
+    //header("Location:".$homeurl);
     //var_dump( $car_datase['img']);
 
 }
