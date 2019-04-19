@@ -145,15 +145,25 @@ if ($_POST){
                 <?php $Form_Class->datebox('ido',$adat["ido"],lan('idopont')) ?>
             </div>
             <div class="col-sm-12">
-            <?php for ($c = 1; $c <= 10; $c++) { ?>
                 <div>
-                    <div class="col-sm-1 dt1" >
-                        <?php $Form_Class->textbox("ora_".$c, $Text_Class->htmlfromchars($adat["ora_".$c])); ?>
+                    <div class="col-sm-2 dt1 ordertime" >
+                        <?= lan('ido o/p') ?>
                     </div>
-                    <div class="col-sm-1" >
+                    <div class="col-sm-10 ordertime" >
+                        <?lan('hely') ?>
+                    </div>
+
+                </div>
+
+                <?php for ($c = 1; $c <= 10; $c++) { ?>
+                <div>
+                    <div class="col-sm-1 dt1 ordertime" >
+                        <?php $Form_Class->textbox("ora_".$c, $Text_Class->htmlfromchars($adat["ora_".$c])); ?>
+                    </div>:
+                    <div class="col-sm-1 ordertime" >
                         <?php $Form_Class->textbox("perc_".$c, $Text_Class->htmlfromchars($adat["perc_".$c])); ?>
                     </div>
-                    <div class="col-sm-10" >
+                    <div class="col-sm-10 ordertime" >
                         <?php $Form_Class->textbox("cim_".$c, $Text_Class->htmlfromchars($adat["cim_".$c])); ?>
                     </div>
 
