@@ -205,7 +205,9 @@ if ($_POST){
             </div>
             <div> </div>
             <div class="col-sm-12">
-                <?php $Form_Class->kcebox("subj", $Text_Class->htmlfromchars($adat["subj"]),lan('Megjegyzés')) ?>
+                <?php
+                $param['minimal']=1;
+                $Form_Class->kcebox("subj", $Text_Class->htmlfromchars($adat["subj"]),lan('Megjegyzés'),$param) ?>
             </div>
 
 
