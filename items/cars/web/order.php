@@ -15,7 +15,7 @@ if ($_POST['nev']){
         $filterce['id']=$adat['carid'];
         $car_datase = $car_class->get($filterce, '', 'all');
         $car_datae=$car_datase['datas'][0];
-        $car_datae['img'] =$homeurl.$car_class->getimg($filterce['id'],320,240) ;
+        $car_datae['img'] =$car_class->getimg($filterce['id'],320,240) ;
     }
     $emltxt.='<h2>'.lan("megrendelés").'</h2>';
     $emltxt.='<div style="width: 50%;float: left">';
