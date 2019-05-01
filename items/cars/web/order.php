@@ -165,10 +165,10 @@ if ($_POST['nev']){
     <b> Indulás ideje, helye</b>
                 <div>
                     <div class="col-xs-2 dt1 ordertime" >
-                        <?php $Form_Class->textbox("ora_1", $Text_Class->htmlfromchars($adat["ora_1"]),lan('ido')); ?>
+                        <?php $Form_Class->textbox("ora_1", $Text_Class->htmlfromchars($adat["ora_1"]),lan('ido'),'',1); ?>
                     </div>
                     <div class="col-xs-10 ordertime" >
-                        <?php $Form_Class->textbox("cim_1", $Text_Class->htmlfromchars($adat["cim_1"]),lan('hely')); ?>
+                        <?php $Form_Class->textbox("cim_1", $Text_Class->htmlfromchars($adat["cim_1"]),lan('hely'),'',1); ?>
                     </div>
                 </div>
 
@@ -193,10 +193,10 @@ if ($_POST['nev']){
                 <b> Rendezvény vége</b>
                 <div>
                     <div class="col-xs-2 dt1 ordertime" >
-                        <?php $Form_Class->textbox("ora_7", $Text_Class->htmlfromchars($adat["ora_7"]),lan('ido')); ?>
+                        <?php $Form_Class->textbox("ora_7", $Text_Class->htmlfromchars($adat["ora_7"]),lan('ido'),'',1); ?>
                     </div>
                     <div class="col-xs-10 ordertime" >
-                        <?php $Form_Class->textbox("cim_7", $Text_Class->htmlfromchars($adat["cim_7"]),lan('hely')); ?>
+                        <?php $Form_Class->textbox("cim_7", $Text_Class->htmlfromchars($adat["cim_7"]),lan('hely'),'',1); ?>
                     </div>
                 </div>
             </div>
