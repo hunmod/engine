@@ -46,7 +46,7 @@ if ($_POST['nev']){
     for ($c = 1; $c <= 10; $c++) {
         if ($adat["cim_".$c]!='') {
             $emltxt.='<tr>';
-            $emltxt.= '<td>'.$adat["ora_" . $c] . ':' . $adat["perc_" . $c] . '</td><td>' . $Text_Class->htmlfromchars($adat["cim_" . $c]) . '</td>';
+            $emltxt.= '<td>'.$adat["ora_" . $c]  . '</td><td>' . $Text_Class->htmlfromchars($adat["cim_" . $c]) . '</td>';
             $emltxt.='</tr>';
 
         }
