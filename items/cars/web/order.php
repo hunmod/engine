@@ -9,7 +9,7 @@ if ($filterc['id']>0) {
 
 
 
-if ($_POST){
+if ($_POST['nev']){
     $adat=$_POST;
     if ($adat['carid']>0) {
         $filterce['id']=$adat['carid'];
