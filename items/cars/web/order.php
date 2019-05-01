@@ -203,6 +203,9 @@ if ($_POST){
             <div class="col-sm-3">
                 <?php $Form_Class->textbox("idotartalm", $Text_Class->htmlfromchars($adat["idotartalm"]),lan('Rendezvény hossza')) ?>
             </div>
+            <div class="col-sm-3">
+                <?=lan('ora')?>
+            </div>
             <div> </div>
             <div class="col-sm-12">
                 <?php
