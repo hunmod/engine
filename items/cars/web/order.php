@@ -130,13 +130,13 @@ if ($_POST){
     <div class="col-sm-6">
 <?=lan('megrendelodatai')?>
             <div class="col-sm-12">
-                <?php $Form_Class->textbox("nev", $Text_Class->htmlfromchars($adat["nev"]),lan('nev')) ?>
+                <?php $Form_Class->textbox("nev", $Text_Class->htmlfromchars($adat["nev"]),lan('nev').'*','',1) ?>
             </div>
             <div class="col-sm-12">
-                <?php $Form_Class->textbox("email", $Text_Class->htmlfromchars($adat["email"]),lan('email')) ?>
+                <?php $Form_Class->textbox("email", $Text_Class->htmlfromchars($adat["email"]),lan('email').'*','',1) ?>
             </div>
             <div class="col-sm-12">
-                <?php $Form_Class->textbox("tel", $Text_Class->htmlfromchars($adat["tel"]),lan('tel')) ?>
+                <?php $Form_Class->textbox("tel", $Text_Class->htmlfromchars($adat["tel"]),lan('tel').'*','',1) ?>
             </div>
             <div class="col-sm-12">
                 <?php $Form_Class->textbox("cim", $Text_Class->htmlfromchars($adat["cim"]),lan('cim')) ?>
@@ -149,7 +149,7 @@ if ($_POST){
                 ?>
             </div>
             <div class="col-sm-12">
-                <?php $Form_Class->datebox('ido',$adat["ido"],lan('date'),'control-label') ?>
+                <?php $Form_Class->datebox('ido',$adat["ido"],lan('date').'*','control-label',1) ?>
             </div>
 
             <div class="col-sm-12">
@@ -201,9 +201,10 @@ if ($_POST){
                 </div>
             </div>
             <b><?= lan('Rendezvény hossza')?></b>
-            <div class="col-sm-12">
+            <div class="col-sm-3">
                 <?php $Form_Class->textbox("idotartalm", $Text_Class->htmlfromchars($adat["idotartalm"]),lan('Rendezvény hossza')) ?>
             </div>
+            <div> </div>
             <b><?= lan('Megjegyzés')?></b>
             <div class="col-sm-12">
                 <?php $Form_Class->kcebox("subj", $Text_Class->htmlfromchars($adat["subj"]),lan('megjegyzés')) ?>

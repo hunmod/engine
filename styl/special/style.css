@@ -68,7 +68,7 @@ header .container-fluid {
 }
 
 .navbar-brand {
-   background-image: url(/img/home-icon-md);
+   background-image: url(/img/home-icon-md.png);
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
