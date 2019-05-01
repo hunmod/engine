@@ -16,11 +16,15 @@ if ($_POST['nev']){
         $car_datase = $car_class->get($filterc, '', 'all');
         $car_datae=$car_datase['datas'][0];
         $car_datae['img'] =$car_class->getimg($filterc['id'],320,240) ;
+        $thimg=base64_encode(file_get_contents($car_datae['img']));
     }
+
+
     $emltxt.='<h2>'.lan("megrendelés").'</h2>';
     $emltxt.='<div style="width: 50%;float: left">';
     $emltxt.='<b>'.$car_datae['cim'].'</b><br>';
-    $emltxt.='<img src=" '.$car_datae['img'].'">';
+    $emltxt.='<img src=" '.$thimg.'">';
+    //$emltxt.='<img src=" '.$car_datae['img'].'">';
    // $emltxt.='" '.$car_datae['img'].'"';
     $emltxt.='</div>';
     $emltxt.='<div style="width: 50%;float: left">';
