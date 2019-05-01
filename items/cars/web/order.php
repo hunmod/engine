@@ -23,8 +23,8 @@ if ($_POST['nev']){
     $emltxt.='<h2>'.lan("megrendelés").'</h2>';
     $emltxt.='<div style="width: 50%;float: left">';
     $emltxt.='<b>'.$car_datae['cim'].'</b><br>';
-    $emltxt.='<img src=" '.$thimg.'">';
-    //$emltxt.='<img src=" '.$car_datae['img'].'">';
+   // $emltxt.='<img src=" '.$thimg.'">';
+    $emltxt.='<img src=" '.$car_datae['img'].'">';
    // $emltxt.='" '.$car_datae['img'].'"';
     $emltxt.='</div>';
     $emltxt.='<div style="width: 50%;float: left">';
