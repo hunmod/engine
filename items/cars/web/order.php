@@ -200,14 +200,12 @@ if ($_POST){
                     </div>
                 </div>
             </div>
-            <b><?= lan('Rendezvény hossza')?></b>
             <div class="col-sm-3">
                 <?php $Form_Class->textbox("idotartalm", $Text_Class->htmlfromchars($adat["idotartalm"]),lan('Rendezvény hossza')) ?>
             </div>
             <div> </div>
-            <b><?= lan('Megjegyzés')?></b>
             <div class="col-sm-12">
-                <?php $Form_Class->kcebox("subj", $Text_Class->htmlfromchars($adat["subj"]),lan('megjegyzés')) ?>
+                <?php $Form_Class->kcebox("subj", $Text_Class->htmlfromchars($adat["subj"]),lan('Megjegyzés')) ?>
             </div>
 
 

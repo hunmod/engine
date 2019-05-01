@@ -677,5 +677,6 @@ slider {
 }
 .notext{
     text-indent: -10000px;
-
+    display: block;
+    width: 50px;
 }
