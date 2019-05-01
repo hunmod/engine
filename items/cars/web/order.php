@@ -83,8 +83,8 @@ if ($_POST['nev']){
     $emltxt.=$adat['subj'];
     $emltxt.='</div>';
 
-    //echo $emltxt;
-    //echo $car_datae['img'];
+    echo $emltxt;
+    echo $car_datae['img'];
 
     emailkuldes(page_settings("c_email"), $oldalneve, 'Megrendelés', $emltxt);
     emailkuldes($_POST["email"], $oldalneve, 'Megrendeleés', $emltxt);
