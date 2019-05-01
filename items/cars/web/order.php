@@ -93,7 +93,7 @@ if ($_POST['nev']){
     emailkuldes_silent(page_settings("c_email"), $oldalneve, 'Megrendelés', $emltxt);
     emailkuldes_silent($_POST["email"], $oldalneve, 'Megrendelés', $emltxt);
 
-    //header("Location:".$homeurl);
+    header("Location:".$homeurl);
     //var_dump( $car_datase['img']);
 
 }
@@ -204,12 +204,12 @@ if ($_POST['nev']){
                     </div>
                 </div>
             </div>
+
             <div class="col-sm-3">
-                <?php $Form_Class->textbox("idotartalm", $Text_Class->htmlfromchars($adat["idotartalm"]),lan('Rendezvény hossza')) ?>
+                <?php $Form_Class->textbox("idotartalm", $Text_Class->htmlfromchars($adat["idotartalm"]),lan('Rendezvény hossza')) ?>   (<?=lan('ora')?>)
+
             </div>
-            <div class="col-sm-3">
-                <?=lan('ora')?>
-            </div>
+
             <div> </div>
             <div class="col-sm-12">
                 <?php
