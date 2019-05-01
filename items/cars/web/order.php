@@ -15,7 +15,7 @@ if ($_POST['nev']){
         $filterce['id']=$adat['carid'];
         $car_datase = $car_class->get($filterce, '', 'all');
         $car_datae=$car_datase['datas'][0];
-        $car_datae['img'] =$car_class->getimg($filterce['id'],320,240) ;
+        $car_datae['img'] =$homeurl.$car_class->getimg($filterce['id'],320,240) ;
     }
     $emltxt.='<h2>'.lan("megrendeles").'</h2>';
     $emltxt.='<div style="width: 50%;float: left">';
@@ -48,7 +48,7 @@ if ($_POST['nev']){
 
     }
     $emltxt.='</table>';
-    $emltxt.='<div style="width: 50%;float: left">';
+  /*  $emltxt.='<div style="width: 50%;float: left">';
 
     $emltxt.='<table border="1" style="width: 100%">';
     $emltxt.='<tr>';
@@ -77,11 +77,10 @@ if ($_POST['nev']){
     $emltxt.='<div style="width: 50%;float: left">';
     $emltxt.=lan('A fennmaradó összeg').':_____________</br>';
     $emltxt.=lan('Kifizetésének módja').':_____________</br>';
-    $emltxt.='</div>';
+    $emltxt.='</div>';*/
     $emltxt.='<div style="width: 100%;float: left">';
-
-    $emltxt.='</div>';
     $emltxt.=$adat['subj'];
+    $emltxt.='</div>';
 
     //echo $emltxt;
     //echo $car_datae['img'];
