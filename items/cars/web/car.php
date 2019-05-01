@@ -94,7 +94,7 @@
     <div class="col-sm-12">
 
         <a itemprop="url" class="urlbutton"
-           href="<?php echo $homeurl . $separator . "cars/order/" . encode($aprodata["id"]);; ?>"><?php echo lan("Megrendel"); ?></a>
+           href="<?php echo $homeurl . $separator . "cars/order/" . encode($aprodata["id"]);; ?>"><?php echo lan("Megrendelés"); ?></a>
 
     </div>
 <?php

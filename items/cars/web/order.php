@@ -37,6 +37,7 @@ if ($_POST){
     $emltxt.='<td>'.lan('ido').'</td>';
     $emltxt.='<td>'.lan('helyszin').'</td>';
     $emltxt.='</tr>';
+
     for ($c = 1; $c <= 10; $c++) {
         if ($adat["cim_".$c]!='') {
             $emltxt.='<tr>';
@@ -80,6 +81,7 @@ if ($_POST){
     $emltxt.='<div style="width: 100%;float: left">';
 
     $emltxt.='</div>';
+    $emltxt.=$adat['subj'];
 
     //echo $emltxt;
     //echo $car_datae['img'];
@@ -147,7 +149,7 @@ if ($_POST){
                 ?>
             </div>
             <div class="col-sm-12">
-                <?php $Form_Class->datebox('ido',$adat["ido"],lan('idopont'),'control-label') ?>
+                <?php $Form_Class->datebox('ido',$adat["ido"],lan('date'),'control-label') ?>
             </div>
 
             <div class="col-sm-12">
@@ -160,8 +162,19 @@ if ($_POST){
                     </div>
 
                 </div>
+    <b> Indulás ideje, helye</b>
+                <div>
+                    <div class="col-xs-2 dt1 ordertime" >
+                        <?php $Form_Class->textbox("ora_1", $Text_Class->htmlfromchars($adat["ora_1"]),lan('ido')); ?>
+                    </div>
+                    <div class="col-xs-10 ordertime" >
+                        <?php $Form_Class->textbox("cim_1", $Text_Class->htmlfromchars($adat["cim_1"]),lan('hely')); ?>
+                    </div>
+                </div>
 
-                <?php for ($c = 1; $c <= 10; $c++) { ?>
+                <b> Útvonal (nem kötelező kitölteni)</b>
+
+                <?php for ($c = 2; $c <= 6; $c++) { ?>
                 <div>
                     <div class="col-xs-2 dt1 ordertime" >
                         <?php $Form_Class->textbox("ora_".$c, $Text_Class->htmlfromchars($adat["ora_".$c]),lan('ido')); ?>
@@ -176,10 +189,26 @@ if ($_POST){
                 </div>
 
                 <?php } ?>
+
+                <b> Rendezvény vége</b>
+                <div>
+                    <div class="col-xs-2 dt1 ordertime" >
+                        <?php $Form_Class->textbox("ora_7", $Text_Class->htmlfromchars($adat["ora_7"]),lan('ido')); ?>
+                    </div>
+                    <div class="col-xs-10 ordertime" >
+                        <?php $Form_Class->textbox("cim_7", $Text_Class->htmlfromchars($adat["cim_7"]),lan('hely')); ?>
+                    </div>
+                </div>
             </div>
+            <b><?= lan('Rendezvény hossza')?></b>
             <div class="col-sm-12">
-                <?php $Form_Class->textbox("idotartalm", $Text_Class->htmlfromchars($adat["idotartalm"]),lan('idotartalm')) ?>
+                <?php $Form_Class->textbox("idotartalm", $Text_Class->htmlfromchars($adat["idotartalm"]),lan('Rendezvény hossza')) ?>
             </div>
+            <b><?= lan('Megjegyzés')?></b>
+            <div class="col-sm-12">
+                <?php $Form_Class->kcebox("subj", $Text_Class->htmlfromchars($adat["subj"]),lan('megjegyzés')) ?>
+            </div>
+
 
             <div class="col-sm-12">
                 <input type="submit" class="btn-success" >
@@ -195,6 +224,7 @@ if ($_POST){
     $.datepicker.setDefaults($.datepicker.regional['hu']);
     $("#ido").datepicker();
     $('#ido').datepicker('option', 'dateFormat', 'yy-mm-dd');
+    $('#ido').datepicker('option', 'regional', 'hu');
 
 
   /*  $('#ido').datepicker({
