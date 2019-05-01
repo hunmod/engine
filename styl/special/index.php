@@ -24,7 +24,7 @@
                                 <ul class="nav navbar-nav navbar-right">
 <?php if ($auser["id"]<1){?>
                                     <!--li><a href="javascript:reg();"><span><?php echo $lan["reg"]; ?></span></a></li-->
-                                    <li><a href="javascript:login();"><span><?php echo $lan["login"]; ?></span></a></li>
+                                    <li><a href="javascript:login();"><span class="notext"><?php echo $lan["login"]; ?></span></a></li>
                                     
 <?php } else {?>
                                     <li class="sub-menu"><a href="<?php echo $homeurl.'/'.$separator;?>user/profil"><span><?php echo $lan["profil"]; ?></span></a>
