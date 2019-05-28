@@ -1,8 +1,8 @@
 <div class="container">
 
-<div id="breadCrumb">
+<!--div id="breadCrumb">
                 <a href="<?php echo $homeurl;?>">Home</a> / <span><a href="<?php echo $homeurl.$separator.'/videos';?>">Videos</a></span>   / <span><strong><?php echo $qmenu['datas'][0]['nev'];?></strong></span>
-            </div>
+</div-->
             
 
             
