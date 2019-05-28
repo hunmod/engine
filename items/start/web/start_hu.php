@@ -32,7 +32,7 @@ foreach($catlist['datas'] as $elem){
             <a href="<?= $homeurl ?>/autok?kat=<?= $elem['id']?>" ><img class="img-100" src="<?=$elem['img']?>"></a>
         </div>
         <div item-prop="desctription" class="col-xs-12">
-            <?= $elem['textd']['datas'][0]['leiras']?>
+            <?= $Text_Class->youtoubecserel($elem['textd']['datas'][0]['leiras'])?>
         </div>
         <div class="redony">
             <div item-prop="name" class="kat">
@@ -46,7 +46,7 @@ foreach($catlist['datas'] as $elem){
 ?>
 <div class="clear"></div>
     <?php
-    echo  $Text_Class->htmlfromchars( page_settings('footerblock3_hu'));?>
+    echo  $Text_Class->youtoubecserel($Text_Class->htmlfromchars( page_settings('footerblock3_hu')));?>
 
 
 <?php 
