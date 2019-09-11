@@ -3,7 +3,7 @@
 
 <?php if ($auser["jog"]>=4){?>
 
-	<a href="<?php echo $separator.$getparams[0]."/edittext";?>" class="button">Uj Termék</a><br />
+	<a href="<?php echo $homeurl.'/'.$getparams[0]."/edittext";?>" class="button">Uj Termék</a><br />
 <div style="clear">&nbsp;</div>
 
 <?php }?>
@@ -30,19 +30,19 @@ if (count($elemek)>0){
 foreach($elemek as $elem){
 ?>
 <article class="col-sm-4">
-     <topimage class="imgframe col-sm-12"><img class="img-responsive" src="<?php echo imgtobase64($elem["image"]);?>" alt="<?php echo $elem["cim"];?>" title="<?php echo $elem["cim"];?>" height="100" itemprop="image"  /></topimage>
-    <a href="<?php echo $kezdooldal.$homefolder.$separator.$getparams[0]."/shop/".($elem["id"]);?>">
+     <topimage class="imgframe col-sm-12"><img class="img-responsive" src="<?php echo imgtobase64($elem["image"]);?>" alt="<?php echo $elem["title"];?>" title="<?php echo $elem["title"];?>" height="100" itemprop="image"  /></topimage>
+    <a href="<?php echo $homeurl.$separator.$getparams[0]."/shop/".($elem["id"]);?>">
 
-    <endpriece><?php echo priece_format(($elem["ar"]+$elem["ar"]/100*$elem["vat"]),0);?> Ft</endpriece>
+    <endpriece><?php echo priece_format(($elem["priece"]+$elem["priece"]/100*$elem["vat"]),0);?> Ft</endpriece>
 <?php if ($eurhuf>0){?>
-   (<priece><?php echo priece_format($elem["ar"]/$eurhuf,2);?> &#8364;</priece> )<br />
+   (<priece><?php echo priece_format($elem["priece"]/$eurhuf,2);?> &#8364;</priece> )<br />
 <?php }?>
 
-    <?php if ($elem["ar_old"]>$elem["ar"]){?>
-    <action><?php echo percentage($elem["ar"], $elem["ar_old"], 0);?> %</action>
-    <oldpriece><?php echo priece_format($elem["ar_old"],0);?> Ft</oldpriece><br />
+    <?php if ($elem["priece_old"]>$elem["priece"]){?>
+    <action><?php echo percentage($elem["priece"], $elem["priece_old"], 0);?> %</action>
+    <oldpriece><?php echo priece_format($elem["priece_old"],0);?> Ft</oldpriece><br />
     <?php } ?>
-    <priece><?php echo priece_format($elem["ar"],0);?> Ft</priece>
+    <priece><?php echo priece_format($elem["priece"],0);?> Ft</priece>
     <vat>+<?php echo $Text_Class->htmlfromchars($elem["vat"]);?>% ÁFA</vat><br />
     
     <?php echo $storage_satus[$elem["storage_status"]]["nev"];?>
@@ -60,14 +60,14 @@ foreach($elemek as $elem){
 		<?php 
         if (($auser["jogid"]>=3) || ($auser["id"]==$elem["uid"])){?>
         <li>
-       	 <a href="<?php echo $kezdooldal.$separator.$getparams[0]."/edittext/".base64_encode ($elem["id"]);?>" onmouseover="ddrivetip('szerkeszt')" onmouseout="hideddrivetip()" ><?php echo $buttons["edit"];?></a>
+       	 <a href="<?php echo $homeurl.$separator.$getparams[0]."/edittext/".base64_encode ($elem["id"]);?>" onmouseover="ddrivetip('szerkeszt')" onmouseout="hideddrivetip()" ><?php echo $buttons["edit"];?></a>
         </li>      
         <?php }?>
         </ul>
 	</div>
 <div class="clear"></div>
-	<name><?php echo $Text_Class->htmlfromchars($elem["cim"]);?></name>
-	<description><?php echo ($Text_Class->htmlfromchars($elem["hir"]));?></description></a>
+	<name><?php echo $Text_Class->htmlfromchars($elem["title"]);?></name>
+	<description><?php echo ($Text_Class->htmlfromchars($elem["leadtext"]));?></description></a>
 <div class="clear"></div>
 </article>
 <?php

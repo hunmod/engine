@@ -37,7 +37,6 @@ $adminmenu[]=$file_structuct;
 
 
 include('class.shop.php');
-
 //echo $menustart;
 //$menupontselectbox=menupontselectbox('103',$onearray,'','','');
 //arraylist(menupontselectbox(1,$onearray,'','',''));

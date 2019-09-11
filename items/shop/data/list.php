@@ -63,7 +63,7 @@ $almenu=menuadat($getparams[2],"hirek");
 arraylist($almenu);*/
 
 
-$datas=$shop_class->get($filters,$order='',$page='all');
+$datas=$ShopClass->get($filters,$order='',$page='all');
 //arraylist($datas);
 $elemek=$datas["datas"];
 $page_keywords="";
@@ -85,6 +85,11 @@ if ($elemek)foreach($elemek as $egy){
 	else{
 		$img="uploads/".$defaultimg;
 	}
+    $qgt['id']=$egy['id'];
+    $datasgt=$ShopClass->get_text('hu',$qgt);
+
+	$elemek[$n]["leadtext"]=$datasgt["datas"][0]["leadtext"];
+	$elemek[$n]["title"]=$datasgt["datas"][0]["title"];
 	$elemek[$n]["image"]=$homeurl."/".$img;
 //kulcsszavak
 $page_keywords.=$Text_Class->htmlfromchars($egy["cim"]);

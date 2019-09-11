@@ -962,6 +962,7 @@ public function create_table_text($lang){
 }
 
 
+
 }
 $ShopClass=new shop();
 $ShopClass->create_table();

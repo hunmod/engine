@@ -10,10 +10,10 @@ $_SESSION["page_install"] = "1";
 //$server_url='http://'.$_SERVER["HTTP_HOST"].'/';
 //$server_url.='sajat_publicv/';
 switch ($_SERVER["HTTP_HOST"]) {
-    case "hunmod.dyndns.hu":
+   // case "hunmod.dyndns.hu":
    // case "nagy.idiota.hu":
-       $sfilename = "localhost.txt";
-        break;
+     //  $sfilename = "localhost.txt";
+     //   break;
     case "abrakahasba.hu":
     case "www.abrakahasba.hu":
     case "WWW.abrakahasba.hu":
