@@ -53,17 +53,17 @@ set_active_counterelement(activeelemntid);
 <?php 
 
 ?>
-	<topimage><img src="<?php echo imgtobase64("http://".$domain.$homefolder."/".$img);?>" alt="<?php echo $pagedata["cim"];?>" title="<?php echo $pagedata["cim"];?>" itemprop="image"  /></topimage>
-	<name><?php echo $Text_Class->htmlfromchars($pagedata["cim"]);?></name>
-    <endpriece><?php echo priece_format(($pagedata["ar"]+$pagedata["ar"]/100*$pagedata["vat"]),0);?> Ft</endpriece>
+	<topimage><img src="<?php echo imgtobase64("http://".$domain.$homefolder."/".$img);?>" alt="<?php echo $pagedata["title"];?>" title="<?php echo $pagedata["title"];?>" itemprop="image"  /></topimage>
+	<name><?php echo $Text_Class->htmlfromchars($pagedata["title"]);?></name>
+    <endpriece><?php echo priece_format(($pagedata["priece"]+$pagedata["priece"]/100*$pagedata["vat"]),0);?> Ft</endpriece>
 <?php if ($eurhuf>0){?>
    (<priece><?php echo priece_format($pagedata["ar"]/$eurhuf,2);?> &#8364;</priece>)
 <?php }?>
-    <?php if ($pagedata["ar_old"]>$pagedata["ar"]){?>
-    <action><?php echo percentage($pagedata["ar"], $pagedata["ar_old"], 0);?> %</action>
-    <oldpriece><?php echo priece_format($pagedata["ar_old"],0);?> Ft</oldpriece>
+    <?php if ($pagedata["ar_old"]>$pagedata["priece"]){?>
+    <action><?php echo percentage($pagedata["priece"], $pagedata["priece_old"], 0);?> %</action>
+    <oldpriece><?php echo priece_format($pagedata["priece_old"],0);?> Ft</oldpriece>
     <?php } ?>
-    <priece><?php echo priece_format($pagedata["ar"],0);?> Ft</priece>
+    <priece><?php echo priece_format($pagedata["priece"],0);?> Ft</priece>
     <vat>+<?php echo $Text_Class->htmlfromchars($pagedata["vat"]);?>% ÁFA</vat>
     <orderinfo>
     <?php echo $storage_satus[$pagedata["storage_status"]]["nev"];?>
