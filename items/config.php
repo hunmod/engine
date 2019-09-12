@@ -7,7 +7,7 @@ Ez a file Behúzza a beállítási változókat..
 $urlpre = "";
 $page_config_file = '';
 $_SESSION["page_install"] = "1";
-//$server_url='http://'.$_SERVER["HTTP_HOST"].'/';
+$server_url='https://'.$_SERVER["HTTP_HOST"].'/';
 //$server_url.='sajat_publicv/';
 switch ($_SERVER["HTTP_HOST"]) {
    // case "hunmod.dyndns.hu":

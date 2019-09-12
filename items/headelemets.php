@@ -47,7 +47,7 @@
     <meta name="twitter:title" content="<?php echo $pagetitle; ?> <?php echo $oldalneve; ?>">
 
 
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
     <!--script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script-->
     <link rel="stylesheet" href="<?php echo $homeurl; ?><?php echo $makemin->css('/scripts/jquery-ui.css', '/scripts/jquery-ui.min.css') ?>"/>
     <link rel="stylesheet" href="<?php echo $homeurl; ?><?php echo $makemin->css('/scripts/animate.css', '/scripts/animate.min.css') ?>"/>
