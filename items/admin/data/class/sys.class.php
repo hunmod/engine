@@ -292,7 +292,7 @@ public function shorturl_setprams($data,$lang=null){
 	return($data);
 }
 
-public function shorturl_create($lang,$lang=null){
+/*public function shorturl_create($lang,$lang=null){
 	global $tbl, $adatbazis;
 	if (!$lang){
 		$lang=$_SESSION["lang"];
@@ -312,7 +312,7 @@ ADD KEY `get` (`get`);";
 
 
 }
-
+*/
 	function shorturl_get_data($getq,$lang=null){
 		global $tbl,$adatbazis,$_SESSION;
 		if (!$lang){

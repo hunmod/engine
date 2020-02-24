@@ -22,4 +22,4 @@ include_once("items/allpagedatas.php");
  include_once($urlpre.$template.".php");
 }
 else {include_once("./styl/default/index.php");}
- ?>
+?>
