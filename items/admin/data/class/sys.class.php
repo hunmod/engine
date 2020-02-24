@@ -52,7 +52,7 @@ public function curl_srv($input,&$retval,&$inval)
     $input_dec_2 = json_decode($input_dec, TRUE);
     $retval['debug']['input_dec_elemszam']=count($input_dec_2);
     $inval=$input_dec_2;
-    //$inval=  obj_bol_arr($input_dec_2);    
+    //$inval=  obj_bol_arr($input_dec_2);
     //$inval=  get_object_vars($input_dec);
     $retval['inval']=$inval;
 }
@@ -64,7 +64,7 @@ foreach ($input as $value1=>$first){
  echo "<strong>".$value1."</strong><br>";
   if (!is_array($first))
   {
-	echo($first); 
+	echo($first);
   }
   else{
 	arraylist($first)	;
@@ -84,7 +84,7 @@ public function comasupport($where)
 		$whereb=',';
 	}
 	return $whereb;
-	
+
 }
 public function andsupport($where)
 {
@@ -95,7 +95,7 @@ public function andsupport($where)
 		$whereb=' AND ';
 	}
 	return $whereb;
-	
+
 }
 public function orsupport($where)
 {
@@ -106,7 +106,7 @@ public function orsupport($where)
 		$whereb=' OR ';
 	}
 	return $whereb;
-	
+
 }
 public function sqlwhereand($where)
 {
@@ -117,7 +117,7 @@ public function sqlwhereand($where)
 	{
 		$whereb=' AND ';
 	}
-	return $whereb;	
+	return $whereb;
 }
 //lista tábla létrehozása, név, id status
 public function create_list($tablename){
@@ -128,7 +128,7 @@ $q="CREATE TABLE  `".$tablename."` (
  `name` VARCHAR( 400 ) NOT NULL ,
  `status` TINYINT NOT NULL
 ) ENGINE = MYISAM ;";
-		$result =db_Query($q, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"],$adatbazis["db1_srv"],$adatbazis["db1_db"], "CREATE");	
+		$result =db_Query($q, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"],$adatbazis["db1_srv"],$adatbazis["db1_db"], "CREATE");
 }
 public function update_list($table,$data){
 global $adatbazis;
@@ -149,20 +149,20 @@ global $adatbazis;
 	}
 	else{
 		$this->update_list($table,$data);
-	}	
-	
+	}
+
 }
 public function get_list($table,$filter,$order='ORDER BY  `name` ASC')
 {
 	global $adatbazis;
 
 	if ($filter["id"]>0){
-			$where.=$this->sqlwhereand($where);	
+			$where.=$this->sqlwhereand($where);
 			$where.="id='".$filter["id"]."'";
 	}
-	
+
 	if ($filter["ids"]>0){
-			$where.=$this->sqlwhereand($where);	
+			$where.=$this->sqlwhereand($where);
 			$where.="id in (".$filter["ids"].")";
 	}
 	if ($filter["name"]!=''){
@@ -171,34 +171,34 @@ public function get_list($table,$filter,$order='ORDER BY  `name` ASC')
 	}
 
 	if ($filter["city_name"]!=''){
-			$where.=$this->sqlwhereand($where);	
+			$where.=$this->sqlwhereand($where);
 			$where.="city_name LIKE '%".$filter["city_name"]."%'";
 	}
 	if ($filter["name2"]!=''){
-			$where.=$this->sqlwhereand($where);	
+			$where.=$this->sqlwhereand($where);
 			$where.="name = '".$filter["name2"]."'";
 	}
 
 	if ($table=="cuisine" && $filter["code"]!=''){
-			$where.=$this->sqlwhereand($where);	
+			$where.=$this->sqlwhereand($where);
 			$where.="code = '".$filter["code"]."'";
 	}
-		
+
 	if ($filter["status"]!=''&&$filter["status"]!='all'){
-			$where.=$this->sqlwhereand($where);	
+			$where.=$this->sqlwhereand($where);
 			$where.="status = '".$filter["status"]."'";
 	} else if ($filter["status"]=='all')
 	{
-		
+
 	}else if ($filter["status"]=='nall')
 	{
-	$where.=$this->sqlwhereand($where);	
+	$where.=$this->sqlwhereand($where);
 	$where.="status != '4'";
-	
+
 	}else{
-			$where.=$this->sqlwhereand($where);	
+			$where.=$this->sqlwhereand($where);
 			$where.="status = '2'";
-	}		
+	}
 	$q="SELECT * FROM  `".$table."`".$where." ".$order;
 	$result =db_Query($q, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"],$adatbazis["db1_srv"],$adatbazis["db1_db"], "select");
 	//var_dump($filter);
@@ -208,7 +208,7 @@ public function get_list($table,$filter,$order='ORDER BY  `name` ASC')
 }
 public function mround($number, $precision=0) {
 
-$precision = ($precision == 0 ? 1 : $precision);   
+$precision = ($precision == 0 ? 1 : $precision);
 $pow = pow(10, $precision);
 
 $ceil = ceil($number * $pow)/$pow;
@@ -219,7 +219,7 @@ $pow = pow(10, $precision+1);
 $diffCeil     = $pow*($ceil-$number);
 $diffFloor     = $pow*($number-$floor)+($number < 0 ? -1 : 1);
 
-if($diffCeil >= $diffFloor) return  sprintf("%0.2f", $floor);  
+if($diffCeil >= $diffFloor) return  sprintf("%0.2f", $floor);
 else return sprintf("%0.2f", $ceil);
 }
 public function readxml($url){
@@ -291,6 +291,7 @@ public function shorturl_setprams($data,$lang=null){
 
 	return($data);
 }
+
 public function shorturl_create($lang,$lang=null){
 	global $tbl, $adatbazis;
 	if (!$lang){
@@ -311,6 +312,7 @@ ADD KEY `get` (`get`);";
 
 
 }
+
 	function shorturl_get_data($getq,$lang=null){
 		global $tbl,$adatbazis,$_SESSION;
 		if (!$lang){

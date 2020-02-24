@@ -1,7 +1,7 @@
-<?php
-error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED & ~E_WARNING);
+<?php error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED & ~E_WARNING);
 
 //include system classes
+
 include_once("remotedb3.php");
 include_once("items/admin/data/class/sys.class.php");
 include_once('items/admin/data/class/lang.class.php');
@@ -13,6 +13,7 @@ include_once('items/admin/data/class/time.class.php');
 include_once('items/admin/data/class/google.class.php');
 include_once('items/admin/data/class/location.class.php');
 include_once('items/user/class/users.class.php');
+
 //construct classes
 $Upload_Class = new file_upload();
 $Form_Class = new formobjects();
@@ -131,7 +132,7 @@ $separator = "/";
 $separator2 = "?";
 
 
-//include_once ("fnct/web/belepetuser.php"); 
+//include_once ("fnct/web/belepetuser.php");
 //include_once ("fnct/chron/index.php");
 
 /*     modules configs */
@@ -158,7 +159,7 @@ if (page_settings("sitemail") != "") $sitemail = page_settings("sitemail");
 if (page_settings("analitics_id") != "") $analitics_id = page_settings("analitics_id");
 if (page_settings("googleplus_id") != "") $googleplus_id = page_settings("googleplus_id");
 if (page_settings("google_api_key") != "") {$google_api_key = page_settings("google_api_key");
-define("google_api_key", $google_api_key);
+    define("google_api_key", $google_api_key);
 
 }
 if (page_settings("fb_ap_id") != "") $fb_ap_id = page_settings("fb_ap_id");
@@ -209,7 +210,7 @@ $tbl["short_url"] ="short_url";
 
 
 if (($_POST["paramsseo"]!="")&&($_POST["getseo"]!="")&&($_POST["getseo"]!=$_POST["paramsseo"])){
-   // arraylist($_POST);
+    // arraylist($_POST);
     $savesodata['get']=$_POST["getseo"];
     $savesodata['params']=$_POST["paramsseo"];
     $savesodata['status']='2';
@@ -293,7 +294,7 @@ if (isset($file['adat']))
 if (!isset($metakey_words)) {
     $metakey_words = "";
 }
-//ha nincs a modulnak kulcsszava akkor az alap kulcsszavakat vegye 
+//ha nincs a modulnak kulcsszava akkor az alap kulcsszavakat vegye
 if (!isset($page_keywords)) {
     $page_keywords = $metakey_words;
 } else {
@@ -304,7 +305,7 @@ if (!isset($page_keywords)) {
 if (!isset($meta_description)) {
     $meta_description = "";
 }
-//ha nincs a modulnak leírása akkor az alap leírást vegye 
+//ha nincs a modulnak leírása akkor az alap leírást vegye
 if (!isset($page_description)) {
     $page_description = $meta_description;
 } else {
@@ -318,7 +319,7 @@ if (!isset($page_description)) {
 if (!isset($meta_ogimage)) {
     $meta_ogimage = "";
 }
-//ha nincs a modulnak og képe akkor az alap og képet vegye 
+//ha nincs a modulnak og képe akkor az alap og képet vegye
 if (!isset($page_ogimage)) {
     $page_ogimage = $meta_ogimage;
 } else {
