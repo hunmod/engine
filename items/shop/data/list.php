@@ -36,7 +36,7 @@ else
 	$filters["status"]="2";
 
 }
-
+$filters["mid"]=$getparams[2];
 /*$qcount="SELECT count(id) as db FROM ".$tbl['shop']." WHERE mid in(".$menukalatta_shop.$getparams[2].")".$where." ORDER BY `sorrend` ASC,`id` DESC";
 $hszlistacount = db_Query($qcount, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"],$adatbazis["db1_srv"],'', "select");
 $hszlistacount=$hszlistacount[0]["db"];

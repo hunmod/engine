@@ -2,7 +2,15 @@
 //$menupontselectbox= menualatta(0,$modul);
 //$menupontselectbox=menupontselectbox($menustart,$modul,'','','');
 //arraylist($menupontselectbox);
-//action="<?php echo $kezdooldal.$separator.$getparams[0]."/savetext/".base64_encode ($elem["id"]);>" 
+//action="<?php echo $kezdooldal.$separator.$getparams[0]."/savetext/".base64_encode ($elem["id"]);>"
+
+//arraylist($auser);
+if (!isset($menustart)) $menustart = '0';
+/*$filtersm["modul"]="hirek";*/
+$filtersm["jog"] = "5";
+
+$menuk = $MenuClass->menu_selectboxfilter($menustart, array("modul" => "shop"), $filtersm, $order = '', $page = 'all');
+
 ?>
 	<form method="post">
 <?php
