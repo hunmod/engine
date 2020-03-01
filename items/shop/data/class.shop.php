@@ -861,7 +861,7 @@ return($res);//csak id-t ad vissza
 
 public function getimg($id,$x=369,$y=247){
 
-	global $adatbazis,$folders,$defaultimg,$shop_loc,$homeurl;
+	global $adatbazis,$folders,$defaultimg,$shop_loc,$homeurl,$site_loc;
 	$defaultimg='noimage.jpg';
 	$img=$site_loc.'/'.$id.'/'.$id.'.jpg';
 	//$img=randomimgtofldr($mappa);
