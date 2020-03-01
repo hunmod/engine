@@ -53,7 +53,7 @@ set_active_counterelement(activeelemntid);
 <?php 
 
 ?>
-	<topimage><img src="<?php echo imgtobase64("http://".$domain.$homefolder."/".$img);?>" alt="<?php echo $pagedata["title"];?>" title="<?php echo $pagedata["title"];?>" itemprop="image"  /></topimage>
+	<topimage><img src="<?php echo ("http://".$domain.$homefolder."/".$img);?>" alt="<?php echo $pagedata["title"];?>" title="<?php echo $pagedata["title"];?>" itemprop="image"  /></topimage>
 	<name><?php echo $Text_Class->htmlfromchars($pagedata["title"]);?></name>
     <endpriece><?php echo priece_format(($pagedata["priece"]+$pagedata["priece"]/100*$pagedata["vat"]),0);?> Ft</endpriece>
 <?php if ($eurhuf>0){?>

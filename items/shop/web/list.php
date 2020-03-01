@@ -30,7 +30,7 @@ if (count($elemek)>0){
 foreach($elemek as $elem){
 ?>
 <article class="col-sm-4">
-     <topimage class="imgframe col-sm-12"><img class="img-responsive" src="<?php echo imgtobase64($elem["image"]);?>" alt="<?php echo $elem["title"];?>" title="<?php echo $elem["title"];?>" height="100" itemprop="image"  /></topimage>
+     <topimage class="imgframe col-sm-12"><img class="img-responsive" src="<?php echo ($elem["image"]);?>" alt="<?php echo $elem["title"];?>" title="<?php echo $elem["title"];?>" height="100" itemprop="image"  /></topimage>
     <a href="<?php echo $homeurl.$separator.$getparams[0]."/shop/".($elem["id"]);?>">
 
     <endpriece><?php echo priece_format(($elem["priece"]+$elem["priece"]/100*$elem["vat"]),0);?> Ft</endpriece>

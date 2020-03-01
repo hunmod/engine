@@ -116,8 +116,7 @@ if ($filters2['id']>0){
 <?php $Form_Class->selectboxeasy("jogid",$jog,$dbadat['jogid'],$lan['jogid'],"form-control");?>
 <?php $Form_Class->selectboxeasy("status",$status,$dbadat['status'],$lan['status'],"form-control");?>
 
-
-            <?php  $Form_Class->selectboxeasy2("sorrend", $sorrendarray, $dbadat["sorrend"], "sorrend"); ?>
+ <?php  $Form_Class->selectboxeasy2("sorrend", $sorrendarray, $dbadat["sorrend"], "sorrend"); ?>
 
 
 <input name="smbt" type="submit" value="<?php echo $lan['save']; ?>" />
@@ -137,7 +136,7 @@ $style="menuselect default";
 <li><span onclick="menu_admin_select('<?php echo $modul["modules"];  ?>','<?php echo $modul["file"];  ?>');" class="<?php echo $style;?>" id="<?php echo $modul["file"].$modul["modules"];  ?>"><?php echo $modul["name"];  ?></span></li>
 <?php
 }
-?>	
+?>
 </ul>
 <?php
 //arraylist($modules);
@@ -145,8 +144,8 @@ $style="menuselect default";
 
 </article>
 <div class="clear"></div>
-<article class='col-sm-4 hidden'>
-	<?php 
+<article class='col-sm-4 '>
+	<?php
 ?>
 	<h1>Menu <?php echo $lan['picture']; ?>:</h1>
 	<?php echo $homeurl.$menuimages['menu_img_url'];?>
@@ -157,7 +156,7 @@ $style="menuselect default";
 
 		<h1>Menu <?php echo $lan['picture']; ?> hover:</h1>
 
-    <?php 
+    <?php
 	if ($menuimages['menu_hover']!=""){?>
         <img src="<?php echo $menuimages['menu_hover_url'];?>" /><br />
         <a href="<?php echo $separator.$_GET['q'].$separator2."delfile=".encode($menuimages['menu_hover']);?>">DEL</a>
@@ -165,15 +164,15 @@ $style="menuselect default";
         <form method="post" enctype="multipart/form-data">
         <?php $Form_Class->hiddenbox("menuimgh",$dbadat['id']."_hover");?>
         <input name="img" type="file" /><input name="" type="submit" />
-        </form>    
-    <?php } ?>    
+        </form>
+    <?php } ?>
 
     <?php } else {?>
     <form method="post" enctype="multipart/form-data">
     <?php $Form_Class->hiddenbox("menuimg",$dbadat['id']);?>
     <input name="img" type="file" /><input name="" type="submit" />
     </form>
-    <?php } ?>    
+    <?php } ?>
 
 <article>
 
