@@ -1,5 +1,5 @@
 <div class="clear" ></div>
-<shop>
+<shop class="container">
 
 <?php if ($auser["jog"]>=4){?>
 
@@ -11,12 +11,12 @@
 <?php if ($oldalakszama>1){
 //oldalazó	?>
   <div class="hszoldalazo">
-   <a href="<?php echo $separator.$_GET["q"].$separator2."oldal=0"; ?>"> |&lt; </a>
-   <a href="<?php echo $separator.$_GET["q"].$separator2."oldal=".($oldal-1); ?>"> &lt; </a>
+   <a href="<?php echo $homeurl.$separator.$_GET["q"].$separator2."oldal=0"; ?>"> |&lt; </a>
+   <a href="<?php echo $homeurl.$separator.$_GET["q"].$separator2."oldal=".($oldal-1); ?>"> &lt; </a>
     <?php
 for ($c=0;$c<=$oldalakszama-1;$c++){
-	?><a href="<?php echo $separator.$_GET["q"].$separator2."oldal=".$c; ?>"><?php echo $c+1;?></a><?php	}
-	?><a href="<?php echo $separator.$_GET["q"].$separator2."oldal=".($oldal+1); ?>"> &gt;</a><a href="<?php echo $separator.$_GET["q"]."&oldal=".($oldalakszama-1); ?>">&gt;| </a>
+	?><a href="<?php echo $homeurl.$separator.$_GET["q"].$separator2."oldal=".$c; ?>"><?php echo $c+1;?></a><?php	}
+	?><a href="<?php echo $homeurl.$separator.$_GET["q"].$separator2."oldal=".($oldal+1); ?>"> &gt;</a><a href="<?php echo $separator.$_GET["q"]."&oldal=".($oldalakszama-1); ?>">&gt;| </a>
 	</div>
     
 <div class="clear"></div>    
@@ -25,6 +25,7 @@ for ($c=0;$c<=$oldalakszama-1;$c++){
 }?>
 
 <?php 
+//arraylist($_COOKIE);
 //arraylist($elemek);
 if (count($elemek)>0){
 foreach($elemek as $elem){
@@ -51,9 +52,9 @@ foreach($elemek as $elem){
 		<ul>
         <?php if ($elem["storage_status"]!=5){?>
         <li>
-       	 <a class="buy" href="<?php echo $separator.$_GET["q"].$separator2."kosarba=".$elem["id"];?>&p=add">&nbsp;</a>
+       	 <a class="buy" href="<?php echo $homeurl.$separator.$_GET["q"].$separator2."kosarba=".$elem["id"];?>&p=add">&nbsp;</a>
         </li>
-        <?php } ?>        
+        <?php } ?>
         <li>
        	 <a class="facebookicon35" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $homeurl.$separator.$getparams[0]."/shop/".($elem["id"]);?>" target="_blank"></a>
         </li>  
@@ -78,15 +79,16 @@ foreach($elemek as $elem){
 //oldalazó	?>
 <div class="clear"></div>
   <div class="hszoldalazo">
-   <a href="<?php echo $separator.$_GET["q"].$separator2."oldal=0"; ?>"> |&lt; </a>
-   <a href="<?php echo $separator.$_GET["q"].$separator2."oldal=".($oldal-1); ?>"> &lt; </a>
+   <a href="<?php echo $homeurl.$separator.$_GET["q"].$separator2."oldal=0"; ?>"> |&lt; </a>
+   <a href="<?php echo $homeurl.$separator.$_GET["q"].$separator2."oldal=".($oldal-1); ?>"> &lt; </a>
     <?php
 for ($c=0;$c<=$oldalakszama-1;$c++){
-	?><a href="<?php echo $separator.$_GET["q"].$separator2."oldal=".$c; ?>"><?php echo $c+1;?></a><?php	}
-	?><a href="<?php echo $separator.$_GET["q"].$separator2."oldal=".($oldal+1); ?>"> &gt;</a><a href="<?php echo $separator.$_GET["q"]."&oldal=".($oldalakszama-1); ?>">&gt;| </a>
+	?><a href="<?php echo $homeurl.$separator.$_GET["q"].$separator2."oldal=".$c; ?>"><?php echo $c+1;?></a><?php	}
+	?><a href="<?php echo $homeurl.$separator.$_GET["q"].$separator2."oldal=".($oldal+1); ?>"> &gt;</a><a href="<?php echo $separator.$_GET["q"]."&oldal=".($oldalakszama-1); ?>">&gt;| </a>
 	</div>
     <?php	
 //oldalazó
 }?>
 </shop>
 <div class="clear"></div>
+<?php include("widget_kosar.php");?>

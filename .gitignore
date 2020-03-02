@@ -1,1 +1,5 @@
 items/config_files/localhost.txt
+.idea/engine.iml
+.idea/modules.xml
+.idea/vcs.xml
+.idea/workspace.xml

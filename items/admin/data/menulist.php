@@ -47,7 +47,7 @@ foreach($hirekelemek as $egy){
 	//echo $mappa;
 	$img=randomimgtofldr($mappa);
 	if ($img!="none"){
-		$img="picture2.php?picture=".encode($mappa."/".$img)."&x=300&y=200&ext=.jpg";
+		$img="picture2.php?picture=".encode($mappa."/".$img)."&x=600&y=500&ext=.jpg";
 		$page_ogimage=$img;		
 	}
 	else{

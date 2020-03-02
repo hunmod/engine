@@ -3,7 +3,7 @@ menulist egymenu{
 display:block;
 float:left;
 width:100%;
-height:200px;
+height:320px;
 overflow:hidden;
 text-align:center;
 }
@@ -24,9 +24,6 @@ text-align:center;
 
 </style>
 <div class="container">
-  <left class="col-md-3 col-sm-4 hidden" >
-<?php foreach ($widgets as $widget)if (file_exists($widget))include($widget);?>
-  </left> 
 <menulist class="col-md-12 col-sm-12" itemscope itemtype="http://schema.org/BreadcrumbList">
 
 <?php if ($auser["jogid"]>=10){?>

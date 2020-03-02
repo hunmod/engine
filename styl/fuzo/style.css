@@ -25,10 +25,14 @@ body {
 header {
     padding: 0;
 }
+.container {
 
+    display: block;
+}
 .maincontainer {
 
     margin-top: 100px !important;
+    display: block;
 }
 
 .imgWrap img {

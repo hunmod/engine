@@ -21,7 +21,7 @@
 
     $(document).ready(function () {
         $('.match-height').matchHeight();
-        $('#lightSlider').lightSlider({
+      /*  $('#lightSlider').lightSlider({
             gallery: true,
             item: 1,
             loop: true,
@@ -42,11 +42,11 @@
 
         $(window).load(function () {
             carusel_top();
-        });
+        });*/
 
     });
 </script>
-<div class="container">
+<!--div class="container">
     <div id="breadCrumb">
         <a href="<?php echo $homeurl; ?>"><?= lan('home'); ?></a> >
         <a href="<?php echo $homeurl . '/' . $separator . shorturl_get("m/" . $menu["id"]); ?>"><?php echo $menu["nev"]; ?> </a>
@@ -58,7 +58,6 @@
 </div>
 <slider>
     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-        <!-- Indicators -->
         <ol class="carousel-indicators">
             <?php
             $active = " active";
@@ -71,7 +70,6 @@
             <?php } ?>
         </ol>
 
-        <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
 
             <?php $active = " active"; ?>
@@ -88,7 +86,6 @@
         </div>
 
 
-        <!-- Controls -->
         <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
             <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
             <span class="sr-only">Previous</span>
@@ -98,11 +95,14 @@
             <span class="sr-only">Next</span>
         </a>
     </div>
-</slider>
+</slider -->
 
 <div class="container">
 
     <div class="col-xs-12">
+        <h1><?php echo "" . ($Text_Class->htmlfromchars($adat["title"])); ?></h1>
+
+
         <site itemscope="" itemtype="http://schema.org/WebPage">
             <h1 itemprop="name" class="hidden"><?php echo "" . ($Text_Class->htmlfromchars($adat["title"])); ?></h1>
 
@@ -119,7 +119,7 @@
 
             </description>
 
-            </news>
+            </site>
 
     </div>
     <div class="col-xs-12">

@@ -49,6 +49,8 @@ set_active_counterelement(activeelemntid);
 </script>
 
 <div class="clear" ></div>
+<div class="maincontainer">
+
            <shop_article class="border1 bgcolor1">
 <?php 
 
@@ -110,6 +112,8 @@ include_once("./items/files/web/list.php");
 </div>       
          </shop_article>   
 <div class="clear" ></div>
+</div>
+</div>
 <script>
 cerate_count_list(count_counterelement('countelement'));
 set_active_counterelement(1);

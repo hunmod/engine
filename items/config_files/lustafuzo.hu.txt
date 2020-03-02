@@ -1,0 +1,1 @@
+{"db_conf":{"db1_srv":"localhost","db1_db":"hunmodeu_elasztikus","db1_user":"hunmodeu_user","db1_pass":"m0dd3r"},"homefolder":"","oldalid":"elasztikus","prefix":"","prefix_pagesetting":"elasztikus_"}
