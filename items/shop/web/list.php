@@ -23,14 +23,13 @@
         text-decoration: line-through;
     }
     shop product action{
-        //color: #9c3328;
         text-decoration: none;
         position: relative;
         float: right;
-        background: #653e75;
+        background: #a20fee;
         border-radius: 20px 0 20px 0;
         padding: 0.5em;
-        color: #9efc18;
+        color: #cfff2f;
     }
     shop product oldpriece,shop product endpriece,shop product action,shop product priece{
 

@@ -75,13 +75,12 @@
         font-size: 2em;
     }
     shop_article prieces action{
-    //color: #9c3328;
         text-decoration: none;
-        background: #653e75;
+        background: #a20fee;
         border-radius: 20px 0 20px 0;
         padding: 0.5em;
         font-size: 1.3em;
-        color: #9efc18;
+        color: #cfff2f;
         width: 4em;
         text-align: center;
     }

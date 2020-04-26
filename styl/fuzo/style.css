@@ -60,13 +60,14 @@ header .container-fluid {
 .navbar {
     font-size: 0.7em;
     text-transform: uppercase;
-    background: -moz-linear-gradient(0deg, #FFFFFF 0, #EBEBEB 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, 0deg, color-stop(0, FFFFFF), color-stop(100%, EBEBEB)); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(0deg, #FFFFFF 0, #EBEBEB 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(0deg, #FFFFFF 0, #EBEBEB 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(0deg, #FFFFFF 0, #EBEBEB 100%); /* IE10+ */
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1301FE', endColorstr='#F4F60C', GradientType='1'); /* for IE */
-    background: linear-gradient(0deg, #FFFFFF 0, #EBEBEB 100%); /* W3C */
+
+    background: -moz-linear-gradient(0deg, #9f29ff 0, #000000 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, 0deg, color-stop(0, 9f29ff), color-stop(100%, 000000)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(0deg, #9f29ff 0, #000000 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(0deg, #9f29ff 0, #000000 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(0deg, #9f29ff 0, #000000 100%); /* IE10+ */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#9f29ff', endColorstr='#000000', GradientType='1'); /* for IE */
+    background: linear-gradient(0deg, #9f29ff 0, #000000 100%); /* W3C */
 }
 
 .navbar-brand {
@@ -81,7 +82,12 @@ header .container-fluid {
 .navbar-nav > li > a {
     text-transform: uppercase;
 }
-
+.navbar-default .navbar-nav>li>a{
+    color: #cfff2f;
+}
+.navbar-default .navbar-nav>li:hover>a{
+    color: #ffff2f;
+}
 .navbar-nav > li > a:after {
     content: '\25bc';
     font-size: 0.5em;

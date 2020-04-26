@@ -19,25 +19,40 @@ public function sorrend(){
 
     public function order_status()
     {
-        $order_satus = array();
-        $order_satus[0]["id"] = 0;
-        $order_satus[0]["nev"] = lan("megrendelve");
-        $order_satus[1]["id"] = 1;
-        $order_satus[1]["nev"] = lan("fizetve");
-        $order_satus[2]["id"] = 2;
-        $order_satus[2]["nev"] = lan("elküldve");
-        $order_satus[3]["id"] = 3;
-        $order_satus[3]["nev"] = lan("Utánvét-elküldve");
-        $order_satus[4]["id"] = 4;
-        $order_satus[4]["nev"] = lan("csomag visszajött");
-        $order_satus[5]["id"] = 5;
-        $order_satus[5]["nev"] = lan("lemodva");
-        $order_satus[6]["id"] = 6;
-        $order_satus[6]["nev"] = lan("lezárva");
-        $order_satus[7]["id"] = 7;
-        $order_satus[7]["nev"] = lan("Jováhagyásra vár");
+        $n=0;
+        $order_status = array();
+        $order_status[$n]["id"] = $n;
+        $order_status[$n]["nev"] = lan("megrendelve");
+        $n++;
+        $order_status[$n]["id"] = $n;
+        $order_status[$n]["nev"] = lan("fizetve");
+        $n++;
+        $order_status[$n]["id"] = $n;
+        $order_status[$n]["nev"] = lan("fizetés jóváhagyva");
+        $n++;
+        $order_status[$n]["id"] = $n;
+        $order_status[$n]["nev"] = lan("Termékre vár");
+        $n++;
+        $order_status[$n]["id"] = $n;
+        $order_status[$n]["nev"] = lan("elküldve");
+        $n++;
+        $order_status[$n]["id"] = $n;
+        $order_status[$n]["nev"] = lan("Utánvét-elküldve");
+        $n++;
+        $order_status[$n]["id"] = $n;
+        $order_status[$n]["nev"] = lan("csomag visszajött");
+        $n++;
+        $order_status[$n]["id"] = $n;
+        $order_status[$n]["nev"] = lan("lezárva");
+        $n++;
+        $order_status[$n]["id"] = $n;
+        $order_status[$n]["nev"] = lan("lemodva");
+        $n++;
+        $order_status[$n]["id"] = $n;
+        $order_status[$n]["nev"] = lan("Jováhagyásra vár");
 
-        return $order_satus;
+
+        return $order_status;
     }
     public function paymod()
     {
