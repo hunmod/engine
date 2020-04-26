@@ -145,9 +145,14 @@ if ($_POST["email"])
             <div class=""><span class="glyphicon glyphicon-envelope"></span><?php echo page_settings("c_email"); ?>
             </div>
             <div class=""><?php echo page_settings("c_cim"); ?></div>
-
             <?php
         }
+        if (page_settings("fb_page_name")) { ?>
+            <div class=""><span class="glyphicon glyphicon-book"></span><a href="https://www.facebook.com/<?=page_settings("fb_page_name") ?>" target="_blank">Facebook</a>
+            </div>
+            <?php
+        }
+
         $gcoord = $Google_Class->get_google_geocoding(page_settings("c_cim"));
 
         // $gmapurl='https://www.google.com/maps/dir/';
@@ -158,27 +163,24 @@ if ($_POST["email"])
         // $gmapurl.=$adr2.'/'.$adr1."&key=". $google_api_key;
         //echo $gmapurl;
         ?>
+        <!-- Load Facebook SDK for JavaScript -->
+        <?= page_settings("c_text3"); ?>
 
 
-        <div id="map" class="map"></div>
-        <script>
-            function initMap() {
-                var uluru = {
-                    lat:<?=$gcoord[0]['geometry']['location']['lat']?>,
-                    lng:<?=$gcoord[0]['geometry']['location']['lng']?>};
-                var map = new google.maps.Map(document.getElementById('map'), {
-                    zoom: 10,
-                    center: uluru
-                });
-                var marker = new google.maps.Marker({
-                    position: uluru,
-                    map: map
-                });
-            }
-        </script>
-        <script async defer
-                src="https://maps.googleapis.com/maps/api/js?key=<?= $google_api_key ?>&callback=initMap">
-        </script>
+        <div id="map" class="map">
+        <iframe
+                width="600"
+                height="450"
+                frameborder="0" style="border:0"
+                src="https://www.google.com/maps/embed/v1/place?key=<?= $google_api_key ?>
+    &q=<?php echo page_settings("c_cim"); ?>" allowfullscreen>
+        </iframe>
+
+
+
+        </div>
+
+
     </div>
     <div class="col-sm-6 contactformform">
         <?php if ($sentmail) { ?>
@@ -189,7 +191,7 @@ if ($_POST["email"])
             </div>
         <?php } ?>
         <form method="post" enctype="multipart/form-data">
-            <input name="captcha" type="text" class="form-inline captcha">
+            <input name="captcha" type="text" class="form-inline">
 
             <div class="col-sm-12">
                 <?php $FormClass->textbox('name', $_POST['name'], lan('name'), '', 1); ?>
@@ -208,7 +210,10 @@ if ($_POST["email"])
             <div class="col-sm-12">
                 <div class=""><?php echo page_settings("c_text1"); ?></div>
             </div>
-            <button class="btn sendbtn pull-right "><?= lan('send') ?></button>
+            <div class="col-sm-12">
+            <button type="submit" class="btn btn-succes"><?=lan('küldés')?></button>
+            </div>
+
         </form>
     </div>
     <div class="col-sm-12">

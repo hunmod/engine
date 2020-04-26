@@ -2,17 +2,15 @@
 <?php
 $form=new formobjects();
 $upload_Class=new file_upload();
-
 $banner_folder="uploads/slider/";
-
-$status=array('2'=>'Active','3'=>'Suspended','4'=>'Deleted');
-$sorrend=$class_slider->get_sorrend();
 
 //$slider=$class_slider->get($_GET);
 
 if ($_POST){
 	//arraylist($_POST);
-$retval=$class_slider->insert($_POST);	
+    $_POST["description"]=$TextClass->htmltochars($_POST["description"]);
+    $_POST["name"]=$TextClass->htmltochars($_POST["name"]);
+    $retval=$class_slider->insert($_POST);
 	if ($_POST["id"])
 		{
 			$filters["id"]=$_POST["id"];
@@ -33,7 +31,7 @@ $retval=$class_slider->insert($_POST);
 			//delfile($homeurl.$banner_folder.'b'.$filters["id"].'.png');
 
 		$target=$upload_Class->uploadfile('file',$banner_folder,'b'.$filters["id"]);	
-	//echo $target;
+	    //echo $target;
 		//$upload_Class->uploadimg('file',$banner_folder,'b'.$filters["id"],$abs['x'],$abs['y'],true,true,true);
 		//$target=$banner_folder.$target;
 		$class_slider->update(array('imgurl'=>$target,'id'=>$filters["id"]));
@@ -57,9 +55,6 @@ if ($filters["id"]>0){
 <div class="container">
   <left class="col-md-3 col-sm-4" >
 <?php 
-$widgets[]="items/user/web/widget_user_menu.php";
-$widgets[]="items/ads/web/widget_side1.php";
-$widgets[]="items/konyha/web/widget_submenu.php";
 foreach ($widgets as $widget)if (file_exists($widget))include($widget);?>
   </left> 
   
@@ -78,7 +73,7 @@ foreach ($widgets as $widget)if (file_exists($widget))include($widget);?>
                 <div class="form-group">
                 </div>
                 <div class="form-group">
-				<?php $Form_Class->textbox('name',$data["name"],'name');?>
+				<?php $Form_Class->textbox('name',$TextClass->htmlfromchars($data["name"]),'name');?>
                 </div>
 
                 <div class="form-group">
@@ -88,7 +83,7 @@ foreach ($widgets as $widget)if (file_exists($widget))include($widget);?>
 				<?php $Form_Class->textbox('url',$data["url"],'url');?>
                 </div>                
 				<div class="form-group">
-				<?php $Form_Class->textaera('description',$data["description"],'description');?>
+				<?php $Form_Class->textaera('description',$TextClass->htmlfromchars($data["description"]),'description');?>
                 </div>                
                 <div class="form-group">
 				<?php $Form_Class->selectboxeasy('sorrend',$sorrend,$data["sorrend"],'Order num');?>

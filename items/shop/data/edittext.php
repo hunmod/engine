@@ -49,8 +49,9 @@ if ($_POST['title']!=""){
 	//$savedatas=$ShopClass->table($adat);// shop_editform_form($adat);
     $mret=$ShopClass->save($adat);
     $adat['id']=$mret;
-    $adat['title']=$adat['title'];
-    $adat['leadtext']=$adat['leadtext'];
+    $adat['title']=$Text_Class->ekezetekeoda($adat['title']);
+    $adat['leadtext']=$Text_Class->ekezetekeoda($adat['leadtext']);
+    $adat['text']=$Text_Class->ekezetekeoda($adat['text']);
     $ShopClass->save_text('hu',$adat);
 
     //arraylist($adat);

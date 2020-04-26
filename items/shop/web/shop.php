@@ -1,123 +1,228 @@
 <script>
-function count_counterelement(myclass){
-	var numItems = $('.'+myclass).length	
-	return (numItems);
-}
+    function count_counterelement(myclass) {
+        var numItems = $('.' + myclass).length
+        return (numItems);
+    }
 
-function cerate_count_list(several)
-{
-	for (var i = 1; i < several+1; i++) { 
-thisdivid="'"+i+"'";
-
-	  $("#countmenu").append('<li id="countlist'+i+'" onclick="set_active_counterelement('+thisdivid+');">'+i+'</li>');
-	}	
-}
+    function cerate_count_list(several) {
+        for (var i = 1; i < several + 1; i++) {
+            thisdivid = "'" + i + "'";
+            $("#countmenu").append('<li id="countlist' + i + '" onclick="set_active_counterelement(' + thisdivid + ');">' + i + '</li>');
+        }
+    }
 
 
-function set_active_counterelement(mynum)
-{
-	$( "li" ).removeClass( "active" );
-	several=count_counterelement('countelement');	
-	for (var i = 1; i < several+1; i++) {
-	hidediv('ce'+i);	
-	}
-	if (several<mynum){
-	mynum=several;
-	}
-	if (1>mynum){
-	mynum=1;	
-	}
+    function set_active_counterelement(mynum) {
+        $("li").removeClass("active");
+        several = count_counterelement('countelement');
+        for (var i = 1; i < several + 1; i++) {
+            hidediv('ce' + i);
+        }
+        if (several < mynum) {
+            mynum = several;
+        }
+        if (1 > mynum) {
+            mynum = 1;
+        }
 
-	showdiv('ce'+mynum);
-	$( "#countlist"+mynum ).addClass( "active" );
-	activeelemntid=mynum;
-}
+        showdiv('ce' + mynum);
+        $("#countlist" + mynum).addClass("active");
+        activeelemntid = mynum;
+    }
 
-function pageplus_minus(merre)
-{
-	if (merre=='+')
-	{
-		activeelemntid++;
-	}
-	if (merre=='-')
-	{
-		activeelemntid--;
-	}
-set_active_counterelement(activeelemntid);
-	
-}
+    function pageplus_minus(merre) {
+        if (merre == '+') {
+            activeelemntid++;
+        }
+        if (merre == '-') {
+            activeelemntid--;
+        }
+        set_active_counterelement(activeelemntid);
+
+    }
+
+    function call_kosar_v1(plusminus,id){
+        parancs='q=shop/widget_kosar&kosarba='+id+'&p='+plusminus;
+        file="includeajax";
+        console.log(server_url+file+".php?"+parancs);
+        phpopenf("kosar",file,parancs)
+    }
+
 </script>
+<style>
+    #kosar{
+        font-size: 0.8em;
+    }
+    #kosar shop .clk{
+        font-size: 1.2em;
+        font-weight: bold;
+    }
+    shop_article a{
+        color: #0D0A0A;
+    }
+    shop_article a{
+        color: #000000;
+        text-decoration: none;
+    }
 
-<div class="clear" ></div>
-<div class="maincontainer">
+    shop_article  a:hover,
+    shop_article .clk:hover{
+        color: #653e75;
+        text-decoration: none;
+    }
+    shop_article name{
+        font-weight: bold;
+        font-size: 2em;
+    }
+    shop_article prieces action{
+    //color: #9c3328;
+        text-decoration: none;
+        background: #653e75;
+        border-radius: 20px 0 20px 0;
+        padding: 0.5em;
+        font-size: 1.3em;
+        color: #9efc18;
+        width: 4em;
+        text-align: center;
+    }
+    shop_article prieces oldpriece{
+        text-decoration: line-through;
+        font-size: 1em;
+        color: #9c3328;
+    }
+    shop_article name{
+        color: #653e75;
+    }
 
-           <shop_article class="border1 bgcolor1">
-<?php 
+    oldpriece, endpriece, action, priece {
+        text-align: left;
 
-?>
-	<topimage><img src="<?php echo ("http://".$domain.$homefolder."/".$img);?>" alt="<?php echo $pagedata["title"];?>" title="<?php echo $pagedata["title"];?>" itemprop="image"  /></topimage>
-	<name><?php echo $Text_Class->htmlfromchars($pagedata["title"]);?></name>
-    <endpriece><?php echo priece_format(($pagedata["priece"]+$pagedata["priece"]/100*$pagedata["vat"]),0);?> Ft</endpriece>
-<?php if ($eurhuf>0){?>
-   (<priece><?php echo priece_format($pagedata["ar"]/$eurhuf,2);?> &#8364;</priece>)
-<?php }?>
-    <?php if ($pagedata["ar_old"]>$pagedata["priece"]){?>
-    <action><?php echo percentage($pagedata["priece"], $pagedata["priece_old"], 0);?> %</action>
-    <oldpriece><?php echo priece_format($pagedata["priece_old"],0);?> Ft</oldpriece>
-    <?php } ?>
-    <priece><?php echo priece_format($pagedata["priece"],0);?> Ft</priece>
-    <vat>+<?php echo $Text_Class->htmlfromchars($pagedata["vat"]);?>% ÁFA</vat>
-    <orderinfo>
-    <?php echo $storage_satus[$pagedata["storage_status"]]["nev"];?>
-<?php if ($pagedata["storage_status"]==3){?> <br /><?php echo $pagedata["ordertime"];?> nap<?php }?>
-    </orderinfo>
- <?php if ($pagedata["barcode"]!=''){?>   
-	<barcode>*<?php echo $pagedata["barcode"];?>*</barcode>
-<?php }?>
+        display: block;
+        float:  none;
+    }
+    .actions ul{
+        padding-inline-start: 0.5em;
+        font-size: 1em;
+    }
+    .actions li {
+        list-style-type: none;
+    }
+
+    .selector ul {
+        padding-inline-start: 0px;
+    }
+
+    .selector li {
+        list-style-type: none;
+        cursor: pointer;
+        display: inline-block;
+        pading: 2em 1em;
+
+    }
+
+    .selector .active {
+        text-decoration: underline;
+        color: #0D0A0A;
+    }
+</style>
 <div class="clear"></div>
-    <div class="actions">
-		<ul>
-        <?php if ($pagedata["storage_status"]!=5){?>
-        <li>
-       	 <a class="buy" href="<?php echo $separator.$_GET["q"].$separator2."kosarba=".$pagedata["id"];?>&p=add">&nbsp;</a>
-        </li>
-        <?php } ?>        
-        <li>
-       	 <a class="facebookicon35" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $homeurl.$separator.$getparams[0]."/shop/".($pagedata["id"]);?>" target="_blank"></a>
-        </li>  
-		<?php 
-        if (($auser["jogid"]>=3) || ($auser["id"]==$pagedata["uid"])){?>
-        <li>
-       	 <a href="<?php echo $kezdooldal.$separator.$getparams[0]."/edittext/".base64_encode ($pagedata["id"]);?>" onmouseover="ddrivetip('szerkeszt')" onmouseout="hideddrivetip()" ><?php echo $buttons["edit"];?></a>
-        </li>      
-        <?php }?>
-        </ul>
-	</div>
-<div class="clear"></div>
-<div class="selector">
-    <ul>
-        <li id="countlist1" onclick="set_active_counterelement('1');">Leírás</li>
-        <li id="countlist2" onclick="set_active_counterelement('2');">Képek</li>
-    </ul>
+<div class="container">
+    <div class="col-sm-8">
+
+        <shop_article itemscope itemtype="http://schema.org/Product" class="border1 bgcolor1">
+            <?php
+            ?>
+            <name ><?php echo $Text_Class->htmlfromchars($pagedata["title"]); ?></name>
+
+            <topimage class="col-sm-12"><img src="<?php echo("http://" . $domain . $homefolder . "/" . $img); ?>"
+                           alt="<?php echo $pagedata["title"]; ?>" title="<?php echo $pagedata["title"]; ?>"
+                           itemprop="image"/></topimage>
+
+            <div class="col-sm-4">
+
+            <prieces>
+                <!--endpriece><?php echo priece_format(($pagedata["priece"] + $elem["priece"] / 100 * $pagedata["vat"]), 0); ?>
+                    Ft
+                </endpriece-->
+                <?php if ($eurhuf > 0) { ?>
+                    (
+                    <priece><?php echo priece_format($pagedata["priece"] / $eurhuf, 2); ?> &#8364;</priece> )<br/>
+                <?php } ?>
+
+                <?php if ($pagedata["priece_old"] > $pagedata["priece"]) { ?>
+                    <oldpriece itemprop="highPrice"><?php echo priece_format($pagedata["priece_old"], 0); ?> Ft</oldpriece>
+                    <action><?php echo percentage($pagedata["priece"], $pagedata["priece_old"], 0); ?> %</action>
+                <?php } ?>
+                <priece itemprop="priece">+<?php echo priece_format($pagedata["priece"], 0); ?> Ft</priece>
+    <!--vat itemprop="vat">+<?php echo $Text_Class->htmlfromchars($pagedata["vat"]); ?>% ÁFA</vat><br /-->
+            </prieces>
+            <div class="actions">
+                <ul>
+                    <?php if ($pagedata["storage_status"] != 5) { ?>
+                        <li>
+                            <span class="buy clk" onclick="call_kosar_v1('add','<?= $pagedata["id"]?>');" ><iclass="icon-sr-cart-1"> </i><?= lan('Kosárba teszem') ?></span>
+                        </li>
+                    <?php } ?>
+                    <li>
+                        <a class="facebookicon35" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $homeurl.$separator.$getparams[0]."/shop/".($pagedata["id"])."/".$Text_Class->to_link($Text_Class->htmlfromchars($pagedata["title"]));?>" target="_blank"><?= lan('Megosztom facebook')?></a>
+                    </li>
+                    <?php
+                    if (($auser["jogid"] >= 3) || ($auser["id"] == $pagedata["uid"])) {
+                        ?>
+                        <li>
+                            <a href="<?php echo $kezdooldal . $separator . $getparams[0] . "/edittext/" . base64_encode($pagedata["id"]); ?>"><?= lan('edit')?></a>
+                        </li>
+                    <?php } ?>
+                </ul>
+            </div>
+             </div>
+            <div class="col-sm-8">
+                <div class="selector" >
+                    <ul>
+                        <li id="countlist1" onclick="set_active_counterelement('1');">Leírás</li>
+                        <li id="countlist2" onclick="set_active_counterelement('2');">Képek</li>
+                    </ul>
+                </div>
+                <div class="countelement" id="ce1">
+                    <description><?php echo($Text_Class->htmlfromchars($pagedata["leadtext"])); ?></description>
+                </div>
+                <div class="countelement" id="ce2">
+                    <images>
+                        <?php
+                        //$getparams[2]=decode($getparams[2]);
+
+                        include_once("./items/files/web/list.php");
+                        ?>
+                    </images>
+                </div>
+            </div>
+
+            <div class="clear"></div>
+
+            <orderinfo >
+                <?php echo $storage_satus[$pagedata["storage_status"]]["nev"]; ?>
+                <?php if ($pagedata["storage_status"] == 3) { ?>
+
+                <br/><span class="alert">minimum <?php echo $pagedata["ordertime"]; ?> nap<?php } ?> A szálltási idő!</span>
+
+            </orderinfo>
+            <?php if ($pagedata["barcode"] != '') { ?>
+                <barcode>*<?php echo $pagedata["barcode"]; ?>*</barcode>
+            <?php } ?>
+            <div class="clear"></div>
+        </shop_article>
+    </shop_article>
+    </div>
+
+    <div class="col-sm-4" id="kosar">
+        <?php include("widget_kosar.php"); ?>
+    </div>
+
+
+    <div class="clear"></div>
 </div>
-<div class="countelement" id="ce1">
-	<description><?php echo ($Text_Class->htmlfromchars($pagedata["hir"]));?></description>
-</div>
-<div class="countelement" id="ce2">
-	<images>
- <?php
-include_once("./items/files/web/list.php");	
-?>    
-	</images>                    
-</div>       
-         </shop_article>   
-<div class="clear" ></div>
-</div>
-</div>
+
 <script>
-cerate_count_list(count_counterelement('countelement'));
-set_active_counterelement(1);
+    cerate_count_list(count_counterelement('countelement'));
+    set_active_counterelement(1);
 </script>
-<?php 
-                   // $getparams[2]=decode($getparams[2]);
-                    //include_once("./items/files/web/list.php");?>

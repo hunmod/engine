@@ -1,24 +1,6 @@
 <?php
-$leftside[]="./items/user/web/usermenu.php";
-$leftside[]="./items/shop/web/widget_kosar.php";
-$leftside[]="./items/shop/web/widget_menu.php";
-/*
-$orderdata=egy_shop(decode($getparams[2]));
-
-
-if ($_SESSION["jogid"]!=4){
-$whereorderlist=" WHERE ";
-$whereorderlist=" uid=".$auser["id"];	
-}
-else{
-	$whereorderlist="";
-}
-*/
-
 //email szövegek
-
-
-$whereorderlist=" WHERE id=".decode($getparams[2]);
+/*$whereorderlist=" WHERE id=".decode($getparams[2]);
 
 	//Módosítások mentése
 	//fizetve
@@ -76,6 +58,6 @@ $elemdtat=egy_shop($oder_articlesid["articles"][$i]["id"]);
 //arraylist($elemdtat);
 $oder_articlesid["articles"][$i]["hir"]=$elemdtat["hir"];
 }
-
+*/
 
 ?>

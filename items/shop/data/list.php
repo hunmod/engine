@@ -79,7 +79,7 @@ if ($elemek)foreach($elemek as $egy){
 	$mappa=$folders["uploads"].$getparams[0]."/".$egy["id"];
 	$img=randomimgtofldr("uploads/".$mappa);
 	if ($img!="none"){
-		$img="uploads/picture.php?picture=".encode($mappa."/".$img)."&y=600&ext=.jpg";
+		$img="uploads/picture.php?picture=".encode($mappa."/".$img)."&y=300&x=350&ext=.jpg";
 		$page_ogimage=$img;		
 	}
 	else{

@@ -36,7 +36,23 @@ display:block;
 }
 </style>
 <?php
-//arraylist($orderdatas);
+//var_dump($getparams);
+$filtersxx["id"]=$getparams[2];
+$datas=$ShopClass->get_shop_order($filtersxx);
+$orderdatas=$datas["datas"][0];
+
+
+$orderdatas["articles"]=str_replace('
+','',$orderdatas["articles"]);
+
+
+//$oder_articlesid=$ShopClass->jsons_from($oder_articlestext);
+$oder_articlesid=json_decode($orderdatas["articles"],true);
+
+$paymod=$ShopClass->paymod();
+$post_mod=$ShopClass->post_mod();
+
+//arraylist($datas);
 //arraylist($oder_articlesid);
 ?>
 <order_info>
@@ -61,12 +77,11 @@ display:block;
         Fizetés ideje:<?php echo $orderdatas['payment_date'];?><br />    
 
 Szállított tételek: <?php echo $oder_articlesid['summa']["articles_num"];?><br />
-Érték:<?php echo $oder_articlesid['summa']["end_priece"];?> Ft +
-<?php echo $oder_articlesid['summa']["vat_sum"];?> Ft (ÁFA)<br />
-<strong>Összesen:<?php echo $oder_articlesid['summa']["end_priece_vat"];?>Ft</strong>
+Érték:<?php echo $orderdatas["oder_priece"];?> Ft <br />
+<strong>Összesen:<?php echo $orderdatas["oder_priece"];?> Ft</strong>
 	</payment>  	
     <post>
-        Szállítás<br />
+        Szállítás: <?= $orderdatas['post_priece']?> Ft.<br />
         Módja:<?php echo $post_mod[$orderdatas['post_mod']]["nev"];?><br />    
         Ideje:<?php echo $orderdatas['post_date'];?><br />    
         Postai azonosító:<?php echo $orderdatas['post_id'];?><br />    
@@ -76,56 +91,49 @@ Szállított tételek: <?php echo $oder_articlesid['summa']["articles_num"];?><b
 
       
     Megjegyzés:<br />
-	<?php echo $orderdatas['subject'];?><br />    
+	<?php echo $orderdatas['subject'];?><br />
 
+<?php
+//arraylist($oder_articlesid["articles"]);
 
-
-
+?>
 Tételek:<br />
 <div class="clear"></div>
 <shop>
 <?php
+
 for ($i = 0; $i < count($oder_articlesid["articles"]); $i++) {
-?>
+    if ($oder_articlesid["articles"][$i]["id"]!="post"){?>
     	<article>
-            <topimage><?php 
-	$mappa=$folders["uploads"]."shop/".$oder_articlesid["articles"][$i]["id"];
-	$img=randomimgtofldr("uploads/".$mappa);
-	if ($img!="none"){
-	$img=$homefolder."uploads/picture.php?picture=".encode($mappa."/".$img)."&y=100&ext=.jpg";
-	}
-	else{
-	$img=$homefolder."/uploads/".$defaultimg;
-	}
-?><img src="<?php echo imgtobase64("http://".$domain."/".$img);?>" alt="<?php echo $elem["cim"];?>" title="<?php echo $elem["cim"];?>" height="100" itemprop="image"  />
+            <topimage>
+                <img src="<?php echo $ShopClass->getimg($oder_articlesid["articles"][$i]["id"])?>" height="100" itemprop="image"  />
             </topimage>
             <name>
-<?php if ($oder_articlesid["articles"][$i]["id"]!="post"){?>            
-            <a href="<?php echo $separator.$getparams[0]."/shop"."/".$oder_articlesid["articles"][$i]["id"];?>"><?php echo $oder_articlesid["articles"][$i]["cim"];?></a>
-            <?php } else {?>
-            <?php echo $oder_articlesid["articles"][$i]["cim"];?>
-            <?php }  ?>            
+            <a href="<?php echo $separator.$getparams[0]."/shop"."/".$oder_articlesid["articles"][$i]["id"];?>"><?php echo $oder_articlesid["articles"][$i]["title"];?></a>
             </name>
             <priece>
-            <?php echo $oder_articlesid["articles"][$i]["ar"];?> Ft
+            <?php echo $oder_articlesid["articles"][$i]["priece"];?> Ft
             </priece>             
-            <vat>
+            <!--vat>
             <?php echo $oder_articlesid["articles"][$i]["vat"];?> %
-            </vat>             
+            </vat-->
             <several>
             <?php echo $oder_articlesid["articles"][$i]["db"];?> db
             </several>     
-            <sum>
+            <!--sum>
             <?php echo $oder_articlesid["articles"][$i]["sum"];?> ft
-            </sum>                
+            </sum-->
             <endpriece>
             <?php echo $oder_articlesid["articles"][$i]["endpriece"];?> ft
             </endpriece>                        
             <destription>
-            <?php echo $oder_articlesid["articles"][$i]["hir"];?>
+            <?php echo $oder_articlesid["articles"][$i]["leadtext"];?>
             </destription>
 		</article>
-<?php }?>
+
+<?php } } ?>
+
+
     </shop> 
 </order_info>
 <div class="clear"></div>

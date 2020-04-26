@@ -1,7 +1,5 @@
 <?php
-$leftside[]="./items/user/web/usermenu.php";
-$leftside[]="./items/shop/web/widget_kosar.php";
-$leftside[]="./items/shop/web/widget_menu.php";
+$paymod=$ShopClass->paymod();
 $orderdata=array();
 //ha nincs elküldve a form
 if ($_POST["order"]!="ok")
@@ -16,11 +14,10 @@ else
 {
 	$_SESSION["myorder"]=$_POST;	
 	$orderdata=$_POST;
-
 }
 
+//ha be van épve, kitöltjük neki
 if ($auser["id"]>0){
-
 	if ($orderdata["name"]=="")
 	{
 		$orderdata["name"]=$auser["nev"];
@@ -29,9 +26,6 @@ if ($auser["id"]>0){
 	{
 		$orderdata["email"]=$auser["email"];
 	} 	
-
-
-
 }
 
 
@@ -39,32 +33,35 @@ if ($auser["id"]>0){
 $summa=0;
 $summa1=0;
 
+
+unset($kosar);
+
+//hány elem van a kosárban?
 $pieces=count($_SESSION["kosaram"]["elem"]);
-$kosar=array();
 if ($pieces>0){
 		foreach($_SESSION["kosaram"]["elem"] as $id=>$value)
 		{
-			$segyelem=egy_shop($id);
-			$egyelem=$segyelem;
+            $filters['id']=$id;
+			$segyelem=$elemek = $ShopClass->get($filters, $order = '', $page = 'all');
+			$segyelemtext=$elemek = $ShopClass->get_text('hu',$filters, $order = '', $page = 'all');
+            $egyelem=$segyelem["datas"][0];
+            $egyelem+=$segyelemtext["datas"][0];
 			$egyelem["db"]=$value;
-			$egyelem["ar"]=numformat_convert($egyelem["ar"],$deviza);
-			$egyelem["endpriece"]=numformat_convert($egyelem["endpriece"],$deviza);
+			//$egyelem["ar"]=numformat_convert($egyelem["ar"],$deviza);
+			//$egyelem["endpriece"]=numformat_convert($egyelem["priece"],$deviza);
+			$egyelem["endpriece"]=($egyelem["priece"]+$egyelem["priece"]*$egyelem["vat"]/100)*$egyelem["db"];
 
-			$egyelem["sum"]=$egyelem["ar"]*$value;
-			$egyelem["endpriece"]=numformat_convert(($egyelem["ar"]+$egyelem["ar"]/100*$egyelem["vat"])*$value,$deviza);
+			$egyelem["sum"]=$egyelem["priece"]*$egyelem["db"];
+			//$egyelem["endpriece"]=numformat_convert(($egyelem["ar"]+$egyelem["ar"]/100*$egyelem["vat"])*$value,$deviza);
 			$summa1+=$egyelem["endpriece"];
 			$summa+=$egyelem["sum"];
-			$mappa=$folders["uploads"]."shop/".$egyelem["id"];
-			$img=randomimgtofldr("uploads/".$mappa);
-			if ($img!="none"){
-				$img="uploads/picture.php?picture=".encode($mappa."/".$img)."&y=100&ext=.jpg";
-			}
-			else{
-				$img=$homefolder."/uploads/".$defaultimg;
-			}
-		
-		
-			$kosarban[]=$egyelem;
+            $endval["articles_piece"]+=$egyelem["db"];
+			//img
+			$img=$ShopClass->getimg($egyelem["id"]);
+            $egyelem["img"]=$img;
+
+            unset($egyelem["img"]);
+            $kosarban[]=$egyelem;
 			unset($egyelem["status"]);
 			unset($egyelem["uid"]);
 			unset($egyelem["ar_old"]);
@@ -76,26 +73,54 @@ if ($pieces>0){
 
 		}
 	}
-	if ($orderdata["post_mod"]>0){
-	//postázási adatok hozzáadása
-		$postdatas['id']="post";
-		$postdatas['mid']="post";
-		$postdatas['cim']=$post_mod[$_POST["post_mod"]]["nev"];
-		$postdatas['db']="1";
-		$postdatas['ar']=page_settings("priece_post_mode_".$post_mod[$_POST["post_mod"]]["id"]);
-		$postdatas['vat']="0";
-		$postdatas['sum']=$postdatas['ar'];
-		$postdatas['endpriece']=$postdatas['ar'];
-		$summa1+=$postdatas["endpriece"];
-		$summa+=$postdatas["sum"];
-		$kosar_db[]=$postdatas;
-	}
-		//arraylist($kosar_db);
 
-	$endval["articles_num"]=$pieces;
-	$endval["end_priece"]=$summa;
-	$endval["end_priece_vat"]=$summa1;
-	$endval["vat_sum"]=$summa1-$summa;
+
+
+
+/*
+if ($orderdata["post_mod"]>0){
+//postázási adatok hozzáadása a termékekhez....
+	///át kell dolgozni ha akarom használni, de ügyi.
+    $postdatas['id']="post";
+    $postdatas['mid']="post";
+    $postdatas['cim']=$post_mod[$_POST["post_mod"]]["nev"];
+    $postdatas['db']+=$egyelem["db"];
+    //$postdatas['ar']=page_settings("priece_post_mode_".$post_mod[$_POST["post_mod"]]["id"]);
+    $postdatas['vat']="0";
+    $postdatas['sum']=$postdatas['ar'];
+    $postdatas['endpriece']=$postdatas['ar'];
+
+    $summa1+=$postdatas["endpriece"];
+    $summa+=$postdatas["sum"];
+    $kosar_db[]=$postdatas;
+}
+*/
+		//arraylist($post_mod);
+
+//posta ára
+	$postpriece=0;
+
+	//ha pp, vagy utalás
+if($orderdata["post_mod"]==1 || $orderdata["post_mod"]==3){
+		$postpriece=650;
+
+	if ($endval["articles_piece"]>2){
+		$postpriece="650";
+	}
+	if ($endval["articles_piece"]>10){
+            $postpriece="1600";
+		}
+}
+	//utánvét
+if($orderdata["pmod"]==2) {
+    $postpriece="2600";
+}
+		$endval["postpriece"]=$postpriece;
+		$endval["articles_num"]=$pieces;
+		$endval["articles_piece"];
+		$endval["end_priece"]=$summa+$postpriece;
+		$endval["end_priece_vat"]=$summa1+$postpriece;
+		$endval["vat_sum"]=$summa1-$summa;
 	
 	if ($default_deviza=="HUF"){
 		$roundedvalue=round($endval["end_priece_vat"]);
@@ -118,58 +143,95 @@ if ($orderdata["order"]=="ok"){
 	$orderdata["order_date"]=$date;	
 
 	
-//ellenorzes
-$ordererror1="Kötelező nevet megadni!";
-$ordererror2="Kötelező emailcímet megadni!";
-$ordererror2="Hibás telefonszam";
+	//ellenorzes
+	$ordererror1="Kötelező nevet megadni!";
+	$ordererror2="Kötelező emailcímet megadni!";
+	$ordererror2="Hibás telefonszam";
 
 
-$error=array();
-if ($orderdata["name"]=="")
-{
-	$error[]=$ordererror1;
-}
-if ($orderdata["email"]=="")
-{
-	$error[]=$ordererror2;
-}
-if ($orderdata["phone"]=="")
-{
-	$error[]=$ordererror2;
-}
-	
-
-	if ($orderdata["ordok"]!=""){
-	//adatok mentése
-	$kapott=shop_sendorder_form($orderdata);	
-	$back=gen_form_save($kapott,"shop_order",$orderdata);
-//	arraylist($back);
-
-	//email
-	//VEVO_NEV,
-	/*
-	$emltobuyer='Kedves VEVO_NEV!<br>
-	megerendelésed megkaptuk.
-	Az alábbi linken érhető el a megrendelésed állapota <a href="ORDER_URL">ITT</a> érhető el. 
-	';*/
-	
-	$ORDER_URL=$domain.$separator."/".$getparams[0].'/order_edit/';
-	$from_text=array("VEVO_NEV","ORDER_URL");
-	$to_text=array($orderdata["name"],$ORDER_URL);
-	
-	$eml_text_to_buyer=str_replace($from_text,$to_text,page_settings("form_shop_order_mail_text_".$_SESSION["lang"]));
-	$eml_head_to_buyer=str_replace($from_text,$to_text,page_settings("shop_order_mail_subject_".$_SESSION["lang"]));
-
-//emailkuldes($orderdata["email"],$orderdata["name"],$eml_head_to_buyer,$eml_text_to_buyer);	
-
-	unset($_SESSION["kosaram"]);
-	unset($_SESSION["myorder"]);
-	unset($orderdata);
-//headert dobjuk a megrendelésre
-header("Location: ".$separator."shop/order_edit/".encode($back[0]["id"]));
+	$error=array();
+	if ($orderdata["name"]=="")
+	{
+		$error[]=$ordererror1;
+	}
+	if ($orderdata["email"]=="")
+	{
+		$error[]=$ordererror2;
+	}
+	if ($orderdata["phone"]=="")
+	{
+		$error[]=$ordererror2;
 	}
 
-//	arraylist($orderdatas);
+//ha kp, csak személyes átvétel lehet
+	if($orderdata["pmod"]==0 && $orderdata["post_mod"]!=0){
+        $orderdata["ordok"]="";
+        $orderdata["ok"]="";
+        $error[]='akkor tudsz csak KP-val fizetni, ha találkozunk.!';
+
+    }
+//ha kp, csak személyes átvétel lehet
+	if($orderdata["pmod"]!=0 && $orderdata["post_mod"]==0){
+        $orderdata["ordok"]="";
+        $orderdata["ok"]="";
+        $error[]='ha személyesen veszed át, akkor tudsz csak KP-val fizetni!';
+    }
+
+
+
+   // $orderdata=$_SESSION["myorder"];
+	if ($orderdata["ordok"]!=""){
+	//adatok mentése
+		//Rendelés táblára összerak!!!!!
+       // unset($orderdata["articles"]);
+       // $orderdata["articles"]=json_encode($_SESSION["kosaram"]["elem"]);
+        $orderdata["post_priece"]=$endval["postpriece"];
+        $orderdata["oder_piece"]=$endval["articles_piece"];
+        $orderdata["oder_priece"]=$endval["end_priece_vat"];
+
+
+
+        $Orderid=$ShopClass->save_shop_order($orderdata);
+		//echo $Orderid;
+       // arraylist($orderdata);
+
+
+//rendelésemail külldése.
+	
+	$ORDER_URL=$domain.$separator."/".$getparams[0].'/order_view/'.encode($Orderid).'/sid-'.rand(346202,99999999);
+	$from_text=array("VEVO_NEV","ORDER_URL","ORDER_OSSZEG","ORDER_ID");
+	$to_text=array($orderdata["name"],$ORDER_URL,$orderdata["oder_priece"],$Orderid);
+	
+
+
+//Ha előreutalás. küldjük ki az instrukciókat!!!
+//arraylist($orderdata);
+        if($orderdata["pmod"]==1) {
+            $eml_text_to_buyer=str_replace($from_text,$to_text,page_settings("shop_order_pay1_text_".$_SESSION["lang"]));
+            $eml_head_to_buyer=str_replace($from_text,$to_text,page_settings("shop_order_pay1_subject_".$_SESSION["lang"]));
+            emailkuldes($orderdata["email"],$orderdata["name"],$eml_head_to_buyer,$eml_text_to_buyer);
+        }else
+//Ha utánvét. küldjük ki az instrukciókat!!!
+
+        if($orderdata["pmod"]==2) {
+            $eml_text_to_buyer=str_replace($from_text,$to_text,page_settings("shop_order_pay2_text_".$_SESSION["lang"]));
+            $eml_head_to_buyer=str_replace($from_text,$to_text,page_settings("shop_order_pay2_subject_".$_SESSION["lang"]));
+            emailkuldes($orderdata["email"],$orderdata["name"],$eml_head_to_buyer,$eml_text_to_buyer);
+        }else{
+            $eml_text_to_buyer=str_replace($from_text,$to_text,page_settings("shop_order_mail_text_".$_SESSION["lang"]));
+            $eml_head_to_buyer=str_replace($from_text,$to_text,page_settings("shop_order_mail_subject_".$_SESSION["lang"]));
+            emailkuldes($orderdata["email"],$orderdata["name"],$eml_head_to_buyer,$eml_text_to_buyer);
+        }
+        unset($_SESSION["kosaram"]);
+        unset($_SESSION["myorder"]);
+        unset($orderdata);
+
+//átdobjuk a fizetés oldalra.
+ header("Location: ".$separator."shop/order_view/".$Orderid);
+	}
+
+	//arraylist($_SESSION);
+	//arraylist($orderdatas);
 }
 else{
 	if (isset($auser["id"])&&$auser["id"]>0)

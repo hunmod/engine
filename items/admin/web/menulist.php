@@ -53,9 +53,12 @@ for ($c=0;$c<=$oldalakszama-1;$c++){
 //arraylist($hirekelemek);
 if (count($hirekelemek)>0){
 foreach($hirekelemek as $elem){
-?>
+
+     $menuurl=$homeurl.$separator.$MenuClass->shorturl_get($elem["modul"]."/".$elem["file"]."/".$elem["this"]);
+
+    ?>
 <egymenu class="col-sm-4" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-<a href="<?php echo $homeurl.$separator.$elem["modul"]."/".$elem["file"]."/".($elem["this"]);?>" itemprop="item">
+<a href="<?php echo $menuurl;?>" itemprop="item">
 	<h2 itemprop="name"><?php echo $Text_Class->htmlfromchars($elem["nev"]);?></h2>
 <picture class="imgWrap">
 <img src="<?php echo $Text_Class->htmlfromchars($elem["image"]);?>" itemprop="image"/> 

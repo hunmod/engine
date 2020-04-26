@@ -1,6 +1,6 @@
 <div class="animst1" itemprop="article">
     <div class="bg clear">
-        <img itemprop="image" class="clear" src="<?php echo $nimg=$SiteClass->getimg($elem['id'],1000,510);?>" alt="<?php echo $elem["title"];?>">
+        <img itemprop="image" class="clear" src="<?php echo $nimg=$SiteClass->getimg($elem['id'],900,300);?>" alt="<?php echo $elem["title"];?>">
         <div class="bgcenterlayer">
         </div>
         <div class="bgcenterlayer1">

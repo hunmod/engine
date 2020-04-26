@@ -17,9 +17,11 @@ if (count($kosar)>0){
 <?php echo $egyelem["cim"]; ?><br />
 <?php echo " (".$value."db) "; ?>
  <?php echo (($egyelem["priece"]+$egyelem["priece"]/100*$egyelem["vat"])*$value);?> Ft
+        <span class="clk" onclick="call_kosar_v1('add','<?= $egyelem["id"]?>');" >+</span>
+        <span class="clk" onclick="call_kosar_v1('neg','<?= $egyelem["id"]?>');" >-</span><br>
 
-        <a href="<?php echo $homeurl.$separator.$_GET["q"].$separator2."kosarba=".$egyelem["id"];?>&p=add">+</a>
-        <a href="<?php echo $homeurl.$separator.$_GET["q"].$separator2."kosarba=".$egyelem["id"];?>&p=neg">-</a><br />
+        <!--a href="<?php echo $homeurl.$separator.$_GET["q"].$separator2."kosarba=".$egyelem["id"];?>&p=add">+</a>
+        <a href="<?php echo $homeurl.$separator.$_GET["q"].$separator2."kosarba=".$egyelem["id"];?>&p=neg">-</a><br /-->
         
 <?php
 	//arraylist($egyelem);
@@ -27,5 +29,8 @@ if (count($kosar)>0){
 	}
 }
 ?>
-     <a href="<?php echo $separator."shop/order/";?>">Megrendelés</a>
+    <div>
+     <a class="btn btn-success" href="<?php echo $separator."shop/order/";?>">Megrendelés</a>
+    </div>
+<?php ?>
 </shop>

@@ -4,15 +4,17 @@ $sliderelements=$class_slider->get($filters);
 ?>
 <style>
 
+    .owl-nav{display: none;}
+
 
 </style>
-  <link rel="stylesheet" href="<?php echo $server_url;?>/scripts/owl-carousel/owl.carousel.css" />
-  <script src="<?php echo $server_url;?>/scripts/owl-carousel/owl.carousel.js"></script>
+
+  <link rel="stylesheet" href="<?php echo $server_url;?>/scripts/owlcarousel/owl.carousel.css" />
+  <script src="<?php echo $server_url;?>/scripts/owlcarousel/owl.carousel.js"></script>
 
 <script>
 $(document).ready(function() {
- 
-  $("#myslider").owlCarousel({
+   $("#myslider").owlCarousel({
 
       animateOut: 'fadeOut',
       animateIn: 'fadeIn',
@@ -32,8 +34,8 @@ $(document).ready(function() {
       autoplay: true,
       autoplayTimeout: 3000,
       nav : true, // Show next and prev buttons
-    slideSpeed : 300,
-    paginationSpeed : 400,
+    slideSpeed : 1200,
+    paginationSpeed : 600,
       navText:['&lsaquo;','&rsaquo;'],
     // "singleItem:true" is a shortcut for:
     // items : 1,
@@ -45,6 +47,8 @@ $(document).ready(function() {
     });
 
     });
+
+
     </script>
 
 
@@ -55,14 +59,13 @@ $(document).ready(function() {
         $img="picture2.php?picture=".encode($slider['imgurl'])."";
         ?>
         <div class="item"><img src="<?php echo $server_url.$img;?>&x=1520&y=533" alt="<?php echo $slider["name"]; ?>">
-        <div class="slideContent">
-        <div class="slideText">
-        <h2><?php echo $slider["name"]; ?></h2>
-        <p><?php echo $slider["description"]; ?></p>
-        </div>
-        <a href="<?php echo $slider["url"]; ?>"></a>
-        </div>
-
+            <div class="slideContent">
+                <div class="slideText">
+                    <h2><?php echo $slider["name"]; ?></h2>
+                    <p><?php echo $slider["description"]; ?></p>
+                    </div>
+                    <a href="<?php echo $slider["url"]; ?>"></a>
+                </div>
         </div>
         <?php } ?>
-        </div>
+    </div>

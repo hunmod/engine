@@ -110,7 +110,7 @@ foreach ($mytables as $tbls) {
 }
 
 $domain = $_SERVER["HTTP_HOST"];
-$homeurl = "http://" . $domain . $homefolder . '';
+$homeurl = "https://" . $domain . $homefolder . '';
 $server_url = $homeurl . '/';
 $thisulr = $domain . $homefolder . "" . $_SERVER["REQUEST_URI"];
 $folders["uploads"] = '_' . $oldalid . '/';

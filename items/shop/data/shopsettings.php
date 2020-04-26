@@ -32,11 +32,9 @@ db_query($q, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"],$adatbazis["
 //	<link rel="stylesheet" href="'.$server_url.'scripts/jquery.ui.timepicker.css" />
 $admintemplate=1;
 $extrascript[]= ' 
-
 	<script src="'.$server_url.'/scripts/ckeditor/ckeditor.js" type="text/javascript"></script>
 	<script src="'.$server_url.'/scripts/ckfinder/ckfinder.js" type="text/javascript"></script>	
 	';
-
 
 foreach ($_POST as $name=>$value){
     if ($name!=""){

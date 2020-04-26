@@ -303,6 +303,11 @@ slider {
     text-align: center;
 }
 
+
+.clk{
+    cursor: pointer;
+}
+
 /*fooldal*/
 .pairunpair.location .cim {
     padding: 10px 20px;

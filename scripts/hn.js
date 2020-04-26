@@ -527,6 +527,7 @@ function daycalc(firstdate, seconddate) {
 	console.log(datum2arr)
 }
 
+
 /* Session mod*/
 /*
 function SetSession(name,val)

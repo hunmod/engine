@@ -78,8 +78,13 @@ foreach ($widgetsfootb as $widget)if (file_exists($widget))include($widget);?>
 </div>
     <footer class="container-fluid" id="footer">
 		<div class="container-fluid">
+            <?php include("footer.php")?>
 		</div>
 	</footer>
+
+
+
+
   <?php include_once ("./items/footerscripts.php");?>
         <div class="modal fade" id="hiddenbox"  role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-400">

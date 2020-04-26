@@ -1,8 +1,7 @@
-    <link href="https://fonts.googleapis.com/css?family=Coustard" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Coustard" rel="stylesheet">
 
-    
 <style>
-    @import url('https://fonts.googleapis.com/css?family=Fugaz+One|Nothing+You+Could+Do');
+   // @import url('https://fonts.googleapis.com/css?family=Fugaz+One|Nothing+You+Could+Do');
     .animst1{
       position: relative;
         width: 100%;
@@ -11,7 +10,6 @@
         overflow: hidden;
         -webkit-perspective: 500px; /* Chrome, Safari, Opera  */
         perspective: 500px;
-        font-family: 'Coustard','Nothing You Could Do', cursive;
     }
 
     .animst1 .contentlayer,
@@ -50,7 +48,7 @@
         width: 50%;
         top: 5%;
         height: 90%;
-        background: rgba(255,255,255,0.6);
+        background: rgba(255,255,255,0.8);
         color: white;
         padding: 20px;
         overflow: hidden;
@@ -172,7 +170,7 @@
     <?php
     if ($auser["jog"] > 2) {
         ?>
-        <a href="<?php echo $homeurl . $separator . $getparams[0]; ?>/edittext">Új site</a>
+        <a href="<?php echo $homeurl . $separator . $getparams[0]; ?>/edittext" class="btn btn-succes"><?= lan("newsite")?></a>
     <?php } ?>
     <div class="">
         <news itemscope="" itemtype="http://schema.org/WebPage">

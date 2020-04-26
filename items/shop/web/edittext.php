@@ -29,7 +29,7 @@ $Form_Class->selectbox2("mid", $menuk, array('value' => 'id', 'name' => 'nev'), 
            <barcode>*<?php echo $adat["barcode"];?>*</barcode>
         Megrendelés idő: <?php $Form_Class->textbox("ordertime",$adat["ordertime"],"ordertime",$req="n","ordertime")?> (nap)
         <?php $Form_Class->selectboxeasy("sorrend", $ShopClass->sorrend(),  $adat["sorrend"], "sorrend");?>
-			<input type="submit" value="Submit" />
+			<input type="submit" value="<?= lan('save')?>" class="btn btn-success">
 		</form>
 <?php
 if ($adat["id"]>0){

@@ -39,8 +39,8 @@
     <?php } ?>
     <meta property="og:url" content="<?php echo $homeurl . $_SERVER["REQUEST_URI"]; ?>"/>
     <meta name="rating" content="General"/>
-    <meta name="robots" content="noindex,nofollow"/>
-    <meta name="GOOGLEBOT" content="NOINDEX, NOFOLLOW">
+    <meta name="robots" content="index,follow"/>
+    <meta name="GOOGLEBOT" content="INDEX, FOLLOW">
     <meta name="revisit-AFTER" content="60 Days"/>
     <meta name="twitter:site" content="<?php echo $oldalneve; ?>">
     <meta name="twitter:creator" content="@Hunmod">
