@@ -11,6 +11,7 @@ $filterse["status"]=$filterss["status"]=$filters["status"]=2;
 
 //$csomagokarray=$CsomagClass->get($filters,'',$_GET["page"]) ;
 $sitesarray=$SiteClass->get($filterss,'',$_GET["page"]) ;
+$shoparray=$ShopClass->get($filterss,'',$_GET["page"]) ;
 //$eventsarray=$PlacesClass->get($filterse,'',$_GET["page"]) ;
 
 

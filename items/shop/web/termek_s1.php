@@ -1,6 +1,6 @@
 <product itemscope itemtype="http://schema.org/Product" class="col-md-4 col-sm-6 col-12">
     <a href="<?php echo $homeurl.$separator.$getparams[0]."/shop/".($elem["id"])."/".$Text_Class->to_link($Text_Class->htmlfromchars($elem["title"]));?>">
-        <topimage class="imgframe col-sm-12"><img class="img-responsive" src="<?php echo ($elem["image"]);?>" alt="<?php echo $elem["title"];?>" title="<?php echo $elem["title"];?>" height="100" itemprop="image"  /></topimage>
+        <topimage class="imgframe col-sm-12"><img class="img-responsive" src="<?php echo $ShopClass->getimg($elem["id"]);?>" alt="<?php echo $elem["title"];?>" title="<?php echo $elem["title"];?>" height="100" itemprop="image"  /></topimage>
     </a>
     <prieces>
         <!--endpriece><?php echo priece_format(($elem["priece"]+$elem["priece"]/100*$elem["vat"]),0);?> Ft</endpriece-->

@@ -38,6 +38,20 @@ if ($homedatas){
 	}
 
 
+
+
+	if ($homedatas["shop"]){
+		$sdatas=array();
+		foreach($homedatas["shop"] as $element)if ($element>0){
+			$filters['id']=$element;
+			$el=$ShopClass->get($filters,null,'0') ;
+			$shdatas[]=$el['datas'][0];
+		}
+        $elemek=$shdatas;
+
+	}
+
+
 }
 else {
 	$filters['maxegyoldalon'] = 3;
@@ -45,23 +59,29 @@ else {
 }
 
 
-
-
-
-
-
-
 include ('items/slide/web/widget_slider.php');
 ?>
 <div class="clearfix"></div>
-
 <div class="container home">
 <div class="clearfix"></div>
-
 	<?php
-	
+	$hirekelemek=$shoparray['datas'];
+    //arraylist($sitesarray);
+	//foreach($sitesarray['datas'] as $elem){?>
+	<div class="pairunpair">
+	<div class="container">
+	<?php
+	include ('./items/shop/web/list.php');
+	?>
+	</div>
+	</div>
+	<?php //} ?>
+
+
+<div class="clearfix"></div>
+	<?php
 	$hirekelemek=$sitesarray['datas'];
-//arraylist($sitesarray);
+    //arraylist($sitesarray);
 	//foreach($sitesarray['datas'] as $elem){?>
 	<div class="pairunpair">
 	<div class="container">
@@ -74,7 +94,6 @@ include ('items/slide/web/widget_slider.php');
 
 
 </div>
-<div>
 
 	<script type="text/javascript">
 		function gomemove(){
