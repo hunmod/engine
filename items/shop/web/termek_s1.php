@@ -1,5 +1,5 @@
 <product itemscope itemtype="http://schema.org/Product" class="col-md-4 col-sm-6 col-12">
-    <a href="<?php echo $homeurl.$separator.$getparams[0]."/shop/".($elem["id"])."/".$Text_Class->to_link($Text_Class->htmlfromchars($elem["title"]));?>">
+    <a href="<?php echo $homeurl.$separator."shop/shop/".($elem["id"])."/".$Text_Class->to_link($Text_Class->htmlfromchars($elem["title"]));?>">
         <topimage class="imgframe col-sm-12"><img class="img-responsive" src="<?php echo $ShopClass->getimg($elem["id"]);?>" alt="<?php echo $elem["title"];?>" title="<?php echo $elem["title"];?>" height="100" itemprop="image"  /></topimage>
     </a>
     <prieces>
@@ -30,13 +30,13 @@
             <?php
             if (($auser["jogid"]>=3) || ($auser["id"]==$elem["uid"])){?>
                 <li>
-                    <a href="<?php echo $homeurl.$separator.$getparams[0]."/edittext/".base64_encode ($elem["id"]);?>"  ><?= lan('edit')?></a>
+                    <a href="<?php echo $homeurl.$separator."shop/edittext/".base64_encode ($elem["id"]);?>"  ><?= lan('edit')?></a>
                 </li>
             <?php }?>
         </ul>
     </div>
     <div class="clear"></div>
-    <a href="<?php echo $homeurl.$separator.$getparams[0]."/shop/".($elem["id"])."/".$Text_Class->to_link($Text_Class->htmlfromchars($elem["title"]));?>">
+    <a href="<?php echo $homeurl.$separator."shop/shop/".($elem["id"])."/".$Text_Class->to_link($Text_Class->htmlfromchars($elem["title"]));?>">
         <name itemprop="name"><?php echo $Text_Class->htmlfromchars($elem["title"]);?></name>
     </a>
 
