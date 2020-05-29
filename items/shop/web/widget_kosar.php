@@ -1,4 +1,4 @@
-<shop>
+<shopkosar>
 <h1>Kosár</h1>
 <?php
 $kosar=array();
@@ -33,4 +33,4 @@ if (count($kosar)>0){
      <a class="btn btn-success" href="<?php echo $separator."shop/order/";?>">Megrendelés</a>
     </div>
 <?php ?>
-</shop>
+</shopkosar>

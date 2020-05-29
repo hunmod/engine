@@ -9,7 +9,7 @@
     </div-->
 
 	<section class="col-sm-12 videolist">
-<h3><?php echo $thmenu["nev"];?></h3>	
+<h1><?php echo $thmenu["nev"];?></h1>
 <?php foreach ($qmenu as $data){?>
 			<h3><?php echo $data["nev"]; ?></h3>
  			<div class="row">

@@ -227,7 +227,7 @@ if ($orderdata["order"]=="ok"){
         unset($orderdata);
 
 //átdobjuk a fizetés oldalra.
- header("Location: ".$separator."shop/order_view/".$Orderid);
+ header("Location: ".$separator."shop/order_view/".encode($Orderid));
 	}
 
 	//arraylist($_SESSION);

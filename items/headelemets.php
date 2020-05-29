@@ -54,17 +54,14 @@
     <script src="<?= $homeurl.('/scripts/viewportchecker.js') ?>" /></script>
     <script src="<?php echo $server_url; ?>scripts/jquery-ui.min.js"></script>
     <script src="<?php echo $homeurl; ?>/scripts/jquery.matchHeight-min.js"></script>
-    <script src="<?php echo $homeurl; ?>/scripts/jquery.maskedinput.js"></script>
-    <!--script src="<?php echo $homeurl; ?>/scripts/viewportchecker.js"></script-->
+    <!--script src="<?php echo $homeurl; ?>/scripts/jquery.maskedinput.js"></script>
+    <script src="<?php echo $homeurl; ?>/scripts/viewportchecker.js"></script-->
 
     <?php
     if (is_file('.'.$file['js'])){?>
         <script src="<?php echo $homeurl.$file['js']; ?>"></script>
     <?php }?>
     <script src="<?php echo $homeurl; ?><?php echo $makemin->js($stylefolder33 . '/scripts/hn.js', $stylefolder33 . '/scripts/hn.min.js', false) ?>"></script>
-
-
-
     <?php if($fb_ap_id){
         //facebook api js
         ?>
@@ -142,7 +139,6 @@
      <?php
     }
     ?>
-
     <?php
     // Google analitics (konfig DB-ből olvassa)
     if (isset($analitics_id) && $analitics_id != "") {
@@ -171,7 +167,6 @@
     <script type="text/javascript"><!--
         // sets two variables to store the X and Y position
         var homeurl = '<?= $homeurl;?>';
-
         var xpos;
         var ypos;
         function click_sendfile() {

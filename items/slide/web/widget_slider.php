@@ -58,7 +58,7 @@ $(document).ready(function() {
         foreach($sliderelements["datas"] as $slider){
         $img="picture2.php?picture=".encode($slider['imgurl'])."";
         ?>
-        <div class="item"><img src="<?php echo $server_url.$img;?>&x=1520&y=533" alt="<?php echo $slider["name"]; ?>">
+        <div class="item"><img src="<?php echo $server_url.$img;?>&x=920&y=260" alt="<?php echo $slider["name"]; ?>">
             <div class="slideContent">
                 <div class="slideText">
                     <h2><?php echo $slider["name"]; ?></h2>

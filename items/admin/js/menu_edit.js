@@ -32,8 +32,6 @@ function loadelements_type1(data) {
     ideglenes=$("#item").val();
     $("#item").remove();
     $("#itemcontainer").html('<select id="item" name="item" value="'+ideglenes+'" class="form-control"></select>');
-
-
     var midsel = document.getElementById('item');
           $.each(menudatas, function (key, value) {
               console.log(value["title"]);
@@ -49,9 +47,10 @@ function loadelements_type1(data) {
 
 function getjsonfrom() {
     selectbox = getselectedfilelock();
+    //ide jönnek amikről kell adat a legördülő midhez.
     if ((selectbox['modul'] == "csomag" && selectbox['file'] == "csomag")
         || (selectbox['modul'] == "site" && selectbox['file'] == "site")
-        || (selectbox['modul'] == "rooms" && selectbox['file'] == "room")
+        || (selectbox['modul'] == "shop" && selectbox['file'] == "shop")
     )
     {
     $.ajax({
@@ -65,7 +64,6 @@ function getjsonfrom() {
         ideglenes=$("#item").val();
         $("#item").remove();
         $("#itemcontainer").html('<input id="item" name="item" placeholder="elem" value="'+ideglenes+'" class="form-control"></input>');
-
 
 }
 

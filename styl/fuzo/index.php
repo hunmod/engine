@@ -1,20 +1,6 @@
 <?php include_once ("./items/headelemets.php");?>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-<!-- Start Alexa Certify Javascript -->
-<script type="text/javascript">
-_atrk_opts = { atrk_acct:"Llnqi1asyr00q9", domain:"abrakahasba.hu",dynamic: true};
-(function() { var as = document.createElement('script'); as.type = 'text/javascript'; as.async = true; as.src = "https://d31qbv1cthcecs.cloudfront.net/atrk.js"; var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(as, s); })();
-</script>
-<!-- End Alexa Certify Javascript -->
-
-
-<!-- Alexa-->
-<!-- gGR5ouOd2fTuR4jIpPmHOLLkMuE -->
-<!--
-bing
--->
 <link id="page_favicon" href="<?php echo $homeurl.$stylefolder;?>icons/favicon.ico" rel="icon" type="image/x-icon" />
 
   </head>

@@ -18,10 +18,12 @@ $hostlink="http://".$_SERVER['HTTP_HOST'];
 			foreach ($fomenu as $menuelem){
             if (($menuelem["status"]=="1")){
                         if ($menuelem["item"]==""){$menuelem["item"]=$menuelem["id"];}
-						  
+                if($menuelem["item"]){
+                    $menuelem["id"]=$menuelem["item"];
+                }
 						  $almenuq=$MenuClass->get_menu(array("mid"=>$menuelem["id"]),$order='',$page='all') ;
 						  $almenu=$almenuq["datas"];
-						  $menuurl=$homeurl.$separator.$MenuClass->shorturl_get($menuelem["modul"]."/".$menuelem["file"]."/".$menuelem["id"]);
+						  $menuurl=$homeurl.$separator.$SysClass->shorturl_get($menuelem["modul"]."/".$menuelem["file"]."/".$menuelem["id"]);
 						  $menuimgs=$MenuClass->menu_img($menuelem["id"]);
 						  $smfile ='items/'.$menuelem["modul"].'/sitemap/'.$menuelem["file"].'.php';
 						  
@@ -55,7 +57,7 @@ $hostlink="http://".$_SERVER['HTTP_HOST'];
 						  
 						  $almenuq=$MenuClass->get_menu(array("mid"=>$menuelem2["id"]),$order='',$page='all') ;
 						  $almenu=$almenuq["datas"];
-						  $menuurl=$homeurl.$separator.shorturl_get($menuelem2["modul"]."/".$menuelem2["file"]."/".$menuelem2["id"]);
+						  $menuurl=$homeurl.$separator.$SysClass->shorturl_get($menuelem2["modul"]."/".$menuelem2["file"]."/".$menuelem2["id"]);
 						  $menuimgs=$MenuClass->menu_img($menuelem2["id"]);
 						  $smfile ='items/'.$menuelem2["modul"].'/sitemap/'.$menuelem2["file"].'.php';
 						  if (is_file($smfile)){

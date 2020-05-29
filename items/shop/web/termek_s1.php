@@ -28,7 +28,7 @@
                 <a class="facebookicon35" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $homeurl.$separator.$getparams[0]."/shop/".($elem["id"])."/".$Text_Class->to_link($Text_Class->htmlfromchars($elem["title"]));?>" target="_blank"><?= lan('Megosztom facebook')?></a>
             </li>
             <?php
-            if (($auser["jogid"]>=3) || ($auser["id"]==$elem["uid"])){?>
+            if ($auser["jogid"]>=3) {?>
                 <li>
                     <a href="<?php echo $homeurl.$separator."shop/edittext/".base64_encode ($elem["id"]);?>"  ><?= lan('edit')?></a>
                 </li>
@@ -36,7 +36,7 @@
         </ul>
     </div>
     <div class="clear"></div>
-    <a href="<?php echo $homeurl.$separator."shop/shop/".($elem["id"])."/".$Text_Class->to_link($Text_Class->htmlfromchars($elem["title"]));?>">
+    <a href="<?php echo $homeurl.$separator."/shop/".($elem["id"])."/".$Text_Class->to_link($Text_Class->htmlfromchars($elem["title"]));?>">
         <name itemprop="name"><?php echo $Text_Class->htmlfromchars($elem["title"]);?></name>
     </a>
 

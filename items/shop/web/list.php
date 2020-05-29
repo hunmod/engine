@@ -6,6 +6,9 @@
         font-size: 1.2em;
         font-weight: bold;
     }
+    shop{
+        margin-top: 2em;
+    }
     shop a{
         color: #0D0A0A;
     }
@@ -43,11 +46,11 @@
     shop .buy{
  background: url("https://www.wellis.com/img/website_ikonok/kosár/kosar_ikon.png") contain;
     }
-    shopproduct{
+    shop product{
         display: block;
         overflow: hidden;
         position: relative;
-        min-height: 390px!important;
+        min-height: 255px!important;
     }
     shop prieces{
         position: absolute;
@@ -62,7 +65,6 @@
     }
 
     shop product:hover {
-        overflow: inherit;
         background: rgba(0, 0, 0, 0.8);
         color: #ffffff;
         z-index: 1000;
@@ -93,6 +95,9 @@
     product,topimage,shop,prieces,description{
        display: block;
     }
+    topimage {
+        margin-top: 5px;
+    }
     .facebookicon35{
     }
     .actions ul{
@@ -114,7 +119,7 @@
 
 <?php if ($auser["jog"]>=4){?>
 
-	<a href="<?php echo $homeurl.'/'.$getparams[0]."/edittext";?>" class="button">Uj Termék</a><br />
+	<a href="<?php echo $homeurl.'/'.$getparams[0]."/edittext";?>" class="btn btn-btnsuccess">Uj Termék</a><br />
 <div style="clear">&nbsp;</div>
 
 <?php }?>
