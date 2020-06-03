@@ -22,7 +22,7 @@
         text-decoration: none;
     }
 
-    shop product oldpriece{
+    shop product oldprice{
         text-decoration: line-through;
     }
     shop product action{
@@ -34,7 +34,7 @@
         padding: 0.5em;
         color: #cfff2f;
     }
-    shop product oldpriece,shop product endpriece,shop product action,shop product priece{
+    shop product oldprice,shop product endprice,shop product action,shop product price{
 
         display: block;
     }
@@ -52,7 +52,7 @@
         position: relative;
         min-height: 255px!important;
     }
-    shop prieces{
+    shop prices{
         position: absolute;
         display: block;
         top: 0;
@@ -60,7 +60,7 @@
         width: 100%;
         padding: 0.4em;
     }
-    shop oldpriece{
+    shop oldprice{
         float: left;
     }
 
@@ -69,14 +69,14 @@
         color: #ffffff;
         z-index: 1000;
     }
-    shop product: prieces{
+    shop product: prices{
         height: 2em;
 
     }
-    product prieces{
+    product prices{
         background: rgba(0,0,0,0.1);
     }
-    product:hover prieces{
+    product:hover prices{
         color: #ffffff;
         background: rgba(0,0,0,0.4);
     }
@@ -92,7 +92,7 @@
                  color: #ffffff;
              }
 
-    product,topimage,shop,prieces,description{
+    product,topimage,shop,prices,description{
        display: block;
     }
     topimage {

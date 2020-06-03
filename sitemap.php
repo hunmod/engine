@@ -1,16 +1,13 @@
-<?php //header('Content-Type: application/xml; charset=utf-8');
+<?php header('Content-Type: application/xml; charset=utf-8');
 error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED & ~E_WARNING);?><?php session_start();?><?php
-
 echo'<?xml version="1.0" encoding="UTF-8"?>';
 $smmode=1;
 include_once("items/allpagedatas.php");
-
 $auser["jogid"]=0;
-$hostlink="http://".$_SERVER['HTTP_HOST'];
+$hostlink="https://".$_SERVER['HTTP_HOST'];
 ?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" >
-
-<?php 
+<?php
 //arraylist($file);
 	?>
     <?php

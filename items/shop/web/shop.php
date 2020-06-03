@@ -93,7 +93,7 @@
         color: #653e75;
     }
 
-    oldpriece, endpriece, action, priece {
+    oldprece, endprice, action, price {
         text-align: left;
 
         display: block;
@@ -131,30 +131,29 @@
         <shop_article itemscope itemtype="http://schema.org/Product" class="border1 bgcolor1">
             <?php
             ?>
-            <name ><?php echo $Text_Class->htmlfromchars($pagedata["title"]); ?></name>
+            <name itemprop="name" ><?php echo $Text_Class->htmlfromchars($pagedata["title"]); ?></name>
 
             <topimage class="col-sm-12"><img src="<?php echo("http://" . $domain . $homefolder . "/" . $img); ?>"
                            alt="<?php echo $pagedata["title"]; ?>" title="<?php echo $pagedata["title"]; ?>"
                            itemprop="image"/></topimage>
 
             <div class="col-sm-4">
-
-            <prieces>
+            <prices itemprop="offers" itemtype="http://schema.org/AggregateOffer" itemscope>
                 <!--endpriece><?php echo priece_format(($pagedata["priece"] + $elem["priece"] / 100 * $pagedata["vat"]), 0); ?>
                     Ft
                 </endpriece-->
                 <?php if ($eurhuf > 0) { ?>
                     (
-                    <priece><?php echo priece_format($pagedata["priece"] / $eurhuf, 2); ?> &#8364;</priece> )<br/>
+                    <price><?php echo priece_format($pagedata["priece"] / $eurhuf, 2); ?> &#8364;</price> )<br/>
                 <?php } ?>
 
                 <?php if ($pagedata["priece_old"] > $pagedata["priece"]) { ?>
-                    <oldpriece itemprop="highPrice"><?php echo priece_format($pagedata["priece_old"], 0); ?> Ft</oldpriece>
+                    <oldprice itemprop="highPrice"><?php echo priece_format($pagedata["priece_old"], 0); ?> Ft</oldprice>
                     <action><?php echo percentage($pagedata["priece"], $pagedata["priece_old"], 0); ?> %</action>
                 <?php } ?>
-                <priece itemprop="priece">+<?php echo priece_format($pagedata["priece"], 0); ?> Ft</priece>
+                <price itemprop="lowPrice">+<?php echo priece_format($pagedata["priece"], 0); ?> <currency itemprop="priceCurrency">Ft</currency></price>
     <!--vat itemprop="vat">+<?php echo $Text_Class->htmlfromchars($pagedata["vat"]); ?>% ÁFA</vat><br /-->
-            </prieces>
+            </prices>
             <div class="actions">
                 <ul>
                     <?php if ($pagedata["storage_status"] != 5) { ?>
@@ -166,7 +165,7 @@
                         <a class="facebookicon35" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $homeurl.$separator.$getparams[0]."/shop/".($pagedata["id"])."/".$Text_Class->to_link($Text_Class->htmlfromchars($pagedata["title"]));?>" target="_blank"><?= lan('Megosztom facebook')?></a>
                     </li>
                     <?php
-                    if (($auser["jogid"] >= 3) || ($auser["id"] == $pagedata["uid"])) {
+                    if (($auser["jogid"] >= 3) ) {
                         ?>
                         <li>
                             <a href="<?php echo $kezdooldal . $separator . $getparams[0] . "/edittext/" . base64_encode($pagedata["id"]); ?>"><?= lan('edit')?></a>
@@ -202,8 +201,8 @@
                 <?php echo $storage_satus[$pagedata["storage_status"]]["nev"]; ?>
                 <?php if ($pagedata["storage_status"] == 3) { ?>
 
-                <br/><span class="alert">minimum <?php echo $pagedata["ordertime"]; ?> nap<?php } ?> A szálltási idő!</span>
-
+                <br/><span class="alert">minimum <?php echo $pagedata["ordertime"]; ?> napA szálltási idő!</span>
+                <?php } ?>
             </orderinfo>
             <?php if ($pagedata["barcode"] != '') { ?>
                 <barcode>*<?php echo $pagedata["barcode"]; ?>*</barcode>

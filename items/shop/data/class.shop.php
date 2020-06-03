@@ -1250,7 +1250,7 @@ return($res);//csak id-t ad vissza
 
 public function createurl($hir){
 global $Text_Class,$homeurl,$separator;
-	return $homeurl.$separator."shop/article/".$hir["id"]."/".$Text_Class->to_link($hir["title"]);
+	return $homeurl.$separator."shop/shop/".$hir["id"]."/".$Text_Class->to_link($Text_Class->htmlfromchars($hir["title"]));
 }
 
 public function jsons_from($data)

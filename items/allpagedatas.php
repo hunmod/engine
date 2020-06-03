@@ -89,7 +89,8 @@ if ($_SESSION["country_code"] == "") {
 include_once("config.php");
 //menü tábla létrehozása
 $tblmodul = 'menu';
-$tbl[$tblmodul] = $adatbazis["db1_db"] . "." . $prefix . "menu";
+$tbl[$tblmodul] = $adatbazis["db1_db"] . "."  . "menu";
+//$tbl[$tblmodul] = $adatbazis["db1_db"] . "." . $prefix . "menu";
 $MenuClass->create_table();
 
 

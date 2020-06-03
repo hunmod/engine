@@ -2,19 +2,21 @@
     <a href="<?php echo $homeurl.$separator."shop/shop/".($elem["id"])."/".$Text_Class->to_link($Text_Class->htmlfromchars($elem["title"]));?>">
         <topimage class="imgframe col-sm-12"><img class="img-responsive" src="<?php echo $ShopClass->getimg($elem["id"]);?>" alt="<?php echo $elem["title"];?>" title="<?php echo $elem["title"];?>" height="100" itemprop="image"  /></topimage>
     </a>
-    <prieces>
-        <!--endpriece><?php echo priece_format(($elem["priece"]+$elem["priece"]/100*$elem["vat"]),0);?> Ft</endpriece-->
+    <pricesc itemprop="offers" itemtype="http://schema.org/AggregateOffer" itemscope>
+
         <?php if ($eurhuf>0){?>
             (<priece><?php echo priece_format($elem["priece"]/$eurhuf,2);?> &#8364;</priece> )<br />
         <?php }?>
         <?php if ($elem["priece_old"]>$elem["priece"]){?>
+            <oldprice itemprop="highPrice"><?php echo priece_format($elem["priece_old"],0);?> <currency itemprop="highPriceCurencey">Ft</currency></oldprice>
             <action itemprop="precent"><?php echo percentage($elem["priece"], $elem["priece_old"], 0);?> %</action>
-            <oldpriece itemprop="highPrice"><?php echo priece_format($elem["priece_old"],0);?> Ft</oldpriece><br />
         <?php } ?>
-        <priece itemprop="price"><?php echo priece_format($elem["priece"],0);?> Ft</priece>
-        <!--vat itemprop="vat">+<?php echo $Text_Class->htmlfromchars($elem["vat"]);?>% ÁFA</vat><br /-->
-    </prieces>
-    <?php if ($elem["storage_status"]==3){
+        <price itemprop="lowPrice"><?php echo priece_format($elem["priece"],0);?> <currency itemprop="priceCurrency">Ft</currency></price>
+        <?  /*    <endprice><?php echo priece_format(($elem["priece"]+$elem["priece"]/100*$elem["vat"]),0);?> Ft</endprice>
+               <!--vat itemprop="vat">+<?php echo $Text_Class->htmlfromchars($elem["vat"]);?>% ÁFA</vat><br /-->
+ */ ?>
+    </pricesc>
+ <?php if ($elem["storage_status"]==3){
         ?><br /><?php echo lan("csak rendelésre"); //$elem["ordertime"];
      }?>
     <div class="actions">
@@ -25,7 +27,7 @@
                 </li>
             <?php } ?>
             <li>
-                <a class="facebookicon35" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $homeurl.$separator.$getparams[0]."/shop/".($elem["id"])."/".$Text_Class->to_link($Text_Class->htmlfromchars($elem["title"]));?>" target="_blank"><?= lan('Megosztom facebook')?></a>
+                <a class="facebookicon35" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $homeurl.$separator."shop/shop/".($elem["id"])."/".$Text_Class->to_link($Text_Class->htmlfromchars($elem["title"]));?>" target="_blank"><?= lan('Megosztom facebook')?></a>
             </li>
             <?php
             if ($auser["jogid"]>=3) {?>
@@ -36,7 +38,7 @@
         </ul>
     </div>
     <div class="clear"></div>
-    <a href="<?php echo $homeurl.$separator."/shop/".($elem["id"])."/".$Text_Class->to_link($Text_Class->htmlfromchars($elem["title"]));?>">
+    <a href="<?php echo $homeurl.$separator."shop/shop/".($elem["id"])."/".$Text_Class->to_link($Text_Class->htmlfromchars($elem["title"]));?>">
         <name itemprop="name"><?php echo $Text_Class->htmlfromchars($elem["title"]);?></name>
     </a>
 

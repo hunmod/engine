@@ -4,8 +4,7 @@
 $code=$homeurl.$_SERVER['REQUEST_URI'];
 ?>   
 <div>     
-<image alt="QR code from this page" src="<?php echo $homeurl;?>/scripts/phpqrcode/index2.php?data=<?php echo base64_encode($code);?>&size=3&level=S">
-</div>        
+</div>
 </div>
 <div class="col-lg-3 col-md-4 col-sm-6">
     <?php //include('./items/konyha/web/widget_submenu.php');?>
