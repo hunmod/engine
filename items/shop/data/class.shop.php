@@ -1039,7 +1039,7 @@ return($res);//csak id-t ad vissza
     }
     public function save_shop_order($datas)
     {
-        global $adatbazis;
+        global $adatbazis,$TextClass;
         $Sys_Class=new sys();
         //tabla adatai
         $mtbl=$this->shop_order_tbl();
@@ -1057,7 +1057,7 @@ return($res);//csak id-t ad vissza
                 $mezok.="`".$mezoe['name']."`";
 
                 $datasb.=$Sys_Class->comasupport($datasb);
-                $datasb.="'".($datas[$mezoe['name']])."'";
+                $datasb.="'".$TextClass->htmltochars($datas[$mezoe['name']])."'";
             }
             $query="INSERT INTO  `shop_order` (".$mezok.")VALUES (".$datasb.")";
             $result =db_Query($query, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"],$adatbazis["db1_srv"],$adatbazis["db1_db"], "INSERT");
@@ -1151,17 +1151,30 @@ return($res);//csak id-t ad vissza
         if ($filters[$fmezonev]!=''){
             $where.=$Sys_Class->andsupport($where);
             $where.='('.$SD["table"].".`".$fmezonev."`='".$filters[$fmezonev]."') ";
-        }$fmezonev='status';
+        }
+
+        $fmezonev='pstatus';
         if ($filters[$fmezonev]!=''&& $filters[$fmezonev]!='all'){
             $where.=$Sys_Class->andsupport($where);
             $where.='('.$SD["table"].".`".$fmezonev."`='".$filters[$fmezonev]."') ";
         }
+
         $fmezonev='ids';
         if ($filters[$fmezonev]!=''){
             $where.=$Sys_Class->andsupport($where);
-            $where.='('.$SD["table"].".`id` in (".$filters[$fmezonev].") ";
+            $where.=''.$SD["table"].".`id` in (".$filters[$fmezonev].") ";
         }
-
+        $fmezonev='status';
+        if ($filters[$fmezonev]!='' ){
+            if($filters[$fmezonev]!='all'){
+            $where.=$Sys_Class->andsupport($where);
+            $where.=''.$SD["table"].".`status` = (".$filters[$fmezonev].") ";
+            }
+        }else
+            {
+                $where.=$Sys_Class->andsupport($where);
+                $where.=''.$SD["table"].".`status` != '4' ";
+            }
 //ha van feltétel elé csapjuk hogy WHERE
         if ($where!=''){
             $where=" WHERE ".$where;

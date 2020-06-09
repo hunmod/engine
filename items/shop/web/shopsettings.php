@@ -65,6 +65,40 @@ $rootmenu_array[]=array("nev"=>"root","id"=>"0");
             Variables:<br />
             ORDER_URL ,VEVO_NEV,ORDER_OSSZEG,ORDER_ID</td>
     </div>
+        <div class="col-sm-12">
+            <strong>Fizetési emlékeztető1 mail (<?php echo $_SESSION["lang"]?>)</strong>
+            <?php
+            $name="shop_order_pay_pay1_subject_".$_SESSION["lang"];
+            $FormClass->textbox($name,page_settings($name)); ?><br />
+            <?php $name="shop_order_pay_pay1_text_".$_SESSION["lang"];
+            $FormClass->kcebox($name,page_settings($name),"");
+            ?>
+            Variables:<br />
+            ORDER_URL ,VEVO_NEV,ORDER_OSSZEG,ORDER_ID</td>
+    </div>
+        <div class="col-sm-12">
+            <strong>Rendelés postán mail (<?php echo $_SESSION["lang"]?>)</strong>
+            <?php
+            $name="shop_order_pay_post_subject_".$_SESSION["lang"];
+            $FormClass->textbox($name,page_settings($name)); ?><br />
+            <?php $name="shop_order_pay_post_text_".$_SESSION["lang"];
+            $FormClass->kcebox($name,page_settings($name),"");
+            ?>
+            Variables:<br />
+            ORDER_URL ,VEVO_NEV,ORDER_OSSZEG,ORDER_ID</td>
+    </div>
+        <div class="col-sm-12">
+            <strong>Rendelés lezárva mail (<?php echo $_SESSION["lang"]?>)</strong>
+            <?php
+            $name="shop_order_close_subject_".$_SESSION["lang"];
+            $FormClass->textbox($name,page_settings($name)); ?><br />
+            <?php $name="shop_order_close_text_".$_SESSION["lang"];
+            $FormClass->kcebox($name,page_settings($name),"");
+            ?>
+            Variables:<br />
+            ORDER_URL ,VEVO_NEV,ORDER_OSSZEG,ORDER_ID</td>
+    </div>
+
 
 
 

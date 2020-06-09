@@ -58,7 +58,7 @@
        // echo $orderdatas['pstatus'];
        // arraylist($pay_status);
         //ha paypal és még nincs fizetve.
-        if ($orderdatas['pmod']==3 && $orderdatas['payment_date']<='0000-00-00 00:00:00'){
+        if (/*$orderdatas['pmod']==3 &&*/ $orderdatas['payment_date']<='0000-00-00 00:00:00'){
 
             ?>
             <!-- PayPal payment form for displaying the buy button -->
@@ -76,8 +76,8 @@
                 <input type="hidden" name="return" value="<?php echo PAYPAL_RETURN_URL; ?>">
                 <input type="hidden" name="cancel_return" value="<?php echo PAYPAL_CANCEL_URL; ?>">
                 <!-- Display the payment button. -->
-                <!--input type="image" name="submit" border="0" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif"-->
-                <input type="submit" class="btn btn-success" name="submit" value="<?=lan("Paypal fizetés")?>">
+                <input type="image" name="submit" border="0" src="https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif">
+                <!--input type="submit" class="btn btn-success" name="submit" value="<?=lan("Paypal fizetés")?>"-->
             </form>
             <?php
         }
@@ -127,9 +127,9 @@
                     <endpriece>
                         <?php echo $oder_articlesid["articles"][$i]["endpriece"];?> ft
                     </endpriece>
-                    <destription>
+                    <!--destription>
                         <?php echo $oder_articlesid["articles"][$i]["leadtext"];?>
-                    </destription>
+                    </destription-->
                 </article>
 
             <?php } } ?>

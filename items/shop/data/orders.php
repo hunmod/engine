@@ -24,6 +24,12 @@ if ($_GET["tag"]){
 $filters['lang']=$_SESSION["lang"];
 
 
+//del order
+if ($_GET["dtag"]){
+    $delid['id']=$_GET["dtag"];
+    $delid['status']=4;
+    $ShopClass->save_shop_order($delid);
+}
 
 
 //rendelések lekérdezése

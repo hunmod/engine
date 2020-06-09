@@ -1,4 +1,50 @@
 <?php
+
+
+if ($_POST["formname"]=="payok" && $getparams[2]>0)
+{
+    $pstatus=2;
+    //ha a helyiszínen veszi meg, egyből le is zárjuk
+    if ($_POST["pmod"]=="0") {$pstatus=6;}
+    //ha a utánvét volt és megjött a lé
+    if ($_POST["pstatus"]=="3") {$pstatus=6;}
+
+    $delid=$_POST;
+    $delid['id']=$getparams[2];
+    $delid['payment_date']=$date;
+    if($pstatus)$delid['pstatus']=$pstatus;
+
+   // arraylist($delid);
+    $ShopClass->save_shop_order($delid);
+}
+
+
+
+$filtersxx["id"]=$getparams[2];
+$datas=$ShopClass->get_shop_order($filtersxx);
+$orderdatas=$datas["datas"][0];
+
+if ($_POST["formname"]=="rememberpay")
+{
+   // arraylist($orderdatas);
+    $orderdatas['email'];
+
+    $from_text=array('ORDER_URL' ,'VEVO_NEV','ORDER_OSSZEG','ORDER_ID');
+    $to_text= array($homeurl.$separator."/".$getparams[0].'/order_view/'.encode($orderdatas['id']).'/sid-'.rand(346202,99999999),$orderdatas['name'],$orderdatas['oder_priece'],$orderdatas['id']) ;
+    $eml_text_to_buyer=str_replace($from_text,$to_text,page_settings("shop_order_pay_pay1_text_".$_SESSION["lang"]));
+    $eml_head_to_buyer=str_replace($from_text,$to_text,page_settings("shop_order_pay_pay1_subject_".$_SESSION["lang"]));
+
+    emailkuldes($orderdatas["email"],$orderdatas["name"],$eml_head_to_buyer,$eml_text_to_buyer);
+
+
+}
+
+
+
+
+
+
+
 //email szövegek
 /*$whereorderlist=" WHERE id=".decode($getparams[2]);
 

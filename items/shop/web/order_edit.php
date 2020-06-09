@@ -37,9 +37,6 @@ display:block;
 </style>
 <?php
 //var_dump($getparams);
-$filtersxx["id"]=$getparams[2];
-$datas=$ShopClass->get_shop_order($filtersxx);
-$orderdatas=$datas["datas"][0];
 
 
 $orderdatas["articles"]=str_replace('
@@ -74,7 +71,23 @@ $post_mod=$ShopClass->post_mod();
     <payment>
         Fizetés<br />
         Fizetési mód:<?php echo $paymod[$orderdatas['pmod']]["nev"];?><br />
-        Fizetés ideje:<?php echo $orderdatas['payment_date'];?><br />    
+        Fizetés ideje:<?php echo $orderdatas['payment_date'];?>
+        <?php
+        if ($orderdatas['post_date']=='0000-00-00 00:00:00'){
+        ?>
+        <form method="post">
+            Csomag azonosító:<?php
+            $FormClass->hiddenbox('formname','rememberpay');
+            ?>
+            <input name="" type="submit" value="Fizetési emlékezető"/>
+       </form>
+            <?php
+            }
+
+
+            ?>
+
+            <br />
 
 Szállított tételek: <?php echo $oder_articlesid['summa']["articles_num"];?><br />
 Érték:<?php echo $orderdatas["oder_priece"];?> Ft <br />
@@ -83,7 +96,8 @@ Szállított tételek: <?php echo $oder_articlesid['summa']["articles_num"];?><b
     <post>
         Szállítás: <?= $orderdatas['post_priece']?> Ft.<br />
         Módja:<?php echo $post_mod[$orderdatas['post_mod']]["nev"];?><br />    
-        Ideje:<?php echo $orderdatas['post_date'];?><br />    
+        Ideje:<?php echo $orderdatas['post_date'];?>
+        <br />
         Postai azonosító:<?php echo $orderdatas['post_id'];?><br />    
 	    Státusz:<strong><?php echo $order_satus[$orderdatas['pstatus']]["nev"];?></strong><br />
 	    Megrendelés dátuma:<?php echo $orderdatas['order_date'];?><br />           
@@ -126,9 +140,9 @@ for ($i = 0; $i < count($oder_articlesid["articles"]); $i++) {
             <endpriece>
             <?php echo $oder_articlesid["articles"][$i]["endpriece"];?> ft
             </endpriece>                        
-            <destription>
+            <!--destription>
             <?php echo $oder_articlesid["articles"][$i]["leadtext"];?>
-            </destription>
+            </destription-->
 		</article>
 
 <?php } } ?>
@@ -137,32 +151,38 @@ for ($i = 0; $i < count($oder_articlesid["articles"]); $i++) {
     </shop> 
 </order_info>
 <div class="clear"></div>
-
-<?php 
-if ($auser["jogid"]==4){
+<?php
+if ($auser["jogid"]==4){?>
+    <a href="<?php echo $separator.$getparams[0].'/order_view/'.encode($getparams[2]);?>">Rendelés megtekintése</a>
+<div class="clear"></div>
+<?php
 	//ha csak meg van rendelve és nem utánvétes
 	if (($orderdatas["pstatus"]=='0') && ($orderdatas["pmod"]!='2'))
 	{ ?>
+
 	<form method="post">
 	<?php
-	hiddenbox('formname','payok');
-	hiddenbox('pstatus','1');
-	hiddenbox('pmod',$orderdatas["pmod"]);
+    $FormClass->hiddenbox('formname','payok');
+    $FormClass->hiddenbox('pstatus','1');
+    $FormClass->hiddenbox('pmod',$orderdatas["pmod"]);
+    $FormClass->hiddenbox('id',$orderdatas["id"]);
 	 ?>
-	<input name="" type="submit" value="Fizetve"/> 
+	<input name="" type="submit" value="Fizetve"/>
 	</form>
-	<?php 
-	}
+	<?php
+       // arraylist($orderdatas);
+
+    }
 	
 	//ha ki van fizetve de nincs elküldve
 	if (($orderdatas["payment_date"]>'0000-00-00 00:00:00')&&($orderdatas["post_date"]=='0000-00-00 00:00:00')&&($orderdatas["pstatus"]!='6'))
 	{ ?>
 	<form method="post">
 	Csomag azonosító:<?php
-	hiddenbox('formname','postok');
-	textbox('post_id',$_POST["post_id"]);
+        $FormClass->hiddenbox('formname','postok');
+        $FormClass->textbox('post_id',$_POST["post_id"]);
 	 ?>
-	<input name="" type="submit" value="Feldva"/> 
+	<input name="" type="submit" value="Feldva"/>
 	</form>
 	<?php 
 	}
@@ -188,9 +208,9 @@ if ($auser["jogid"]==4){
 	{ ?>
 	<form method="post">
 	Megött a lé:<?php
-	hiddenbox('formname','payok');
-	hiddenbox('pmod','2');
-	hiddenbox('pstatus',$orderdatas["pstatus"]);
+        $FormClass->hiddenbox('formname','payok');
+        $FormClass->hiddenbox('pmod','2');
+        $FormClass->hiddenbox('pstatus',$orderdatas["pstatus"]);
 	
 	 ?>
 	 
@@ -218,11 +238,12 @@ if ($auser["jogid"]==4){
 	<form method="post">
 	Csomag megérkezett<br />
 	<?php
-	hiddenbox('formname','orderok');
+    $FormClass->hiddenbox('formname','orderok');
 	?>
 	<input name="" type="submit" value="Elfogadom"/> 
 	</form>
 	<?php 
 	}
 	?>
+
 
