@@ -8,6 +8,7 @@ $admintemplate=1;
 $filters["mindate"]=$dateprint;
 $filterse["lang"]=$filterss["lang"]=$filters["lang"]="hu";
 $filterse["status"]=$filterss["status"]=$filters["status"]=2;
+$filterse["maxegyoldalon"]=$filterss["maxegyoldalon"]=$filters["maxegyoldalon"]='all';
 
 //$csomagokarray=$CsomagClass->get($filters,'',$_GET["page"]) ;
 $sitesarray=$SiteClass->get($filterss,'',$_GET["page"]) ;

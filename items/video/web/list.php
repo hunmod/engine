@@ -12,7 +12,7 @@
 <h1><?php echo $thmenu["nev"];?></h1>
 <?php foreach ($qmenu as $data){?>
 			<h3><?php echo $data["nev"]; ?></h3>
- 			<div class="row">
+ 			<div class="col-sm-12">
 <?php
   $datas=$video_class->get(array("mid"=>$data["id"])," id DESC", '0');
 ?>
@@ -32,10 +32,8 @@ foreach ($datas["datas"] as $mdata){
 <?php } ?>
 
  		</div>
- 		<div class="row">
- 		<div class="morebtn">
-			 <a href="<?php /*$Text_Class->to_link($data["nev"]).*/echo $homeurl."/video/videos".'/'.$data["id"] ?>">MORE</a>
-		 </div>
+ 		<div class="col-sm-12 floatleft">
+			 <a href="<?php /*$Text_Class->to_link($data["nev"]).*/echo $homeurl."/video/videos".'/'.$data["id"] ?>" class="btn btn-success"><?=lan("more")?></a>
 	</div>
 
 

@@ -8,49 +8,9 @@ font-size:23px;
 
 </style>
 <div class="container">
-            <!--div id="breadCrumb">
-                <a href="<?php echo $homeurl;?>">Home</a> / 
- 				<?php //echo $menu["nev"];
-                ?>
-                <span><strong><?php echo $breadtext;?></strong></span>
-                <?php
-               if ($auser["jog"]>2){
-				?>
-                <a href="<?php echo $homeurl.$separator;?>hirek/edittext">Új hír</a>
-                <?php }?>
-            </div-->
                 <div class="row">
-
-
-<?php if (count($widgets)){?>
-  <left class="col-md-3 col-sm-4" >
-<?php 
-foreach ($widgets as $widget)if (file_exists($widget))include($widget);?>
-  </left>  
-
-<news itemscope  itemtype="http://schema.org/WebPage" class="col-md-9 col-sm-8">
-<?php } else {?>
-<news itemscope="" itemtype="http://schema.org/WebPage">
-<?php } ?>      
+<news itemscope="" itemtype="http://schema.org/WebPage" class="col-sm-12 col-12">
 <div>
-                <h1>
-				<?php echo $menu["nev"];
-				$c=1;
-                if(count($menufelette))foreach(array_reverse($menufelette) as $mef){
-					
-					if ($c!=1){$xclass='class="zold"';}
-					else {$xclass='';}
-					if ($c<count($menufelette)){$xper=' / ';}
-					else {$xper='';}
-					$c++;
-				if ($c>2){	
-                ?>
-                <span <?php echo $xclass;?>><?php echo $mef["nev"];?></span><?php echo $xper;?>
-                <?php
-                	}
-                }
-				?>
-                </h1>
 				 <?php
                if ($auser["jog"]>2){
 				?>

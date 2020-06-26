@@ -1,12 +1,3 @@
-<div class="container">
-    <div id="breadCrumb">
-        <a href="<?php echo $homeurl;?>">Home</a> >
-        <a href="<?php echo $homeurl.'/'.$separator.shorturl_get("m/".$menu["id"]);?>"><?php echo $menu["nev"];?> </a> >
-        <span><?php echo "". ($Text_Class->htmlfromchars($aprodata["cim"]));?></span>
-    </div>
-    <div class="row  text-center">
-    <h1><?php echo "". ($Text_Class->htmlfromchars($aprodata["cim"]));?></h1>
-</div>
 </div>
 
 <slider>
@@ -46,7 +37,7 @@
 </slider>
 <div class="container">
 
-<div class="col-sm-8 col-xs-12">
+<div class="col-sm-12 col-xs-12">
 
         <news itemscope="" itemtype="http://schema.org/WebPage">
             <h1 itemprop="name"><?php echo "". ($Text_Class->htmlfromchars($aprodata["cim"]));?></h1>
@@ -73,7 +64,7 @@
         </news>
 
 </div>
-<div class="col-sm-4 col-xs-12">
+<div class="col-sm-12 col-xs-12">
     <?php include ('./items/csomag/web/sidelist.php');?>
 
 </div>

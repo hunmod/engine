@@ -1,12 +1,7 @@
 <style>
 </style>
-<div class="container roomlist">
-<div id="breadCrumb">
-	<a href="<?php echo $homeurl;?>"><?= lan('home');?></a> >
-	<a href="<?php echo $homeurl.'/'.$separator.shorturl_get("m/".$menu["id"]);?>"><?php echo $menu["nev"];?> </a> 
-</div>		
-    <div class="row">
-        <news itemscope="" itemtype="http://schema.org/WebPage">
+<div class="container">
+        <news itemscope="" itemtype="http://schema.org/WebPage" class="col-sm-12">
             <h1>
                 <?php echo $menu["nev"];
                 $c = 1;
@@ -34,7 +29,7 @@
             <?php
             if ($auser["jog"] > 2) {
                 ?>
-                <a href="<?php echo $homeurl . $separator . $getparams[0]; ?>/edittext">Új site</a>
+                <a href="<?php echo $homeurl . $separator . $getparams[0]; ?>/edittext" class="btn btn-succes">Új site</a>
             <?php } ?>
             <?php
             //arraylist($hirekelemek);
@@ -49,7 +44,7 @@
                     //$elem['hu'] = $elemhuid['datas'][0];
                     $elem['url'] = $SiteClass->createurl($elem);;
                     // arraylist($elemhuid);
-					//article
+                    //article
                     include('display2.php');
                 }
             }
@@ -72,8 +67,10 @@
                         <?php
                         for ($c = 0; $c <= $oldalakszama - 1; $c++) {
                             ?>
-                            <li><a
-                                href="<?php echo $separator . $_GET["q"] . $separator2 . "page=" . $c; ?>"><?php echo $c + 1; ?></a>
+                            <li>
+                                <a href
+                                   ="<?php echo $separator . $_GET["q"] . $separator2 . "page=" . $c; ?>
+                                "><?php echo $c + 1; ?></a>
                             </li>
                         <?php }
                         ?>
@@ -96,14 +93,12 @@
 //oldalazó
             } ?>
         </news>
-    </div>
-
 </div>
 <script type="text/javascript">
-    function gomemove(){
-        scrollanimate('article','fadeIn');
+    function gomemove() {
+        scrollanimate('article', 'fadeIn');
     }
-    jQuery(document).ready(function() {
+    jQuery(document).ready(function () {
         $(window).on('scroll resize', gomemove);
         $(window).trigger('scroll');
     });
