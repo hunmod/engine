@@ -211,11 +211,14 @@ class user
 //id alapján a user adatait adja vissza
 	public function get_userid($uid)
 	{
+        $user=array();
+        if (is_numeric($uid)){
 		$filters['id'] = $uid;
 		$users = $this->get_users($filters, '', 'all');
 		$user = $users["datas"][0];;
 		//
 		$user['jog'] = $user['jogid'];
+        }
 		return $user;
 	}
 

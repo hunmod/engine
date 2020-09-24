@@ -1,6 +1,8 @@
-<?php session_start();
+<?php
+session_set_cookie_params(36000);
+session_start();
 header("Content-Type: text/html; charset=utf-8"); 
-header("Cache-Control: max-age=2592000"); 
+header("Cache-Control: max-age=31536000");
 //30days (60sec * 60min * 24hours * 30days)
     /*date_default_timezone_set('Europe/Budapest');
     ini_set('error_reporting', E_ALL);

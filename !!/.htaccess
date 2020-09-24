@@ -1,7 +1,6 @@
 Options +FollowSymlinks
-Header set Cache-Control "max-age=29030400, public"
-ExpiresDefault "access plus 1 years"
-RewriteEngine On
+Header set Cache-Control "max-age=2628000, public"
+RewriteEngine On 
 RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 #RewriteBase /engine/
@@ -21,13 +20,6 @@ RewriteCond %{REQUEST_FILENAME} !-d
 
 RewriteRule ^(.*)(.*)$ index.php?mr=1&q=$1 [QSA]
 
-ExpiresActive On
-<FilesMatch "^(picture2.php%)$">
-Header set Cache-Control "max-age=29030400, public"
-ExpiresDefault "access plus 1 years"
-Header unset Last-Modified
-Header unset ETag
-SetOutputFilter DEFLATE
-</FilesMatch>
+
 
 

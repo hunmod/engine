@@ -50,79 +50,7 @@
 
 </script>
 <style>
-    #kosar{
-        font-size: 0.8em;
-    }
-    #kosar shop .clk{
-        font-size: 1.2em;
-        font-weight: bold;
-    }
-    shop_article a{
-        color: #0D0A0A;
-    }
-    shop_article a{
-        color: #000000;
-        text-decoration: none;
-    }
 
-    shop_article  a:hover,
-    shop_article .clk:hover{
-        color: #653e75;
-        text-decoration: none;
-    }
-    shop_article name{
-        font-weight: bold;
-        font-size: 2em;
-    }
-    shop_article prieces action{
-        text-decoration: none;
-        background: #a20fee;
-        border-radius: 20px 0 20px 0;
-        padding: 0.5em;
-        font-size: 1.3em;
-        color: #cfff2f;
-        width: 4em;
-        text-align: center;
-    }
-    shop_article prieces oldpriece{
-        text-decoration: line-through;
-        font-size: 1em;
-        color: #9c3328;
-    }
-    shop_article name{
-        color: #653e75;
-    }
-
-    oldprece, endprice, action, price {
-        text-align: left;
-
-        display: block;
-        float:  none;
-    }
-    .actions ul{
-        padding-inline-start: 0.5em;
-        font-size: 1em;
-    }
-    .actions li {
-        list-style-type: none;
-    }
-
-    .selector ul {
-        padding-inline-start: 0px;
-    }
-
-    .selector li {
-        list-style-type: none;
-        cursor: pointer;
-        display: inline-block;
-        pading: 2em 1em;
-
-    }
-
-    .selector .active {
-        text-decoration: underline;
-        color: #0D0A0A;
-    }
 </style>
 <div class="clear"></div>
 <div class="container">
@@ -153,6 +81,15 @@
                 <?php } ?>
                 <price itemprop="lowPrice">+<?php echo priece_format($pagedata["priece"], 0); ?> <currency itemprop="priceCurrency">Ft</currency></price>
     <!--vat itemprop="vat">+<?php echo $Text_Class->htmlfromchars($pagedata["vat"]); ?>% ÁFA</vat><br /-->
+
+                <orderinfo >
+                    <?php echo $storage_satus[$pagedata["storage_status"]]["nev"]; ?>
+                    <?php if ($pagedata["storage_status"] == 3) { ?>
+
+                       <span class="alert">minimum <?php echo $pagedata["ordertime"]; ?> nap a szálltási idő!</span>
+                    <?php } ?>
+                </orderinfo>
+
             </prices>
             <div class="actions">
                 <ul>
@@ -197,13 +134,6 @@
 
             <div class="clear"></div>
 
-            <orderinfo >
-                <?php echo $storage_satus[$pagedata["storage_status"]]["nev"]; ?>
-                <?php if ($pagedata["storage_status"] == 3) { ?>
-
-                <br/><span class="alert">minimum <?php echo $pagedata["ordertime"]; ?> napA szálltási idő!</span>
-                <?php } ?>
-            </orderinfo>
             <?php if ($pagedata["barcode"] != '') { ?>
                 <barcode>*<?php echo $pagedata["barcode"]; ?>*</barcode>
             <?php } ?>

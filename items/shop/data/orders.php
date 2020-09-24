@@ -36,6 +36,8 @@ if ($_GET["dtag"]){
 //szürö
 //$filtersxx["id"]=$getparams[2];
 
+$pmod=$ShopClass->paymod();
+$pstatus=$ShopClass->pay_status();
 $datas=$ShopClass->get_shop_order($filters);
 $orderdatas=$datas["datas"];
 

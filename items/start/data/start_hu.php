@@ -3,9 +3,9 @@
 
 $extrascript[]= ' 
 <!-- Important Owl stylesheet -->
-<link rel="stylesheet" href="'.$homeurl.$makemin->css('/scripts/owl-carousel/owl.carousel.css','/scripts/owl-carousel/owl.carousel.min.css').'" />
+<link rel="stylesheet" rel=preload href="'.$homeurl.$makemin->css('/scripts/owl-carousel/owl.carousel.css','/scripts/owl-carousel/owl.carousel.min.css').'" />
  <!-- Default Theme -->
- <link rel="stylesheet" href="'.$homeurl.$makemin->css('/scripts/owl-carousel/owl.theme.css','/scripts/owl-carousel/owl.theme.min.css').'" />
+ <link rel="stylesheet" rel=preload href="'.$homeurl.$makemin->css('/scripts/owl-carousel/owl.theme.css','/scripts/owl-carousel/owl.theme.min.css').'" />
  <!-- Include js plugin -->
 <script src="'.$homeurl.'/scripts/owl-carousel/owl.carousel.min.js"></script>';
 

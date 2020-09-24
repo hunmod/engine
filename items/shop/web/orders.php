@@ -60,9 +60,9 @@
                                         <td><?= $data["name"]?></td>
                                         <td><?= $data["zip"]?>,<?= $data["city"]?> <?= $data["address"]?> </td>
                                         <td><?= $data["phone"]?></td>
-                                        <td><?= $data["pmod"]?></td>
+                                        <td><?= $pmod[$data["pmod"]]["nev"]?></td>
                                         <td><?= $data["oder_priece"]?></td>
-                                        <td><?= $data["pstatus"]?></td>
+                                        <td><?= $pstatus[$data["pstatus"]]["nev"]?></td>
                                         <td class="hidden-phone">
                                             <a href="<?php echo $server_url.$separator."".$getparams[0]."/order_edit/".($data['id']);?>" class="actions-icons">
                                                 <?= lan("edit")?>

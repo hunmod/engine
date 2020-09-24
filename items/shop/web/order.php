@@ -217,7 +217,7 @@ $FormClass->selectbox_roll("post_mod",$post_mod,$paymod_typ,$orderdata["post_mod
 
 <?php $FormClass->textaera('subject',$orderdata["subject"],lan('subject'))?><br />
     </div>
-<input name="update" type="submit" value="frissít" class="btn btn-primary" />
+<input name="update" type="submit" value="Megrendelés ellenőrzése" class="btn btn-primary" />
     <?php
     if (!count($error) && $orderdata['zip']) {
         ?>

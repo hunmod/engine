@@ -21,19 +21,19 @@ public function sorrend(){
     {
         $n=0;
         $order_status = array();
-        $order_status[$n]["id"] = $n;
+        $order_status[$n]["id"] = 0;
         $order_status[$n]["nev"] = lan("megrendelve");
         $n++;
-        $order_status[$n]["id"] = $n;
+        $order_status[$n]["id"] = 1;
         $order_status[$n]["nev"] = lan("fizetve");
         $n++;
-        $order_status[$n]["id"] = $n;
+        $order_status[$n]["id"] = 2;
         $order_status[$n]["nev"] = lan("fizetés jóváhagyva");
         $n++;
-        $order_status[$n]["id"] = $n;
+        $order_status[$n]["id"] = 3;
         $order_status[$n]["nev"] = lan("Termékre vár");
         $n++;
-        $order_status[$n]["id"] = $n;
+        $order_status[$n]["id"] = 4;
         $order_status[$n]["nev"] = lan("elküldve");
         $n++;
         $order_status[$n]["id"] = $n;

@@ -14,7 +14,7 @@
           href="<?php echo $homeurl; ?>/rssfeed.php?<?php echo $_SERVER["QUERY_STRING"]; ?>"/>
     <link href="<?php echo $homeurl; ?>/scripts/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
     <!--link rel="stylesheet" type="text/css" href="<?php echo $homeurl; ?><?php echo $makemin->css($stylefolder . 'style.css', $stylefolder . 'style.min.css') ?>"/-->
-    <link rel="stylesheet" type="text/css" href="<?php echo $homeurl.$stylefolder . 'style.css'; ?>"/>
+    <link rel="stylesheet"  type="text/css" href="<?php echo $homeurl.$stylefolder . 'style.css'; ?>"/>
     <?php if ($page_keywords != "") { ?>
         <meta name="keywords" content="<?php echo $Text_Class->tageketcsupaszit($page_keywords); ?>"/>
     <?php } ?>
@@ -49,8 +49,8 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
     <!--script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script-->
-    <link rel="stylesheet" href="<?php echo $homeurl; ?><?php echo $makemin->css('/scripts/jquery-ui.css', '/scripts/jquery-ui.min.css') ?>"/>
-    <link rel="stylesheet" href="<?php echo $homeurl; ?><?php echo $makemin->css('/scripts/animate.css', '/scripts/animate.min.css') ?>"/>
+    <link rel="stylesheet" rel=preload href="<?php echo $homeurl; ?><?php echo $makemin->css('/scripts/jquery-ui.css', '/scripts/jquery-ui.min.css') ?>"/>
+    <link rel="stylesheet" rel=preload href="<?php echo $homeurl; ?><?php echo $makemin->css('/scripts/animate.css', '/scripts/animate.min.css') ?>"/>
     <script src="<?= $homeurl.('/scripts/viewportchecker.js') ?>" /></script>
     <script src="<?php echo $server_url; ?>scripts/jquery-ui.min.js"></script>
     <script src="<?php echo $homeurl; ?>/scripts/jquery.matchHeight-min.js"></script>
@@ -139,6 +139,9 @@
      <?php
     }
     ?>
+
+    <script data-ad-client="ca-pub-2466611390896843" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
     <?php
     // Google analitics (konfig DB-ből olvassa)
     if (isset($analitics_id) && $analitics_id != "") {

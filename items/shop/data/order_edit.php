@@ -1,5 +1,6 @@
 <?php
 
+$admintemplate=1;
 
 if ($_POST["formname"]=="payok" && $getparams[2]>0)
 {
@@ -19,11 +20,37 @@ if ($_POST["formname"]=="payok" && $getparams[2]>0)
 }
 
 
+if ($_POST["formname"]=="postok" && $getparams[2]>0)
+{
+    //ha Feladtam a csomagot
+    $delid=$_POST;
+    $delid['id']=$getparams[2];
+    $delid['post_date']=$date;
+    $delid['post_id']=$_POST["post_id"];
+    $delid['pstatus']=1;
+
+
+    // arraylist($delid);
+    $ShopClass->save_shop_order($delid);
+    //email
+    $from_text=array('ORDER_URL' ,'VEVO_NEV','ORDER_OSSZEG','ORDER_ID');
+    $to_text= array($homeurl.$separator."/".$getparams[0].'/order_view/'.encode($orderdatas['id']).'/sid-'.rand(346202,99999999),$orderdatas['name'],$orderdatas['oder_priece'],$orderdatas['id']) ;
+    $eml_text_to_buyer=str_replace($from_text,$to_text,page_settings("shop_order_pay_post_subject_".$_SESSION["lang"]));
+    $eml_head_to_buyer=str_replace($from_text,$to_text,page_settings("shop_order_pay_post_subject_".$_SESSION["lang"]));
+    emailkuldes($orderdatas["email"],$orderdatas["name"],$eml_head_to_buyer,$eml_text_to_buyer);
+
+
+}
+
+
+
+
 
 $filtersxx["id"]=$getparams[2];
+$filtersxx["status"]="all";
 $datas=$ShopClass->get_shop_order($filtersxx);
 $orderdatas=$datas["datas"][0];
-
+//arraylist($datas);
 if ($_POST["formname"]=="rememberpay")
 {
    // arraylist($orderdatas);

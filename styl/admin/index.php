@@ -136,19 +136,18 @@ jQuery(function($) {
               <?php include('menu.php');?>
           </li>
           <li>
-            <a href="invoice.html">
+            <a href="<?= $homeurl;?>">
               <span class="fs1" aria-hidden="true" data-icon="&#xe099;"></span>
-              <span class="count-label"></span>
             </a>
             <ul>
               <li>
-                <a href="invoice.html"><span class="fs1" aria-hidden="true" data-icon="&#xe004;"></span> Invoice</a>
+                <a href="<?= $homeurl;?>/shop/orders"><span class="fs1" aria-hidden="true" data-icon="&#xe004;"></span><?= lan("orders")?></a>
               </li>
               <li>
                 <a href="maps.html"><span class="fs1" aria-hidden="true" data-icon="&#xe042;"></span> Maps</a>
               </li>
               <li>
-                <a href="profile.html"><span class="fs1" aria-hidden="true" data-icon="&#xe074;"></span> Profile</a>
+                <a href="<?= $homeurl;?>/user/profil"><span class="fs1" aria-hidden="true" data-icon="&#xe074;"></span><?= lan("profile")?></a>
               </li>
               <li>
                 <a href="typography.html"> <span class="fs1" aria-hidden="true" data-icon="&#xe141;"></span> Typography</a>
@@ -157,7 +156,7 @@ jQuery(function($) {
                 <a href="calendar.html"><span class="fs1" aria-hidden="true" data-icon="&#xe052;"></span> Calendar</a>
               </li>
               <li>
-                <a href="mail.html"><span class="fs1" aria-hidden="true" data-icon="&#xe004;"></span> Messages</a>
+                <a href="<?= $homeurl;?>/site/lista"><span class="fs1" aria-hidden="true" data-icon="&#xe004;"></span> <?= lan("sites")?></a>
               </li>
               <li>
                 <a href="icons.html"><span class="fs1" aria-hidden="true" data-icon="&#xe0a9;"></span> Icons</a>
@@ -171,7 +170,7 @@ jQuery(function($) {
             </ul>
           </li>
           <li>
-            <a href="mail.html">
+            <a href="<?= $homeurl;?>">
               <span class="fs1" aria-hidden="true" data-icon="&#xe040;" ></span>
               <span class="count-label"></span>
             </a>
@@ -193,7 +192,7 @@ jQuery(function($) {
 
           <ul>
           <li class="hidden-sm">
-            <a href="maps.html">Dropdown
+            <a href="">Dropdown
               <span class="fs1" aria-hidden="true" data-icon="&#xe099;"></span>
               <span class="count-label">7</span>
             </a>
@@ -202,7 +201,7 @@ jQuery(function($) {
                 <a href="maps.html"><span class="fs1" aria-hidden="true" data-icon="&#xe042;"></span> Maps</a>
               </li>
               <li>
-                <a href="invoice.html"><span class="fs1" aria-hidden="true" data-icon="&#xe004;"></span> Invoice</a>
+                <a href="<?= $homeurl;?>/shop/orders"><span class="fs1" aria-hidden="true" data-icon="&#xe004;"></span><?= lan("orders")?></a>
               </li>
             </ul>
           </li>

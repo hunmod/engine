@@ -87,7 +87,7 @@
         Szállítás: <?= $orderdatas['post_priece']?> Ft.<br />
         Módja:<?php echo $post_mod[$orderdatas['post_mod']]["nev"];?><br />
         Ideje:<?php echo $orderdatas['post_date'];?><br />
-        Postai azonosító:<?php echo $orderdatas['post_id'];?><br />
+        Postai azonosító:<a target="_blank" href="https://www.posta.hu/nyomkovetes/nyitooldal?searchvalue=<?php echo $orderdatas['post_id'];?>"><?php echo $orderdatas['post_id'];?></a><br />
         Státusz:<strong><?php echo $order_status[$orderdatas['pstatus']]["nev"];?></strong><br />
         Megrendelés dátuma:<?php echo $orderdatas['order_date'];?><br />
         Postai nyomkövetési azonosító:<?php echo $orderdatas['track_id'];?><br />

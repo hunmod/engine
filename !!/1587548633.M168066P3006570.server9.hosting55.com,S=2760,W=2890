@@ -1,0 +1,130 @@
+Return-Path: <hunmodeu@server9.hosting55.com>
+Delivered-To: info@lustafuzo.hu
+Received: from server9.hosting55.com
+	by server9.hosting55.com with LMTP
+	id MG4rO9gRoF5q4C0AwMV+kw
+	(envelope-from <hunmodeu@server9.hosting55.com>)
+	for <info@lustafuzo.hu>; Wed, 22 Apr 2020 11:43:52 +0200
+Return-path: <hunmodeu@server9.hosting55.com>
+Envelope-to: info@lustafuzo.hu,
+ info@lustafuzo.hu
+Delivery-date: Wed, 22 Apr 2020 11:43:53 +0200
+Received: from hunmodeu by server9.hosting55.com with local (Exim 4.93)
+	(envelope-from <hunmodeu@server9.hosting55.com>)
+	id 1jRBuq-00CgZg-NN; Wed, 22 Apr 2020 11:43:36 +0200
+To: info@lustafuzo.hu
+Subject: Kapcsolatiform
+X-PHP-Script: okosfuzo.hu/index.php for 94.27.187.74
+X-PHP-Originating-Script: 1142:fugvenyek.php
+To: info@lustafuzo.hu
+From:  Okosfűző<info@lustafuzo.hu>
+Reply-To: <info@lustafuzo.hu>
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="jimmyP123"
+Message-Id: <E1jRBuq-00CgZg-NN@server9.hosting55.com>
+Date: Wed, 22 Apr 2020 11:43:36 +0200
+X-Hosting55-MailScanner-Information: Please contact the ISP for more information
+X-Hosting55-MailScanner-ID: 1jRBuq-00CgZg-NN
+X-Hosting55-MailScanner: Found to be clean
+X-Hosting55-MailScanner-SpamCheck: not spam (whitelisted),
+	SpamAssassin (not cached, score=6.399, required 4, BAYES_50 0.80,
+	HTML_MESSAGE 0.00, MIME_HTML_ONLY 0.10, PHP_ORIG_SCRIPT 1.00,
+	TO_NO_BRKTS_FROM_MSSP 2.50, TO_NO_BRKTS_HTML_ONLY 2.00)
+X-Hosting55-MailScanner-From: hunmodeu@server9.hosting55.com
+X-Spam-Status: No
+
+<html>
+<head>
+<meta http-equiv=\"Content-Type\" content=\"text/html\" charset=\"utf-8\">
+<meta content=\"MSHTML 6.00.2600.0\" name=GENERATOR>
+<style>
+table h1{
+	color:#CD0301;
+}
+table h2{
+	color:#CD0301;
+}
+table a{
+	color:#CD0301;
+	text-decoration:none;
+}
+table a:hover{
+	text-decoration:underline;
+}
+</style>
+
+</head>
+<body>
+<table style="width:100%;">
+<tr>
+<td>
+<h1>Email header</h1>
+
+</td>
+</tr>
+<tr>
+<td>
+<b>Feladó:</b><br><b>Email:</b>hunmod@gmail.com<br><b>Telefon:</b><br><b>message:</b><br>
+</td>
+</tr>
+<tr>
+<td>
+<p>Email footer</p>
+
+</td>
+</tr>
+
+</table>
+</body>
+</html>
+--jimmyP123
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+
+<html>
+<head>
+<meta http-equiv=\"Content-Type\" content=\"text/html\" charset=\"utf-8\">
+<meta content=\"MSHTML 6.00.2600.0\" name=GENERATOR>
+<style>
+table h1{
+	color:#CD0301;
+}
+table h2{
+	color:#CD0301;
+}
+table a{
+	color:#CD0301;
+	text-decoration:none;
+}
+table a:hover{
+	text-decoration:underline;
+}
+</style>
+
+</head>
+<body>
+<table style="width:100%;">
+<tr>
+<td>
+<h1>Email header</h1>
+
+</td>
+</tr>
+<tr>
+<td>
+<b>Feladó:</b><br><b>Email:</b>hunmod@gmail.com<br><b>Telefon:</b><br><b>message:</b><br>
+</td>
+</tr>
+<tr>
+<td>
+<p>Email footer</p>
+
+</td>
+</tr>
+
+</table>
+</body>
+</html>
+
+--jimmyP123--
+

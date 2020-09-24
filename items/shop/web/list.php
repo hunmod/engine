@@ -29,10 +29,8 @@
         text-decoration: none;
         position: relative;
         float: right;
-        background: #a20fee;
         border-radius: 20px 0 20px 0;
         padding: 0.5em;
-        color: #cfff2f;
     }
     shop product oldprice,shop product endprice,shop product action,shop product price{
 
