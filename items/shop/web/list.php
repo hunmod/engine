@@ -103,15 +103,7 @@
         font-size: 0.5em;
     }
 </style>
-<script>
-    function call_kosar_v1(plusminus,id){
-        parancs='q=shop/widget_kosar&kosarba='+id+'&p='+plusminus;
-        file="includeajax";
-        console.log(server_url+file+".php?"+parancs);
-        phpopenf("kosar",file,parancs)
-    }
 
-</script>
 <div class="clear" ></div>
 <shop class="container">
 
@@ -169,3 +161,12 @@ for ($c=0;$c<=$oldalakszama-1;$c++){
 }?>
 </shop>
 <div class="clear"></div>
+<script>
+    function call_kosar_v1(plusminus,id){
+        parancs='q=shop/widget_kosar&kosarba='+id+'&p='+plusminus;
+        file="includeajax";
+        console.log(server_url+file+".php?"+parancs);
+        phpopenf("kosar",file,parancs)
+    }
+    $('product').matchHeight();
+</script>

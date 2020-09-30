@@ -41,7 +41,7 @@
     <meta name="rating" content="General"/>
     <meta name="robots" content="index,follow"/>
     <meta name="GOOGLEBOT" content="INDEX, FOLLOW">
-    <meta name="revisit-AFTER" content="60 Days"/>
+    <meta name="revisit-AFTER" content="1 Days"/>
     <meta name="twitter:site" content="<?php echo $oldalneve; ?>">
     <meta name="twitter:creator" content="@Hunmod">
     <meta name="twitter:title" content="<?php echo $pagetitle; ?> <?php echo $oldalneve; ?>">
@@ -56,6 +56,17 @@
     <script src="<?php echo $homeurl; ?>/scripts/jquery.matchHeight-min.js"></script>
     <!--script src="<?php echo $homeurl; ?>/scripts/jquery.maskedinput.js"></script>
     <script src="<?php echo $homeurl; ?>/scripts/viewportchecker.js"></script-->
+
+<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+<script>
+  window.OneSignal = window.OneSignal || [];
+  OneSignal.push(function() {
+    OneSignal.init({
+      appId: "9c5b677a-e047-4b90-9467-d50508836784",
+    });
+  });
+</script>
+
 
     <?php
     if (is_file('.'.$file['js'])){?>
@@ -139,8 +150,7 @@
      <?php
     }
     ?>
-
-    <script data-ad-client="ca-pub-2466611390896843" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script src="https://www.googleoptimize.com/optimize.js?id=OPT-5KTX8LD"></script>
 
     <?php
     // Google analitics (konfig DB-ből olvassa)

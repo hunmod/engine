@@ -226,7 +226,7 @@ class user
 	public function userlogin($email, $pass)
 	{
 		$filters['email'] = $email;
-		$filters['pass'] = $pass;
+		$filters['pass'] = stripslashes(mysql_real_escape_string($pass));
 		$users = $this->get_users($filters, '', 'all');
 		//arraylist($users);
 		return $users["datas"][0];
@@ -354,6 +354,7 @@ class user
 		}
 
 //összes elem lekérdezése
+
 		$queryc = "SELECT " . $mezokc . " FROM " . $tables . $where . ' ' . $order;
 		$resultc = db_Query($queryc, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"], $adatbazis["db1_srv"], $adatbazis["db1_db"], "select");
 		$result['count'] = $resultc[0]['count'];

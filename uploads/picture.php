@@ -218,7 +218,12 @@ switch ($kiterjesztes) {
     case "bmp":
         $image_in = imagecreatefrombmp($theimage);
 		$Contenttype = 'image/bmp';
-        break;				
+        break;
+
+    case "webp":
+        $image_in = imagecreatefrombmp($theimage);
+		$Contenttype = 'image/webp';
+        break;
 }
 
 
@@ -234,13 +239,23 @@ if ($watermark==1){
 }
 
 
-		header('Content-type: '.$Contenttype);
-		
+		//header('Content-type: '.$Contenttype);
+		header('Content-type: image/webp');
+
 		if ($kiterjesztes=="png") {
 			imagepng($image_out);
 		}	
 		else{
-			imagejpeg($image_out, NULL, 75);
+                $user_agent = $_SERVER['HTTP_USER_AGENT'];
+
+           //     if (stripos( $user_agent, 'Chrome') !== false)
+            if (stripos( $user_agent, 'Safari') !== true)
+                {
+                    imagewebp($image_out, NULL, 100);
+                } else
+                {
+                    imagejpeg($image_out, NULL, 70);
+                }
 		}
 		imagedestroy($image_in);
 		imagedestroy($image_out);
@@ -356,6 +371,8 @@ if ($_GET['picture'] != "") {
 if ($_GET['c']=='n'){$crop=0;}
 if ($_GET['t']=='n'){$thumb=0;}
 		$ret=img_resize($theimage,$_GET['x'],$_GET['y'],$crop,$thumb,$watermarkarray);
+
+
 		$image_out=$ret['image'];
 		
 

@@ -28,8 +28,8 @@ $page_description = "";
 $mappa = $folders["uploads"] . $getparams[0] . "/" . $pagedata["id"];
 $mimg = randomimgtofldr("uploads/" . $mappa);
 if ($mimg != "none") {
-    $img = "uploads/picture.php?picture=" . encode($mappa . "/" . $mimg) . "&y=380&ext=.jpg";
-    $page_ogimage = $homeurl . "/uploads/picture.php?picture=" . encode($mappa . "/" . $mimg) . "&x=600&ext=.jpg";
+    $img = "picture2.php?picture=" . encode("uploads/" .$mappa . "/" . $mimg) . "&y=380&c=0&ext=.jpg";
+    $page_ogimage = $homeurl . "/picture2.php?picture=" . encode("uploads/" .$mappa . "/" . $mimg) . "&x=600&c=0&ext=.jpg";
 } else {
     $img = "uploads/" . $defaultimg;
 }

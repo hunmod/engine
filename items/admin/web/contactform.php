@@ -153,7 +153,7 @@ if ($_POST["email"])
             <?php
         }
 
-        $gcoord = $Google_Class->get_google_geocoding(page_settings("c_cim"));
+       // $gcoord = $Google_Class->get_google_geocoding(page_settings("c_cim"));
 
         // $gmapurl='https://www.google.com/maps/dir/';
         // $adress2=''.page_settings("c_cim");//'?origin='.

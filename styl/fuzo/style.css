@@ -486,18 +486,18 @@ shop product action {
 }
 
 .animst1 .bgcenterlayer {
-    width: 102%;
+    width: 110%;
     //background-image: url("http://www.aquasoft.de/blog/hilfe/files/2013/01/Schmutz.png");
     background-image: url("img/P0Wyux.png")!important;
    // opacity: 0.1;
-    height: 100%;
+    height: 110%;
 
 }
 
 .animst1 .bgcenterlayer1 {
     width: 110%;
     height: 100%;
-    background-image: url("http://photoshop-kepszerkeszte.lapunk.hu/tarhely/photoshop-kepszerkeszte/kepek/ecsetek/reszecskek_es_csillagok__3_.png");
+    background-image: url("img/eff2.png");
 
 }
 
@@ -548,14 +548,14 @@ shop product action {
 }
 
 .animst1 .bgcenterlayer {
-    animation-name: leftrigth1;
+    animation-name: leftrigth2;
     animation-duration: 13s!important;
     animation-iteration-count: infinite;
 }
 
 .animst1 .bgcenterlayer1 {
-    animation-name: leftrigth2;
-    animation-duration: 8s!important;
+    animation-name: leftrigth1!important;
+    animation-duration: 15s!important;
     animation-iteration-count: infinite;
 }
 
