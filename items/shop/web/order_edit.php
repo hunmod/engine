@@ -102,8 +102,6 @@ Szállított tételek: <?php echo $oder_articlesid['summa']["articles_num"];?><b
 	    Státusz:<strong><?php echo $order_satus[$orderdatas['pstatus']]["nev"];?></strong><br />
 	    Megrendelés dátuma:<?php echo $orderdatas['order_date'];?><br />           
 	</post>  
-
-      
     Megjegyzés:<br />
 	<?php echo $orderdatas['subject'];?><br />
 
@@ -245,5 +243,5 @@ if ($auser["jogid"]==4){?>
 	<?php 
 	}
 	?>
-
+<a target="_blank" href="<?= $serverurl?>/includeajax.php?q=shop/print_leter/<?= $getparams[2]?>"><?= lan('print leather')?></a>
 

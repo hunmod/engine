@@ -20,7 +20,7 @@
 $watermarkarray["wm_image"]="uploads/logo.png";
 $watermarkarray["ratio"]=0.8;
 $watermarkarray["pos"]="c-c";
-$watermarkarray["opacity"]=10;
+$watermarkarray["opacity"]=30;
 if ($_GET['c']=='0'){$crop=0;}else $crop=1;
 //$crop=0;
 if ($_GET['t']=='0'){$watermark=0;} else $watermark=1;
@@ -30,12 +30,17 @@ $create_temp=1;
 $picfolder='uploads/';
 $tempfolder='img_temp/';
 //return image extension
-$ret_ex = 'png';
-$user_agent = $_SERVER['HTTP_USER_AGENT'];
-// if (stripos( $user_agent, 'Chrome') !== false)
-if (stripos( $user_agent, 'Safari') !== true)
-{ $ret_ex='webp';}
-else{$ret_ex='jpeg';}
+$safari    = stripos($_SERVER['HTTP_USER_AGENT'],"SAFARI");
+$iPod    = stripos($_SERVER['HTTP_USER_AGENT'],"iPod");
+$iPhone  = stripos($_SERVER['HTTP_USER_AGENT'],"iPhone");
+$iPad    = stripos($_SERVER['HTTP_USER_AGENT'],"iPad");
+$iPadOS  = stripos($_SERVER['HTTP_USER_AGENT'],"Macintosh");
+$Android = stripos($_SERVER['HTTP_USER_AGENT'],"Android");
+
+if( $iPod || $iPhone || $iPad || $iPadOS )
+{ $ret_ex='jpeg';}
+else{$ret_ex='webp';}
+
 function createdir($dir){
 
     $dirs = explode("/", $dir);

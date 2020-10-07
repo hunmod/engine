@@ -13,18 +13,22 @@
     <link rel="alternate" type="application/rss+xml" title="RSS"
           href="<?php echo $homeurl; ?>/rssfeed.php?<?php echo $_SERVER["QUERY_STRING"]; ?>"/>
     <link href="<?php echo $homeurl; ?>/scripts/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
-    <!--link rel="stylesheet" type="text/css" href="<?php echo $homeurl; ?><?php echo $makemin->css($stylefolder . 'style.css', $stylefolder . 'style.min.css') ?>"/-->
-    <link rel="stylesheet"  type="text/css" href="<?php echo $homeurl.$stylefolder . 'style.css'; ?>"/>
+    <link rel="stylesheet" type="text/css" href="<?php echo $homeurl; ?><?php echo $makemin->css($stylefolder . 'style.css', $stylefolder . 'style.min.css') ?>"/>
+    <!--link rel="stylesheet"  type="text/css" href="<?php echo $homeurl.$stylefolder . 'style.css'; ?>"/-->
+
     <?php if ($page_keywords != "") { ?>
         <meta name="keywords" content="<?php echo $Text_Class->tageketcsupaszit($page_keywords); ?>"/>
     <?php } ?>
     <?php if ($page_description != "") {
         $pgerite = substr($Text_Class->tageketcsupaszit($page_description), 0, 180);
         ?>
+    <?php } else{
+        $pgerite= page_settings("description_hu");
+    } ?>
         <meta name="description" content="<?php echo $pgerite; ?>"/>
         <meta property="og:description" content="<?php echo $pgerite; ?>"/>
         <meta name="twitter:description" content="<?php echo $pgerite; ?>"/>
-    <?php } ?>
+
     <?php if ($page_ogimage == "") { ?>
         <?php $page_ogimage = $homeurl . '/' . $stylefolder . 'img/logo.png';
     } ?>
@@ -52,20 +56,20 @@
     <link rel="stylesheet" rel=preload href="<?php echo $homeurl; ?><?php echo $makemin->css('/scripts/jquery-ui.css', '/scripts/jquery-ui.min.css') ?>"/>
     <link rel="stylesheet" rel=preload href="<?php echo $homeurl; ?><?php echo $makemin->css('/scripts/animate.css', '/scripts/animate.min.css') ?>"/>
     <script src="<?= $homeurl.('/scripts/viewportchecker.js') ?>" /></script>
-    <script src="<?php echo $server_url; ?>scripts/jquery-ui.min.js"></script>
+    <!--script src="<?php echo $server_url; ?>scripts/jquery-ui.min.js"--></script>
     <script src="<?php echo $homeurl; ?>/scripts/jquery.matchHeight-min.js"></script>
     <!--script src="<?php echo $homeurl; ?>/scripts/jquery.maskedinput.js"></script>
     <script src="<?php echo $homeurl; ?>/scripts/viewportchecker.js"></script-->
 
 <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
-<script>
+<!--script>
   window.OneSignal = window.OneSignal || [];
   OneSignal.push(function() {
     OneSignal.init({
       appId: "9c5b677a-e047-4b90-9467-d50508836784",
     });
   });
-</script>
+</script-->
 
 
     <?php
@@ -150,7 +154,6 @@
      <?php
     }
     ?>
-    <script src="https://www.googleoptimize.com/optimize.js?id=OPT-5KTX8LD"></script>
 
     <?php
     // Google analitics (konfig DB-ből olvassa)
@@ -187,7 +190,9 @@
             $(save).click();
         }
         $(document).ready(function () {
-            $('#droppedimg').draggable(
+            if(document.getElementById("#droppedimg"))
+            {
+                $('#droppedimg').draggable(
                 {
                     cursor: 'pointer',      // sets the cursor apperance
                     opacity: 0.35,          // opacity fo the element while it's dragged
@@ -206,7 +211,9 @@
                         alert('LEFT:' + xmove + ' pixels \n "top:"' + ymove + ' pixels');
                     }
                 });
+            }
         });
+
         --></script>
 <?php
 if (count($extrascript) >= 1) {

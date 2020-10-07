@@ -24,6 +24,7 @@ $Form_Class->selectbox2("mid", $menuk, array('value' => 'id', 'name' => 'nev'), 
         $Form_Class->selectbox2("vat", $ShopClass->vat(), array('value' => 'id', 'name' => 'nev'), $adat["vat"], "Áfa"); ?>
         <?php $Form_Class->kcebox("leadtext", $Text_Class->htmlfromchars($adat["leadtext"]),"Leiras") ?>
         <?php $Form_Class->selectboxeasy("status", $ShopClass->status(),  $adat["status"], "status");?>
+        <?php $Form_Class->textbox("storage", $adat["storage"],"storage") ?>
         <?php $Form_Class->selectbox2("storage_status", $ShopClass->storage_status(), array('value' => 'id', 'name' => 'nev'),  $adat["storage_status"], "storage_status");?>
         <?php $Form_Class->textbox("barcode", $Text_Class->htmlfromchars($adat["barcode"]),"barcode") ?>
            <barcode>*<?php echo $adat["barcode"];?>*</barcode>

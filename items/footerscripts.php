@@ -18,6 +18,7 @@ function adBlockDetected() {
 }
 </script>
 -->
+    <script src="https://www.googleoptimize.com/optimize.js?id=OPT-5KTX8LD"></script>
 
     <script src="<?php echo $server_url; ?>scripts/jquery.modalbox-1.5.0/js/jquery.modalbox-1.5.0-min.js"
             type="text/javascript"></script>
@@ -28,6 +29,7 @@ function adBlockDetected() {
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="<?php echo $homeurl; ?>/scripts/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+
     <!-- script src="<?php echo $server_url; ?>scripts/html5lightbox/html5lightbox.js"></script-->
 
 

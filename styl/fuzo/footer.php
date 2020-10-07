@@ -1,5 +1,4 @@
 <div class="col-lg-3 col-md-4 col-sm-6">
-        <a href="https://www.facebook.com/<?php echo $fb_page_name; ?>" id="facebook" target="_blank"></a>
 <?php
 $code=$homeurl.$_SERVER['REQUEST_URI'];
 ?>   

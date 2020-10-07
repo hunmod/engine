@@ -5,8 +5,7 @@ RewriteEngine On
 RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 #RewriteBase /engine/
-#RewriteBase /
-#RewriteBase /
+RewriteBase /
 
 
 RewriteRule \.(ico|js|swf|css|gif|flv|jpe?g|JPE?G|html|png|pdf|xls|mp3|avi|mge?g|doc|docx|xls|xlsx|tif)$ - [L]

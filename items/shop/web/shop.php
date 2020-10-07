@@ -99,7 +99,7 @@
                         </li>
                     <?php } ?>
                     <li>
-                        <a class="facebookicon35" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $homeurl.$separator.$getparams[0]."/shop/".($pagedata["id"])."/".$Text_Class->to_link($Text_Class->htmlfromchars($pagedata["title"]));?>" target="_blank"><?= lan('Megosztom facebook')?></a>
+                        <a class="facebookicon35" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $homeurl.$separator.$getparams[0]."/shop/".($pagedata["id"])."/".$Text_Class->to_link($Text_Class->htmlfromchars($pagedata["title"]));?>" target="_blank" rel="noreferrer"><?= lan('Megosztom facebook')?></a>
                     </li>
                     <?php
                     if (($auser["jogid"] >= 3) ) {

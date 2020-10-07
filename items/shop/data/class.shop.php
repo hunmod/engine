@@ -364,6 +364,16 @@ public function table(){
     $mezok[] = $mezo;
     $mezo = array();
 
+    $mezo=array();
+    $mezo["id"]='storage';
+    $mezo["table"]=$table.'.'.'`'.$mezo["id"].'`';
+    $mezo["name"]="included";
+    $mezo["display"]=0;
+    $mezo["type"]='text';
+    $mezo["displaylist"]=1;
+    $mezo["value"]=$data[$mezo["id"]];
+    $mezo["mysql_field"]="`".$mezo["id"]."` INT DEFAULT  '1',";
+    $mezok[]=$mezo;
 
     $mezo["id"] = "storage_status";
     $mezo["table"] = $table . '.' . '`' . $mezo["id"] . '`';
@@ -409,6 +419,7 @@ public function table(){
     $mezo["value"]=$data[$mezo["id"]];
     $mezo["mysql_field"]="`".$mezo["id"]."` TEXT,";
     $mezok[]=$mezo;
+
 
 
     $mezo["id"]='status';
@@ -639,7 +650,11 @@ if ($filters[$fmezonev]!=''){
 	$where.=$Sys_Class->andsupport($where);
 	$where.='('.$SD["table"].".`id` in (".$filters[$fmezonev].") ";
 }
-
+    $fmezonev='storage';
+    if ($filters[$fmezonev]!=''&& $filters[$fmezonev]!='all'&& $filters[$fmezonev]=='y'){
+        $where.=$Sys_Class->andsupport($where);
+        $where.='('.$SD["table"].".`".$fmezonev."`>0) ";
+    }
 //ha van feltétel elé csapjuk hogy WHERE	
 if ($where!=''){
 	$where=" WHERE ".$where;	
