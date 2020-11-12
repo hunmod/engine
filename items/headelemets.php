@@ -2,10 +2,12 @@
 <html lang="<?= lang ?>">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta http-equiv="Cache-control" content="public">
+    <meta http-equiv="Cache-control" content="public,max-age=86400">
     <meta http-equiv="Content-language" content="<?php echo lang ?>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#1c69ca"/>
+
     <title><?php echo $pagetitle; ?><?php echo $oldalneve; ?></title>
     <link rel="canonical" href="<?php echo $homeurl . '/' . $MenuClass->shorturl_get($_GET['q']); ?>"/>
     <link rel="metalink" type="application/metalink+xml"
@@ -38,6 +40,8 @@
     <?php if ($fb_page_id != "") { ?>
         <meta name="fb:page-id" content="<?php echo $fb_page_id; ?>"/>
     <?php } ?>
+
+
     <?php if ($page_ogimage != "") { ?>
         <meta property="og:image" content="<?php echo $page_ogimage; ?>"/>
     <?php } ?>

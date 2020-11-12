@@ -50,7 +50,7 @@
 
 </script>
 <style>
-
+    hiddenbox {position: fixed; display: block; top: -1000px}
 </style>
 <div class="clear"></div>
 <div class="container">
@@ -61,11 +61,15 @@
             ?>
             <name itemprop="name" ><?php echo $Text_Class->htmlfromchars($pagedata["title"]); ?></name>
 
-            <topimage class="col-sm-12"><img src="<?php echo("http://" . $domain . $homefolder . "/" . $img); ?>"
+            <topimage class="col-sm-12"><img src="<?php echo("https://" . $domain . $homefolder . "/" . $img); ?>"
                            alt="<?php echo $pagedata["title"]; ?>" title="<?php echo $pagedata["title"]; ?>"
                            itemprop="image"/></topimage>
-
-            <div class="col-sm-4">
+            <hiddenbox itemprop="category">cipőfűző</hiddenbox>
+            <hiddenbox itemprop="brand">okosfuzo</hiddenbox>
+            <hiddenbox itemprop="review"></hiddenbox>
+            <hiddenbox itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
+                <span itemprop="ratingValue">4</span> /<span itemprop="reviewCount">0</span>
+            </hiddenbox>            <div class="col-sm-4">
             <prices itemprop="offers" itemtype="http://schema.org/AggregateOffer" itemscope>
                 <!--endpriece><?php echo priece_format(($pagedata["priece"] + $elem["priece"] / 100 * $pagedata["vat"]), 0); ?>
                     Ft
@@ -79,7 +83,7 @@
                     <oldprice itemprop="highPrice"><?php echo priece_format($pagedata["priece_old"], 0); ?> Ft</oldprice>
                     <action><?php echo percentage($pagedata["priece"], $pagedata["priece_old"], 0); ?> %</action>
                 <?php } ?>
-                <price itemprop="lowPrice">+<?php echo priece_format($pagedata["priece"], 0); ?> <currency itemprop="priceCurrency">Ft</currency></price>
+                <price itemprop="lowPrice">+<?php echo priece_format($pagedata["priece"], 0); ?> </price><currency itemprop="priceCurrency">Ft</currency>
     <!--vat itemprop="vat">+<?php echo $Text_Class->htmlfromchars($pagedata["vat"]); ?>% ÁFA</vat><br /-->
 
                 <orderinfo >

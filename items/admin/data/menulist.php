@@ -55,9 +55,9 @@ foreach($hirekelemek as $egy){
 	}
 	$hirekelemek[$n]["image"]=$homeurl."/".$img;
 //kulcsszavak
-$page_keywords.=$Text_Class->htmlfromchars($egy["cim"]);
+$page_keywords.=$Text_Class->htmlfromchars($egy["nev"]);
 if ($page_keywords!=""){$page_keywords.=',';}
-$page_description.=$Text_Class->levag($Text_Class->tageketcsupaszit($egy["hir"]),200);
+$page_description.=$Text_Class->levag($Text_Class->tageketcsupaszit($egy["leiras"]),200);
 	
 	
 $n++;	

@@ -92,9 +92,9 @@ if ($elemek)foreach($elemek as $egy){
 	$elemek[$n]["title"]=$datasgt["datas"][0]["title"];
 	$elemek[$n]["image"]=$homeurl."/".$img;
 //kulcsszavak
-$page_keywords.=$Text_Class->htmlfromchars($egy["cim"]);
+$page_keywords.=$Text_Class->htmlfromchars($elemek[$n]["title"]);
 if ($page_keywords!=""){$page_keywords.=',';}
-$page_description.=$Text_Class->levag($Text_Class->tageketcsupaszit($egy["hir"]),200);
+$page_description.=$Text_Class->levag($Text_Class->tageketcsupaszit($elemek[$n]["leadtext"]),200);
 	
 	
 $n++;	

@@ -438,11 +438,20 @@ onevideo{
 
 
 /* SHOP */
+oldprice{
+    text-decoration: line-through;
+}
 
-
-shop product action {
+shop product action,
+prices action {
     background: #1c69ca;
     color: #cfff2f;
+}
+currency,
+price,
+oldprice
+{
+    display: inline-block!important;
 }
 /* SHOP */
 

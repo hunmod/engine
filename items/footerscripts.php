@@ -31,7 +31,13 @@ function adBlockDetected() {
     <script src="<?php echo $homeurl; ?>/scripts/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 
     <!-- script src="<?php echo $server_url; ?>scripts/html5lightbox/html5lightbox.js"></script-->
-
+    <script src="<?php echo $homeurl;?>/scripts/jquery.snow.min.1.0.js"></script>
+    <script>
+        $(document).ready( function(){
+            // $.fn.snow();
+            $.fn.snow({ minSize: 10, maxSize: 30, newOn: 1500, flakeColor: '#d0d4f5' });
+        });
+    </script>
 
 <?php
 if (page_settings('blockmouse') == 2 && $auser['jog'] < 4) {

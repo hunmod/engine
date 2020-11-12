@@ -1,17 +1,26 @@
+<style>
+    hiddenbox {position: fixed; display: block; top: -1000px}
+</style>
 <product itemscope itemtype="http://schema.org/Product" class="col-md-4 col-sm-6 col-12">
     <a href="<?php echo $homeurl.$separator."shop/shop/".($elem["id"])."/".$Text_Class->to_link($Text_Class->htmlfromchars($elem["title"]));?>">
         <topimage class="imgframe col-sm-12"><img class="img-responsive" src="<?php echo $ShopClass->getimg($elem["id"]);?>" alt="<?php echo $elem["title"];?>" title="<?php echo $elem["title"];?>" height="100" itemprop="image"  /></topimage>
     </a>
+    <hiddenbox itemprop="category">cipőfűző</hiddenbox>
+    <hiddenbox itemprop="brand">okosfuzo</hiddenbox>
+    <hiddenbox itemprop="review"></hiddenbox>
+    <hiddenbox itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
+        <span itemprop="ratingValue">4</span> /<span itemprop="reviewCount">0</span>
+    </hiddenbox>
     <pricesc itemprop="offers" itemtype="http://schema.org/AggregateOffer" itemscope>
 
         <?php if ($eurhuf>0){?>
             (<priece><?php echo priece_format($elem["priece"]/$eurhuf,2);?> &#8364;</priece> )<br />
         <?php }?>
         <?php if ($elem["priece_old"]>$elem["priece"]){?>
-            <oldprice itemprop="highPrice"><?php echo priece_format($elem["priece_old"],0);?> <currency itemprop="highPriceCurencey">Ft</currency></oldprice>
+            <oldprice itemprop="highPrice"><?php echo priece_format($elem["priece_old"],0);?> </oldprice><currency itemprop="highPriceCurencey">Ft</currency>
             <action itemprop="precent"><?php echo percentage($elem["priece"], $elem["priece_old"], 0);?> %</action>
         <?php } ?>
-        <price itemprop="lowPrice"><?php echo priece_format($elem["priece"],0);?> <currency itemprop="priceCurrency">Ft</currency></price>
+        <price itemprop="lowPrice"><?php echo priece_format($elem["priece"],0);?> </price><currency itemprop="priceCurrency">Ft</currency>
         <?  /*    <endprice><?php echo priece_format(($elem["priece"]+$elem["priece"]/100*$elem["vat"]),0);?> Ft</endprice>
                <!--vat itemprop="vat">+<?php echo $Text_Class->htmlfromchars($elem["vat"]);?>% ÁFA</vat><br /-->
  */ ?>

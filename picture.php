@@ -16,7 +16,7 @@
 	l-c,c-c,r-c
 	l-b,c-b,r-b
 */
-
+header("Cache-Control: max-age=2592000");
 $watermarkarray["wm_image"]="uploads/logo.png";
 $watermarkarray["ratio"]=0.8;
 $watermarkarray["pos"]="c-c";
