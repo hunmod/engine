@@ -32,7 +32,7 @@
         <meta name="twitter:description" content="<?php echo $pgerite; ?>"/>
 
     <?php if ($page_ogimage == "") { ?>
-        <?php $page_ogimage = $homeurl . '/' . $stylefolder . 'img/logo.png';
+        <?php $page_ogimage = $homeurl . '/' . $stylefolder . 'img/og.jpg';
     } ?>
     <meta property="og:image" content="<?php echo $page_ogimage; ?>"/>
     <meta name="twitter:card" content="summary_large_image"/>

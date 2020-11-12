@@ -100,6 +100,8 @@ include ('items/slide/web/widget_slider.php');
 			scrollanimate('.pairunpair .oneurl .text','fadeIn');
 			scrollanimate('.pairunpair:nth-child(odd) .oneurl img','bounceInRight');
 			scrollanimate('.pairunpair:nth-child(even) .oneurl img','bounceInLeft');
+			scrollanimate('product','fadeIn');
+			scrollanimate('.animst1','fadeIn');
 		}
 		jQuery(document).ready(function() {
 			$('slider,article,.csomagbox').css( "display", "block" );
@@ -107,4 +109,6 @@ include ('items/slide/web/widget_slider.php');
 			$(window).on('scroll resize', gomemove);
 			$(window).trigger('scroll');
 		});
+
+    </script>
 	</script>

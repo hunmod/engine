@@ -115,7 +115,7 @@
                 <div class="clearfix "></div>
             </div>
             <description class="col-sm-12" itemprop="description">
-                <?php echo "" . ($Text_Class->youtoubecserel($Text_Class->htmlfromchars($adat["longtext"]))); ?>
+                <?php echo "" . $Text_Class->keywordstaged($Text_Class->youtoubecserel($Text_Class->htmlfromchars($adat["longtext"])),$metakey_words); ?>
 
             </description>
 

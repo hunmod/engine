@@ -169,4 +169,12 @@ for ($c=0;$c<=$oldalakszama-1;$c++){
         phpopenf("kosar",file,parancs)
     }
     $('product').matchHeight();
+
+    function gomemove() {
+        scrollanimate('product', 'fadeIn');
+    }
+    jQuery(document).ready(function () {
+        $(window).on('scroll resize', gomemove);
+        $(window).trigger('scroll');
+    });
 </script>

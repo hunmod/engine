@@ -27,7 +27,7 @@ if ($_POST["formname"]=="postok" && $getparams[2]>0)
     $delid['id']=$getparams[2];
     $delid['post_date']=$date;
     $delid['post_id']=$_POST["post_id"];
-    $delid['pstatus']=1;
+    $delid['post_status']=2;
 
 
     // arraylist($delid);
@@ -49,6 +49,7 @@ if ($_POST["formname"]=="postok" && $getparams[2]>0)
 $filtersxx["id"]=$getparams[2];
 $filtersxx["status"]="all";
 $datas=$ShopClass->get_shop_order($filtersxx);
+$post_status=$ShopClass->post_status();
 $orderdatas=$datas["datas"][0];
 //arraylist($datas);
 if ($_POST["formname"]=="rememberpay")

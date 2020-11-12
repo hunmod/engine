@@ -68,7 +68,7 @@
             <hiddenbox itemprop="brand">okosfuzo</hiddenbox>
             <hiddenbox itemprop="review"></hiddenbox>
             <hiddenbox itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
-                <span itemprop="ratingValue">4</span> /<span itemprop="reviewCount">0</span>
+                <span itemprop="ratingValue">4</span> /<span itemprop="reviewCount">4</span>
             </hiddenbox>            <div class="col-sm-4">
             <prices itemprop="offers" itemtype="http://schema.org/AggregateOffer" itemscope>
                 <!--endpriece><?php echo priece_format(($pagedata["priece"] + $elem["priece"] / 100 * $pagedata["vat"]), 0); ?>
@@ -123,7 +123,7 @@
                     </ul>
                 </div>
                 <div class="countelement" id="ce1">
-                    <description><?php echo($Text_Class->htmlfromchars($pagedata["leadtext"])); ?></description>
+                    <description><?= $Text_Class->keywordstaged( $Text_Class->htmlfromchars($pagedata["leadtext"]), $metakey_words); ?></description>
                 </div>
                 <div class="countelement" id="ce2">
                     <images>

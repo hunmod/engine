@@ -99,7 +99,7 @@ Szállított tételek: <?php echo $oder_articlesid['summa']["articles_num"];?><b
         Ideje:<?php echo $orderdatas['post_date'];?>
         <br />
         Postai azonosító:<?php echo $orderdatas['post_id'];?><br />    
-	    Státusz:<strong><?php echo $order_satus[$orderdatas['pstatus']]["nev"];?></strong><br />
+	    Státusz:<strong><?php echo $post_status[$orderdatas['pstatus']]["nev"];?></strong><br />
 	    Megrendelés dátuma:<?php echo $orderdatas['order_date'];?><br />           
 	</post>  
     Megjegyzés:<br />
@@ -161,7 +161,7 @@ if ($auser["jogid"]==4){?>
 	<form method="post">
 	<?php
     $FormClass->hiddenbox('formname','payok');
-    $FormClass->hiddenbox('pstatus','1');
+    $FormClass->hiddenbox('post_status','1');
     $FormClass->hiddenbox('pmod',$orderdatas["pmod"]);
     $FormClass->hiddenbox('id',$orderdatas["id"]);
 	 ?>
@@ -191,9 +191,9 @@ if ($auser["jogid"]==4){?>
 	{ ?>
 	<form method="post">
 	Csomag azonosító:<?php
-	hiddenbox('formname','postok');
-	textbox('post_id',$_POST["post_id"]);
-	hiddenbox('pmod','2');
+        $FormClass->hiddenbox('formname','postok');
+        $FormClass->textbox('post_id',$_POST["post_id"]);
+        $FormClass->hiddenbox('pmod','2');
 	 ?>
 	 
 	<input name="" type="submit" value="Utánvétre elküldöm"/>

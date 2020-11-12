@@ -36,6 +36,8 @@ body {
 
 h1,h2,h3,h4,h5{
     color:#1c69ca;
+    max-width: 100%;
+
 }
 
 h1{
@@ -241,7 +243,9 @@ orderinfo{
     margin: 1em 0;
     font-weight: bold;
 }
-
+topimage img{
+    max-width: 100%;
+}
 
 
 
@@ -668,6 +672,9 @@ oldprice
 }
 
 @media only screen and (max-width: 480px) {
+    .col-sm-12 .sitedectription{
+        margin: 0;
+    }
     .animst1 .contentlayer {
         font-size: 13px !important;
         color: #300 !important;
