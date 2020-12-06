@@ -53,35 +53,66 @@ function emailkuldes($email, $nev, $subject, $htmltext, $files = array())
     global $tbl, $adatbazis, $sitemail, $oldalneve;
 //berakja adatbázisba a kimenő levelet
 //emailtablaba($email,$nev,$subject,$htmltext);
-    email_with_images($email, $subject, $htmltext);
+
+    //email_with_images($email, $subject, $htmltext);
+    sparkmailsend ( $email, $subject, $htmltext);
 
 }
 
 
-define ('sparkRegisterKey','2a05ad20f11566523e801ce44dca8deac2d94a01');
-define ('sparkMessageKey','890033e454fc43503eb4b0ab13a24ea8ff9cc269');
 
 
-function sparkmailsend ($from, $to, $subject, $message, $spark_api_key, $reply_to='')
+function sparkmailsend ( $email, $subject, $htmltext)
 {
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL,"https://api.sparkpost.com/api/v1/transmissions");
-    curl_setopt($ch,CURLOPT_HTTPHEADER,array('Authorization:'.$spark_api_key,"Content-Type: application/json"));
-    $marray["content"]=array(
-        'from'=>$from,
-        'html'=>$message,
-        'subject'=>$subject
-    );
-    if ($reply_to != '') $marray["content"]["reply_to"] = $reply_to;
-    $marray["recipients"]= array(
-        array("address"=> $to));
-    $message=json_encode($marray);
-    curl_setopt($ch, CURLOPT_POST, 1);
-    curl_setopt($ch, CURLOPT_POSTFIELDS,$message);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    $server_output = curl_exec ($ch);
-    curl_close ($ch);
-    return $server_output;
+    global $tbl, $adatbazis, $sitemail, $oldalneve;
+
+    $from = $oldalneve . "<" . $sitemail . ">";
+    $SparksendClass=new sparksend();
+    $Text_Class=new texttotext();
+    $message = $Text_Class->htmlfromchars(html_entity_decode('<html>
+<head>
+<meta http-equiv=\"Content-Type\" content=\"text/html\" charset=\"utf-8\">
+<meta content=\"MSHTML 6.00.2600.0\" name=GENERATOR>
+<style>
+table h1{
+	color:#CD0301;
+}
+table h2{
+	color:#CD0301;
+}
+table a{
+	color:#CD0301;
+	text-decoration:none;
+}
+table a:hover{
+	text-decoration:underline;
+}
+</style>
+
+</head>
+<body>
+<table style="width:100%;">
+<tr>
+<td>
+' . page_settings("email_header") . '
+</td>
+</tr>
+<tr>
+<td>
+' . $htmltext . '
+</td>
+</tr>
+<tr>
+<td>
+' . page_settings("email_footer") . '
+</td>
+</tr>
+
+</table>
+</body>
+</html>'));
+
+    $SparksendClass->sparkmailsend($from, $email, $subject, $message,  $sitemail);
 }
 
 

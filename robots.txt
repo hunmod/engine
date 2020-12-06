@@ -7,3 +7,4 @@ Disallow: /style/
 Disallow: /Facebook/
 Disallow: /includeajax.php
 Disallow: /service.php
+Disallow: /rssfeed.php

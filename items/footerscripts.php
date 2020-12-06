@@ -17,14 +17,9 @@ function adBlockDetected() {
 			fuckAdBlock.onDetected(adBlockDetected).onNotDetected(adBlockNotDetected);
 }
 </script>
--->
-    <script src="https://www.googleoptimize.com/optimize.js?id=OPT-5KTX8LD"></script>
-
-    <script src="<?php echo $server_url; ?>scripts/jquery.modalbox-1.5.0/js/jquery.modalbox-1.5.0-min.js"
-            type="text/javascript"></script>
-
-    <link rel="stylesheet" type="text/css"
-          href="<?php echo $homeurl; ?><?php echo $makemin->css('/scripts/jquery.modalbox-1.5.0/css/jquery.modalbox.css', '/scripts/jquery.modalbox-1.5.0/css/jquery.modalbox.min.css') ?>"/>
+>
+    <script-- src="https://www.googleoptimize.com/optimize.js?id=OPT-5KTX8LD"></script-->
+    <script src="<?php echo $server_url; ?>scripts/jquery.modalbox-1.5.0/js/jquery.modalbox-1.5.0-min.js" type="text/javascript"></script>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -38,7 +33,10 @@ function adBlockDetected() {
             $.fn.snow({ minSize: 10, maxSize: 30, newOn: 1500, flakeColor: '#d0d4f5' });
         });
     </script>
-
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5QL4LK8"
+                      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 <?php
 if (page_settings('blockmouse') == 2 && $auser['jog'] < 4) {
     ?>

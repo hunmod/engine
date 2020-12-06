@@ -243,5 +243,6 @@ if ($auser["jogid"]==4){?>
 	<?php 
 	}
 	?>
-<a target="_blank" href="<?= $serverurl?>/includeajax.php?q=shop/print_leter/<?= $getparams[2]?>"><?= lan('print leather')?></a>
+<a target="_blank" href="<?= $serverurl?>/includeajax.php?q=shop/print_leter/<?= $getparams[2]?>" rel="nofollow"><?= lan('print leather')?></a>
+<a target="_blank" href="<?= $serverurl?>/includeajax.php?q=shop/print_etiket/<?= $getparams[2]?>" rel="nofollow"><?= lan('print etikett')?></a>
 

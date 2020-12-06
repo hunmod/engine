@@ -43,12 +43,8 @@ $(document).ready(function() {
     // itemsDesktopSmall : false,
     // itemsTablet: false,
     // itemsMobile : false
-
     });
-
     });
-
-
     </script>
 
 
@@ -64,7 +60,7 @@ $(document).ready(function() {
                     <h2><?php echo $slider["name"]; ?></h2>
                     <p><?php echo $slider["description"]; ?></p>
                     </div>
-                    <a href="<?php echo $slider["url"]; ?>"></a>
+                    <a href="<?php echo $slider["url"]; ?>"><?php echo $slider["name"]; ?></a>
                 </div>
         </div>
         <?php } ?>

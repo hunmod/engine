@@ -1,16 +1,3 @@
-<!-- Start Alexa Certify Javascript -->
-<script type="text/javascript">
-_atrk_opts = { atrk_acct:"Llnqi1asyr00q9", domain:"abrakahasba.hu",dynamic: true};
-(function() { var as = document.createElement('script'); as.type = 'text/javascript'; as.async = true; as.src = "https://d31qbv1cthcecs.cloudfront.net/atrk.js"; var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(as, s); })();
-</script>
-<!-- End Alexa Certify Javascript -->
-
-
-<!-- Alexa-->
-<!-- gGR5ouOd2fTuR4jIpPmHOLLkMuE -->
-
-<!-- pinterest-->
-<meta name="p:domain_verify" content="03746f291e2f9e9f90969c520474ac34"/>
 <!--
 bing
 -->
@@ -25,7 +12,6 @@ bing
 <link href="<?php echo $homeurl.$stylefolder;?>icons/128.png" rel="icon" sizes="128x128" type="image/x-icon" />
 <!-- Bootstrap -->
 <link href="<?php echo $homeurl.$stylefolder;?>css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="<?php echo $homeurl;?><?php echo $makemin->css($stylefolder.'diab.css',$stylefolder.'diab.min.css')?>" />
 <link rel="stylesheet" type="text/css" href="<?php echo $homeurl;?><?php echo $makemin->css($stylefolder.'css/font-awesome.css',$stylefolder.'css/font-awesome.min.css')?>" />
 <!-- Begin Cookie Consent plugin by Silktide - http://silktide.com/cookieconsent -->
 <script type="text/javascript">

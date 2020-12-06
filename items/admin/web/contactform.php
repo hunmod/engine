@@ -81,7 +81,7 @@
 
 <?php
 if ($_POST["email"])
-    if ($_POST["captcha"] == '') {
+    if (isset($_POST["captcha"])&&$_POST["captcha"] == '') {
         $mailtext = '<b>Feladó:</b>' . $_POST["name"] . '<br>';
         $mailtext .= '<b>Email:</b>' . $_POST["email"] . '<br>';
         $mailtext .= '<b>Telefon:</b>' . $_POST["phone"] . '<br>';

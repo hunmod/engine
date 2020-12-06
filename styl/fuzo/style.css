@@ -16,11 +16,12 @@ lila: #9f29ff
 lila2: #a20fee
 */
 html {
-    //font-family: opensans;
+    font-size: 18px;
+    font-size: 1em !important;
+    font-family: "opensans";
     background: transparent url(img/htmlbg.webp) no-repeat center bottom;
     background-size: contain;
     min-height: 100%;
-    color: #23527c;
 }
 a{
     color: #0d0d0d;
@@ -30,26 +31,17 @@ a:hover{
 }
 body {
     background: transparent;
-    font-size: 2em;
-
+    font-size: 1.4em !important;
 }
 
 h1,h2,h3,h4,h5{
-    color:#1c69ca;
+    color:#a20fee;
     max-width: 100%;
 
 }
 
 h1{
-    background-color: #9f0faf;
-    color: #cfff2f ;
-    background: -webkit-gradient(linear, 0deg, color-stop(0, 9f29ff), color-stop(100%, 000000));
-    background: -webkit-linear-gradient(0deg, #1c69ca 0, #000000 100%);
-    background: -o-linear-gradient(0deg, #1c69ca 0, #000000 100%);
-    background: -ms-linear-gradient(0deg, #1c69ca 0, #000000 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1c69ca', endColorstr='#000000', GradientType='1');
-    background: linear-gradient(0deg, #1c69ca 0, #000000 100%);
-
+    color:#1c69ca;
     display: block;
     text-align: left;
     padding-left: 0.2em;
@@ -63,11 +55,11 @@ h1{
 }
 
 h2{
-    color: orange;
+    color: #1c69ca;
 }
 
 h3{
-    color: #23527c;
+    color: orange;
 }
 h4{
     color: green;
@@ -239,6 +231,7 @@ orderinfo .alert{
     padding:0;
 }
 orderinfo{
+    display: block;
     color: red;
     margin: 1em 0;
     font-weight: bold;
@@ -325,8 +318,8 @@ ads iframe {
 .owl-carousel .item img {
     width: 100%;
 }
-.owl-item .slideText h2 { color: #aa00aa !important;}
-
+.owl-item .slideText h2 {
+}
 #fbregsubmit,
 .facebookButton {
     background: #44569e;
@@ -379,6 +372,8 @@ slider {
     position: absolute;
     left: 0;
     top: 0;
+    text-indent: -100000000000000em;
+
 }
 
 #myslider .slideText {
@@ -459,7 +454,20 @@ oldprice
 }
 /* SHOP */
 
-
+.selector ul li{
+    display: inline-grid;
+    cursor: pointer;
+    padding: 0.8em;
+}
+.selector ul li:hover{
+    background: #1c69ca;
+    color: #FFFFFF;
+   #kék: #1c69ca;
+   #kék2: #1e396b;
+}
+.selector ul li a{
+    cursor: pointer;
+}
 
 
 .pairunpair:nth-child(odd) article .text {
@@ -672,18 +680,37 @@ oldprice
 }
 
 @media only screen and (max-width: 480px) {
-    .col-sm-12 .sitedectription{
+
+    header .container{
+        padding-right: 15px!important;
+        padding-left: 15px!important;
+    }
+    .container{
+        padding-right: 0px!important;
+        padding-left: 0px!important;
+    }
+
+    .animst1 .sitedectription{
+        margin:0 !important;
+        padding:0 !important;
+    }
+    .animst1 .sitedectription a{
         margin: 0;
     }
     .animst1 .contentlayer {
-        font-size: 13px !important;
+        padding:1em !important;
+        font-size: 0.6em !important;
+        line-height:1em!important;
         color: #300 !important;
+        font-weight: normal !important;
         text-shadow: 0 2px 2px rgba(255, 255, 255, 0.3) !important;
 
     }
-
     .animst1 .contentlayer h2 {
-        font-size: 15px !important;
+        margin: auto!important;
+        font-size: 1em !important;
+        font-weight: bold !important;
+
         color: #300;
     }
 }
