@@ -25,7 +25,7 @@ $file_structuct["file"]="hir2";
 $modules[]=$file_structuct;
 
 
-$hirimg_loc='uploads/hirek/';
+$hirimg_loc='uploads/'.uploadfolder.'hirek/';
 
 include_once("class.hir.php");
 $hir_class=new hir();

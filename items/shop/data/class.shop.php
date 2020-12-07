@@ -364,7 +364,6 @@ public function table(){
     $mezok[] = $mezo;
     $mezo = array();
 
-    $mezo=array();
     $mezo["id"]='storage';
     $mezo["table"]=$table.'.'.'`'.$mezo["id"].'`';
     $mezo["name"]="included";
@@ -374,6 +373,18 @@ public function table(){
     $mezo["value"]=$data[$mezo["id"]];
     $mezo["mysql_field"]="`".$mezo["id"]."` INT DEFAULT  '1',";
     $mezok[]=$mezo;
+    $mezo=array();
+
+    $mezo["id"]='storagemin';
+    $mezo["table"]=$table.'.'.'`'.$mezo["id"].'`';
+    $mezo["name"]="included";
+    $mezo["display"]=0;
+    $mezo["type"]='text';
+    $mezo["displaylist"]=1;
+    $mezo["value"]=$data[$mezo["id"]];
+    $mezo["mysql_field"]="`".$mezo["id"]."` INT DEFAULT  '0',";
+    $mezok[]=$mezo;
+    $mezo=array();
 
     $mezo["id"] = "storage_status";
     $mezo["table"] = $table . '.' . '`' . $mezo["id"] . '`';

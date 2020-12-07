@@ -1,4 +1,4 @@
-<?php 
++<?php
 //$menupontselectbox= menualatta(0,$modul);
 //$menupontselectbox=menupontselectbox($menustart,$modul,'','','');
 //arraylist($menupontselectbox);
@@ -21,15 +21,16 @@ $Form_Class->selectbox2("mid", $menuk, array('value' => 'id', 'name' => 'nev'), 
         <?php $Form_Class->textbox('priece_old',$adat["priece_old"],'Régiár'); ?>
         <?php $Form_Class->textbox('priece',$adat["priece"],'ár'); ?>
         <?php
-        $Form_Class->selectbox2("vat", $ShopClass->vat(), array('value' => 'id', 'name' => 'nev'), $adat["vat"], "Áfa"); ?>
-        <?php $Form_Class->kcebox("leadtext", $Text_Class->htmlfromchars($adat["leadtext"]),"Leiras") ?>
-        <?php $Form_Class->selectboxeasy("status", $ShopClass->status(),  $adat["status"], "status");?>
-        <?php $Form_Class->textbox("storage", $adat["storage"],"storage") ?>
-        <?php $Form_Class->selectbox2("storage_status", $ShopClass->storage_status(), array('value' => 'id', 'name' => 'nev'),  $adat["storage_status"], "storage_status");?>
+        $Form_Class->selectbox2("vat", $ShopClass->vat(), array('value' => 'id', 'name' => 'nev'), $adat["vat"], lan("Áfa")); ?>
+        <?php $Form_Class->kcebox("leadtext", $Text_Class->htmlfromchars($adat["leadtext"]),lan("Leiras")); ?>
+        <?php $Form_Class->selectboxeasy("status", $ShopClass->status(),  $adat["status"], lan("status"));?>
+        <?php $Form_Class->textbox("storage", $adat["storage"],lan("storage")) ?>
+        <?php $Form_Class->textbox("storagemin", $adat["storagemin"],lan("storagemin")) ?>
+        <?php $Form_Class->selectbox2("storage_status", $ShopClass->storage_status(), array('value' => 'id', 'name' => 'nev'),  $adat["storage_status"], lan("storage_status"));?>
         <?php $Form_Class->textbox("barcode", $Text_Class->htmlfromchars($adat["barcode"]),"barcode") ?>
            <barcode>*<?php echo $adat["barcode"];?>*</barcode>
-        Megrendelés idő: <?php $Form_Class->textbox("ordertime",$adat["ordertime"],"ordertime",$req="n","ordertime")?> (nap)
-        <?php $Form_Class->selectboxeasy("sorrend", $ShopClass->sorrend(),  $adat["sorrend"], "sorrend");?>
+        Megrendelés idő: <?php $Form_Class->textbox("ordertime",$adat["ordertime"],"ordertime",$req="n",lan("ordertime"))?> (nap)
+        <?php $Form_Class->selectboxeasy("sorrend", $ShopClass->sorrend(),  $adat["sorrend"], lan("sorrend"));?>
 			<input type="submit" value="<?= lan('save')?>" class="btn btn-success">
 		</form>
 <?php

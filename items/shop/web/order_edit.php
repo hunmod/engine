@@ -43,8 +43,6 @@ $orderdatas["articles"]=str_replace('
 ','',$orderdatas["articles"]);
 
 
-//$oder_articlesid=$ShopClass->jsons_from($oder_articlestext);
-$oder_articlesid=json_decode($orderdatas["articles"],true);
 
 $paymod=$ShopClass->paymod();
 $post_mod=$ShopClass->post_mod();

@@ -28,8 +28,6 @@ if ($_POST["formname"]=="postok" && $getparams[2]>0)
     $delid['post_date']=$date;
     $delid['post_id']=$_POST["post_id"];
     $delid['post_status']=2;
-
-
     // arraylist($delid);
     $ShopClass->save_shop_order($delid);
     //email
@@ -68,9 +66,30 @@ if ($_POST["formname"]=="rememberpay")
 }
 
 
+//if ($_POST["formname"]=="postok" && $getparams[2]>0 )
+if ($_POST["formname"]=="postok" && $getparams[2]>0)
+{
+    //ha Feladtam a csomagot
+//leveszem készletről
+//$oder_articlesid=$ShopClass->jsons_from($oder_articlestext);
+    $orderdatas["articles"]=str_replace('
+','',$orderdatas["articles"]);
+    $oder_articlesid=json_decode(($orderdatas["articles"]), true);
+    foreach ($oder_articlesid["articles"] as $thw){
+        $myfilter=array();
+        $myfilter['id']=$thw['id'];
+        $myret=$ShopClass->get($myfilter);
+     //  arraylist($myret);
+        $retpar['id'] = $thw['id'];
+        $retpar['storage'] =  $myret['datas'][0]["storage"]-$thw["db"];
+        $myretb=$ShopClass->save($retpar);
 
 
 
+    }
+
+
+}
 
 
 //email szövegek

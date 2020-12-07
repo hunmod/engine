@@ -16,6 +16,8 @@ else
 	$orderdata=$_POST;
 }
 
+
+
 //ha be van épve, kitöltjük neki
 if ($auser["id"]>0){
 	if ($orderdata["name"]=="")

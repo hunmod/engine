@@ -29,6 +29,7 @@
         </div>
         <a href="<?php echo $homeurl.$separator."".$getparams[0]."/edittext";?>" class="btn btn-success"><?= lan('newarticle')?></a>
         <!-- Row start -->
+        <?php //arraylist($menuk);?>
         <div class="row">
             <div class="col-md-12">
                 <div class="widget">
@@ -42,10 +43,13 @@
                             <table class="table table-condensed table-striped table-hover table-bordered pull-left" id="data-table">
                                 <thead>
                                 <tr>
-                                    <th style="width:5%"><?= lan('id');?></th>
-                                    <th style="width:5%"><?= lan('nev');?></th>
-                                    <th style="width:5%"><?= lan('status');?></th>
-                                    <th style="width:10%" class="hidden-phone"><?= lan('actions')?></th>
+                                    <th><?= lan('id');?></th>
+                                    <th><?= lan('menu');?></th>
+                                    <th style="width:20%"><?= lan('nev');?></th>
+                                    <th ><?= lan('storage');?></th>
+                                    <th ><?= lan('priece');?></th>
+                                    <th ><?= lan('status');?></th>
+                                    <th class="hidden-phone"><?= lan('actions')?></th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -54,7 +58,23 @@
                                 <tr class="gradeX">
                                     <td><?php echo $data['id']; ?></td>
                                     <td><?php
+                                        echo $data["mid"];
+                                        ?></td>
+                                    <td><?php
                                         echo $data["title"];
+                                    ?></td>
+                                    <td><?php if ($data["storagemin"]>$data["storage"]){
+                                        $storagestyle='color:red';
+                                        } else $storagestyle='';
+
+                                        echo '<storage style="'.$storagestyle.'">'.$data["storage"].'</storage>';
+;
+                                        ?> (<?php
+                                        echo $data["storagemin"];
+                                        ?>)
+                                    </td>
+                                    <td><?php
+                                        echo $data["priece"];
                                         ?></td>
                                     <td><?php
                                         echo ($sitestatus[$data["status"]]);
@@ -72,6 +92,9 @@
                                 </tbody>
                             </table>
                             <div class="clearfix"></div>
+                            <?php
+                            if ($oldalakszama>1){
+                            ?>
                             <nav class="text-center">
                                 <ul class="pagination">
                                     <li>
@@ -104,5 +127,6 @@
                                     </li>
                                 </ul>
                             </nav>
+                            <?php } ?>
     </section>
 </div>

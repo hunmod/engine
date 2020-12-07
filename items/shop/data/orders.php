@@ -38,7 +38,8 @@ if ($_GET["dtag"]){
 
 $pmod=$ShopClass->paymod();
 $pstatus=$ShopClass->pay_status();
-$datas=$ShopClass->get_shop_order($filters);
+$post_status=$ShopClass->post_status();
+$datas=$ShopClass->get_shop_order($filters,'id DESC');
 $orderdatas=$datas["datas"];
 
 //

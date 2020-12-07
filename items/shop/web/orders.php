@@ -42,13 +42,15 @@
                             <table class="table table-condensed table-striped table-hover table-bordered pull-left" id="data-table">
                                 <thead>
                                 <tr>
-                                    <th style="width:5%"><?= lan('id');?></th>
-                                    <th style="width:5%"><?= lan('nev');?></th>
-                                    <th style="width:5%"><?= lan('cim');?></th>
-                                    <th style="width:5%"><?= lan('phone');?></th>
-                                    <th style="width:5%"><?= lan('pmod');?></th>
-                                    <th style="width:5%"><?= lan('oder_priece');?></th>
-                                    <th style="width:5%"><?= lan('pstatus');?></th>
+                                    <th ><?= lan('id');?></th>
+                                    <th ><?= lan('date');?></th>
+                                    <th style="width:20%" ><?= lan('nev');?></th>
+                                    <th ><?= lan('cim');?></th>
+                                    <th ><?= lan('phone');?></th>
+                                    <th ><?= lan('pmod');?></th>
+                                    <th ><?= lan('post_status');?></th>
+                                    <th ><?= lan('oder_priece');?></th>
+                                    <th ><?= lan('pstatus');?></th>
                                     <th style="width:10%" class="hidden-phone"><?= lan('actions')?></th>
                                 </tr>
                                 </thead>
@@ -57,25 +59,31 @@
                                 if (($orderdatas))foreach ($orderdatas as $data){?>
                                     <tr class="gradeX">
                                         <td><?= $data['id'] ?></td>
+                                        <td><?= $data["order_date"]?></td>
                                         <td><?= $data["name"]?></td>
                                         <td><?= $data["zip"]?>,<?= $data["city"]?> <?= $data["address"]?> </td>
                                         <td><?= $data["phone"]?></td>
                                         <td><?= $pmod[$data["pmod"]]["nev"]?></td>
+                                        <td><?= $post_status[$data["post_status"]]["nev"]?></td>
                                         <td><?= $data["oder_priece"]?></td>
                                         <td><?= $pstatus[$data["pstatus"]]["nev"]?></td>
                                         <td class="hidden-phone">
                                             <a href="<?php echo $server_url.$separator."".$getparams[0]."/order_edit/".($data['id']);?>" class="actions-icons">
-                                                <?= lan("edit")?>
+                                                <img src="<?php echo $server_url;?>styl/admin/img/edit-icon.png" alt="edit" class="icons">
                                             </a>
                                             <a href="<?php echo $server_url.$separator.$_GET['q'].$separator2."dtag=".$data['id'];?>" class="delete-row" data-original-title="Delete">
-                                                <?= lan("del")?>
+                                                <img src="<?php echo $server_url;?>styl/admin/img/trash-icon.png" alt="trash">
                                             </a>
+
                                         </td>
                                     </tr>
                                 <?php }?>
                                 </tbody>
                             </table>
                             <div class="clearfix"></div>
+                            <?php
+                            if ($oldalakszama>1){
+                            ?>
                             <nav class="text-center">
                                 <ul class="pagination">
                                     <li>
@@ -108,5 +116,7 @@
                                     </li>
                                 </ul>
                             </nav>
+                            <?php } ?>
+
     </section>
 </div>
