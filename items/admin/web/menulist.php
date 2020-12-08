@@ -3,7 +3,7 @@ menulist egymenu{
 display:block;
 float:left;
 width:100%;
-height:200px;
+height:320px;
 overflow:hidden;
 text-align:center;
 }
@@ -24,10 +24,7 @@ text-align:center;
 
 </style>
 <div class="container">
-  <left class="col-md-3 col-sm-4" >
-<?php foreach ($widgets as $widget)if (file_exists($widget))include($widget);?>
-  </left> 
-<menulist class="col-md-9 col-sm-8" itemscope itemtype="http://schema.org/BreadcrumbList">
+<menulist class="col-md-12 col-sm-12" itemscope itemtype="http://schema.org/BreadcrumbList">
 
 <?php if ($auser["jogid"]>=10){?>
 
@@ -56,9 +53,12 @@ for ($c=0;$c<=$oldalakszama-1;$c++){
 //arraylist($hirekelemek);
 if (count($hirekelemek)>0){
 foreach($hirekelemek as $elem){
-?>
+
+     $menuurl=$homeurl.$separator.$MenuClass->shorturl_get($elem["modul"]."/".$elem["file"]."/".$elem["this"]);
+
+    ?>
 <egymenu class="col-sm-4" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-<a href="<?php echo $homeurl.$separator.$elem["modul"]."/".$elem["file"]."/".($elem["this"]);?>" itemprop="item">
+<a href="<?php echo $menuurl;?>" itemprop="item">
 	<h2 itemprop="name"><?php echo $Text_Class->htmlfromchars($elem["nev"]);?></h2>
 <picture class="imgWrap">
 <img src="<?php echo $Text_Class->htmlfromchars($elem["image"]);?>" itemprop="image"/> 

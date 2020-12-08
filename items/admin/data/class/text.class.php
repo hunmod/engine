@@ -125,7 +125,7 @@ class texttotext
             }
 
         } while ($notgood == 0);
-        $ideglenes = str_replace("valdermort", "http://www.youtube.com", $ideglenes);
+        $ideglenes = str_replace("valdermort", "https://www.youtube.com", $ideglenes);
 //arraylist($mire);
         return $ideglenes;
     }
@@ -135,9 +135,9 @@ class texttotext
     {
         $x = explode(",", $keywords);
         foreach ($x as $y) {
-            $text = str_replace($y, ' <abbr title="' . substr($y, 1) . '">' . substr($y, 1) . '</abbr>', $text);
+          //  $text = str_replace($y, ' <abbr title="' . substr($y, 1) . '">' . substr($y, 0) . '</abbr>', $text);
             //$y=mb_convert_case($y, MB_CASE_TITLE, "UTF-8");
-            $text = str_replace($y, ' <abbr title="' . substr($y, 1) . '">' . substr($y, 1) . '</abbr>', $text);
+            $text = str_replace($y, ' <abbr title="' . substr($y, 0) . '">' . substr($y, 0) . '</abbr>', $text);
         }
         return $text;
     }

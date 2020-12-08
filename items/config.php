@@ -7,33 +7,19 @@ Ez a file Behúzza a beállítási változókat..
 $urlpre = "";
 $page_config_file = '';
 $_SESSION["page_install"] = "1";
-//$server_url='http://'.$_SERVER["HTTP_HOST"].'/';
+$server_url='https://'.$_SERVER["HTTP_HOST"].'/';
 //$server_url.='sajat_publicv/';
 switch ($_SERVER["HTTP_HOST"]) {
-    case "hunmod.dyndns.hu":
+   // case "hunmod.dyndns.hu":
    // case "nagy.idiota.hu":
-       $sfilename = "localhost.txt";
-        break;
+     //  $sfilename = "localhost.txt";
+     //   break;
     case "abrakahasba.hu":
     case "www.abrakahasba.hu":
     case "WWW.abrakahasba.hu":
         $sfilename = "abrakahasba.txt";
         break;
-    case "hunmod.eu":
-        $sfilename = "hnmd.txt";
-        break;
-    case "test.hunmod.eu":
-        $sfilename = "test_hnmd.txt";
-        break;
-    /*case "localhost":
-        $sfilename="hnmd_local.txt";
-    break;*/
-    case "ingatlan.landver.eu":
-        $sfilename = "landver_ingatlan.txt";
-        break;
-    case "landver.eu":
-        $sfilename = "landver.txt";
-        break;
+
     default:
         $sfilename = $_SERVER['SERVER_NAME'].".txt";
         break;

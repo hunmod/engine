@@ -30,11 +30,16 @@ header("Location:".$fbloginUrl);
 	}
 	$redi=1;
 }
-	
+
+
+
+
 if (isset($_POST["loginform_id"]))
 if ($_POST["loginform_id"])
 {
-	//$ideglenes=login($_POST["uname"],$_POST["pass"]);
+    $_POST["pass"]=mysql_real_escape_string($_POST["pass"]);
+
+    //$ideglenes=login($_POST["uname"],$_POST["pass"]);
 	$ideglenes=$User_Class->userlogin($_POST["email"],$_POST["pass"]);
 	//arraylist($ideglenes);
 	if ($ideglenes["id"]>0) 

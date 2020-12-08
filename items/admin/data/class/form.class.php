@@ -86,8 +86,8 @@ class formobjects
         if ($requied == 1) {
             $reqval = ' required="required"';
         }
-        echo '<label class="' . $class . '" for="inputDefault">' . $caption . '</label>' .
-            '<input type="text" class="form-control" name="' . $name . '" id="' . $name . '" placeholder="' . $caption . '" value="' . $value . '"' . $reqval . '>';
+       // echo '<label class="' . $class . '" for="inputDefault">' . $caption . '</label>' .
+        echo    '<input type="text" class="form-control" name="' . $name . '" id="' . $name . '" placeholder="' . $caption . '" value="' . $value . '"' . $reqval . '>';
     }
 
     public function emailbox($name, $value, $caption = "", $class = "control-label", $requied = 0)
@@ -95,8 +95,8 @@ class formobjects
         if ($requied == 1) {
             $reqval = ' required="required"';
         }
-        echo '<label class="' . $class . '" for="inputDefault">' . $caption . '</label>' .
-            '<input type="email" class="form-control" name="' . $name . '" id="' . $name . '" placeholder="' . $caption . '" value="' . $value . '"' . $reqval . '>';
+       // echo '<label class="' . $class . '" for="inputDefault">' . $caption . '</label>' .
+        echo    '<input type="email" class="form-control" name="' . $name . '" id="' . $name . '" placeholder="' . $caption . '" value="' . $value . '"' . $reqval . '>';
     }
 
     public function datebox($name, $value, $caption = "", $class = "form-control", $requied = 0)
@@ -104,8 +104,8 @@ class formobjects
         if ($requied == 1) {
             $reqval = ' required="required"';
         }
-        echo '<label class="' . $class . '" for="inputDefault">' . $caption . '</label>' .
-            '<input type="text" class="form-control maskdatebox" name="' . $name . '" id="' . $name . '" placeholder="' . $caption . '" value="' . $value . '"' . $reqval . '>';
+        //echo '<label class="' . $class . '" for="inputDefault">' . $caption . '</label>' .
+        echo    '<input type="text" class="form-control maskdatebox" name="' . $name . '" id="' . $name . '" placeholder="' . $caption . '" value="' . $value . '"' . $reqval . '>';
     }
 
     public function textaera($name, $value, $caption = "", $class = "control-label", $requied = 0)

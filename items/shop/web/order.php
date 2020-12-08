@@ -18,67 +18,101 @@ background:#FFE8E9;
 
 input::error { appearance: balloon; }
 
+.order{
+    padding-bottom: 3em;
+    display: inline-table;
+    width: 100%;
+}
+#zip{
+    width: 4em;
+}#city{
+    width: 14em;
+}#address{
+    width: 19em;
+}
+#address,#city,#zip{
+    display: inline-block;
+ //   font-size: 1em;
+    margin: 0em 0.6em 1em 0em;
+}
+
+.select_pager .textb1{
+    font-size: 1em;
+    font-weight: inherit;
+}
+.select_pager,.select_pager .left_arrow, .select_pager .right_arrow, .select_pager .textb1{
+    height: 1.5em;
+    color: #0D0A0A;
+
+}
+.summspec{
+    border-top: 2px black solid;
+    padding-top: 1em;
+}.summspec1{
+height: 2.5em;
+ }.summspecf{
+font-weight: bold;
+ }
+  shop .btn-success{
+      font-size: larger;
+      text-transform: capitalize;
+  }
 /*
 input:invalid ~ span:after { content: attr(title); color: red; margin-left: 0.6rem; }*/
 
 </style>
-<shop>
+<script>
+    function call_kosar_v1(plusminus,id){
+        parancs='q=shop/widget_kosar&kosarba='+id+'&p='+plusminus;
+        file="includeajax";
+        console.log(server_url+file+".php?"+parancs);
+        phpopenf("kosar",file,parancs)
+    }
+
+</script>
+
+<shop class="container">
+    <?php
+    //arraylist($_SESSION["kosaram"]["elem"]);
+  //  arraylist($kosar_db);
+   // arraylist($kosar);
+    ?>
 <h1>Megrendelés</h1>
 <table class="order">
     <tr>
-        <td>
-        </td>   
-        <td>
-        Név
-        </td>        
-        <td>
-        Darab
-        </td>
-        <td>
-        Egységár
-        </td>                
-        <td>
-        Netto
-        </td>        
-        <td>
-        Áfa
-        </td>
-        <td>
-        Brutto
-        </td>        
-     </td>
+        <td></td>
+        <td><?= lan("nev");?> </td>
+        <td><?= lan("db");?> </td>
+        <td><?= lan("Eegységár");?></td>
+        <!--td> Netto</td>
+        <td>        Áfa       </td-->
+        <td><?= lan("Brutto");?></td>
+
+    </tr>
 <?php
-if (count($kosar)>0){
+if (count($kosar_db)>0){
 	foreach($kosar_db as $egyelem)
 	{
 ?>
     <tr>
         <td width="30%">
-<?php 
-	$mappa=$folders["uploads"]."shop/".$egyelem["id"];
-	$img=randomimgtofldr("uploads/".$mappa);
-	if ($img!="none"){
-	$img=$homefolder."uploads/picture.php?picture=".encode($mappa."/".$img)."&y=100&ext=.jpg";
-	}
-	else{
-	$img=$homefolder."/uploads/".$defaultimg;
-	}
-?><img src="<?php echo imgtobase64("http://".$domain."/".$img);?>" alt="<?php echo $egyelem["cim"];?>" title="<?php echo $egyelem["cim"];?>" height="100" itemprop="image" width="100px" />        </td>    
+            <img src="<?php echo $ShopClass->getimg($egyelem["id"],100,100) ;?>" alt="<?php echo $egyelem["title"];?>" title="<?php echo $egyelem["title"];?>" height="100" itemprop="image" width="100px" />
+        </td>
         <td width="30%">
-	        <?php echo $egyelem["cim"]; ?>
+	        <?php echo $egyelem["title"]; ?>
         </td>
         <td>
 	        <?php echo " (".$egyelem["db"]."db) "; ?>
         </td>
         <td>
-	        <?php echo $egyelem["ar"]." Ft"; ?>
+	        <?php echo $egyelem["priece"]." Ft"; ?>
         </td>
-        <td>
+        <!--td>
 	        <?php echo $egyelem["sum"]." Ft"; ?>
         </td>
         <td>
 	        <?php echo $egyelem["vat"]."%"; ?>
-        </td> 
+        </td-->
         <td>
 	        <?php echo $egyelem["endpriece"]." Ft"; ?>
         </td>        
@@ -98,66 +132,104 @@ if (count($kosar)>0){
 	}
 }
 ?>
-    <tr>
+    <tr class="summspec1">
+        <td> </td>
+        <td> </td>
+        <td> <?=lan('Posta')?></td>
+        <td><?php echo $shoppingcart['summa']["postpriece"] ?> <?=lan('ft')?></td>
+		<td><?php echo $shoppingcart['summa']["postpriece"] ?> <?=lan('ft')?></td>
+        <td> </td>
+
+    </tr>
+    <tr class="summspec summspec1" >
         <td>Összesen:</td>
-		<td><?php echo $shoppingcart['summa']["articles_num"] ?> tétel</td>
+        <td> </td>
+		<td><?php echo $shoppingcart['summa']["articles_num"] ?> <?=lan('tétel')?></td>
+		<td><?php echo $shoppingcart['summa']["articles_piece"] ?> <?=lan('darab')?></td>
+        <td class="summspecf"><?php echo $shoppingcart['summa']["end_priece_vat"] ?> Ft</td>
+        <td> </td>
+
     </tr>
-    <tr>
-        <td></td>
-		<td>Netto</td>
-        <td><?php echo $shoppingcart['summa']["end_priece"] ?> Ft</td>
-    </tr>
-    <tr>
-        <td></td>
-		<td>Brutto</td>        
-                <td><?php echo $shoppingcart['summa']["end_priece_vat"] ?> Ft</td>
-	</tr>
-    <tr>
+
+    <!--tr>
         <td></td>
 		<td>Áfa érték</td>
-                                <td><?php echo $shoppingcart['summa']["vat_sum"] ?> Ft</td>
+            <td><?php echo $shoppingcart['summa']["vat_sum"] ?> Ft</td>
     </tr> 
     <tr>
         <td></td>
 		<td>Kerekítés</td>
-                                <td><?php echo $shoppingcart['summa']["round"] ?> Ft</td>
-    </tr>        
+            <td><?php echo $shoppingcart['summa']["round"] ?> Ft</td>
+    </tr-->
     
 </table>
 
 <form method="post" action="?q=shop/order/">
+  <div class="col-sm-6">
 Megrendelő adatai:<br />
-<?php hiddenbox('order',"ok");?>
-<?php textboxhtml5('name',$orderdata["name"],"",$req="y",'Név')?><br />
-<?php textboxhtml5('phone',$orderdata["phone"],"tel",$req="y",'Tel.')?><br />
-<?php textboxhtml5('email',$orderdata["email"],"email",$req="y",'email')?><span title="Must be at least two letters, no numbers"></span>
-<br />
-Megrendelő elérhetősége:<br />
-<?php textboxhtml5('country',$orderdata["country"],"",$req="y",'country')?><br />
-
-<?php textboxhtml5('zip',$orderdata["zip"],"number",$req="y",'zip')?><br />
-
-<?php textboxhtml5('city',$orderdata["city"],"",$req="y",'city')?><br />
-<?php textboxhtml5('address',$orderdata["address"],"",$req="y",'address')?><br />
-
+<?php $FormClass->hiddenbox('order',"ok");?>
+<?php $FormClass->textbox('name',$orderdata["name"],lan('nev'),'',1)?><br />
+<?php $FormClass->textbox('phone',$orderdata["phone"],lan('phone'),'',0)?><br />
+<?php $FormClass->emailbox('email',$orderdata["email"],lan('email'),'',1)?><br />
+    <?php
+    if($orderdata["country"]==''){
+        $orderdata["country"]="Magyarország";
+    }
+    $FormClass->hiddenbox('country',$orderdata["country"],lan('country'),'',1)?>
+    <?php $FormClass->textbox('zip',$orderdata["zip"],lan('zip'),'',1)?>
+    <?php $FormClass->textbox('city',$orderdata["city"],lan('city'),'',1)?>
+    <?php $FormClass->textbox('address',$orderdata["address"],lan('address'),'',1)?>
+    </div>
+    <div class="clear"></div>
+    <!--div class="col-sm-6">
 Számlázási adatok:<br />
-(nem kötelező megadni)
-<?php textboxhtml5('pname',$orderdata["pname"],"",$req="n",'Számla név')?><br />
-<?php textbox('pcountry',$orderdata["pcountry"],'country')?><br />
-<?php numbox('pzip',$orderdata["pzip"],'zip')?><br />
-<?php textbox('pcity',$orderdata["pcity"],'city')?><br />
-<?php textboxhtml5('paddress',$orderdata["paddress"],"",$req="n",'address')?>
-<?php textboxhtml5('pvatno',$orderdata["pvatno"],"",$req="n",'Adószám')?>
-<br />
+(nem kötelező megadni)<br />
+    <?php $FormClass->textbox('pname',$orderdata["pname"],lan('Számla név'),'',0)?>
+    <?php $FormClass->textbox('pcountry',$orderdata["pcountry"],lan('country'),'',0)?>
+    <?php $FormClass->textbox('pzip',$orderdata["pzip"],lan('zip'),'',0)?>
+    <?php $FormClass->textbox('pcity',$orderdata["pcity"],lan('city'),'',0)?>
+    <?php $FormClass->textbox('paddress',$orderdata["paddress"],lan('address'),'',0)?>
+    <?php $FormClass->textbox('pvatno',$orderdata["pvatno"],lan('Adószám'),'',0)?>
+    </div-->
+
+
+    <div class="col-sm-6">
 Fizetési mód:<br />
-<?php selectbox_roll("pmod",$paymod,$paymod_typ,$orderdata["pmod"])?>
+<?php
+
+$paymod=$ShopClass->paymod();
+$paymod_typ["value"] = "id";
+$paymod_typ["name"] = "nev";
+
+if($orderdata["pmod"]==''){
+    $orderdata["pmod"]=3;
+}
+
+
+$FormClass->selectbox_roll("pmod",$paymod,$paymod_typ,$orderdata["pmod"])?>
 Átvétel:<br />
-<?php selectbox_roll("post_mod",$post_mod,$paymod_typ,$orderdata["post_mod"])?>
+<?php
+$post_mod=$ShopClass->post_mod();
+if($orderdata["post_mod"]==''){
+    $orderdata["post_mod"]=1;
+}
+$FormClass->selectbox_roll("post_mod",$post_mod,$paymod_typ,$orderdata["post_mod"])?>
 
-Megjegyzés:<br />
-<?php textaera('subject',$orderdata["subject"],'subject')?><br />
-
-<input name="update" type="submit" value="frissít" />
-<input name="ordok" type="submit" value="megrendelem" />
+<?php $FormClass->textaera('subject',$orderdata["subject"],lan('subject'))?><br />
+    </div>
+<input name="update" type="submit" value="Megrendelés ellenőrzése" class="btn btn-primary" />
+    <?php
+    if (!count($error) && $orderdata['zip']) {
+        ?>
+        <input name="ordok" type="submit" value="megrendelem" class="btn btn-success"/>
+        <?php
+    }
+    ?>
 </form>
+    <?foreach ($error as $oneerror){
+        ?>
+        <?=$oneerror?><br>
+
+
+    <?php }?>
 </shop>

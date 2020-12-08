@@ -83,20 +83,10 @@ if ($auser["id"]==0){
 else{
 	 $img=$User_Class->profielimg2($auser);
 ?>
-<div class="container">
-            <div id="breadCrumb">
-                <a href="<?php echo $homeurl;?>">Home</a> / <strong>Profile</strong>
-            </div>
-<div class="row">
-                
-	<left class="col-md-3 col-sm-4">
-<?php 
-$widgets[]="items/user/web/widget_user_menu.php";
-$widgets[]="items/konyha/web/widget_submenu.php";
-foreach ($widgets as $widget)if (file_exists($widget))include($widget);
-?>
-	</left>
-	<section class="col-md-9 col-sm-8">
+    <div class="clear"></div>
+    <div class="container">
+	<section class="col-sm-8">
+        <br>
 					<form enctype="multipart/form-data" action=""class="profilForm"  method="post" id="FbuserEditForm"  accept-charset="utf-8">
 <?php $Form_Class->hiddenbox('uedit','1');?>
                             <fieldset>
@@ -115,6 +105,10 @@ foreach ($widgets as $widget)if (file_exists($widget))include($widget);
                                     </div>
                                 </div>
                                 </div>
+                                <div class="col-sm-12">
+                                <br>
+                                </div>
+
                                 <div class="form-group">
                                     <div class="col-sm-4"><strong><?php echo $lan["email"]; ?></strong></div>  
                                     <div class="col-sm-8">
@@ -163,7 +157,7 @@ foreach ($widgets as $widget)if (file_exists($widget))include($widget);
                                     </div>
 
                                     <div class="col-sm-4">
- <a href="<?php echo $homeurl.'/'.$separator;?>user/logout" class="button enterButton"><span><?php echo $lan["logout"]; ?></span></a>
+ <a href="<?php echo $homeurl.'/'.$separator;?>user/logout" class="button enterButton"><span><?php echo $lan["logout"]; ?></span></a><br>
  <a data-toggle="modal" data-target="#delsure" class="button enterButton" href="#"><span><?php echo $lan["user"]; ?> <?php echo $lan["delete"]; ?> </span></a>
                                     </div>
                                 </div>

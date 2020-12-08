@@ -61,7 +61,7 @@ if ($_GET["tag"]){
 //if (!$adminv)$filters['ido']=$date;
 
 $qhir=$SiteClass->get($filters,'',$_GET["page"]) ;
-$hirekelemek=($qhir['datas']);
+$hirekelemek=$hirekelemekl=($qhir['datas']);
 $hszlistacount=$qhir['count'];
 
 //arraylist($qhir);

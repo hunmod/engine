@@ -504,10 +504,16 @@ public function getimg($id,$x=369,$y=247){
 }
 
 
-
 public function createurl($hir){
 global $Text_Class,$homeurl,$separator;
-	return $homeurl.$separator."site/site/".$hir["id"]."/".$Text_Class->to_link($hir["title"]);
+    $SysClass=new sys();
+
+    $return=$homeurl.$separator.( $SysClass->shorturl_get("site/site/".$hir["id"]) );
+
+   // $return=$homeurl.$separator."site/site/".$hir["id"]."/".$Text_Class->to_link($hir["title"]);
+
+
+	return $return;
 }
 
 public function jsons_from($data)

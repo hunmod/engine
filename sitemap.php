@@ -1,17 +1,13 @@
-<?php session_start();?>
 <?php header('Content-Type: application/xml; charset=utf-8');
-error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED & ~E_WARNING);
-
+error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED & ~E_WARNING);?><?php session_start();?><?php
 echo'<?xml version="1.0" encoding="UTF-8"?>';
 $smmode=1;
 include_once("items/allpagedatas.php");
-
 $auser["jogid"]=0;
-$hostlink="http://".$_SERVER['HTTP_HOST'];
+$hostlink="https://".$_SERVER['HTTP_HOST'];
 ?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" >
-
-<?php 
+<?php
 //arraylist($file);
 	?>
     <?php
@@ -19,10 +15,12 @@ $hostlink="http://".$_SERVER['HTTP_HOST'];
 			foreach ($fomenu as $menuelem){
             if (($menuelem["status"]=="1")){
                         if ($menuelem["item"]==""){$menuelem["item"]=$menuelem["id"];}
-						  
+                if($menuelem["item"]){
+                    $menuelem["id"]=$menuelem["item"];
+                }
 						  $almenuq=$MenuClass->get_menu(array("mid"=>$menuelem["id"]),$order='',$page='all') ;
 						  $almenu=$almenuq["datas"];
-						  $menuurl=$homeurl.$separator.$MenuClass->shorturl_get("m/".$menuelem["id"]);
+						  $menuurl=$homeurl.$separator.$SysClass->shorturl_get($menuelem["modul"]."/".$menuelem["file"]."/".$menuelem["id"]);
 						  $menuimgs=$MenuClass->menu_img($menuelem["id"]);
 						  $smfile ='items/'.$menuelem["modul"].'/sitemap/'.$menuelem["file"].'.php';
 						  
@@ -56,7 +54,7 @@ $hostlink="http://".$_SERVER['HTTP_HOST'];
 						  
 						  $almenuq=$MenuClass->get_menu(array("mid"=>$menuelem2["id"]),$order='',$page='all') ;
 						  $almenu=$almenuq["datas"];
-						  $menuurl=$homeurl.$separator.shorturl_get("m/".$menuelem2["id"]);
+						  $menuurl=$homeurl.$separator.$SysClass->shorturl_get($menuelem2["modul"]."/".$menuelem2["file"]."/".$menuelem2["id"]);
 						  $menuimgs=$MenuClass->menu_img($menuelem2["id"]);
 						  $smfile ='items/'.$menuelem2["modul"].'/sitemap/'.$menuelem2["file"].'.php';
 						  if (is_file($smfile)){

@@ -1,6 +1,11 @@
 <?php
 //arraylist($hirekelemek);
-foreach ($hirekelemek as $elem){	
+foreach ($hirekelemek1 as $elem){
+
+    if($elem["item"]){
+        $elem["id"]=$elem["item"];
+    }
+
  	$url=$SiteClass->createurl($elem);
 	$img=$SiteClass->getimg($elem['id'],800,533);
 ?>

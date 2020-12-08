@@ -10,6 +10,7 @@
 		<?php $form->textbox('c_email',page_settings("c_email"),'Email');?>
 		<?php $form->kcebox('c_text1',page_settings("c_text1"),'Szöveg 1');?>  
 		<?php $form->kcebox('c_text2',page_settings("c_text2"),'Szöveg 2');?>  
+		<?php $form->kcebox('c_text3',page_settings("c_text3"),'Szöveg 3');?>
 	<input name="" class="btn btn-success" type="submit" value="Save" />
 	</form>
 	</section>   

@@ -5,3 +5,4 @@ $extrascript[]= '
 	';
 	
 ?>
+<?php $admintemplate=1;?>

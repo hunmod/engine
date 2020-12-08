@@ -1,6 +1,8 @@
-<?php session_start();
+<?php
+session_set_cookie_params(36000);
+session_start();
 header("Content-Type: text/html; charset=utf-8"); 
-header("Cache-Control: max-age=2592000"); 
+header("Cache-Control: max-age=31536000");
 //30days (60sec * 60min * 24hours * 30days)
     /*date_default_timezone_set('Europe/Budapest');
     ini_set('error_reporting', E_ALL);
@@ -16,12 +18,10 @@ if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) ob_start("ob_gzhandl
 $start_time = MICROTIME(TRUE);
 //
 include_once("items/allpagedatas.php");
-//define('FACEBOOK_SDK_V4_SRC_DIR', './Facebook/src/Facebook/');
-include ('./Facebook/autoload.php');
 
  if (is_file($urlpre.$template.".php"))
 {
  include_once($urlpre.$template.".php");
 }
 else {include_once("./styl/default/index.php");}
- ?>
+?>

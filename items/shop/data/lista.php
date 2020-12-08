@@ -26,6 +26,9 @@ if ($_GET["s"]){
 if ($_GET["tag"]){
     $filters['tag']=$_GET["tag"];
 }
+if ($_GET["mid"]&&$_GET["mid"]!='all'){
+    $filters['mid']=$_GET["mid"];
+}
     $filters['lang']=$_SESSION["lang"];
 
 
@@ -63,4 +66,10 @@ if ($oldalakszama!=""){
 
 $myparams;
 $oldalakszama;
+
+//menü select
+$menuk=$MenuClass->menu_selectboxfilter($menustart,array("modul"=>"shop"),$filtersm,$order='',$page='all');
+
+
+
 ?>

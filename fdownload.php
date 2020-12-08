@@ -28,6 +28,7 @@ if(!function_exists('mime_content_type')) {
             'tif' => 'image/tiff',
             'svg' => 'image/svg+xml',
             'svgz' => 'image/svg+xml',
+            'webp' => 'image/webp',
 
             // archives
             'zip' => 'application/zip',
@@ -81,7 +82,13 @@ if(!function_exists('mime_content_type')) {
 }
 
 if (isset($_GET['file'])){
-$file =base64_decode($_GET['file']); 
+
+    if (file_exists(base64_decode($_GET['file']))) {
+        $file = base64_decode($_GET['file']);
+    }
+    if (file_exists(($_GET['file']))) {
+        $file = ($_GET['file']);
+    }
 if (file_exists($file)){
 //a file neve
 

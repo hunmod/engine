@@ -1,5 +1,5 @@
 <?php
-include('class/facebook/facebook.php');
+//include('class/facebook/facebook.php');
 /*
 Users class
 
@@ -211,11 +211,14 @@ class user
 //id alapján a user adatait adja vissza
 	public function get_userid($uid)
 	{
+        $user=array();
+        if (is_numeric($uid)){
 		$filters['id'] = $uid;
 		$users = $this->get_users($filters, '', 'all');
 		$user = $users["datas"][0];;
 		//
 		$user['jog'] = $user['jogid'];
+        }
 		return $user;
 	}
 
@@ -223,7 +226,7 @@ class user
 	public function userlogin($email, $pass)
 	{
 		$filters['email'] = $email;
-		$filters['pass'] = $pass;
+		$filters['pass'] = md5 (stripslashes(mysql_real_escape_string($pass)));
 		$users = $this->get_users($filters, '', 'all');
 		//arraylist($users);
 		return $users["datas"][0];
@@ -351,6 +354,7 @@ class user
 		}
 
 //összes elem lekérdezése
+
 		$queryc = "SELECT " . $mezokc . " FROM " . $tables . $where . ' ' . $order;
 		$resultc = db_Query($queryc, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"], $adatbazis["db1_srv"], $adatbazis["db1_db"], "select");
 		$result['count'] = $resultc[0]['count'];
@@ -404,6 +408,9 @@ class user
 				$datasb .= $Sys_Class->comasupport($datasb);
 				$datasb .= "'" . $datas[$mezoe] . "'";
 			}
+            if ($datas['pass']){
+                $datas['pass']=md5($datas['pass']);
+            }
 			$query = "INSERT INTO  " . $SD["table"] . " (" . $mezok . ")VALUES (" . $datasb . ")";
 			$result = db_Query($query, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"], $adatbazis["db1_srv"], $adatbazis["db1_db"], "INSERT");
 			//echo $query.'<br>';

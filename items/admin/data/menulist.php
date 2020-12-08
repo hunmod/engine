@@ -43,11 +43,11 @@ foreach($hirekelemek as $egy){
 	$thisid=$egy["item"];	
 	}
 	$hirekelemek[$n]["this"]=$thisid;
-	$mappa="uploads/".$folders["uploads"].$egy["modul"]."/".$thisid;
+	$mappa="uploads/"."menu_img/".$thisid;
 	//echo $mappa;
 	$img=randomimgtofldr($mappa);
 	if ($img!="none"){
-		$img="picture2.php?picture=".encode($mappa."/".$img)."&x=300&y=200&ext=.jpg";
+		$img="picture2.php?picture=".encode($mappa."/".$img)."&x=600&y=500&ext=.jpg";
 		$page_ogimage=$img;		
 	}
 	else{
@@ -55,9 +55,9 @@ foreach($hirekelemek as $egy){
 	}
 	$hirekelemek[$n]["image"]=$homeurl."/".$img;
 //kulcsszavak
-$page_keywords.=$Text_Class->htmlfromchars($egy["cim"]);
+$page_keywords.=$Text_Class->htmlfromchars($egy["nev"]);
 if ($page_keywords!=""){$page_keywords.=',';}
-$page_description.=$Text_Class->levag($Text_Class->tageketcsupaszit($egy["hir"]),200);
+$page_description.=$Text_Class->levag($Text_Class->tageketcsupaszit($egy["leiras"]),200);
 	
 	
 $n++;	

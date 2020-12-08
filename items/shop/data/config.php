@@ -4,6 +4,7 @@ $deviza="HUF";
 $tblmodulom='shop';
 $tblmodulom='shop_order';
 $tbl[$tblmodulom]=$adatbazis["db1_db"].".".$prefix."shop_order";
+$shop_loc='uploads/'.uploadfolder.'shop';
 
 $file_structuct=array();
 $file_structuct["modules"]="shop";
@@ -37,7 +38,6 @@ $adminmenu[]=$file_structuct;
 
 
 include('class.shop.php');
-
 //echo $menustart;
 //$menupontselectbox=menupontselectbox('103',$onearray,'','','');
 //arraylist(menupontselectbox(1,$onearray,'','',''));

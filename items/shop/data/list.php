@@ -36,7 +36,7 @@ else
 	$filters["status"]="2";
 
 }
-
+$filters["mid"]=$getparams[2];
 /*$qcount="SELECT count(id) as db FROM ".$tbl['shop']." WHERE mid in(".$menukalatta_shop.$getparams[2].")".$where." ORDER BY `sorrend` ASC,`id` DESC";
 $hszlistacount = db_Query($qcount, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"],$adatbazis["db1_srv"],'', "select");
 $hszlistacount=$hszlistacount[0]["db"];
@@ -63,7 +63,7 @@ $almenu=menuadat($getparams[2],"hirek");
 arraylist($almenu);*/
 
 
-$datas=$shop_class->get($filters,$order='',$page='all');
+$datas=$ShopClass->get($filters,$order='',$page='all');
 //arraylist($datas);
 $elemek=$datas["datas"];
 $page_keywords="";
@@ -79,17 +79,22 @@ if ($elemek)foreach($elemek as $egy){
 	$mappa=$folders["uploads"].$getparams[0]."/".$egy["id"];
 	$img=randomimgtofldr("uploads/".$mappa);
 	if ($img!="none"){
-		$img="uploads/picture.php?picture=".encode($mappa."/".$img)."&y=100&ext=.jpg";
+		$img="uploads/picture.php?picture=".encode($mappa."/".$img)."&y=300&x=350&ext=.jpg";
 		$page_ogimage=$img;		
 	}
 	else{
 		$img="uploads/".$defaultimg;
 	}
+    $qgt['id']=$egy['id'];
+    $datasgt=$ShopClass->get_text('hu',$qgt);
+
+	$elemek[$n]["leadtext"]=$datasgt["datas"][0]["leadtext"];
+	$elemek[$n]["title"]=$datasgt["datas"][0]["title"];
 	$elemek[$n]["image"]=$homeurl."/".$img;
 //kulcsszavak
-$page_keywords.=$Text_Class->htmlfromchars($egy["cim"]);
+$page_keywords.=$Text_Class->htmlfromchars($elemek[$n]["title"]);
 if ($page_keywords!=""){$page_keywords.=',';}
-$page_description.=$Text_Class->levag($Text_Class->tageketcsupaszit($egy["hir"]),200);
+$page_description.=$Text_Class->levag($Text_Class->tageketcsupaszit($elemek[$n]["leadtext"]),200);
 	
 	
 $n++;	

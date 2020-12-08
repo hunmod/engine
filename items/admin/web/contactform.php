@@ -81,7 +81,7 @@
 
 <?php
 if ($_POST["email"])
-    if ($_POST["captcha"] == '') {
+    if (isset($_POST["captcha"])&&$_POST["captcha"] == '') {
         $mailtext = '<b>Feladó:</b>' . $_POST["name"] . '<br>';
         $mailtext .= '<b>Email:</b>' . $_POST["email"] . '<br>';
         $mailtext .= '<b>Telefon:</b>' . $_POST["phone"] . '<br>';
@@ -145,10 +145,15 @@ if ($_POST["email"])
             <div class=""><span class="glyphicon glyphicon-envelope"></span><?php echo page_settings("c_email"); ?>
             </div>
             <div class=""><?php echo page_settings("c_cim"); ?></div>
-
             <?php
         }
-        $gcoord = $Google_Class->get_google_geocoding(page_settings("c_cim"));
+        if (page_settings("fb_page_name")) { ?>
+            <div class=""><span class="glyphicon glyphicon-book"></span><a href="https://www.facebook.com/<?=page_settings("fb_page_name") ?>" target="_blank">Facebook</a>
+            </div>
+            <?php
+        }
+
+       // $gcoord = $Google_Class->get_google_geocoding(page_settings("c_cim"));
 
         // $gmapurl='https://www.google.com/maps/dir/';
         // $adress2=''.page_settings("c_cim");//'?origin='.
@@ -158,27 +163,24 @@ if ($_POST["email"])
         // $gmapurl.=$adr2.'/'.$adr1."&key=". $google_api_key;
         //echo $gmapurl;
         ?>
+        <!-- Load Facebook SDK for JavaScript -->
+        <?= page_settings("c_text3"); ?>
 
 
-        <div id="map" class="map"></div>
-        <script>
-            function initMap() {
-                var uluru = {
-                    lat:<?=$gcoord[0]['geometry']['location']['lat']?>,
-                    lng:<?=$gcoord[0]['geometry']['location']['lng']?>};
-                var map = new google.maps.Map(document.getElementById('map'), {
-                    zoom: 10,
-                    center: uluru
-                });
-                var marker = new google.maps.Marker({
-                    position: uluru,
-                    map: map
-                });
-            }
-        </script>
-        <script async defer
-                src="https://maps.googleapis.com/maps/api/js?key=<?= $google_api_key ?>&callback=initMap">
-        </script>
+        <div id="map" class="map">
+        <iframe
+                width="600"
+                height="450"
+                frameborder="0" style="border:0"
+                src="https://www.google.com/maps/embed/v1/place?key=<?= $google_api_key ?>
+    &q=<?php echo page_settings("c_cim"); ?>" allowfullscreen>
+        </iframe>
+
+
+
+        </div>
+
+
     </div>
     <div class="col-sm-6 contactformform">
         <?php if ($sentmail) { ?>
@@ -189,7 +191,7 @@ if ($_POST["email"])
             </div>
         <?php } ?>
         <form method="post" enctype="multipart/form-data">
-            <input name="captcha" type="text" class="form-inline captcha">
+            <input name="captcha" type="text" class="form-inline">
 
             <div class="col-sm-12">
                 <?php $FormClass->textbox('name', $_POST['name'], lan('name'), '', 1); ?>
@@ -208,81 +210,10 @@ if ($_POST["email"])
             <div class="col-sm-12">
                 <div class=""><?php echo page_settings("c_text1"); ?></div>
             </div>
-            <div class="col-sm-12 tgl" id="ajnlatsh" onclick="$('.ajnlath').toggle();"><?= lan('Ajánlatkérés');?></div >
-            <div class = "ajnlath" >
-
-            <div class="col-sm-12" >
-                <b><?= lan('fa magassága') ?></b>
-                <?php /* Kategória root lekérdezése*/
-                $FormClass->numbox('magassaga', $_POST['magassaga'], lan('magassaga'), $class = "control-label", $requied = 0, $min = 1, $max = 40);
-                ?> m
-            </div>
             <div class="col-sm-12">
-                <b<?= lan('Fa átmérője') ?></b>
-                <?php /* Kategória root lekérdezése*/
-                $FormClass->numbox('atmeroje', $_POST['atmeroje'], lan('átmérője'), $class = "control-label", $requied = 0, $min = 10, $max = 200);
-                ?> cm
-            </div>
-            <div class="col-sm-12">
-                <h4><?= lan('fa fajták') ?></h4>
-                <?php /* Kategória root lekérdezése*/
-                $filtersfafajtak = array();
-                $filtersfafajtak['lang'] = 'hu';
-                $filtersfafajtak['kat'] = 'fafajtak';
-                $fafajtak1 = array();
-                $fafajtak1 = $category_class->get($filtersfafajtak, 'sorrend ASC', $page = 'all');
-                //arraylist($fafajtak1);
-                foreach ($fafajtak1['datas'] as $fafajta) {
-                    //   arraylist($fafajta);
-                    $FormClass->checkbox('kat[' . $fafajta['id'] . ']', $_POST['kat'][$fafajta['id']], $fafajta['nev']);
-                }
-
-                ?>
-            </div>
-            <div class="col-sm-12">
-                <h4><?= lan('fa állapot') ?></h4>
-                <?php /* Kategória root lekérdezése*/
-                $filtersfafajtak['lang'] = 'hu';
-                $filtersfafajtak['kat'] = 'faallapot';
-                $filtersfafajtak['status'] = 2;
-
-                $fafajtak1 = array();
-                $fafajtak1 = $category_class->get($filtersfafajtak, 'sorrend ASC', $page = 'all');
-                //arraylist($fafajtak1);
-                foreach ($fafajtak1['datas'] as $fafajta) {
-                    // arraylist($fafajta);
-                    $FormClass->checkbox('kat[' . $fafajta['id'] . ']', $_POST['kat'][$fafajta['id']], $fafajta['nev']);
-                }
-
-                ?>
-            </div>
-            <div class="col-sm-12">
-                <h4><?= lan('Akadály') ?></h4>
-                <?php /* Kategória root lekérdezése*/
-                $filtersfafajtak['lang'] = 'hu';
-                $filtersfafajtak['kat'] = 'akadaly';
-                $fafajtak1 = array();
-                $fafajtak1 = $category_class->get($filtersfafajtak, 'sorrend ASC', $page = 'all');
-                //arraylist($fafajtak1);
-                foreach ($fafajtak1['datas'] as $fafajta) {
-                    // arraylist($fafajta);
-                    $FormClass->checkbox('kat[' . $fafajta['id'] . ']', $_POST['kat'][$fafajta['id']], $fafajta['nev']);
-                }
-
-                ?>
+            <button type="submit" class="btn btn-succes"><?=lan('küldés')?></button>
             </div>
 
-            <div class="col-sm-12">
-                <h4><?= lan('képek') ?></h4>
-                <?= lan('kép') ?> 1:
-                <input type="file" name="file1"/><br/>
-                <?= lan('kép') ?> 2:
-                <input type="file" name="file2"/><br/>
-                <?= lan('kép') ?> 3:
-                <input type="file" name="file3"/>
-            </div>
-</div>
-            <button class="btn sendbtn pull-right "><?= lan('send') ?></button>
         </form>
     </div>
     <div class="col-sm-12">
