@@ -19,21 +19,7 @@ switch ($_SERVER["HTTP_HOST"]) {
     case "WWW.abrakahasba.hu":
         $sfilename = "abrakahasba.txt";
         break;
-    case "hunmod.eu":
-        $sfilename = "hnmd.txt";
-        break;
-    case "test.hunmod.eu":
-        $sfilename = "test_hnmd.txt";
-        break;
-    /*case "localhost":
-        $sfilename="hnmd_local.txt";
-    break;*/
-    case "ingatlan.landver.eu":
-        $sfilename = "landver_ingatlan.txt";
-        break;
-    case "landver.eu":
-        $sfilename = "landver.txt";
-        break;
+
     default:
         $sfilename = $_SERVER['SERVER_NAME'].".txt";
         break;

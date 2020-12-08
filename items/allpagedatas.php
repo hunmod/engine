@@ -87,6 +87,27 @@ if ($_SESSION["country_code"] == "") {
 */
 
 include_once("config.php");
+
+$domain = $_SERVER["HTTP_HOST"];
+
+$homeurl = "https://" . $domain . $homefolder . '';
+$server_url = $homeurl . '/';
+$thisulr = $domain . $homefolder . "" . $_SERVER["REQUEST_URI"];
+$folders["uploads"] = '_' . $oldalid . '/';
+$folders["uploads2"] = '_' . $oldalid . '/';
+$defaultimg = "_" . $oldalid . "/noimage.jpg";
+
+define("domain", $domain);
+define("homeurl", $homeurl);
+define("database1", $adatbazis);
+define("prefix", $prefix);
+define("prefix_pagesetting", $prefix_pagesetting);
+define("oldalid", $oldalid);
+define("serverurl", $server_url);
+define("uploadfolder", $folders["uploads"]);
+define("defaultimg", $defaultimg);
+define("lang", $_SESSION["lang"]);
+
 //menü tábla létrehozása
 $tblmodul = 'menu';
 $tbl[$tblmodul] = $adatbazis["db1_db"] . "."  . "menu";
@@ -110,22 +131,7 @@ foreach ($mytables as $tbls) {
     $tblexists[$adatbazis["db1_db"] . "." . $tbls["Tables_in_" . $adatbazis["db1_db"]]] = 1;
 }
 
-$domain = $_SERVER["HTTP_HOST"];
-$domain ="okosfuzo.hu";
 
-$homeurl = "https://" . $domain . $homefolder . '';
-$server_url = $homeurl . '/';
-$thisulr = $domain . $homefolder . "" . $_SERVER["REQUEST_URI"];
-$folders["uploads"] = '_' . $oldalid . '/';
-$folders["uploads2"] = '_' . $oldalid . '/';
-$defaultimg = "_" . $oldalid . "/noimage.jpg";
-
-define("domain", $domain);
-define("homeurl", $homeurl);
-define("serverurl", $server_url);
-define("uploadfolder", $folders["uploads"]);
-define("defaultimg", $defaultimg);
-define("lang", $_SESSION["lang"]);
 
 //serverurl to js
 $extrascript[] = '<script> var server_url="' . serverurl . '";</script>';

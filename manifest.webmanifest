@@ -1,0 +1,38 @@
+{
+  "short_name": "okosfuzo",
+  "name": "okosfuzo.hu",
+  "description": "Okosfuzo a gumi cipofuzo",
+  "icons": [
+    {
+      "src": "/styl/fuzo/icons/logo2.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/styl/fuzo/icons/logo2.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/?source=pwa",
+  "background_color": "#3367D6",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#3367D6",
+  "shortcuts": [
+    {
+      "name": "okosfuzo",
+      "short_name": "okosfuzo",
+      "description": "Okosfuzo a gumi cipofuzo",
+      "url": "/today?source=pwa",
+      "icons": [{ "src": "/styl/fuzo/icons/logo2.png","sizes": "192x192" }]
+    },
+    {
+      "name": "okosfuzo",
+      "short_name": "okosfuzo",
+      "description": "Okosfuzo a gumi cipofuzo",
+      "url": "/tomorrow?source=pwa",
+      "icons": [{ "src": "/styl/fuzo/icons/logo2.png","sizes": "192x192" }]
+    }
+  ]
+}
