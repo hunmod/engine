@@ -30,7 +30,7 @@
                <!--vat itemprop="vat">+<?php echo $Text_Class->htmlfromchars($elem["vat"]);?>% ÁFA</vat><br /-->
  */ ?>
     </pricesc>
- <?php if ($elem["storage_status"]==3){
+ <?php if ($elem["storage_status"]==3 ||  $elem["storage"]==0 ){
         ?><br /><?php echo lan("csak rendelésre"); //$elem["ordertime"];
      }?>
     <div class="actions">

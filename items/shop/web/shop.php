@@ -99,7 +99,7 @@
 
                 <orderinfo >
                     <?php echo $storage_satus[$pagedata["storage_status"]]["nev"]; ?>
-                    <?php if ($pagedata["storage_status"] == 3) { ?>
+                    <?php if ($pagedata["storage_status"] == 3 ||  $pagedata["storage"]==0 ) { ?>
 
                        <span class="alert">minimum <?php echo $pagedata["ordertime"]; ?> nap a szálltási idő!</span>
                     <?php } ?>

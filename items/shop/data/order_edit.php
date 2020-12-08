@@ -14,7 +14,6 @@ if ($_POST["formname"]=="payok" && $getparams[2]>0)
     $delid['id']=$getparams[2];
     $delid['payment_date']=$date;
     if($pstatus)$delid['pstatus']=$pstatus;
-
    // arraylist($delid);
     $ShopClass->save_shop_order($delid);
 }
