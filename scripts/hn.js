@@ -527,6 +527,27 @@ function daycalc(firstdate, seconddate) {
 	console.log(datum2arr)
 }
 
+
+
+//oldalváltásnál effekt
+$(window).unload(function() {
+    $('.container').fadeOut(1000);
+});
+//betöltés után effekt
+function gomemove(){
+    scrollanimate('article','fadeIn');
+    scrollanimate('shoparticle','fadeIn');
+    scrollanimate('site','fadeIn');
+}
+jQuery(document).ready(function() {
+    $(window).on('scroll resize', gomemove);
+    $(window).trigger('scroll');
+});
+
+
+
+
+
 /* Session mod*/
 /*
 function SetSession(name,val)
