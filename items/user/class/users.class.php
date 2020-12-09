@@ -226,7 +226,7 @@ class user
 	public function userlogin($email, $pass)
 	{
 		$filters['email'] = $email;
-		$filters['pass'] = md5 (stripslashes(mysql_real_escape_string($pass)));
+		$filters['pass'] = md5 (stripslashes(($pass)));
 		$users = $this->get_users($filters, '', 'all');
 		//arraylist($users);
 		return $users["datas"][0];

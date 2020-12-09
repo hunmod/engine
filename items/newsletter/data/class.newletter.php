@@ -10,7 +10,7 @@ class sparksend{
         return $status;
     }
 
-    public function table_messages($data){
+    public function table_messages($data=array()){
         global $adatbazis,$tbl;
         //arraylist($tbl);
         $table='newsletter_msg';
@@ -286,7 +286,7 @@ arraylist($datas);
 
 //feliratkozók
 
-    public function table_users($data){
+    public function table_users($data=array()){
         global $adatbazis,$tbl;
         //arraylist($tbl);
         $table='newsletter_users';
