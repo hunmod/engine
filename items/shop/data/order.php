@@ -65,7 +65,6 @@ if ($pieces>0){
             unset($egyelem["img"]);
             $kosarban[]=$egyelem;
 			unset($egyelem["status"]);
-			unset($egyelem["leadtext"]);
 			unset($egyelem["uid"]);
 			unset($egyelem["ar_old"]);
 			unset($egyelem["hir"]);
@@ -231,7 +230,6 @@ if ($orderdata["order"]=="ok"){
 
 //átdobjuk a fizetés oldalra.
  header("Location: ".$separator."shop/order_view/".encode($Orderid));
-		echo "<br><br><br><hr>".$Orderid;
 	}
 
 	//arraylist($_SESSION);
