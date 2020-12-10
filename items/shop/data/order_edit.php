@@ -1,6 +1,8 @@
 <?php
 
 $admintemplate=1;
+$paymod=$ShopClass->paymod();
+$post_mod=$ShopClass->post_mod();
 
 if ($_POST["formname"]=="payok" && $getparams[2]>0)
 {
@@ -49,6 +51,13 @@ $datas=$ShopClass->get_shop_order($filtersxx);
 $post_status=$ShopClass->post_status();
 $orderdatas=$datas["datas"][0];
 //arraylist($datas);
+$orderdatas["articles"]=str_replace('
+','',$orderdatas["articles"]);
+
+
+//$oder_articlesid=$ShopClass->jsons_from($oder_articlestext);
+$oder_articlesid=json_decode($orderdatas["articles"],true);
+
 if ($_POST["formname"]=="rememberpay")
 {
    // arraylist($orderdatas);
@@ -71,9 +80,6 @@ if ($_POST["formname"]=="postok" && $getparams[2]>0)
     //ha Feladtam a csomagot
 //leveszem készletről
 //$oder_articlesid=$ShopClass->jsons_from($oder_articlestext);
-    $orderdatas["articles"]=str_replace('
-','',$orderdatas["articles"]);
-    $oder_articlesid=json_decode(($orderdatas["articles"]), true);
     foreach ($oder_articlesid["articles"] as $thw){
         $myfilter=array();
         $myfilter['id']=$thw['id'];

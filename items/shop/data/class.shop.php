@@ -735,7 +735,8 @@ public function save_text($lan,$datas)
 		$result =db_Query($query, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"],$adatbazis["db1_srv"],$adatbazis["db1_db"], "INSERT");
 		//echo $query.'<br>';
 		//echo $error.'<br>';
-		$res=mysql_insert_id();
+
+		$res=mysqli_insert_id();
 
 return($res);//csak id-t ad vissza
 }
@@ -764,7 +765,11 @@ public function save($datas)
 		$result =db_Query($query, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"],$adatbazis["db1_srv"],$adatbazis["db1_db"], "INSERT");
 		//echo $query.'<br>';
 		//echo $error.'<br>';
-		$res=mysql_insert_id();
+        $query2="SELECT LAST_INSERT_ID() INTO ".$SD["table"];
+        $result2 =db_Query($query2, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"],$adatbazis["db1_srv"],$adatbazis["db1_db"], "SELECT");
+        var_dump($result2);
+        		//$res=mysqli_insert_id();
+
 	}
 	else
 	{
@@ -1089,7 +1094,8 @@ return($res);//csak id-t ad vissza
             $result =db_Query($query, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"],$adatbazis["db1_srv"],$adatbazis["db1_db"], "INSERT");
            // echo $query.'<br>';
            // echo $error.'<br>';
-            $res=mysql_insert_id();
+            $result2 =db_Query($query2, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"],$adatbazis["db1_srv"],$adatbazis["db1_db"], "SELECT");
+            $res=var_dump($result2);
         }
         else
         {
