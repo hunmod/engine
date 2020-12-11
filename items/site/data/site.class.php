@@ -435,7 +435,7 @@ public function save_text($lan,$datas)
 		$result =db_Query($query, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"],$adatbazis["db1_srv"],$adatbazis["db1_db"], "INSERT");
 		//echo $query.'<br>';
 		//echo $error.'<br>';
-		$res=mysql_insert_id();
+		//$res=$result['lastInsertId'];
 
 return($res);//csak id-t ad vissza
 }
@@ -464,7 +464,7 @@ public function save($datas)
 		$result =db_Query($query, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"],$adatbazis["db1_srv"],$adatbazis["db1_db"], "INSERT");
 		//echo $query.'<br>';
 		//echo $error.'<br>';
-		$res=mysql_insert_id();
+        $res=$result['lastInsertId'];
 	}
 	else
 	{

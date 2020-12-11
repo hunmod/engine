@@ -764,7 +764,7 @@ public function save($datas)
 		$result =db_Query($query, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"],$adatbazis["db1_srv"],$adatbazis["db1_db"], "INSERT");
 		//echo $query.'<br>';
 		//echo $error.'<br>';
-		$res=mysqli_insert_id();
+        $res=$result['lastInsertId'];
 	}
 	else
 	{
@@ -1087,9 +1087,10 @@ return($res);//csak id-t ad vissza
             }
             $query="INSERT INTO  `shop_order` (".$mezok.")VALUES (".$datasb.")";
             $result =db_Query($query, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"],$adatbazis["db1_srv"],$adatbazis["db1_db"], "INSERT");
-           // echo $query.'<br>';
-           // echo $error.'<br>';
-            $res=mysqli_insert_id();
+        //   echo $query.'<br>';
+        //   echo $error.'<br>';
+
+            $res=$result['lastInsertId'];
         }
         else
         {
@@ -1108,7 +1109,7 @@ return($res);//csak id-t ad vissza
                 }
             }
             $query="UPDATE  shop_order SET  ".$datasb."   WHERE  `id` =".$datas["id"]." LIMIT 1 ;";
-            $result =db_Query($query, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"],$adatbazis["db1_srv"],$adatbazis["db1_db"], "UPDATE");
+            db_Query($query, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"],$adatbazis["db1_srv"],$adatbazis["db1_db"], "UPDATE");
            // echo $query;
            // echo $error;
 

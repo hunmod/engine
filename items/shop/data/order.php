@@ -195,7 +195,7 @@ if ($orderdata["order"]=="ok"){
 
         $Orderid=$ShopClass->save_shop_order($orderdata);
 		//echo $Orderid;
-       // arraylist($orderdata);
+       //arraylist($Orderid);
 
 
 //rendelésemail külldése.
