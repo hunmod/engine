@@ -116,8 +116,7 @@ class texttotext
                 $cserel[] = "http://www." . $matches[0];
                 $cserel[] = "https://www." . $matches[0];
 
-                $mire[] = '<iframe style="max-width:560px;width:100%;" height="315" src="valdermort/embed/' . $matches[1] . '" frameborder="0" allowfullscreen></iframe>';
-                $mire[] = '<iframe style="max-width:560px;width:100%;" height="315" src="valdermort/embed/' . $matches[1] . '" frameborder="0" allowfullscreen></iframe>';
+                $mire[] = '<iframe itemprop="url" style="max-width:560px;width:100%;" height="315" src="valdermort/embed/' . $matches[1] . '" frameborder="0" allowfullscreen></iframe>';
                 $ideglenes = str_replace($cserel, $mire, $ideglenes);
                 // echo $ideglenes."<br>";
             } else {

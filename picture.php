@@ -18,8 +18,8 @@
 */
 header("Cache-Control: max-age=2592000");
 $watermarkarray["wm_image"]="uploads/logo.png";
-$watermarkarray["ratio"]=0.8;
-$watermarkarray["pos"]="c-c";
+$watermarkarray["ratio"]=0.28;
+$watermarkarray["pos"]="l-b";
 $watermarkarray["opacity"]=20;
 if ($_GET['c']=='0'){$crop=0;}else $crop=1;
 //$crop=0;

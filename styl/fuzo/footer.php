@@ -18,3 +18,7 @@ $code=$homeurl.$_SERVER['REQUEST_URI'];
 </div>
 <link rel="stylesheet" media="print" type="text/css" href="<?php echo $homeurl;?><?php echo $makemin->css($stylefolder.'print.css',$stylefolder.'print.min.css')?>" />
 
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5QL4LK8"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->

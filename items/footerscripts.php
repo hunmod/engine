@@ -27,16 +27,17 @@ function adBlockDetected() {
 
     <!-- script src="<?php echo $server_url; ?>scripts/html5lightbox/html5lightbox.js"></script-->
     <script src="<?php echo $homeurl;?>/scripts/jquery.snow.min.1.0.js"></script>
+    <?php
+    if (page_settings('letitsnow') == 2 ) {
+    ?>
     <script>
         $(document).ready( function(){
             // $.fn.snow();
             $.fn.snow({ minSize: 10, maxSize: 30, newOn: 1500, flakeColor: '#d0d4f5' });
         });
     </script>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5QL4LK8"
-                      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
+    <?php } ?>
+
 <?php
 if (page_settings('blockmouse') == 2 && $auser['jog'] < 4) {
     ?>

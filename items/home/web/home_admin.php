@@ -98,7 +98,7 @@
 
     <div class="col-xs-12">
         <div class="col-sm-12"><h3><?= lan('shop'); ?></h3></div>
-        <span onclick="getjsonfrom2('shop/site_data');"><?= lan('add'); ?></span>
+        <span onclick="getjsonfrom2('shop/shop_data');"><?= lan('add'); ?></span>
         <div id="shoplist">
             <?php
             $shopc = 0;

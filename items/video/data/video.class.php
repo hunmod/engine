@@ -110,6 +110,44 @@ public function table_fields(){
 	return $datas;	
 }
 
+public  function youtube_imgs($url){
+
+    $pattern = '/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/ ]{11})/i';
+    $ideglenes = $url;
+    $notgood = 0;
+    do {
+        $matches = array();
+        preg_match($pattern, $url, $matches);
+//arraylist($matches);
+
+        if (isset($matches[1])) {
+
+            $VideoID=$matches[1];
+         //    $cserel[] = "http://www." . $matches[0];
+         //   $cserel[] = "https://www." . $matches[0];
+            //$mire[]=
+         //   $mire[] = '<iframe itemprop="url" style="max-width:560px;width:100%;" height="315" src="valdermort/embed/' . $matches[1] . '" frameborder="0" allowfullscreen></iframe>';
+            $ideglenes = str_replace($cserel, $mire, $ideglenes);
+            // echo $ideglenes."<br>";
+        } else {
+            $notgood = 1;
+        }
+
+    } while ($notgood == 0);
+
+    $ret[]="http://img.youtube.com/vi/".$VideoID."/default.jpg";
+    $ret[]="http://img.youtube.com/vi/".$VideoID."/mqdefault.jpg";
+    $ret[]="http://img.youtube.com/vi/".$VideoID."/maxresdefault.jpg";
+    $ret[]="http://img.youtube.com/vi/".$VideoID."/0.jpg";
+    $ret[]="http://img.youtube.com/vi/".$VideoID."/1.jpg";
+    $ret[]="http://img.youtube.com/vi/".$VideoID."/2.jpg";
+    $ret[]="http://img.youtube.com/vi/".$VideoID."/3.jpg";
+
+
+
+}
+
+
 public function get($filters,$order='',$page='all') 
 {
 	global $adatbazis,$tbl,$Sys_Class;

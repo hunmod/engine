@@ -499,7 +499,7 @@ public function getimg($id,$x=369,$y=247){
 	else{
 		$img="./uploads/".uploadfolder."/".$defaultimg;
 	}
-	$img=$homeurl."/picture2.php?picture=".encode($img)."&x=".$x."&y=".$y."&ext=.jpg";
+	$img=$homeurl."/picture2.php?picture=".encode($img)."&x=".$x."&y=".$y."&c=0&ext=.jpg";
 	return($img);
 }
 

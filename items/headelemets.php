@@ -9,12 +9,11 @@
     <meta name="theme-color" content="#1c69ca"/>
 
     <title><?php echo $pagetitle; ?><?= $oldalneve; ?></title>
-    <link rel="canonical" href="<?= $homeurl . '/' . $MenuClass->shorturl_get($_GET['q']); ?>"/>
-    <link rel="metalink" type="application/metalink+xml" href="<?= $homeurl; ?>/rssfeed.php?<?= $_SERVER["QUERY_STRING"]; ?>"/>
-    <link rel="alternate" type="application/rss+xml" title="RSS" href="<?= $homeurl; ?>/rssfeed.php?<?= $_SERVER["QUERY_STRING"]; ?>"/>
-    <link href="<?php echo $homeurl; ?>/scripts/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet" as="style">
-    <link rel="stylesheet" as="stylesheet" type="text/css" href="<?= $homeurl; ?><?= $makemin->css($stylefolder . 'style.css', $stylefolder . 'style.min.css') ?>"/>
-    <!--link rel="stylesheet"  type="text/css" href="<?= $homeurl.$stylefolder . 'style.css'; ?>"/-->
+    <link rel="canonical" href="<?= homeurl . '/' . $MenuClass->shorturl_get($_GET['q']); ?>"/>
+    <link rel="metalink" type="application/metalink+xml" href="<?= homeurl; ?>/rssfeed.php?<?= $_SERVER["QUERY_STRING"]; ?>"/>
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="<?= homeurl; ?>/rssfeed.php?<?= $_SERVER["QUERY_STRING"]; ?>"/>
+    <link href="<?= homeurl; ?>/scripts/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet" as="style">
+    <link rel="stylesheet" as="stylesheet" type="text/css" href="<?= homeurl; ?><?= $makemin->css($stylefolder . 'style.css', $stylefolder . 'style.min.css') ?>"/>
 
     <?php if ($page_keywords != "") { ?>
         <meta name="keywords" content="<?= $Text_Class->tageketcsupaszit($page_keywords); ?>"/>
@@ -30,7 +29,11 @@
     <meta name="twitter:description" content="<?php echo $pgerite; ?>"/>
 
     <?php if ($page_ogimage == "") { ?>
-        <?php $page_ogimage = $homeurl . '/' . $stylefolder . 'img/og.jpg';
+        <?php
+        //$page_ogimage=homeurl."/picture2.php?picture=".encode( "styl/" . page_settings("site_css") . '/img/og.jpg' )."&x=1500"."&y=1000&ext=.jpg" ;
+
+
+       $page_ogimage = homeurl . '' . $stylefolder . 'img/og.jpg';
     } ?>
     <meta property="og:image" content="<?php echo $page_ogimage; ?>"/>
     <meta name="twitter:card" content="summary_large_image"/>
@@ -81,6 +84,7 @@
         <script src="<?php echo $homeurl.$file['js']; ?>"></script>
     <?php }?>
     <script src="<?php echo $homeurl; ?><?php echo $makemin->js($stylefolder33 . '/scripts/hn.js', $stylefolder33 . '/scripts/hn.min.js', false) ?>"></script>
+
     <?php if($fb_ap_id){
         //facebook api js
         ?>

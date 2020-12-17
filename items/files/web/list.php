@@ -39,7 +39,7 @@ $data_folderpage2='/'.$folders["uploads"].'/'.$getparams[0]."/".$id.'/';
 
 
 
-<div class="container">
+<div class="col-sm-12">
 <a href="<?php echo $homeurl."/files/list2/".($getparams[2]); ?>"> admin</a>
 
 <div class="demo-gallery">

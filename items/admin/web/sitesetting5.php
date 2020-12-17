@@ -71,6 +71,7 @@ foreach ($css_array as $cssfld) {
             $blockmouse[] = $blockmousee;
 
             $Form_Class->selectbox('blockmouse', $blockmouse, array('value' => 'id', 'name' => 'nev'), page_settings('blockmouse'), 'Block left mouseclick');
+            $Form_Class->selectbox('letitsnow', $blockmouse, array('value' => 'id', 'name' => 'nev'), page_settings('letitsnow'), lan('letitsnow'));
 
             ?>
 
