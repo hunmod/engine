@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#1c69ca"/>
 
-    <title><?php echo $pagetitle; ?><?= $oldalneve; ?></title>
+    <title><?php echo $pagetitle; ?></title>
     <link rel="canonical" href="<?= homeurl . '/' . $MenuClass->shorturl_get($_GET['q']); ?>"/>
     <link rel="metalink" type="application/metalink+xml" href="<?= homeurl; ?>/rssfeed.php?<?= $_SERVER["QUERY_STRING"]; ?>"/>
     <link rel="alternate" type="application/rss+xml" title="RSS" href="<?= homeurl; ?>/rssfeed.php?<?= $_SERVER["QUERY_STRING"]; ?>"/>
@@ -24,16 +24,17 @@
     <?php } else{
         $pgerite= page_settings("description_hu");
     } ?>
+    <meta name="og:title" content="<?php echo $pagetitle; ?>"/>
     <meta name="description" content="<?php echo $pgerite; ?>"/>
     <meta property="og:description" content="<?php echo $pgerite; ?>"/>
     <meta name="twitter:description" content="<?php echo $pgerite; ?>"/>
 
     <?php if ($page_ogimage == "") { ?>
         <?php
-        //$page_ogimage=homeurl."/picture2.php?picture=".encode( "styl/" . page_settings("site_css") . '/img/og.jpg' )."&x=1500"."&y=1000&ext=.jpg" ;
+        $page_ogimage=homeurl."/picture2.php?picture=".encode( "styl/" . page_settings("site_css") . '/img/og.jpg' )."&x=1500"."&y=1000&ext=.jpg" ;
 
 
-       $page_ogimage = homeurl . '' . $stylefolder . 'img/og.jpg';
+       //$page_ogimage = homeurl . '' . $stylefolder . 'img/og.jpg';
     } ?>
     <meta property="og:image" content="<?php echo $page_ogimage; ?>"/>
     <meta name="twitter:card" content="summary_large_image"/>
@@ -41,19 +42,23 @@
     <?php if ($fb_page_id != "") { ?>
         <meta name="fb:page-id" content="<?php echo $fb_page_id; ?>"/>
     <?php } ?>
-
     <?php if ($page_ogimage != "") { ?>
     <meta property="og:image" content="<?php echo $page_ogimage; ?>"/>
     <?php } ?>
-    <meta property="og:url" content="<?php echo $homeurl . $_SERVER["REQUEST_URI"]; ?>"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="<?php echo homeurl . $_SERVER["REQUEST_URI"]; ?>"/>
     <meta name="rating" content="General"/>
+    <?php if(page_settings('indexfollow')=='2'){ ?>
     <meta name="robots" content="index,follow"/>
     <meta name="GOOGLEBOT" content="INDEX, FOLLOW">
+    <?php } else { ?>
+    <meta name="robots" content="noindex,nofollow"/>
+    <meta name="GOOGLEBOT" content="NOINDEX, NOFOLLOW">
+    <?php } ?>
     <meta name="revisit-AFTER" content="1 Days"/>
     <meta name="twitter:site" content="<?php echo $oldalneve; ?>">
     <meta name="twitter:creator" content="@Hunmod">
     <meta name="twitter:title" content="<?php echo $pagetitle; ?> <?php echo $oldalneve; ?>">
-
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
         <!--script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>

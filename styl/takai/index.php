@@ -6,6 +6,27 @@
 
   </head>
   <body>
+  <?php
+  if (page_settings('confetti') == 2 ) {
+      ?>
+      <style type="text/css">
+         html, body {
+              margin: 0;
+              padding: 0;
+              height: 100%;
+              width: 100%;
+          }
+          #confetti{
+              position: fixed;
+              left: 0;
+              top: 0;
+              height: 100%;
+              width: 100%;
+          }
+      </style>
+      <canvas id="confetti" width="1" height="1"></canvas>
+      <script src="<?= homeurl ?><?=   '/scripts/confetti.js' ?>"></script>
+  <?php } ?>
 	<!-- HEADER -->
     <header>
 		<div class="container-fluid">

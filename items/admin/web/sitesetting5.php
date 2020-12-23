@@ -72,6 +72,9 @@ foreach ($css_array as $cssfld) {
 
             $Form_Class->selectbox('blockmouse', $blockmouse, array('value' => 'id', 'name' => 'nev'), page_settings('blockmouse'), 'Block left mouseclick');
             $Form_Class->selectbox('letitsnow', $blockmouse, array('value' => 'id', 'name' => 'nev'), page_settings('letitsnow'), lan('letitsnow'));
+            $Form_Class->selectbox('indexfollow', $blockmouse, array('value' => 'id', 'name' => 'nev'), page_settings('indexfollow'), lan('robots index'));
+            $Form_Class->selectbox('adblockerblocker', $blockmouse, array('value' => 'id', 'name' => 'nev'), page_settings('adblockerblocker'), lan('adblocker blocker'));
+            $Form_Class->selectbox('confetti', $blockmouse, array('value' => 'id', 'name' => 'nev'), page_settings('confetti'), lan('confetti'));
 
             ?>
 

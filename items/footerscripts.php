@@ -1,5 +1,6 @@
-    <!-- adblocker lock
-<script src="<?php echo $server_url; ?>/scripts/abp/abp.js"></script>
+<?php if(page_settings('adblockerblocker')=='2'){ ?>
+    <!-- adblocker lock-->
+<script src="<?= homeurl ?>/scripts/abp/abp.js"></script>
 <script>
 function adBlockDetected() {
 			blocked();		
@@ -17,31 +18,31 @@ function adBlockDetected() {
 			fuckAdBlock.onDetected(adBlockDetected).onNotDetected(adBlockNotDetected);
 }
 </script>
->
-    <script-- src="https://www.googleoptimize.com/optimize.js?id=OPT-5KTX8LD"></script-->
-    <script src="<?php echo $server_url; ?>scripts/jquery.modalbox-1.5.0/js/jquery.modalbox-1.5.0-min.js" type="text/javascript"></script>
+<?php } ?>
+
+    <!--script src="https://www.googleoptimize.com/optimize.js?id=OPT-5KTX8LD"></script>
+    <script src="<?= homeurl; ?>scripts/jquery.modalbox-1.5.0/js/jquery.modalbox-1.5.0-min.js" type="text/javascript"></script>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="<?php echo $homeurl; ?>/scripts/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script src="<?= homeurl; ?>/scripts/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 
-    <!-- script src="<?php echo $server_url; ?>scripts/html5lightbox/html5lightbox.js"></script-->
-    <script src="<?php echo $homeurl;?>/scripts/jquery.snow.min.1.0.js"></script>
+    <!-- script src="<?= homeurl; ?>scripts/html5lightbox/html5lightbox.js"></script-->
     <?php
     if (page_settings('letitsnow') == 2 ) {
     ?>
-    <script>
+        <script src="<?= homeurl; ?>/scripts/jquery.snow.min.1.0.js"></script>
+        <script>
         $(document).ready( function(){
             // $.fn.snow();
             $.fn.snow({ minSize: 10, maxSize: 30, newOn: 1500, flakeColor: '#d0d4f5' });
         });
     </script>
     <?php } ?>
-
 <?php
 if (page_settings('blockmouse') == 2 && $auser['jog'] < 4) {
     ?>
-    <script src="<?php echo $homeurl; ?><?php echo $makemin->js($stylefolder33 . '/scripts/blockmouse.js', $stylefolder33 . '/scripts/blockmouse.min.js', false) ?>"></script>
+    <script src="<?= homeurl ?><?= $makemin->js(  '/scripts/blockmouse.js',  '/scripts/blockmouse.min.js', false) ?>"></script>
     <script>
         document.onkeydown = function(e) {
             if(event.keyCode == 123) {
