@@ -68,147 +68,6 @@
     });
 </script>
 
-<script>
-    var savecomplete = 0;
-    function deltag(id) {
-        var res = $("#blog_tags").val().split(",");
-        $("#blog_tags").val("");
-        res.forEach(function (entry) {
-            if (entry != id && entry != '') {
-                $("#blog_tags").val($("#blog_tags").val() + ',' + entry);
-            }
-            $("#s" + id).remove();
-        });
-
-    }
-
-
-    $('documentd').ready(function () {
-
-        $('#blogtag').on('mouseover', function () {
-            savecomplete = 0;
-        });
-        /*$('#blogtag').on('mousemove', function() {
-         savecomplete=0;
-         });	*/
-        $('#blogtag').on('focusin', function () {
-            savecomplete = 0;
-        });
-
-        $('#blogtag').on('keyup', function () {
-            savecomplete = 0;
-            posbtag();
-            loadblogajax()
-        });
-        $('#blogtag').on('click', function () {
-            savecomplete = 0;
-            posbtag();
-            loadblogajax();
-
-        });
-        $("#blogtag").keypress(function (e) {
-            if (e.which == 13) {
-                $("#blogtagsl").hide();
-                saveblogajax();
-                return false;
-
-            }
-        });
-
-
-        /*	$('#blogtag').on('focusout', function() {
-         $("#blogtagsl").hide();
-         window.setTimeout(tagsave,5000);
-         if (savecomplete==1){
-         saveblogajax();
-         }
-         });	*/
-
-        $("#blogtag").mouseleave(function () {
-            $(this).hide();
-            //onclick="selecttag(27,'alkalmazkodóképesség')"
-
-
-        });
-
-
-    });
-
-    //AdAddForm
-    //savebtn
-    /*	$('#savebtn').on('click', function() {
-     var myForm = $('#AdAddForm');
-     if (!$myForm.checkValidity())
-     {
-     $(myForm).submit();
-     }
-     //$('#AdAddForm').submit();
-     });
-     */
-    function tagsave() {
-
-    }
-</script>
-<style>
-    #blog_tagsshow span {
-        padding: 0 5px;
-        margin-right: 5px;
-        background: #CCC;
-        cursor: pointer;
-
-    }
-    .lerningfield {
-        position: relative;
-    }
-    .lerningfield div {
-        position: absolute;
-        background-color: #FFF;
-        border: solid 1px #000000;
-        padding-top: 10px;
-    }
-    .lerningfield div span {
-        display: block;
-        cursor: pointer;
-    }
-    .lerningfield div span:hover {
-        background-color: #CCC;
-    }
-    .jobform .col1 .inner, .jobform .col2 .inner, .jobform .col2 {
-        overflow: visible;
-    }
-    #blogtag {
-        margin-left: 10px;
-        width: 65%;
-    }
-    #blogtagsl {
-        margin-top: 10px;
-        max-height: 200px;
-        overflow: auto;
-        display: none;
-        padding: 10px;
-        min-width: 250px;
-        padding: 3px 10px 5px 10px;
-        height: auto;
-        line-height: 30px;
-        font-size: 18px;
-        color: #7c7c7c;
-        font-family: 'robotolight';
-    }
-    .aclist {
-        display: block;
-        position: absolute;
-        background: #FFF;
-        box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.7);
-        width: 150px;
-    }
-    .aclist span {
-        display: block;
-    }
-    .aclist span:hover {
-        cursor: pointer;
-        background: #CCC;
-    }
-</style>
 <div class="container">
     <div class="col-sm-12">
         <form id="uploadForm" action="" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
@@ -244,17 +103,17 @@
             <?php echo $lan['cim']; ?>:
             <input name="cim" id="cim" type="text" value="<?php echo $Text_Class->htmlfromchars($adat["cim"]); ?>"
                    maxlength="200" style="  width: 217px;"/><br/>
-            <?php echo $lan['innertext']; ?>:
+            <?php echo lan('innertext'); ?>:
             <?php $form->kcebox("hir", $Text_Class->htmlfromchars($adat["hir"])) ?>
             <br/>
-            <?php echo $lan['outertext']; ?>: <?php $form->kcebox("hir2", $Text_Class->htmlfromchars($adat["hir2"])) ?>
+            <?php echo lan('outertext'); ?>: <?php $form->kcebox("hir2", $Text_Class->htmlfromchars($adat["hir2"])) ?>
             <br/>
-            <?php echo $lan['status']; ?>:<?php
+            <?php echo lan('status'); ?>:<?php
 			
-            $form->selectbox2("status", $status, array('value' => 'id', 'name' => 'nev'),  $adat["status"], "status");
+            $form->selectboxeasy("status", $hirstatus,  $adat["status"], "status");
             ?>
             <br/>
-            <?php echo $lan['sorrend']; ?>:<?php
+            <?php echo lan('sorrend'); ?>:<?php
             $form->selectboxeasy2("sorrend", $sorrend, $adat["sorrend"], "sorrend");
             ?>
             <br/>
@@ -266,39 +125,13 @@
 
 
             <br/>
-            <?php echo $lan['publicdate']; ?>:
+            <?php echo lan('publicdate'); ?>:
             <input size="16" type="text" value="<?php echo($adat["ido"]); ?>" readonly class="form_datetime" name="ido"
                    id="ido">
 
 
-            <fieldset>
-
-                <label for="AdContactinfo">Tags</label>
-
-                <div class="lerningfield input">
-                    <input name="blogtag" id="blogtag" type="text" onkeyup="loadblogajax()" autocomplete="off"
-                           placeholder="Tags"/>
-
-                    <div id="blogtagsl" name="blogtagsl" onclick="selecttag(0,0)"></div>
-                </div>
-                <?php if (($tags)) foreach ($tags as $tag) {
-                    $tagst .= ',' . $tag["tag_id"];
-                } ?>
-
-                <input name="blog_tags" id="blog_tags" type="hidden" value="<?php echo $tagst; ?>"/>
-
-                <div id="blog_tagsshow" class="ms-sel-ctn">
-                    <?php if (($tags)) foreach ($tags as $tag) { ?>
-                        <div id="s<?php echo $tag["tag_id"]; ?>" class="ms-sel-item"><?php echo $tag["name"]; ?><span
-                                class="ms-close-btn" onclick="deltag(<?php echo $tag["tag_id"]; ?>)"></span></div>
-                    <?php } ?>
-                </div>
-
-
-            </fieldset>
-
             <p>
-                <button type="submit" class="button enterButton"><?php echo $lan['save']; ?> <i
+                <button type="submit" class="btn btn-success"><?php echo $lan['save']; ?> <i
                         class="fa fa-arrow-right"></i></button>
             </p>
         </form>
@@ -316,7 +149,4 @@
         <?php } ?>
 
     </div>
-    <!--div class="col-md-3 col-sm-4">
-<?php include("items/user/web/widget_user_menu.php") ?>
-</div-->
 </div>

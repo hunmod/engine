@@ -30,7 +30,7 @@ if (count($kosar)>0){
 }
 ?>
     <div>
-     <a class="btn btn-success" href="<?php echo $separator."shop/order/";?>">Megrendelés</a>
+     <a class="btn btn-success" href="<?php echo homeurl.$separator."shop/order/";?>">Megrendelés</a>
     </div>
 <?php ?>
 </shopkosar>

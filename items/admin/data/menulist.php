@@ -51,8 +51,9 @@ foreach($hirekelemek as $egy){
 		$page_ogimage=$img;		
 	}
 	else{
-		$img="uploads/".$defaultimg;
-	}
+        $img="picture2.php?picture=".encode(defaultimg)."&x=600&y=500&ext=.jpg";
+        $page_ogimage=$img;
+    }
 	$hirekelemek[$n]["image"]=$homeurl."/".$img;
 //kulcsszavak
 $page_keywords.=$Text_Class->htmlfromchars($egy["nev"]);

@@ -12,7 +12,7 @@ $admintemplate=1;
 	<script src="'.$server_url.'/scripts/ckfinder/ckfinder.js" type="text/javascript"></script>
 	';
 $extrascript[]= '
-	<script src="'.$homeurl.'/scripts/cropit-master/dist/jquery.cropit.js"></script>
+	<script src="'.homeurl.'/scripts/cropit-master/dist/jquery.cropit.js"></script>
 	';
 $form = new formobjects();
 $UploadClass = new file_upload();
@@ -26,7 +26,8 @@ if ($_POST['hirsave'] == '1') {
     $_POST["jsondatas"]=$SiteClass->jsons_to($_POST);
     $_POST["services"]=array();
     $hirid = $SiteClass->save($_POST);
-    var_dump($hirid);
+    //var_dump($_POST);
+    //var_dump($hirid);
     $_POST["id"] = $hirid;
     $adat=$_POST;
     $adat["id"]= $hirid;
@@ -54,7 +55,7 @@ if ($_POST['hirsave'] == '1') {
     }
 //from file
     $target = $UploadClass->uploadimg('photo', $site_loc . '/' . $hirid, '' . $hirid, 1024,768, true, true, true);
-//header("Location:".$homeurl."/site/edittext/".encode($hirid));
+header("Location:".homeurl."/site/edittext/".encode($hirid));
 }
 
 if (decode($getparams[2]) > 0) {

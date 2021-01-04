@@ -2,6 +2,7 @@
 
 function db_Query($sql, &$error, $user, $password, $server , $dbase, $mode = "select")
 {
+    $result["secret_code"] ="12563DF4";
         $dbLink = new PDO("mysql" . ':host=' . $server . ';dbname=' . $dbase, $user, $password);
         $dbLink->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -14,15 +15,20 @@ function db_Query($sql, &$error, $user, $password, $server , $dbase, $mode = "se
 
 
     try {
-        //var_dump($sql);
+       // var_dump($sql);
         $dbLink->prepare($sql);
         $stmt = $dbLink->query($sql);
-        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         if (strtolower ($mode)== strtolower ( 'INSERT')){
+
             $result = $dbLink->lastInsertId();
         }
+        else{
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    } catch (PDOException $e) {
+        }
+
+    }
+    catch (PDOException $e) {
         $result['error'] = $e -> errorInfo;
     }
 

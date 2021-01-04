@@ -140,6 +140,8 @@ if($orderdata["pmod"]==2) {
 if ($orderdata["order"]=="ok"){
 	//$orderdatas["uid"]=$auser["id"];
 	$orderdata["articles"]=json_encode($shoppingcartorder);
+
+    $orderdata["articles"]=str_replace('\r\n','',$orderdata["articles"]);
 	//var_dump($orderdatas["articles"]);
 	$orderdata["pstatus"]=0;//megrendelve,fizetésrevár,fizetve,elküldve,átadva
 	$orderdata["order_date"]=$date;	
@@ -192,10 +194,11 @@ if ($orderdata["order"]=="ok"){
         $orderdata["oder_priece"]=$endval["end_priece_vat"];
 
 
+         arraylist($orderdata);
 
         $Orderid=$ShopClass->save_shop_order($orderdata);
-		//echo $Orderid;
-       //arraylist($Orderid);
+        //echo $Orderid;
+      // var_dump($Orderid);
 
 
 //rendelésemail külldése.
@@ -221,15 +224,15 @@ if ($orderdata["order"]=="ok"){
             emailkuldes($orderdata["email"],$orderdata["name"],$eml_head_to_buyer,$eml_text_to_buyer);
         }else{
             $eml_text_to_buyer=str_replace($from_text,$to_text,page_settings("shop_order_mail_text_".$_SESSION["lang"]));
-            $eml_head_to_buyer=str_replace($from_text,$to_text,page_settings("shop_order_mail_subject_".$_SESSION["lang"]));
+       //     $eml_head_to_buyer=str_replace($from_text,$to_text,page_settings("shop_order_mail_subject_".$_SESSION["lang"]));
             emailkuldes($orderdata["email"],$orderdata["name"],$eml_head_to_buyer,$eml_text_to_buyer);
         }
-        unset($_SESSION["kosaram"]);
-        unset($_SESSION["myorder"]);
+     //   unset($_SESSION["kosaram"]);
+    //    unset($_SESSION["myorder"]);
         unset($orderdata);
 
 //átdobjuk a fizetés oldalra.
- header("Location: ".$separator."shop/order_view/".encode($Orderid));
+ header("Location: ".homeurl.$separator."shop/order_view/".encode($Orderid));
 	}
 
 	//arraylist($_SESSION);

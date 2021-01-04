@@ -31,6 +31,7 @@ include_once("class.hir.php");
 $hir_class=new hir();
 
 $hir_class->create_table();
+$hirstatus=$hir_class->status();
 
 //echo $menustart;
 /*if (!isset($menustart))*/$menustart=0;

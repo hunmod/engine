@@ -4,3 +4,10 @@ items/config_files/localhost.txt
 .idea/vcs.xml
 .idea/workspace.xml
 ads.txt
+.htaccess
+items/config_files/hunmod.dyndns.hu.txt
+items/config_files/nagy.idiota.hu.txt
+uploads/_hnmd1/
+img_temp/
+uploads/categorie/
+uploads/menu_img/

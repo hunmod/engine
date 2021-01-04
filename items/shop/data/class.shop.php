@@ -1090,7 +1090,7 @@ return($res);//csak id-t ad vissza
         //   echo $query.'<br>';
         //   echo $error.'<br>';
 
-            $res=$result['lastInsertId'];
+            $res=$result;
         }
         else
         {
@@ -1325,7 +1325,7 @@ public function create_table(){
     $qreatetbl="CREATE TABLE IF NOT EXISTS ".$tbl['shop_order']." (
   `id` bigint(20) NOT NULL auto_increment,
   `uid` bigint(20) NOT NULL,
-  `articles` text NOT NULL,
+  `articles` JSON NOT NULL,
   `name` varchar(200) NOT NULL,
   `email` varchar(200) NOT NULL,
   `phone` varchar(200) NOT NULL,

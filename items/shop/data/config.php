@@ -3,7 +3,7 @@ $deviza="HUF";
 
 $tblmodulom='shop';
 $tblmodulom='shop_order';
-$tbl[$tblmodulom]=$adatbazis["db1_db"].".".$prefix."shop_order";
+$tbl[$tblmodulom]=$adatbazis["db1_db"]."."."shop_order";
 $shop_loc='uploads/'.uploadfolder.'shop';
 
 $file_structuct=array();

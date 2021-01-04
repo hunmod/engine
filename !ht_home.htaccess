@@ -1,0 +1,15 @@
+RewriteEngine On
+RewriteBase /engine/
+
+RewriteRule \.(ico|js|swf|css|gif|flv|jpe?g|JPE?G|html|png|pdf|xls|mp3|avi|mge?g|doc|docx|xls|xlsx|tif)$ - [L]
+
+RewriteRule sitemap.xml sitemap.php	[QSA]
+RewriteRule sitemap sitemap.php	[QSA]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d 
+#RewriteCond %{REQUEST_URI} !^/?styl/$
+
+
+RewriteRule ^(.*)(.*)$ index.php?q=$1 [QSA]
+

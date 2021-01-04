@@ -380,26 +380,26 @@ if ($maxegyoldalon>0)
 
 
 public function menu_img($uid,$x=200,$y=200){
-global $oldalid,$defaultimg,$menuimg_folder;
+global $menuimg_folder;
 //echo $defaultimg;
 		if (file_exists($menuimg_folder."/".$uid."/".$uid.".jpg"))
 		{
 		$ret['menu_img']=$menuimg_folder."/".$uid."/".$uid.".jpg";	
-		$ret['menu_img_url']=	$dbadat["menu_image"]='picture2.php?picture='.encode($ret['menu_img'])."&x=".$x."&y=".$y."";
+		$ret['menu_img_url']=homeurl.'picture2.php?picture='.encode($ret['menu_img'])."&x=".$x."&y=".$y."";
 		}
 		else {
 		$ret['menu_img']=NULL;	
-		$ret['menu_img_url']=	$dbadat["menu_image"]='picture2.php?picture='.encode('./uploads/'.$defaultimg)."&x=".$x."&y=".$y."";
+		$ret['menu_img_url']=homeurl.'picture2.php?picture='.encode(defaultimg)."&x=".$x."&y=".$y."";
 		}
 		
 		if (file_exists($menuimg_folder."/".$uid."/".$uid."h.jpg"))
 		{
 		$ret['menu_hover']=$menuimg_folder."/".$uid."/".$uid."h.jpg";	
-		$ret['menu_hover_url']=	'picture2.php?picture='.encode($ret['menu_hover'])."&x=".$x."&y=".$y."";
+		$ret['menu_hover_url']=	homeurl.'picture2.php?picture='.encode($ret['menu_hover'])."&x=".$x."&y=".$y."";
 		}
 		else {
 		$ret['menu_hover']=NULL;	
-		$ret['menu_hover_url']=	'picture2.php?picture='.encode('uploads/'.$defaultimg)."&x=".$x."&y=".$y."";
+		$ret['menu_hover_url']=	homeurl.'picture2.php?picture='.encode(defaultimg)."&x=".$x."&y=".$y."";
 		}
 		
 				

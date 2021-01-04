@@ -464,7 +464,7 @@ public function save($datas)
 		$result =db_Query($query, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"],$adatbazis["db1_srv"],$adatbazis["db1_db"], "INSERT");
 		//echo $query.'<br>';
 		//echo $error.'<br>';
-        $res=$result['lastInsertId'];
+        $res=$result;
 	}
 	else
 	{
@@ -499,7 +499,7 @@ public function getimg($id,$x=369,$y=247){
 	else{
 		$img="./uploads/".uploadfolder."/".$defaultimg;
 	}
-	$img=$homeurl."/picture2.php?picture=".encode($img)."&x=".$x."&y=".$y."&c=0&ext=.jpg";
+	$img=homeurl."/picture2.php?picture=".encode($img)."&x=".$x."&y=".$y."&c=0&ext=.jpg";
 	return($img);
 }
 
@@ -508,7 +508,7 @@ public function createurl($hir){
 global $Text_Class,$homeurl,$separator;
     $SysClass=new sys();
 
-    $return=$homeurl.$separator.( $SysClass->shorturl_get("site/site/".$hir["id"]) );
+    $return=homeurl.$separator.( $SysClass->shorturl_get("site/site/".$hir["id"]) );
 
    // $return=$homeurl.$separator."site/site/".$hir["id"]."/".$Text_Class->to_link($hir["title"]);
 

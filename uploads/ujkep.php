@@ -18,11 +18,11 @@ if(isset($_POST['submit'])){
 			filetablaba($target,$_FILES['new_image']['name']);
 		//kepfeltoltes
 	if ($_GET["w"]=='')
-		{$width='800';}
+		{$width='1280';}
 	else
 		{$width=$_GET["w"];};
 	if ($_GET["h"]=='')
-		{$height='600';}
+		{$height='1024';}
 	else
 		{$height=$_GET["h"];}; 
 			kepatmeretezes($target, $target, $width, $height); 

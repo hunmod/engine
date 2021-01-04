@@ -3,10 +3,10 @@ class hir extends sys{
 	
 public function status(){
 	global $lan;
-	$status[1]= $lan['status1'];
-	$status[2]=$lan['status2'];
-	$status[3]=$lan['status3'];
-	$status[4]=$lan['status4'];
+	$status[1]= lan('edit');
+	$status[2]=lan('aktiv');
+	$status[3]=lan('procces');
+	$status[4]=lan('del');
 	return $status;
 }
 
@@ -204,10 +204,10 @@ if ($filters['maxegyoldalon']>0){
 
 //menu kapcsolat
 	$mezok.=$Sys_Class->comasupport($mezok);	
-	$mezok.=$prefix."menu.nev as menu_name";	
-	$tables.=','.$prefix.'menu';
+	$mezok.="menu.nev as menu_name";
+	$tables.=','.'menu';
 	$where.=$Sys_Class->andsupport($where);
-	$where.=$SD["table"].".mid=".$prefix."menu.id";
+	$where.=$SD["table"].".mid="."menu.id";
 
 //számos feltételek	
 $fmezonev='id';
@@ -429,9 +429,9 @@ if (is_file($img)){
 	$img=$img;
 }
 else{
-	$img="uploads/".$defaultimg;
+	$img=defaultimg;
 }	
-$img=$homeurl."/picture2.php?picture=".encode($img)."&x=".$x."&y=".$y."&ext=.jpg";
+$img=homeurl."/picture2.php?picture=".encode($img)."&x=".$x."&y=".$y."&ext=.jpg";
 
 /*
 	if ($img!="none"){
@@ -574,49 +574,7 @@ public function del_ad_tag($data){
 }
 
 
-public function save_ad_tag($data){
-		global $adatbazis;
-		$query="INSERT INTO  `hir_tags` (`rec_id` ,`tag_id` ,`created` )
-		VALUES ('".$data["rec_id"]."',  '".$data['tag_id']."', now());";
-		$result =db_Query($query, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"],$adatbazis["db1_srv"],$adatbazis["db1_db"], "insert");
-		//echo $query;
-	}
 
-public function get_ad_tag($filters){
-	global $adatbazis;
-
-	$where=" WHERE ";
-	$where.="hir_tags.tag_id=tags.id";
-	$where.=" AND tags.status=2";
-
-
-	$mezok='hir_tags.rec_id';
-	$mezok.=',hir_tags.tag_id';	
-	$mezok.=',tags.name';	
-
-	$tables='hir_tags,tags';
-	
-	
-if ($filters["rec_id"]>0){
-		$where.=" AND hir_tags.rec_id='".$filters["rec_id"]."'";
-}
-if ($filters["tag_id"]>0){
-		$where.=" AND hir_tags.tag_id='".$filters["tag_id"]."'";
-}
-
-if ($filters["ad"]>0){
-		$where.=" AND hir_tags.rec_id in(".$filters["ad"].")";
-}
-if ($filters["tag"]>0){
-		$where.=" AND hir_tags.tag_id='".$filters["tag"]."'";
-}
-
-	$query = "SELECT ".$mezok." FROM ".$tables.$where.' '.$order.' GROUP BY hir_tags.tag_id';
-	//echo $query ;
-if (count($filters)>0)
-	$result =db_Query($query, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"],$adatbazis["db1_srv"],$adatbazis["db1_db"], "select");
-	return $result;
-}
 
 
 //like, favorietes

@@ -1,68 +1,3 @@
-<style>
-    .aclist {
-        display: block;
-        position: absolute;
-        background: #FFF;
-        box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.7);
-        width: 150px;
-    }
-    .aclist span {
-        display: block;
-    }
-    .aclist span:hover {
-        cursor: pointer;
-        background: #CCC;
-    }
-    .cropit-preview {
-        background-color: #f8f8f8;
-        background-size: cover;
-        border: 1px solid #ccc;
-        border-radius: 3px;
-        margin-top: 7px;
-        width: <?=$imgx?>px;
-        height: <?=$imgy?>px;
-    }
-
-    .cropit-preview-image-container {
-        cursor: move;
-    }
-
-</style>
-<script>
-    $(document).ready(function () {
-
-        $('form').submit(function () {
-            var imageData = $('.image-editor').cropit('export', {
-                type: 'image/jpeg',
-                quality: .9,
-                originalSize: true
-            });
-
-            document.getElementById("nimg").value = imageData;
-
-            // Print HTTP request params
-            var formValue = $(this).serialize();
-            $('#result-data').text(formValue);
-
-            // Prevent the form from actually submitting
-            return true;
-        });
-
-
-        $('.image-editor').cropit({
-            imageState: {
-                src: '<?php echo $homeurl.$nimg;?>',
-            },
-        });
-
-        $('.rotate-cw').click(function () {
-            $('.image-editor').cropit('rotateCW');
-        });
-        $('.rotate-ccw').click(function () {
-            $('.image-editor').cropit('rotateCCW');
-        });
-    });
-</script>
 <?php
 if ($adat["status"]<1)$adat["status"]=2;
 ?>
@@ -103,7 +38,6 @@ if ($adat["status"]<1)$adat["status"]=2;
 
             <div class="bootstrap-tabs" data-tab-set-title="mmt">
                 <ul class="nav nav-tabs" role="tablist"><!-- add tabs here -->
-                    <li role="presentation"><a aria-controls="mmt-tab-1" class="tab-link" data-toggle="tab" href="#mmt-tab-1" role="tab"><?= lan('icon');?></a></li>
                     <?php foreach ($avaibleLang as $alan){?>
                     <li <?php if($_SESSION['lang']==$alan){echo 'class="active" ';}?>role="presentation"><a aria-controls="mmt-tab-<?= $alan?>" class="tab-link" data-toggle="tab" href="#mmt-tab-<?= $alan?>" role="tab"><?= lan('text')." ".$alan?></a></li>
                     <?php
@@ -112,23 +46,7 @@ if ($adat["status"]<1)$adat["status"]=2;
                 </ul>
 
                 <div class="tab-content"><!-- add tab panels here -->
-                    <div class="tab-pane " id="mmt-tab-1" role="tabpanel">
-                        <div class="tab-pane-content">
 
-                            <?php //arraylist($myicons);
-                            //arraylist($adat);
-                            foreach ($myicons as $icons)foreach ($icons['fekete'] as $icon){?>
-                                <?php
-
-                                //  $caption=hotelicon_print($icon['name'], 50, 'fekete');
-                                //$caption=lan($hat);
-                                if ($icon['name']==$adat['class']){$xx=true;}else $xx=false;
-                                $Form_Class->radiobox('class',$icon['name'],hotelicon_print($icon['name'],30,'fekete') ,$class="radiobox-addonservice",$xx);
-                                //echo hotelicon_print($icon['name'],30,'fekete');?>
-                            <?php }  ?>
-
-                        </div>
-                    </div>
                     <?php
                     foreach ($avaibleLang as $alan){?>
                     <div class="tab-pane <?php if($_SESSION['lang']==$alan){echo 'active';}?>" id="mmt-tab-<?= $alan?>" role="tabpanel">

@@ -34,7 +34,7 @@ $adat['ar_old']=$adat['ar'];
 	$adat=$datas["datas"][0];
     //$qadat['id']=$filter["id"];
     $datas=$ShopClass->get_text('hu',$filter);
-    $adat+=$datas["datas"][0];
+    $adat=$adat+$datas["datas"][0];
 
 
 

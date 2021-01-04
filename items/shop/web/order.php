@@ -164,7 +164,7 @@ if (count($kosar_db)>0){
     
 </table>
 
-<form method="post" action="?q=shop/order/">
+<form method="post" action="">
   <div class="col-sm-6">
 Megrendelő adatai:<br />
 <?php $FormClass->hiddenbox('order',"ok");?>

@@ -60,10 +60,10 @@ $lan = $lang_Class->xlstoarray($inputFileName, $xlslangid);
 
 
 //abrakahasbanhoz kell az egyéb szövegek miatt
-$inputFileName = 'items/' . 'konyha' . '/lang/lang.xls';
-if (file_exists($inputFileName)) {
-    $lan += $lang_Class->xlstoarray($inputFileName, $xlslangid);
-}
+//$inputFileName = 'items/' . 'konyha' . '/lang/lang.xls';
+//if (file_exists($inputFileName)) {
+  //  $lan += $lang_Class->xlstoarray($inputFileName, $xlslangid);
+//}
 
 //fileminimizer
 include('class/minimize.class.php');
@@ -90,12 +90,17 @@ include_once("config.php");
 
 $domain = $_SERVER["HTTP_HOST"];
 
-$homeurl = "https://" . $domain . $homefolder . '';
+    if ($_SERVER['HTTPS'] == "on") {
+        $https = 'https';
+    }
+    else $https = 'http';
+
+$homeurl = $https."://" . $domain . $homefolder . '';
 $server_url = $homeurl . '/';
 $thisulr = $domain . $homefolder . "" . $_SERVER["REQUEST_URI"];
 $folders["uploads"] = '_' . $oldalid . '/';
 $folders["uploads2"] = '_' . $oldalid . '/';
-$defaultimg = "_" . $oldalid . "/noimage.jpg";
+$defaultimg = "uploads/_" . $oldalid . "/noimage.jpg";
 
 define("domain", $domain);
 define("homeurl", $homeurl);
