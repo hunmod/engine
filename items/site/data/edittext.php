@@ -28,7 +28,7 @@ if ($_POST['hirsave'] == '1') {
     $hirid = $SiteClass->save($_POST);
     //var_dump($_POST);
     //var_dump($hirid);
-    $_POST["id"] = $hirid;
+    $_POST["id"] = $hirid["lastInsertId"];
     $adat=$_POST;
     $adat["id"]= $hirid;
     //save texttadatas
@@ -55,7 +55,7 @@ if ($_POST['hirsave'] == '1') {
     }
 //from file
     $target = $UploadClass->uploadimg('photo', $site_loc . '/' . $hirid, '' . $hirid, 1024,768, true, true, true);
-header("Location:".homeurl."/site/edittext/".encode($hirid));
+//header("Location:".homeurl."/site/edittext/".encode($hirid));
 }
 
 if (decode($getparams[2]) > 0) {

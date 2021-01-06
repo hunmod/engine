@@ -61,7 +61,7 @@
             ?>
             <name itemprop="name" ><?php echo $Text_Class->htmlfromchars($pagedata["title"]); ?></name>
 
-            <topimage class="col-sm-12"><img src="<?php echo("https://" . $domain . $homefolder . "/" . $img); ?>" alt="<?php echo $pagedata["title"]; ?>" title="<?php echo $pagedata["title"]; ?>" itemprop="image"/>
+            <topimage class="col-sm-12"><img src="<?php echo( homeurl . "/" . $img); ?>" alt="<?php echo $pagedata["title"]; ?>" title="<?php echo $pagedata["title"]; ?>" itemprop="image"/>
             </topimage>
             <meta itemprop="category" content="cipőfűző" />
             <meta itemprop="brand" content="okosfuzo" />

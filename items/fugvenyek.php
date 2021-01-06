@@ -53,9 +53,8 @@ function emailkuldes($email, $nev, $subject, $htmltext, $files = array())
     global $tbl, $adatbazis, $sitemail, $oldalneve;
 //berakja adatbázisba a kimenő levelet
 //emailtablaba($email,$nev,$subject,$htmltext);
-
-    //email_with_images($email, $subject, $htmltext);
-    sparkmailsend ( $email, $subject, $htmltext);
+    email_with_images($email, $subject, $htmltext);
+    //sparkmailsend ( $email, $subject, $htmltext);
 
 }
 

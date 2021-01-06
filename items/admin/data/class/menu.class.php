@@ -491,7 +491,6 @@ $q="CREATE TABLE IF NOT EXISTS ".$SD["table"]." (
 function shorturl_get_data($getq){
 	global $tbl,$adatbazis,$SysClass;
 	$eredmeny=$SysClass->shorturl_get_data($getq);
-
 		return $eredmeny;
 
 }

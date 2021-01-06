@@ -272,8 +272,10 @@ public function shorturl_getparams($getq,$lang=null)
 		$lang=$_SESSION["lang"];
 	}
 	$q = "SELECT * FROM " . $tbl["short_url"] . "_".$lang." WHERE `get` LIKE '" . $getq . "' LIMIT 1";
-	$eredmeny = db_query($q, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"], $adatbazis["db1_srv"], '', 'select');
-//echo $q;
+   // echo $q;
+
+    $eredmeny = db_query($q, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"], $adatbazis["db1_srv"], '', 'select');
+
 	if (isset($eredmeny[0]['params']) && $eredmeny[0]['params'] != "") {
 		return $eredmeny[0]['params'];
 	} else {
@@ -281,28 +283,30 @@ public function shorturl_getparams($getq,$lang=null)
 	}
 }
 public function shorturl_setprams($data,$lang=null){
-	global $tbl, $adatbazis;
+	global $tbl,  $adatbazis;
 
 	if (!$lang){
 		$lang=$_SESSION["lang"];
 	}
-	$query="REPLACE INTO  ". $tbl["short_url"] . "_".$lang." (`get` ,`params` ,`status`)VALUES ('".$data['get']."',  '".$data['params']."','".$data['status']."');";
-	db_query($query, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"], $adatbazis["db1_srv"], '', 'insert');
-
+	$query="REPLACE INTO  ".$tbl["short_url"]. "_".$lang." (`get` ,`params` ,`status`)VALUES ('".$data['get']."',  '".$data['params']."','".$data['status']."');";
+	$cc=db_query($query, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"], $adatbazis["db1_srv"], '', 'insert');
+//var_dump($cc);
+//var_dump($query);
 	return($data);
 }
 
-public function shorturl_create($lang,$lang=null){
+public function shorturl_create($lang){
 	global $tbl, $adatbazis;
 	if (!$lang){
 		$lang=$_SESSION["lang"];
 	}
-	$q1="CREATE TABLE " . $tbl["short_url"] . "_".$lang." (
+	$q1="CREATE TABLE " .$tbl["short_url"]. "_".$lang." (
 `get` varchar(100) NOT NULL,
 `params` varchar(100) NOT NULL,
 `status` varchar(100) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;";
-	$q2="ALTER TABLE " . $tbl["short_url"] . "_".$lang."
+
+	$q2="ALTER TABLE " . $tbl["short_url"]. "_".$lang."
 ADD PRIMARY KEY (`params`),
 ADD KEY `get` (`get`);";
 

@@ -432,7 +432,7 @@ public function save_text($lan,$datas)
 			$datasb.="'".($datas[$mezoe['id']])."'";
 		}
 		$query="replace INTO  ".$SD["table"]." (".$mezok.")VALUES (".$datasb.")";
-		$result =db_Query($query, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"],$adatbazis["db1_srv"],$adatbazis["db1_db"], "INSERT");
+		$result =db_Query($query, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"],$adatbazis["db1_srv"],$adatbazis["db1_db"], "replace");
 		//echo $query.'<br>';
 		//echo $error.'<br>';
 		//$res=$result['lastInsertId'];

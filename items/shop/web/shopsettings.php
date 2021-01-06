@@ -99,6 +99,26 @@ $rootmenu_array[]=array("nev"=>"root","id"=>"0");
             ORDER_URL ,VEVO_NEV,ORDER_OSSZEG,ORDER_ID</td>
     </div>
 
+        <div class="col-sm-12">
+            <h3>Barion</h3>
+        </div>
+
+        <div class="col-sm-12">
+            <strong>Barion PosKey (<?= $_SESSION["lang"]?>)</strong>
+            <?php
+            $name="barion_PosKey";
+            $FormClass->textbox($name,page_settings($name)); ?>
+            <br />
+            <?php
+            $name="barion_email";
+            $FormClass->textbox($name,page_settings($name)); ?>
+            <br />
+
+
+
+
+    </div>
+
 
 
 

@@ -1,9 +1,7 @@
 <?php
 //Tables
 $tblmodul = 'page_settings';
-$tbl[$tblmodul] = $adatbazis["db1_db"] . "." . $prefix . $prefix_pagesetting . "system_sitesetting";
-$tblmodul = 'short_url';
-$tbl[$tblmodul] = $adatbazis["db1_db"] . "." . $prefix . "short_url";
+$tbl[$tblmodul] = $adatbazis["db1_db"] . "." . prefix . prefix_pagesetting . "system_sitesetting";
 
 
 $file_structuct = array();

@@ -60,6 +60,7 @@
         //ha paypal és még nincs fizetve.
         if (/*$orderdatas['pmod']==3 &&*/ $orderdatas['payment_date']<='0000-00-00 00:00:00'){
 
+
             ?>
             <!-- PayPal payment form for displaying the buy button -->
             <form action="<?php echo PAYPAL_URL; ?>" method="post">
@@ -80,8 +81,11 @@
                 <!--input type="submit" class="btn btn-success" name="submit" value="<?=lan("Paypal fizetés")?>"-->
             </form>
             <?php
+            
         }
         ?>
+        
+<a href="<?= homeurl."/shop/barion/".$orderdatas["id"] ?>"><img src="<?= homeurl."/uploads/barion-smart-payment-banners/barion-card-strip-intl_200px.png" ?>" alt="Barion" rel="nofollow"></a>
     </payment>
     <post class="col-sm-6">
         Szállítás: <?= $orderdatas['post_priece']?> Ft.<br />

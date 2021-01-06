@@ -70,9 +70,10 @@ include('class/minimize.class.php');
 $MakeMin = $makemin = new hnmdminimize();
 
 include_once("fugvenyek.php");
+/*
 include_once("class/class.yandextranslate.php");
 $Translate = $trnslate = new yandextranslate();
-
+*/
 $avaibleLang[] = 'hu';
 $avaibleLang[] = 'en';
 $avaibleLang[] = 'de';
@@ -214,13 +215,12 @@ $keywords = $metakeywords;
 //userlogin
 include('items/user/data/login.php');
 
-
-
 //seourlmentese
 $SysClass->shorturl_create('hu');
 $SysClass->shorturl_create('en');
 $SysClass->shorturl_create('de');
-$tbl["short_url"] ="short_url";
+$tblmodul = 'short_url';
+$tbl[$tblmodul] = $adatbazis["db1_db"] . "." . prefix . "short_url";
 
 
 if (($_POST["paramsseo"]!="")&&($_POST["getseo"]!="")&&($_POST["getseo"]!=$_POST["paramsseo"])){
