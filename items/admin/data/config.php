@@ -542,4 +542,7 @@ INSERT INTO " . $tbl["menu"] . " VALUES (1, 0, 'root', 'start', 'list', '', 0, 1
 ";
     $returnquery = db_Query($qcreate_menu, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"], $adatbazis["db1_srv"], '', "create");
 }
+
+
+
 ?>

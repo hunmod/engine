@@ -197,6 +197,8 @@ if ($orderdata["order"]=="ok"){
          arraylist($orderdata);
 
         $Orderid=$ShopClass->save_shop_order($orderdata);
+        $discord->sendmessage("server",$orderdata["name"]. "vásárol") ;
+
         //echo $Orderid;
       // var_dump($Orderid);
 
@@ -248,5 +250,8 @@ else{
 	}
 	
 }
+
+
+
 
 ?>

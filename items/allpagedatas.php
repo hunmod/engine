@@ -13,6 +13,7 @@ include_once('items/admin/data/class/time.class.php');
 include_once('items/admin/data/class/google.class.php');
 include_once('items/admin/data/class/location.class.php');
 include_once('items/user/class/users.class.php');
+include_once("items/admin/data//class/dc.class.php");
 
 //construct classes
 $Upload_Class = new file_upload();
