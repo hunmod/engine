@@ -229,8 +229,8 @@ if ($orderdata["order"]=="ok"){
        //     $eml_head_to_buyer=str_replace($from_text,$to_text,page_settings("shop_order_mail_subject_".$_SESSION["lang"]));
             emailkuldes($orderdata["email"],$orderdata["name"],$eml_head_to_buyer,$eml_text_to_buyer);
         }
-     //   unset($_SESSION["kosaram"]);
-    //    unset($_SESSION["myorder"]);
+        unset($_SESSION["kosaram"]);
+        unset($_SESSION["myorder"]);
         unset($orderdata);
 
 //átdobjuk a fizetés oldalra.
