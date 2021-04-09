@@ -32,18 +32,19 @@
             </div>
 
             <input name="id" id="id" type="hidden" value="<?php echo decode($getparams[2]); ?>"/>
-        <?php echo lan('menu');
-
-            //arraylist($auser);
+            <?php echo lan('menu');
             if (!isset($menustart)) $menustart = '0';
             /*$filtersm["modul"]="hirek";*/
-            $filtersm["jog"] = "5";
+           // $filtersmx["jog"] = "5";
+            $MenuClass2 = new menu();
+           // var_dump($menustart);
 
-            $menuk = $MenuClass->menu_selectboxfilter($menustart, array("modul" => "site"), $filtersm, $order = '', $page = 'all');
+            $menudata=$MenuClass2->menu_selectboxfilter($menustart, array(), $filtersmx);
+//var_dump($menudata);
             ?>:
 
             <?php 
-			$Form_Class->selectbox2("mid", $menuk, array('value' => 'id', 'name' => 'nev'), $adat["mid"], "Menu"); ?>
+			$Form_Class->selectbox2("mid", $menudata, array('value' => 'id', 'name' => 'nev'), $adat["mid"], "Menu"); ?>
             <?php echo lan('sorrend'); ?>:
             <?php  $form->selectboxeasy2("sorrend", $sitessorrend, $adat["sorrend"], "sorrend"); ?>
             <?php echo lan('status'); ?>:

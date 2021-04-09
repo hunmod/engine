@@ -11,9 +11,7 @@ $admintemplate=1;
 	<script src="'.$server_url.'/scripts/ckeditor/ckeditor.js" type="text/javascript"></script>
 	<script src="'.$server_url.'/scripts/ckfinder/ckfinder.js" type="text/javascript"></script>
 	';
-$extrascript[]= '
-	<script src="'.homeurl.'/scripts/cropit-master/dist/jquery.cropit.js"></script>
-	';
+//$extrascript[]= '	<script src="'.homeurl.'/scripts/cropit-master/dist/jquery.cropit.js"></script>	';
 $form = new formobjects();
 $UploadClass = new file_upload();
 $hirid=decode($getparams[2]);
