@@ -73,7 +73,9 @@ if ($_POST["formname"]=="postok" && $getparams[2]>0)
 //$oder_articlesid=$ShopClass->jsons_from($oder_articlestext);
     $orderdatas["articles"]=str_replace('
 ','',$orderdatas["articles"]);
-    $oder_articlesid=json_decode(($orderdatas["articles"]), true);
+$orderdatas["articles"]=str_replace('/r/n','',$orderdatas["articles"]);
+
+$oder_articlesid=json_decode(($orderdatas["articles"]), true);
     foreach ($oder_articlesid["articles"] as $thw){
         $myfilter=array();
         $myfilter['id']=$thw['id'];
