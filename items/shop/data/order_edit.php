@@ -48,10 +48,20 @@ $filtersxx["status"]="all";
 $datas=$ShopClass->get_shop_order($filtersxx);
 $post_status=$ShopClass->post_status();
 $orderdatas=$datas["datas"][0];
+
+//order articles datas
+$orderdatas["articles"]=str_replace('
+','',$orderdatas["articles"]);
+$orderdatas["articles"]=str_replace('/r/n','',$orderdatas["articles"]);
+
+$oder_articlesid=json_decode(($orderdatas["articles"]), true);
+
+
+
+
 //arraylist($datas);
 if ($_POST["formname"]=="rememberpay")
 {
-   // arraylist($orderdatas);
     $orderdatas['email'];
 
     $from_text=array('ORDER_URL' ,'VEVO_NEV','ORDER_OSSZEG','ORDER_ID');
@@ -64,18 +74,13 @@ if ($_POST["formname"]=="rememberpay")
 
 }
 
-
 //if ($_POST["formname"]=="postok" && $getparams[2]>0 )
 if ($_POST["formname"]=="postok" && $getparams[2]>0)
 {
     //ha Feladtam a csomagot
 //leveszem készletről
 //$oder_articlesid=$ShopClass->jsons_from($oder_articlestext);
-    $orderdatas["articles"]=str_replace('
-','',$orderdatas["articles"]);
-$orderdatas["articles"]=str_replace('/r/n','',$orderdatas["articles"]);
 
-$oder_articlesid["articles"]=json_decode(($orderdatas["articles"]), true);
     foreach ($oder_articlesid["articles"] as $thw){
         $myfilter=array();
         $myfilter['id']=$thw['id'];

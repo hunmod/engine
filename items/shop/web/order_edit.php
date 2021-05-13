@@ -104,7 +104,7 @@ Szállított tételek: <?php echo $oder_articlesid['summa']["articles_num"];?><b
 	<?php echo $orderdatas['subject'];?><br />
 
 <?php
-arraylist($oder_articlesid["articles"]);
+//arraylist($oder_articlesid["articles"]);
 
 ?>
 Tételek:<br />
