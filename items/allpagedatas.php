@@ -95,7 +95,7 @@ $domain = $_SERVER["HTTP_HOST"];
     if ($_SERVER['HTTPS'] == "on") {
         $https = 'https';
     }
-    else $https = 'http';
+    else $https = 'https';
 
 $homeurl = $https."://" . $domain . $homefolder . '';
 $server_url = $homeurl . '/';
@@ -306,6 +306,10 @@ if (isset($file['adat']))
     }
 
 
+if (!isset($pagetitle)) {
+    if (isset($oldalneve)) {  
+        $pagetitle = $oldalneve;
+}   
 if (!isset($metakey_words)) {
     $metakey_words = "";
 }
@@ -320,6 +324,7 @@ if (!isset($page_keywords)) {
 if (!isset($meta_description)) {
     $meta_description = "";
 }
+
 //ha nincs a modulnak leírása akkor az alap leírást vegye
 if (!isset($page_description)) {
     $page_description = $meta_description;
