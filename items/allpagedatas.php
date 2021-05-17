@@ -309,6 +309,7 @@ if (isset($file['adat']))
 if (!isset($pagetitle)) {
     if (isset($oldalneve)) {  
         $pagetitle = $oldalneve;
+    } 
 }   
 if (!isset($metakey_words)) {
     $metakey_words = "";
