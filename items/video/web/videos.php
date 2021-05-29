@@ -1,23 +1,20 @@
 <div class="container">
 
-    <!--div id="breadCrumb">
-                <a href="<?php echo $homeurl; ?>">Home</a> / <span><a href="<?php echo $homeurl . $separator . '/videos'; ?>">Videos</a></span>   / <span><strong><?php echo $qmenu['datas'][0]['nev']; ?></strong></span>
-            </div-->
 
     <section class="col-sm-12 videos">
         <h1>Videos / <?php echo $qmenu['datas'][0]['nev']; ?></h1>
 
 
         <?php foreach ($datas["datas"] as $mdata) {
-            $VIDEOIMGS=$video_class->youtube_imgs($mdata["url"]);
+            //$VIDEOIMGS=$video_class->youtube_imgs($mdata["url"]);
             ?>
             <div class="col-sm-6 video" itemscope itemtype="http://schema.org/VideoObject">
-                <title itemprop="name"><?= $VIDEOIMGS[2] ?></title>
-                <img src="<?= $mdata["name"]; ?>"
+                <title itemprop="name"><?= $VIDEOIMGS[2] ?><?= $mdata["name"]; ?></title>
+                <!--img src="<?= $mdata["name"]; ?>"
                      alt="<?= $mdata["name"]; ?>"
                      title="<?= $mdata["name"]; ?>"
                      itemprop="thumbnailUrl">
-                </a>
+                </a-->
 
                 <div align="center" class="box embed-responsive embed-responsive-16by9">
                     <iframe class="embed-responsive-item" src="<?php echo $mdata["url"]; ?>" frameborder="0"
