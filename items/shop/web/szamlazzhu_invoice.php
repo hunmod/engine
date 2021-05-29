@@ -4,10 +4,20 @@ $szmlzzhu_usr="hunmod@gmail.com";
 $szmlzzhu_pass="Ch4mp10n";
 $szmlzzhu_key="4rkp4sx96e96p6kp4sx9bnzpiwkp4sx9zjbnzkkp4s";
 $szmlzzhu_szamlaelotag="NP";
-
 $szmlzzhu_bank_name="Unicredit";
 $szmlzzhu_bank_account="10918001-00000013-50950007";
 $szmlzzhu_bank_replyemail="hunmod@gmail.com";
+
+$szmlzzhu_usr=page_settings("szmlzzhu_usr");
+$szmlzzhu_pass=page_settings("szmlzzhu_pass");
+$szmlzzhu_key=page_settings("szmlzzhu_key");
+$szmlzzhu_szamlaelotag=page_settings("szmlzzhu_szamlaelotag");
+$szmlzzhu_bank_name=page_settings("szmlzzhu_bank_name");
+$szmlzzhu_bank_account=page_settings("szmlzzhu_bank_account");
+$szmlzzhu_bank_replyemail=page_settings("szmlzzhu_bank_replyemail");
+
+
+
 
 
 

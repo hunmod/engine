@@ -123,7 +123,7 @@ $rootmenu_array[]=array("nev"=>"root","id"=>"0");
         <div class="col-sm-12">
             <?php
             $name="szmlzzhu_usr";
-            echo "<title>".$name."</title>"
+            echo "<title>".$name." (email)</title>"
             $FormClass->textbox($name,page_settings($name)); ?>
             <br />
 
@@ -141,7 +141,7 @@ $rootmenu_array[]=array("nev"=>"root","id"=>"0");
 
             <?php
             $name="szmlzzhu_szamlaelotag";
-            echo "<title>".$name." nev utan zárójelben</title>"
+            echo "<title>".$name." (nev utan zárójelben)</title>"
             $FormClass->textbox($name,page_settings($name)); ?>
             <br />
 
