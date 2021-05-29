@@ -171,7 +171,7 @@ if ($auser["jogid"]==4){?>
     }
 	
 	//ha ki van fizetve de nincs elküldve
-	if (($orderdatas["payment_date"]>'0000-00-00 00:00:00')&&($orderdatas["post_date"]=='0000-00-00 00:00:00')&&($orderdatas["pstatus"]!='1'&&($orderdatas["pstatus"]!=''))
+	if (($orderdatas["payment_date"]>'0000-00-00 00:00:00')&&($orderdatas["post_date"]=='0000-00-00 00:00:00')&&($orderdatas["pstatus"]!='1')&&($orderdatas["pstatus"]!=''))
 	{ ?>
 	<form method="post">
 	Csomag azonosító:<?php
@@ -200,7 +200,7 @@ if ($auser["jogid"]==4){?>
 	<?php 
 	}
 	//utánvét megjött a lé
-	if (($orderdatas["pmod"]=='2')&&($orderdatas["post_date"]>"0000-00-00 00:00:00")&&($orderdatas["pstatus"]!='1'&&($orderdatas["pstatus"]!='6'))
+	if (($orderdatas["pmod"]=='2')&&($orderdatas["post_date"]>"0000-00-00 00:00:00")&&($orderdatas["pstatus"]!='1')&&($orderdatas["pstatus"]!='6'))
 	{ ?>
 	<form method="post">
 	Megött a lé:<?php
@@ -229,7 +229,7 @@ if ($auser["jogid"]==4){?>
 
 
 	//ha ki van fizetve el van elküldve nincs lezárva
-	if (($orderdatas["payment_date"]>'0000-00-00 00:00:00')&&($orderdatas["post_date"]>'0000-00-00 00:00:00')&&($orderdatas["pstatus"]!='6'))
+	if (($orderdatas["payment_date"]>'0000-00-00 00:00:00')&&($orderdatas["post_date"]>'0000-00-00 00:00:00')&&($orderdatas["pstatus"]!='6')&&($orderdatas["pstatus"]!='1'))
 	{ ?>
 	<form method="post">
 	Csomag megérkezett<br />
@@ -243,4 +243,5 @@ if ($auser["jogid"]==4){?>
 	?>
 <a target="_blank" href="<?= $serverurl?>/includeajax.php?q=shop/print_leter/<?= $getparams[2]?>" rel="nofollow"><?= lan('print leather')?></a>
 <a target="_blank" href="<?= $serverurl?>/includeajax.php?q=shop/print_etiket/<?= $getparams[2]?>" rel="nofollow"><?= lan('print etikett')?></a>
+<a target="_blank" href="<?= $serverurl?>/includeajax.php?q=shop/szamlazzhu_invoice.php/<?= $getparams[2]?>" rel="nofollow"><?= lan('Createszamlazzhu')?></a>
 
