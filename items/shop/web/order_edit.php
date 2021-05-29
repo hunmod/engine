@@ -42,7 +42,7 @@ display:block;
 $orderdatas["articles"]=str_replace('
 ','',$orderdatas["articles"]);
 
-
+$orderdatas["articles"]=str_replace('/r/n','',$orderdatas["articles"]);
 
 $paymod=$ShopClass->paymod();
 $post_mod=$ShopClass->post_mod();
