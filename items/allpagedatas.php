@@ -56,8 +56,19 @@ switch ($_SESSION['lang']) {
 
 }
 //default lang
+if (file_exists('./lang.json'))
+{
+    $fw = file_get_contents("./lang.json");
+    $lan = json_decode($fw, true);
+    
+}
+else{
+
 $inputFileName = './lang.xls';
 $lan = $lang_Class->xlstoarray($inputFileName, $xlslangid);
+$fw=json_encode($lan, JSON_UNESCAPED_UNICODE);
+file_put_contents('./lang.json', $fw);
+}
 
 
 //abrakahasbanhoz kell az egyéb szövegek miatt
