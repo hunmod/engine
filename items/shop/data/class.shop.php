@@ -59,7 +59,6 @@ public function sorrend(){
         //fizetési mód
         $paymod_typ["value"] = "id";
         $paymod_typ["name"] = "nev";
-
         $paymod = array();
         $paymod[0]["id"] = 0;
         $paymod[0]["nev"] = "Kp (csak személyes átvétel esetén)";
@@ -68,9 +67,9 @@ public function sorrend(){
         $paymod[2]["id"] = 2;
         $paymod[2]["nev"] = "Utánvét !!2600.ft!!";
         $paymod[3]["id"] = 3;
-        $paymod[3]["nev"] = "paypal/Bankkártya";
-        //$paymod[4]["id"] = 4;
-        //$paymod[4]["nev"] = "bankkártya";
+        $paymod[3]["nev"] = "paypal";
+        $paymod[4]["id"] = 4;
+        $paymod[4]["nev"] = "bankkártya";
 
         return $paymod;
     }
@@ -103,16 +102,10 @@ public function sorrend(){
         $storage_satus[$n]["nev"] = lan('nincs fizetve');
         $n++;
         $storage_satus[$n]["id"] = $n ;
-        $storage_satus[$n]["nev"] = lan('Utalásra vár');
-        $n++;
-        $storage_satus[$n]["id"] = $n ;
         $storage_satus[$n]["nev"] = lan('fizetve');
         $n++;
         $storage_satus[$n]["id"] = $n ;
         $storage_satus[$n]["nev"] = lan('utanvetrevar');
-        $n++;
-        $storage_satus[$n]["id"] = $n ;
-        $storage_satus[$n]["nev"] = lan('lezarva');
 
 
         return $storage_satus;

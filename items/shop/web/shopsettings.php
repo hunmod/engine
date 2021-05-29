@@ -104,21 +104,67 @@ $rootmenu_array[]=array("nev"=>"root","id"=>"0");
         </div>
 
         <div class="col-sm-12">
-            <strong>Barion PosKey (<?= $_SESSION["lang"]?>)</strong>
             <?php
             $name="barion_PosKey";
+            echo "<title>".$name."</title>"
             $FormClass->textbox($name,page_settings($name)); ?>
             <br />
             <?php
             $name="barion_email";
+            echo "<title>".$name."</title>"
+            $FormClass->textbox($name,page_settings($name)); ?>
+            <br />
+    </div>
+
+    <div class="col-sm-12">
+            <h3>Szamlazz.hu</h3>
+        </div>
+
+        <div class="col-sm-12">
+            <?php
+            $name="szmlzzhu_usr";
+            echo "<title>".$name."</title>"
             $FormClass->textbox($name,page_settings($name)); ?>
             <br />
 
+            <?php
+            $name="szmlzzhu_pass";
+            echo "<title>".$name."</title>"
+            $FormClass->textbox($name,page_settings($name)); ?>
+            <br />
 
+            <?php
+            $name="szmlzzhu_key";
+            echo "<title>".$name."</title>"
+            $FormClass->textbox($name,page_settings($name)); ?>
+            <br />
+
+            <?php
+            $name="szmlzzhu_szamlaelotag";
+            echo "<title>".$name." nev utan zárójelben</title>"
+            $FormClass->textbox($name,page_settings($name)); ?>
+            <br />
+
+            <?php
+            $name="szmlzzhu_bank_name";
+            echo "<title>".$name."</title>"
+            $FormClass->textbox($name,page_settings($name)); ?>
+            <br />
+
+            <?php
+            $name="szmlzzhu_bank_account";
+            echo "<title>".$name."</title>"
+            $FormClass->textbox($name,page_settings($name)); ?>
+            <br />
+
+            <?php
+            $name="szmlzzhu_bank_replyemail";
+            echo "<title>".$name."</title>"
+            $FormClass->textbox($name,page_settings($name)); ?>
+            <br />            
 
 
     </div>
-
 
 
 

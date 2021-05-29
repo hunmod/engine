@@ -4,15 +4,11 @@ $admintemplate=1;
 
 if ($_POST["formname"]=="payok" && $getparams[2]>0)
 {
-    $pstatus=2;
-    //ha a helyiszínen veszi meg, egyből le is zárjuk
-    if ($_POST["pmod"]=="0") {$pstatus=6;}
-    //ha a utánvét volt és megjött a lé
-    if ($_POST["pstatus"]=="3") {$pstatus=6;}
+    $pstatus=1;
 
     $delid=$_POST;
     $delid['id']=$getparams[2];
-    $delid['payment_date']=$date;
+    $delid['payment_date']=$datetime;
     if($pstatus)$delid['pstatus']=$pstatus;
    // arraylist($delid);
     $ShopClass->save_shop_order($delid);
@@ -24,7 +20,7 @@ if ($_POST["formname"]=="postok" && $getparams[2]>0)
     //ha Feladtam a csomagot
     $delid=$_POST;
     $delid['id']=$getparams[2];
-    $delid['post_date']=$date;
+    $delid['post_date']=$datetime;
     $delid['post_id']=$_POST["post_id"];
     $delid['post_status']=2;
     // arraylist($delid);

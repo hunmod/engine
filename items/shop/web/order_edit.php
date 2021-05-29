@@ -171,7 +171,7 @@ if ($auser["jogid"]==4){?>
     }
 	
 	//ha ki van fizetve de nincs elküldve
-	if (($orderdatas["payment_date"]>'0000-00-00 00:00:00')&&($orderdatas["post_date"]=='0000-00-00 00:00:00')&&($orderdatas["pstatus"]!='6'))
+	if (($orderdatas["payment_date"]>'0000-00-00 00:00:00')&&($orderdatas["post_date"]=='0000-00-00 00:00:00')&&($orderdatas["pstatus"]!='1'&&($orderdatas["pstatus"]!=''))
 	{ ?>
 	<form method="post">
 	Csomag azonosító:<?php
@@ -200,7 +200,7 @@ if ($auser["jogid"]==4){?>
 	<?php 
 	}
 	//utánvét megjött a lé
-	if (($orderdatas["pmod"]=='2')&&($orderdatas["post_date"]>"0000-00-00 00:00:00")&&($orderdatas["pstatus"]!='6'))
+	if (($orderdatas["pmod"]=='2')&&($orderdatas["post_date"]>"0000-00-00 00:00:00")&&($orderdatas["pstatus"]!='1'&&($orderdatas["pstatus"]!='6'))
 	{ ?>
 	<form method="post">
 	Megött a lé:<?php
