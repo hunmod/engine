@@ -12,7 +12,7 @@
                         <form class="form-inline" role="form">
                             <div class="form-group">
                                 <?php //$form->hiddenbox('q',$_GET["q"]);?>
-                                <?php $form->hiddenbox('order',$_GET["order"],'',"sr-only");?>
+                                <?php $form->hiddenbox('order',$_GET["order"];?>
                                 <?php $form->textbox('name',$_GET["name"],'name',"sr-only");?>
                             </div>
                             <div class="form-group">
