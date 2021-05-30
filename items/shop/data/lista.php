@@ -9,6 +9,7 @@ if ($_GET["mid"]<1){
 
 if (!isset($menustart))$menustart='0';
 
+  
 //list
 $maxegyoldalon=100;
 $form=new formobjects();
@@ -43,7 +44,7 @@ foreach ($_GET as $nam=>$req )
 //if (!$adminv)$filters['ido']=$date;
 $filters['maxegyoldalon']=$maxegyoldalon;
 
-$qhir=$ShopClass->get($filters,$_GET["order"].' '.$_GET["by"],$_GET["page"]) ;
+$qhir=$ShopClass->get($filters,$_GET["order"],$_GET["page"]) ;
 $hirekelemek=($qhir['datas']);
 $hszlistacount=$qhir['count'];
 
