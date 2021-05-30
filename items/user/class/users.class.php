@@ -409,7 +409,7 @@ class user
 				$datasb .= "'" . $datas[$mezoe] . "'";
 			}
             if ($datas['pass']){
-                $datas['pass']=md5($datas['pass']);
+                $datas['pass']='md5('.$datas['pass'].')';
             }
 			$query = "INSERT INTO  " . $SD["table"] . " (" . $mezok . ")VALUES (" . $datasb . ")";
 			$result = db_Query($query, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"], $adatbazis["db1_srv"], $adatbazis["db1_db"], "INSERT");
