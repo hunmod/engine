@@ -43,7 +43,7 @@ foreach ($_GET as $nam=>$req )
 //if (!$adminv)$filters['ido']=$date;
 $filters['maxegyoldalon']=$maxegyoldalon;
 
-$qhir=$ShopClass->get($filters,'',$_GET["page"]) ;
+$qhir=$ShopClass->get($filters,$_GET["order"].' '.$_GET["by"],$_GET["page"]) ;
 $hirekelemek=($qhir['datas']);
 $hszlistacount=$qhir['count'];
 

@@ -600,7 +600,7 @@ if ($filters['maxegyoldalon']>0){
 	}
 	else
 	{
-		$order=' ORDER BY '.$SD["table"].'.`sorrend` ASC ';
+		$order=' ORDER BY '.$SD["table"].'.`id` ASC ';
 	}
 
 	//a t�bla saj�t mez�i
