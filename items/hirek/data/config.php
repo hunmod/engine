@@ -76,7 +76,7 @@ do {
   else {$notgood=1;}
 
 } while ($notgood==0);
-  	$ideglenes = str_replace ("valdermort","http://www.youtube.com",$ideglenes);   
+  	$ideglenes = str_replace ("valdermort","https://www.youtube.com",$ideglenes);   
 //arraylist($mire);
 return $ideglenes;
 }
