@@ -84,5 +84,18 @@ if ($_POST["formname"]=="postok" && $getparams[2]>0)
 }
 
 
+//ujra lekérjük
+$filtersxx["id"]=$getparams[2];
+$filtersxx["status"]="all";
+$datas=$ShopClass->get_shop_order($filtersxx);
+$post_status=$ShopClass->post_status();
+$orderdatas=$datas["datas"][0];
+
+//order articles datas
+$orderdatas["articles"]=str_replace('
+','',$orderdatas["articles"]);
+$orderdatas["articles"]=str_replace('/r/n','',$orderdatas["articles"]);
+
+$oder_articlesid=json_decode(($orderdatas["articles"]), true);
 
 ?>

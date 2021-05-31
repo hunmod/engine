@@ -70,50 +70,63 @@ $post_mod=$ShopClass->post_mod();
         Fizetés<br />
         Fizetési mód:<?php echo $paymod[$orderdatas['pmod']]["nev"];?><br />
         Fizetés ideje:<?php echo $orderdatas['payment_date'];?>
-<?php
-if ($orderdatas['post_date']=='0000-00-00 00:00:00'){
-?>
-        <form method="post">
-            <?php
-            $FormClass->hiddenbox('formname','rememberpay');
-            ?>
-            <input name="" type="submit" value="Fizetési emlékezető"/>
-       </form>
-    <?php
-    }
-    ?>
-<?php
-	//ha csak meg van rendelve és nem utánvétes
-	if (($orderdatas["pstatus"]!='1') ))
-	{ ?>
-    <form method="post">
-    <?php
-        $FormClass->hiddenbox('formname','payok');
-        $FormClass->hiddenbox('post_status','1');
-        $FormClass->hiddenbox('pmod',$orderdatas["pmod"]);
-        $FormClass->hiddenbox('id',$orderdatas["id"]);
+        <br />
+
+        Szállított tételek: <?php echo $oder_articlesid['summa']["articles_num"];?><br />
+        Érték:<?php echo $orderdatas["oder_priece"];?> Ft <br />
+        <strong>Összesen:<?php echo $orderdatas["oder_priece"];?> Ft</strong>
+        <?php
+        if ($orderdatas['post_date']=='0000-00-00 00:00:00'){
         ?>
-        <input name="" type="submit" value="Fizetve"/>
-        </form>
-	<?php
-       // arraylist($orderdatas);
+                <form method="post">
+                    <?php
+                    $FormClass->hiddenbox('formname','rememberpay');
+                    ?>
+                    <input name="" type="submit" value="Fizetési emlékezető"/>
+            </form>
+            <?php
+            }
+            ?>
+        <?php
+            if (($orderdatas["pstatus"]!='1') )
+            { ?>
+            <form method="post">
+            <?php
+                $FormClass->hiddenbox('formname','payok');
+                $FormClass->hiddenbox('pstatus','1');
+                $FormClass->hiddenbox('pmod',$orderdatas["pmod"]);
+                $FormClass->hiddenbox('id',$orderdatas["id"]);
+                ?>
+                <input name="" type="submit" value="Fizetve"/>
+                </form>
+            <?php
+            } 
+            ?>
 
-    }?>
-
-            <br />
-
-Szállított tételek: <?php echo $oder_articlesid['summa']["articles_num"];?><br />
-Érték:<?php echo $orderdatas["oder_priece"];?> Ft <br />
-<strong>Összesen:<?php echo $orderdatas["oder_priece"];?> Ft</strong>
-	</payment>  	
+    </payment>  	
     <post>
         Szállítás: <?= $orderdatas['post_priece'];?> Ft.<br />
         Módja:<?php echo $post_mod[$orderdatas['post_mod']]["nev"];?><br />    
         Ideje:<?php echo $orderdatas['post_date'];?>
         <br />
         Postai azonosító:<?php echo $orderdatas['post_id'];?><br />    
-	    Státusz:<strong><?php echo $post_status[$orderdatas['pstatus']]["nev"];?></strong><br />
-	    Megrendelés dátuma:<?php echo $orderdatas['order_date'];?><br />           
+	    Státusz:<strong><?php echo $post_status[$orderdatas['post_status']]["nev"];?></strong><br />
+	    Megrendelés dátuma:<?php echo $orderdatas['order_date'];?><br />    
+<?
+        //ha nincs elküldve
+	if (($orderdatas["post_date"]=='0000-00-00 00:00:00'))
+	{ ?>
+	<form method="post">
+	Csomag azonosító:<?php
+        $FormClass->hiddenbox('formname','postok');
+        $FormClass->textbox('post_id',$_POST["post_id"]);
+	 ?>
+	<input name="" type="submit" value="Feldva"/>
+	</form>
+	<?php 
+	}
+?>
+
 	</post>  
     Megjegyzés:<br />
 	<?php echo $orderdatas['subject'];?><br />
@@ -161,10 +174,11 @@ for ($i = 0; $i < count($oder_articlesid["articles"]); $i++) {
 
     </shop> 
 </order_info>
-    <div class="clear"></div>
-    <a href="<?php echo $separator.$getparams[0].'/order_view/'.encode($getparams[2]);?>">Rendelés megtekintése</a>
-    <a target="_blank" href="<?= $serverurl?>/includeajax.php?q=shop/print_leter/<?= $getparams[2]?>" rel="nofollow"><?= lan('print leather')?></a>
-    <a target="_blank" href="<?= $serverurl?>/includeajax.php?q=shop/print_etiket/<?= $getparams[2]?>" rel="nofollow"><?= lan('print etikett')?></a>
-    <a target="_blank" href="<?= $serverurl?>/includeajax.php?q=shop/szamlazzhu_invoice.php/<?= $getparams[2]?>" rel="nofollow"><?= lan('Createszamlazzhu')?></a>
-    <div class="clear"></div>
+<hr>
+<div class="clear"></div>
+<a href="<?php echo $separator.$getparams[0].'/order_view/'.encode($getparams[2]);?>">Rendelés megtekintése</a>
+<a target="_blank" href="<?= $serverurl?>/includeajax.php?q=shop/print_leter/<?= $getparams[2]?>" rel="nofollow"><?= lan('print leather')?></a>
+<a target="_blank" href="<?= $serverurl?>/includeajax.php?q=shop/print_etiket/<?= $getparams[2]?>" rel="nofollow"><?= lan('print etikett')?></a>
+<a target="_blank" href="<?= $serverurl?>/includeajax.php?q=shop/szamlazzhu_invoice.php/<?= $getparams[2]?>" rel="nofollow"><?= lan('Createszamlazzhu')?></a>
+<div class="clear"></div>
 
