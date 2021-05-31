@@ -36,20 +36,21 @@ if ($_POST["regform"]=='2'){
 			$_SESSION["regeerror"]["email"]=$lan["regeerror_unev"];				
 			
 		}
-                arraylist($_SESSION);
+               // arraylist($_SESSION);
 		if($_SESSION["messageerror"]==""&&!count($_SESSION["regeerror"])){
 			$loginclass->reg_users($mezoka);
 			$auser=$users["datas"][0];
 			$_SESSION["messageok"]=$errors['regok_email'];	
 			$regparam="";
 		//email
-		$VALIDATE_URL=$server_url.$separator."user/validate/".encode($_POST["email"]);
-		$mire=array($mezoka["unev"],$mezoka["nev"],$mezoka["email"],$mezoka["pass"],$VALIDATE_URL);
-		$mit=array('USERNAME','REALNAME','USEREMAIL','USERPASS','VALIDATE_URL');
-		$subject=str_replace($mit, $mire, page_settings("email_reg_subject"));
-		$message=str_replace($mit, $mire, page_settings("email_reg_text"));
-		//echo $message;
-		emailkuldes($mezoka['email'],$mezoka['unev'],$subject,$message);
+		//echo 'dsadasdasd';
+			$VALIDATE_URL=$server_url.$separator."user/validate/".encode($_POST["email"]);
+			$mire=array($mezoka["unev"],$mezoka["nev"],$mezoka["email"],$mezoka["pass"],$VALIDATE_URL);
+			$mit=array('USERNAME','REALNAME','USEREMAIL','USERPASS','VALIDATE_URL');
+			$subject=str_replace($mit, $mire, page_settings("email_reg_subject"));
+			$message=str_replace($mit, $mire, page_settings("email_reg_text"));
+			//echo $message;
+			emailkuldes($mezoka['email'],$mezoka['unev'],$subject,$message);
 		}
 
 }

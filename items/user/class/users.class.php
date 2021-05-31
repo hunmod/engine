@@ -226,7 +226,7 @@ class user
 	public function userlogin($email, $pass)
 	{
 		$filters['email'] = $email;
-		$filters['pass'] = md5 (stripslashes(($pass)));
+		$filters['pass'] = md5 (stripslashes($pass));
 		$users = $this->get_users($filters, '', 'all');
 		//arraylist($users);
 		return $users["datas"][0];
@@ -400,17 +400,22 @@ class user
 //Alapértemlezett érték definiálás, jobb lenne a tábla strukturából megoldani ezeket
 //	if (!isset($datas['active']))$datas['active']='1';
 //arraylist($datas);
+
 		if ($datas["id"] < 1) {
 			//insert
 			foreach ($SD["mezok"] as $mezoe) {
 				$mezok .= $Sys_Class->comasupport($mezok);
 				$mezok .= $mezoe;
-				$datasb .= $Sys_Class->comasupport($datasb);
-				$datasb .= "'" . $datas[$mezoe] . "'";
+
+				if ($mezoe=='pass'){
+					$datasb .= $Sys_Class->comasupport($datasb);
+					$datasb .= "md5('" . $datas[$mezoe] . "')";
+				}else{				
+					$datasb .= $Sys_Class->comasupport($datasb);
+					$datasb .= "'" . $datas[$mezoe] . "'";
+				}
 			}
-            if ($datas['pass']){
-                $datas['pass']='md5('.$datas['pass'].')';
-            }
+
 			$query = "INSERT INTO  " . $SD["table"] . " (" . $mezok . ")VALUES (" . $datasb . ")";
 			$result = db_Query($query, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"], $adatbazis["db1_srv"], $adatbazis["db1_db"], "INSERT");
 			//echo $query.'<br>';
