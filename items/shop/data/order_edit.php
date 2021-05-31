@@ -16,12 +16,10 @@ $oder_articlesid=json_decode(($orderdatas["articles"]), true);
 
 if ($_POST["formname"]=="payok" && $getparams[2]>0)
 {
-    $pstatus=1;
-
     $delid=$_POST;
     $delid['id']=$getparams[2];
-    $delid['payment_date']=$datetime;
-    if($pstatus)$delid['pstatus']=$pstatus;
+    $delid['payment_date']=date("Y-m-d H:i:s");
+    if($pstatus)$delid['pstatus']=1;
    // arraylist($delid);
     $ShopClass->save_shop_order($delid);
 }

@@ -107,7 +107,7 @@ Szállított tételek: <?php echo $oder_articlesid['summa']["articles_num"];?><b
 <strong>Összesen:<?php echo $orderdatas["oder_priece"];?> Ft</strong>
 	</payment>  	
     <post>
-        Szállítás: <?= $orderdatas['post_priece']?> Ft.<br />
+        Szállítás: <?= $orderdatas['post_priece'];?> Ft.<br />
         Módja:<?php echo $post_mod[$orderdatas['post_mod']]["nev"];?><br />    
         Ideje:<?php echo $orderdatas['post_date'];?>
         <br />
@@ -131,7 +131,7 @@ for ($i = 0; $i < count($oder_articlesid["articles"]); $i++) {
     if ($oder_articlesid["articles"][$i]["id"]!="post"){?>
     	<article>
             <topimage>
-                <img src="<?php echo $ShopClass->getimg($oder_articlesid["articles"][$i]["id"])?>" height="100" itemprop="image"  />
+                <img src="<?php echo $ShopClass->getimg($oder_articlesid["articles"][$i]["id"]); ?>" height="100" itemprop="image" />
             </topimage>
             <name>
             <a href="<?php echo $separator.$getparams[0]."/shop"."/".$oder_articlesid["articles"][$i]["id"];?>"><?php echo $oder_articlesid["articles"][$i]["title"];?></a>
@@ -161,19 +161,10 @@ for ($i = 0; $i < count($oder_articlesid["articles"]); $i++) {
 
     </shop> 
 </order_info>
-<div class="clear"></div>
-<?php
-if ($auser["jogid"]==4){?>
+    <div class="clear"></div>
     <a href="<?php echo $separator.$getparams[0].'/order_view/'.encode($getparams[2]);?>">Rendelés megtekintése</a>
-<div class="clear"></div>
-
-    <?php	
-
-
-    }
-
-
-<a target="_blank" href="<?= $serverurl?>/includeajax.php?q=shop/print_leter/<?= $getparams[2]?>" rel="nofollow"><?= lan('print leather')?></a>
-<a target="_blank" href="<?= $serverurl?>/includeajax.php?q=shop/print_etiket/<?= $getparams[2]?>" rel="nofollow"><?= lan('print etikett')?></a>
-<a target="_blank" href="<?= $serverurl?>/includeajax.php?q=shop/szamlazzhu_invoice.php/<?= $getparams[2]?>" rel="nofollow"><?= lan('Createszamlazzhu')?></a>
+    <a target="_blank" href="<?= $serverurl?>/includeajax.php?q=shop/print_leter/<?= $getparams[2]?>" rel="nofollow"><?= lan('print leather')?></a>
+    <a target="_blank" href="<?= $serverurl?>/includeajax.php?q=shop/print_etiket/<?= $getparams[2]?>" rel="nofollow"><?= lan('print etikett')?></a>
+    <a target="_blank" href="<?= $serverurl?>/includeajax.php?q=shop/szamlazzhu_invoice.php/<?= $getparams[2]?>" rel="nofollow"><?= lan('Createszamlazzhu')?></a>
+    <div class="clear"></div>
 
