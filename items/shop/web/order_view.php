@@ -45,7 +45,9 @@
         <?php echo $orderdatas['country'];?> <?php echo $orderdatas['zip'];?> <?php echo $orderdatas['city'];?><br />
         <?php echo $orderdatas['address'];?><br />
     </buyer>
-    <payment class="col-sm-6">
+    <payment class="col-sm-6">        
+    Megrendelés dátuma:<?php echo $orderdatas['order_date'];?><br />
+
         <h3>Fizetés</h3>
         Fizetési mód:<?php echo $paymod[$orderdatas['pmod']]["nev"];?><br />
         Fizetési állapot:<?php echo $pay_status[$orderdatas['pstatus']]["nev"];?><br />
@@ -92,9 +94,6 @@
         Módja:<?php echo $post_mod[$orderdatas['post_mod']]["nev"];?><br />
         Ideje:<?php echo $orderdatas['post_date'];?><br />
         Postai azonosító:<a target="_blank" href="https://www.posta.hu/nyomkovetes/nyitooldal?searchvalue=<?php echo $orderdatas['post_id'];?>"><?php echo $orderdatas['post_id'];?></a><br />
-        Státusz:<strong><?php echo $order_status[$orderdatas['post_status']]["nev"];?></strong><br />
-        Megrendelés dátuma:<?php echo $orderdatas['order_date'];?><br />
-        Postai nyomkövetési azonosító:<?php echo $orderdatas['track_id'];?><br />
         Posta állapot:<?php echo $post_status[$orderdatas['post_status']]["nev"];?><br />
     </post>
 <subject class="col-sm-6">
