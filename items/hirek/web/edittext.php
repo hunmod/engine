@@ -104,9 +104,9 @@
             <input name="cim" id="cim" type="text" value="<?php echo $Text_Class->htmlfromchars($adat["cim"]); ?>"
                    maxlength="200" style="  width: 217px;"/><br/>
             <?php echo lan('innertext'); ?>:
-            <?php $form-textbox("hir", $Text_Class->htmlfromchars($adat["hir"])) ?>
+            <?php $form->textaera("hir", $Text_Class->htmlfromchars($adat["hir"]),lan('innertext')) ;?>
             <br/>
-            <?php echo lan('outertext'); ?>: <?php $form->kcebox("hir2", $Text_Class->htmlfromchars($adat["hir2"])) ?>
+            <?php echo lan('outertext'); ?>: <?php $form->kcebox("hir2", $Text_Class->htmlfromchars($adat["hir2"])); ?>
             <br/>
             <?php echo lan('status'); ?>:<?php
 			

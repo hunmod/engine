@@ -81,40 +81,40 @@ class formobjects
         echo '<input type="hidden" name="' . $name . '" id="' . $name . '" value="' . $value . '" />';
     }
 
-    public function textbox($name, $value, $caption = "", $class = "control-label", $requied = 0)
+    public function textbox($name, $value, $caption = $name, $class = "control-label", $requied = 0)
     {
         if ($requied == 1) {
             $reqval = ' required="required"';
         }
        // echo '<label class="' . $class . '" for="inputDefault">' . $caption . '</label>' .
-        echo    '<input type="text" class="form-control" name="' . $name . '" id="' . $name . '" placeholder="' . $caption . '" value="' . $value . '"' . $reqval . '>';
+        echo    '<input type="text" class="form-control" name="' . $name . '" id="' . $name . '" placeholder="' . lan($caption) . '" value="' . $value . '"' . $reqval . '>';
     }
 
-    public function emailbox($name, $value, $caption = "", $class = "control-label", $requied = 0)
+    public function emailbox($name, $value, $caption = "email", $class = "control-label", $requied = 0)
     {
         if ($requied == 1) {
             $reqval = ' required="required"';
         }
        // echo '<label class="' . $class . '" for="inputDefault">' . $caption . '</label>' .
-        echo    '<input type="email" class="form-control" name="' . $name . '" id="' . $name . '" placeholder="' . $caption . '" value="' . $value . '"' . $reqval . '>';
+        echo    '<input type="email" class="form-control" name="' . $name . '" id="' . $name . '" placeholder="' . lan($caption) . '" value="' . $value . '"' . $reqval . '>';
     }
 
-    public function datebox($name, $value, $caption = "", $class = "form-control", $requied = 0)
+    public function datebox($name, $value, $caption = "", $class = "form-control maskdatebox", $requied = 0)
     {
         if ($requied == 1) {
             $reqval = ' required="required"';
         }
         //echo '<label class="' . $class . '" for="inputDefault">' . $caption . '</label>' .
-        echo    '<input type="text" class="form-control maskdatebox" name="' . $name . '" id="' . $name . '" placeholder="' . $caption . '" value="' . $value . '"' . $reqval . '>';
+        echo    '<input type="text" class="'. $class.'" name="' . $name . '" id="' . $name . '" placeholder="' . $caption . '" value="' . $value . '"' . $reqval . '>';
     }
 
-    public function textaera($name, $value, $caption = "", $class = "control-label", $requied = 0)
+    public function textaera($name, $value, $caption = "", $class = "form-control", $requied = 0)
     {
         if ($requied == 1) {
             $reqval = ' required="required"';
         }
         echo '<label for="inputHelptext" class="' . $class . '">' . $caption . '</label>' .
-            '<textarea class="form-control"  name="' . $name . '" id="' . $name . '" rows="5" placeholder="' . $caption . '" ' . $reqval . '>' . $value . '</textarea>';
+            '<textarea class="'.$class.'"  name="' . $name . '" id="' . $name . '" rows="5" placeholder="' . $caption . '" ' . $reqval . '>' . $value . '</textarea>';
 
     }
 
@@ -227,8 +227,8 @@ class formobjects
     public function selectbox($name, $values, $typ = array('value' => 'id', 'name' => 'text'), $default, $caption = "")
     {
         global $selected;
-        echo '<label for="' . $name . '">' . $caption . '</label>'
-            . '<select name="' . $name . '" id="' . $name . '" class="form-control">';
+        echo '<label for="' . $name . '">' . $caption . '</label>';
+        echo '<select name="' . $name . '" id="' . $name . '" class="form-control">';
         foreach ($values as $liste1) {
             $value = $typ["value"];
             $name = $typ["name"];
