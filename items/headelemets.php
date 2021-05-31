@@ -169,7 +169,20 @@
     // Google analitics (konfig DB-ből olvassa)
     if (isset($analitics_id) && $analitics_id != "") {
         ?>
-        <script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=<?= $analitics_id ?>"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '<?= $analitics_id ?>');
+</script>
+
+
+
+        <!--script>
             (function (i, s, o, g, r, a, m) {
                 i['GoogleAnalyticsObject'] = r;
                 i[r] = i[r] || function () {
@@ -186,7 +199,7 @@
             ga('require', 'linkid', 'linkid.js');
             ga('require', 'displayfeatures');
             ga('send', 'pageview');
-        </script>
+        </script-->
     <?php }
     // Google analitics (konfig DB-ből olvassa)
     ?>
