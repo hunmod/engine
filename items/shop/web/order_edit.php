@@ -70,20 +70,35 @@ $post_mod=$ShopClass->post_mod();
         Fizetés<br />
         Fizetési mód:<?php echo $paymod[$orderdatas['pmod']]["nev"];?><br />
         Fizetés ideje:<?php echo $orderdatas['payment_date'];?>
-        <?php
-        if ($orderdatas['post_date']=='0000-00-00 00:00:00'){
-        ?>
+<?php
+if ($orderdatas['post_date']=='0000-00-00 00:00:00'){
+?>
         <form method="post">
-            Csomag azonosító:<?php
+            <?php
             $FormClass->hiddenbox('formname','rememberpay');
             ?>
             <input name="" type="submit" value="Fizetési emlékezető"/>
        </form>
-            <?php
-            }
+    <?php
+    }
+    ?>
+<?php
+	//ha csak meg van rendelve és nem utánvétes
+	if (($orderdatas["pstatus"]!='1') ))
+	{ ?>
+    <form method="post">
+    <?php
+        $FormClass->hiddenbox('formname','payok');
+        $FormClass->hiddenbox('post_status','1');
+        $FormClass->hiddenbox('pmod',$orderdatas["pmod"]);
+        $FormClass->hiddenbox('id',$orderdatas["id"]);
+        ?>
+        <input name="" type="submit" value="Fizetve"/>
+        </form>
+	<?php
+       // arraylist($orderdatas);
 
-
-            ?>
+    }?>
 
             <br />
 
@@ -151,96 +166,13 @@ for ($i = 0; $i < count($oder_articlesid["articles"]); $i++) {
 if ($auser["jogid"]==4){?>
     <a href="<?php echo $separator.$getparams[0].'/order_view/'.encode($getparams[2]);?>">Rendelés megtekintése</a>
 <div class="clear"></div>
-<?php
-	//ha csak meg van rendelve és nem utánvétes
-	if (($orderdatas["pstatus"]=='0') && ($orderdatas["pmod"]!='2'))
-	{ ?>
 
-	<form method="post">
-	<?php
-    $FormClass->hiddenbox('formname','payok');
-    $FormClass->hiddenbox('post_status','1');
-    $FormClass->hiddenbox('pmod',$orderdatas["pmod"]);
-    $FormClass->hiddenbox('id',$orderdatas["id"]);
-	 ?>
-	<input name="" type="submit" value="Fizetve"/>
-	</form>
-	<?php
-       // arraylist($orderdatas);
+    <?php	
+
 
     }
-	
-	//ha ki van fizetve de nincs elküldve
-	if (($orderdatas["payment_date"]>'0000-00-00 00:00:00')&&($orderdatas["post_date"]=='0000-00-00 00:00:00')&&($orderdatas["pstatus"]!='1')&&($orderdatas["pstatus"]!=''))
-	{ ?>
-	<form method="post">
-	Csomag azonosító:<?php
-        $FormClass->hiddenbox('formname','postok');
-        $FormClass->textbox('post_id',$_POST["post_id"]);
-	 ?>
-	<input name="" type="submit" value="Feldva"/>
-	</form>
-	<?php 
-	}
 
 
-	//utánvét elküldés
-	if (($orderdatas["pmod"]=='2')&&($orderdatas["post_date"]=="0000-00-00 00:00:00"))
-	{ ?>
-	<form method="post">
-	Csomag azonosító:<?php
-        $FormClass->hiddenbox('formname','postok');
-        $FormClass->textbox('post_id',$_POST["post_id"]);
-        $FormClass->hiddenbox('pmod','2');
-	 ?>
-	 
-	<input name="" type="submit" value="Utánvétre elküldöm"/>
-	 
-	</form>
-	<?php 
-	}
-	//utánvét megjött a lé
-	if (($orderdatas["pmod"]=='2')&&($orderdatas["post_date"]>"0000-00-00 00:00:00")&&($orderdatas["pstatus"]!='1')&&($orderdatas["pstatus"]!='6'))
-	{ ?>
-	<form method="post">
-	Megött a lé:<?php
-        $FormClass->hiddenbox('formname','payok');
-        $FormClass->hiddenbox('pmod','2');
-        $FormClass->hiddenbox('pstatus',$orderdatas["pstatus"]);
-	
-	 ?>
-	 
-	<input name="" type="submit" value="ok"/>
-	 
-	</form>
-	<?php 
-	}
-}
-
-	//ha megvan rendelve, és nem utánvétes lehessen fizetni pp-vel
-	//ki kell egészíteni, hogy ha nincs feladva lehessen pp-vel fizetni.
-	if (($orderdatas["pstatus"]=='0') && ($orderdatas["pmod"]!='2'))
-	{ ?>
-    <form action='?q=shop/paypal/<?php echo $getparams[2];?>' METHOD='POST'>
-    <input type='image' name='submit' src='https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif' border='0' align='top' alt='Check out with PayPal'/>
-    </form>
-	<?php 
-	}
-
-
-	//ha ki van fizetve el van elküldve nincs lezárva
-	if (($orderdatas["payment_date"]>'0000-00-00 00:00:00')&&($orderdatas["post_date"]>'0000-00-00 00:00:00')&&($orderdatas["pstatus"]!='6')&&($orderdatas["pstatus"]!='1'))
-	{ ?>
-	<form method="post">
-	Csomag megérkezett<br />
-	<?php
-    $FormClass->hiddenbox('formname','orderok');
-	?>
-	<input name="" type="submit" value="Elfogadom"/> 
-	</form>
-	<?php 
-	}
-	?>
 <a target="_blank" href="<?= $serverurl?>/includeajax.php?q=shop/print_leter/<?= $getparams[2]?>" rel="nofollow"><?= lan('print leather')?></a>
 <a target="_blank" href="<?= $serverurl?>/includeajax.php?q=shop/print_etiket/<?= $getparams[2]?>" rel="nofollow"><?= lan('print etikett')?></a>
 <a target="_blank" href="<?= $serverurl?>/includeajax.php?q=shop/szamlazzhu_invoice.php/<?= $getparams[2]?>" rel="nofollow"><?= lan('Createszamlazzhu')?></a>
