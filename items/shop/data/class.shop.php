@@ -66,11 +66,16 @@ public function sorrend(){
         $paymod[1]["nev"] = "Banki utalás";
         $paymod[2]["id"] = 2;
         $paymod[2]["nev"] = "Utánvét !!2600.ft!!";
-        $paymod[3]["id"] = 3;
-        $paymod[3]["nev"] = "paypal";
-        $paymod[4]["id"] = 4;
-        $paymod[4]["nev"] = "bankkártya";
-
+        if (page_settings('paypal_email')!="")
+        {
+            $paymod[3]["id"] = 3;
+            $paymod[3]["nev"] = "paypal";
+        }
+        if (page_settings('barion_PosKey')!="")
+        {
+            $paymod[4]["id"] = 4;
+            $paymod[4]["nev"] = "bankkártya";
+        }
         return $paymod;
     }
     public function storage_status()
