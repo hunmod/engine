@@ -112,7 +112,9 @@
                 <?php $Form_Class->selectboxeasy("jogid", $jog, $dbadat['jogid'], $lan['jogid'], "form-control"); ?>
                 <?php $Form_Class->selectboxeasy("status", $status, $dbadat['status'], $lan['status'], "form-control"); ?>
 
-                <?php $Form_Class->selectboxeasy2("sorrend", $sorrendarray, $dbadat["sorrend"], "sorrend"); ?>
+                <?php
+                IF ($dbadat["sorrend"]<1)$dbadat["sorrend"]=5;
+                $Form_Class->selectboxeasy2("sorrend", $sorrendarray, $dbadat["sorrend"], "sorrend"); ?>
 
 
                 <input name="smbt" type="submit" value="<?php echo $lan['save']; ?>"/>

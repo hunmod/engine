@@ -51,7 +51,12 @@ function getjsonfrom() {
     if ((selectbox['modul'] == "csomag" && selectbox['file'] == "csomag")
         || (selectbox['modul'] == "site" && selectbox['file'] == "site")
         || (selectbox['modul'] == "shop" && selectbox['file'] == "shop")
-    )
+        || (selectbox['modul'] == "hirek" && selectbox['file'] == "hir")
+        || (selectbox['modul'] == "hirek" && selectbox['file'] == "hir1")
+        || (selectbox['modul'] == "hirek" && selectbox['file'] == "hir2")
+
+        )
+
     {
     $.ajax({
         type: "GET",
