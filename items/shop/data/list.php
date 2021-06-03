@@ -30,6 +30,7 @@ else {
 
 if (($auser["jogid"]>=3)){
 	$filters["status"]="all";
+	$filters["status"]="2";
 }
 else
 {

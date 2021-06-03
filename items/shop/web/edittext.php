@@ -1,10 +1,12 @@
-+<?php
+<h2><?= lan("Új Termék")?></h2>
+<a href="<?= homeurl.'/shop/lista'; ?>">Vissza</a>
+
+<?php
 //$menupontselectbox= menualatta(0,$modul);
 //$menupontselectbox=menupontselectbox($menustart,$modul,'','','');
 //arraylist($menupontselectbox);
 //action="<?php echo $kezdooldal.$separator.$getparams[0]."/savetext/".base64_encode ($elem["id"]);>"
 
-//arraylist($auser);
 if (!isset($menustart)) $menustart = '0';
 /*$filtersm["modul"]="hirek";*/
 $filtersm["jog"] = "5";
@@ -23,14 +25,21 @@ $Form_Class->selectbox2("mid", $menuk, array('value' => 'id', 'name' => 'nev'), 
         <?php
         $Form_Class->selectbox2("vat", $ShopClass->vat(), array('value' => 'id', 'name' => 'nev'), $adat["vat"], lan("Áfa")); ?>
         <?php $Form_Class->kcebox("leadtext", $Text_Class->htmlfromchars($adat["leadtext"]),lan("Leiras")); ?>
-        <?php $Form_Class->selectboxeasy("status", $ShopClass->status(),  $adat["status"], lan("status"));?>
-        <?php $Form_Class->textbox("storage", $adat["storage"],lan("storage")) ?>
+        <?php 
+        if ($adat["status"]<1)$adat["status"]=2;
+        $Form_Class->selectboxeasy("status", $ShopClass->status(),  $adat["status"], lan("status"));?>
+        <?php $Form_Class->textbox("storage", $adat["storage"],lan("raktárkészlet")) ?>
         <?php $Form_Class->textbox("storagemin", $adat["storagemin"],lan("storagemin")) ?>
-        <?php $Form_Class->selectbox2("storage_status", $ShopClass->storage_status(), array('value' => 'id', 'name' => 'nev'),  $adat["storage_status"], lan("storage_status"));?>
-        <?php $Form_Class->textbox("barcode", $Text_Class->htmlfromchars($adat["barcode"]),"barcode") ?>
+        <?php 
+                if ($adat["storage_status"]<1)$adat["storage_status"]=1;
+
+        $Form_Class->selectbox2("storage_status", $ShopClass->storage_status(), array('value' => 'id', 'name' => 'nev'),  $adat["storage_status"], lan("storage_status"));?>
+        <?php $Form_Class->textbox("barcode", $Text_Class->htmlfromchars($adat["barcode"]),lan("barcode")) ?>
            <barcode>*<?php echo $adat["barcode"];?>*</barcode>
         Megrendelés idő: <?php $Form_Class->textbox("ordertime",$adat["ordertime"],"ordertime",$req="n",lan("ordertime"))?> (nap)
-        <?php $Form_Class->selectboxeasy("sorrend", $ShopClass->sorrend(),  $adat["sorrend"], lan("sorrend"));?>
+        <?php 
+        if ($adat["sorrend"]<1)$adat["sorrend"]=5;
+        $Form_Class->selectboxeasy("sorrend", $ShopClass->sorrend(),  $adat["sorrend"], lan("sorrend"));?>
 			<input type="submit" value="<?= lan('save')?>" class="btn btn-success">
 		</form>
 <?php
@@ -39,3 +48,4 @@ if ($adat["id"]>0){
 	include_once("./items/files/web/list2.php");
 }
 ?>     
+<a href="<?= homeurl.'/shop/lista'; ?>">Vissza</a>

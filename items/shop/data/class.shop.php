@@ -169,13 +169,13 @@ public function sorrend(){
         $post_mod = array();
         $n = 0;
         $post_mod[$n]["id"] = 0;
-        $post_mod[$n]["nev"] = "Személyes átvétel Ócsán";
+        $post_mod[$n]["nev"] = "Személyes átvétel";
         $n++;
         $post_mod[$n]["id"] = 1;
         $post_mod[$n]["nev"] = "Posta";
-       // $n++;
-       // $post_mod[$n]["id"] = 2;
-       // $post_mod[$n]["nev"] = "Futár";
+        $n++;
+        $post_mod[$n]["id"] = 2;
+        $post_mod[$n]["nev"] = "FutáHázhozszállítás";
         return $post_mod;
 
     }
@@ -184,8 +184,10 @@ public function sorrend(){
         $vat = array();
         $vat[0]["id"] = 0;
         $vat[0]["nev"] = 0;
-        $vat[1]["id"] = 27;
-        $vat[1]["nev"] = 27;
+        $vat[1]["id"] = 18;
+        $vat[1]["nev"] = 18;
+        $vat[2]["id"] = 27;
+        $vat[2]["nev"] = 27;        
         return $vat;
     }
 
@@ -762,7 +764,7 @@ public function save($datas)
 		$result =db_Query($query, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"],$adatbazis["db1_srv"],$adatbazis["db1_db"], "INSERT");
 		//echo $query.'<br>';
 		//echo $error.'<br>';
-        $res=$result['lastInsertId'];
+        $res=$result;
 	}
 	else
 	{
@@ -779,7 +781,6 @@ public function save($datas)
 		$result =db_Query($query, $error, $adatbazis["db1_user"], $adatbazis["db1_pass"],$adatbazis["db1_srv"],$adatbazis["db1_db"], "UPDATE");
 		/*echo $query;
 		echo $error;*/
-
 	}
 return($res);//csak id-t ad vissza
 }

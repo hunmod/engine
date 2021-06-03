@@ -18,6 +18,9 @@ $status=$SiteClass->status();
 if ($_GET["status"]){
     $filters['status']=$_GET["status"];
 }
+else{
+    $filters['status']="2";
+}
 if ($_GET["name"]){
     $filters['cim']=$_GET["name"];
 }

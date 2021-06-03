@@ -48,6 +48,7 @@ if ($_POST['title']!=""){
 	
 	//$savedatas=$ShopClass->table($adat);// shop_editform_form($adat);
     $mret=$ShopClass->save($adat);
+//	var_dump($mret);
     $adat['id']=$mret;
     $adat['title']=$Text_Class->ekezetekeoda($adat['title']);
     $adat['leadtext']=$Text_Class->ekezetekeoda($adat['leadtext']);

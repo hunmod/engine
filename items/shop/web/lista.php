@@ -31,7 +31,15 @@
         </div>
         <a href="<?php echo $homeurl.$separator."".$getparams[0]."/edittext";?>" class="btn btn-success"><?= lan('newarticle')?></a>
         <!-- Row start -->
-        <?php //arraylist($menuk);?>
+        <?php //arraylist($menuk);
+        foreach ($menuk as $menu) {
+                    $mymenus[$menu["id"]]=$menu["nev"];
+
+            # code...
+        }
+        
+        
+        ?>
         <div class="row">
             <div class="col-md-12">
                 <div class="widget">
@@ -60,8 +68,8 @@
                                 <tr class="gradeX">
                                     <td><?php echo $data['id']; ?></td>
                                     <td><?php
-                                        echo $data["mid"];
-                                        ?></td>
+                                       // echo $data["mid"];
+                                        ?><?= $mymenus[$data["mid"]]; ?></td>
                                     <td><?php
                                         echo $data["title"];
                                     ?></td>
@@ -75,9 +83,8 @@
                                         echo $data["storagemin"];
                                         ?>)
                                     </td>
-                                    <td><?php
-                                        echo $data["priece"];
-                                        ?></td>
+                                    <td><?= $data["priece"];?>Ft (<?= $data["vat"];?>%) <?= $data["priece"]+$data["priece"]*$data["vat"]/100;?>Ft
+                                    </td>
                                     <td><?php
                                         echo ($sitestatus[$data["status"]]);
                                         ?></td>

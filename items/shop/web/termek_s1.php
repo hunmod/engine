@@ -23,10 +23,10 @@
             <oldprice itemprop="highPrice"><?php echo priece_format($elem["priece_old"],0);?> </oldprice><currency itemprop="highPriceCurencey">Ft</currency>
             <action itemprop="precent"><?php echo percentage($elem["priece"], $elem["priece_old"], 0);?> %</action>
         <?php } ?>
-        <price><?php echo priece_format($elem["priece"],0);?> </price><currency itemprop="priceCurrency">Ft</currency>
-        <meta itemprop="price" content="<?= ($elem["priece"]);?> " />
-
-        <?  /*    <endprice><?php echo priece_format(($elem["priece"]+$elem["priece"]/100*$elem["vat"]),0);?> Ft</endprice>
+        <price><?php echo priece_format($elem["priece"],0);?> <currency itemprop="priceCurrency">Ft</currency></price>
+        <meta itemprop="price" content="<?= ($elem["priece"]);?> " /> (+ <?= $elem["vat"]?>% Áfa)
+        <?  /*          <endprice><?php echo priece_format(($elem["priece"]+$elem["priece"]/100*$elem["vat"]),0);?> Ft</endprice>
+  
                <!--vat itemprop="vat">+<?php echo $Text_Class->htmlfromchars($elem["vat"]);?>% ÁFA</vat><br /-->
  */ ?>
     </pricesc>
