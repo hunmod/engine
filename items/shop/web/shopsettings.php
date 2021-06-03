@@ -106,12 +106,12 @@ $rootmenu_array[]=array("nev"=>"root","id"=>"0");
         <div class="col-sm-12">
             <?php
             $name="barion_PosKey";
-            echo "<title>".$name."</title>";
+            echo "<label>".$name."</label>";
             $FormClass->textbox($name,page_settings($name)); ?>
             <br />
             <?php
             $name="barion_email";
-            echo "<title>".$name."</title>";
+            echo "<label>".$name."</label>";
             $FormClass->textbox($name,page_settings($name)); ?>
             <br />
     </div>
@@ -123,43 +123,43 @@ $rootmenu_array[]=array("nev"=>"root","id"=>"0");
         <div class="col-sm-12">
             <?php
             $name="szmlzzhu_usr";
-            echo "<title>".$name." (email)</title>";
+            echo "<label>".$name." (email)</label>";
             $FormClass->textbox($name,page_settings($name)); ?>
             <br />
 
             <?php
             $name="szmlzzhu_pass";
-            echo "<title>".$name."</title>";
+            echo "<label>".$name."</label>";
             $FormClass->textbox($name,page_settings($name)); ?>
             <br />
 
             <?php
             $name="szmlzzhu_key";
-            echo "<title>".$name."</title>";
+            echo "<label>".$name."</label>";
             $FormClass->textbox($name,page_settings($name)); ?>
             <br />
 
             <?php
             $name="szmlzzhu_szamlaelotag";
-            echo "<title>".$name." (nev utan zárójelben)</title>";
+            echo "<label>".$name." (nev utan zárójelben)</label>";
             $FormClass->textbox($name,page_settings($name)); ?>
             <br />
 
             <?php
             $name="szmlzzhu_bank_name";
-            echo "<title>".$name."</title>";
+            echo "<label>".$name."</label>";
             $FormClass->textbox($name,page_settings($name)); ?>
             <br />
 
             <?php
             $name="szmlzzhu_bank_account";
-            echo "<title>".$name."</title>";
+            echo "<label>".$name."</label>";
             $FormClass->textbox($name,page_settings($name)); ?>
             <br />
 
             <?php
             $name="szmlzzhu_bank_replyemail";
-            echo "<title>".$name."</title>";
+            echo "<label>".$name."</label>";
             $FormClass->textbox($name,page_settings($name)); ?>
             <br />            
 

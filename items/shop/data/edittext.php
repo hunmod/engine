@@ -58,6 +58,6 @@ if ($_POST['title']!=""){
     //arraylist($adat);
 
    // save_text($lan,$datas)
-//arraylist($ShopClass->save($adat));
+arraylist($ShopClass->save($adat));
 }
 ?>

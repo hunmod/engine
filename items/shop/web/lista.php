@@ -70,9 +70,9 @@
                                     <td><?php
                                        // echo $data["mid"];
                                         ?><?= $mymenus[$data["mid"]]; ?></td>
-                                    <td><?php
+                                    <td><b><?php
                                         echo $data["title"];
-                                    ?></td>
+                                    ?></b></td>
                                     <td><?php if ($data["storagemin"]>$data["storage"]){
                                         $storagestyle='color:red';
                                         } else $storagestyle='';
