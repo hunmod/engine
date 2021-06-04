@@ -45,7 +45,13 @@ if ($_POST['title']!=""){
 	{
 		unset($adat["id"]);
 	}
-	
+
+	$adatx["buyingurl"][0]= $adat["buyingurl0"];
+	$adatx["buyingurl"][1]= $adat["buyingurl1"];
+	$adatx["buyingurl"][2]= $adat["buyingurl2"];
+	$adat["jsondatas"]=json_encode($adatx);
+
+
 	//$savedatas=$ShopClass->table($adat);// shop_editform_form($adat);
     $mret=$ShopClass->save($adat);
 //	var_dump($mret);

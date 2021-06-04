@@ -416,9 +416,54 @@ public function table(){
     $mezo["display"] = 1;
     $mezo["displaylist"] = 0;
     $mezo["value"] = $data[$mezo["id"]];
-    $mezo["mysql_field"]="`".$mezo["id"]."` VARCHAR( 24 ) NOT NULL,";
+    $mezo["mysql_field"]="`".$mezo["id"]."` VARCHAR( 24 ),";
     $mezok[] = $mezo;
     $mezo = array();
+
+    $mezo["id"] = 'measure';
+    $mezo["table"] = $table . '.' . '`' . $mezo["id"] . '`';
+    $mezo["name"] = "UNIT";
+    $mezo["type"] = 'text';
+    $mezo["display"] = 1;
+    $mezo["displaylist"] = 0;
+    $mezo["value"] = $data[$mezo["id"]];
+    $mezo["mysql_field"]="`".$mezo["id"]."` VARCHAR( 24 ) DEFAULT  'db',";
+    $mezok[] = $mezo;
+    $mezo = array();
+
+    $mezo["id"] = 'width';
+    $mezo["table"] = $table . '.' . '`' . $mezo["id"] . '`';
+    $mezo["name"] = "Width";
+    $mezo["type"] = 'num';
+    $mezo["display"] = 1;
+    $mezo["displaylist"] = 0;
+    $mezo["value"] = $data[$mezo["id"]];
+    $mezo["mysql_field"]="`".$mezo["id"]."` int,";
+    $mezok[] = $mezo;
+    $mezo = array();
+
+    $mezo["id"] = 'height';
+    $mezo["table"] = $table . '.' . '`' . $mezo["id"] . '`';
+    $mezo["name"] = "height";
+    $mezo["type"] = 'num';
+    $mezo["display"] = 1;
+    $mezo["displaylist"] = 0;
+    $mezo["value"] = $data[$mezo["id"]];
+    $mezo["mysql_field"]="`".$mezo["id"]."` int,";
+    $mezok[] = $mezo;
+    $mezo = array();
+
+    $mezo["id"] = 'weight';
+    $mezo["table"] = $table . '.' . '`' . $mezo["id"] . '`';
+    $mezo["name"] = "weight";
+    $mezo["type"] = 'num';
+    $mezo["display"] = 1;
+    $mezo["displaylist"] = 0;
+    $mezo["value"] = $data[$mezo["id"]];
+    $mezo["mysql_field"]="`".$mezo["id"]."` int,";
+    $mezok[] = $mezo;
+    $mezo = array();
+
 
     $mezo=array();
     $mezo["id"]='included';
@@ -430,8 +475,6 @@ public function table(){
     $mezo["value"]=$data[$mezo["id"]];
     $mezo["mysql_field"]="`".$mezo["id"]."` TEXT,";
     $mezok[]=$mezo;
-
-
 
     $mezo["id"]='status';
     $mezo["table"]=$table.'.'.'`'.$mezo["id"].'`';

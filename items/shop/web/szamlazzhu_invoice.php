@@ -206,7 +206,7 @@ $the_xml.='
         <tetel>
             <megnevezes>'.$TextClass->htmlfromchars($article["title"]).'</megnevezes>
             <mennyiseg>'.$article["db"].'</mennyiseg>
-            <mennyisegiEgyseg>db</mennyisegiEgyseg>
+            <mennyisegiEgyseg>'.$article["measure"].'</mennyisegiEgyseg>
             <nettoEgysegar>'.$article["priece"].'</nettoEgysegar>
             <afakulcs>'.$article["vat"].'</afakulcs>
             <nettoErtek>'.$article["endpriece"].'</nettoErtek>

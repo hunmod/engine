@@ -46,7 +46,8 @@ if ($pieces>0){
             $filters['id']=$id;
 			$segyelem=$elemek = $ShopClass->get($filters, $order = '', $page = 'all');
 			$segyelemtext=$elemek = $ShopClass->get_text('hu',$filters, $order = '', $page = 'all');
-            $egyelem=$segyelem["datas"][0];
+			$egyelem=$segyelem["datas"][0];
+			$segyelemtext["datas"][0]["title"]=$TextClass->tageketcsupaszit($segyelemtext["datas"][0]["title"]);
             $egyelem+=$segyelemtext["datas"][0];
 			$egyelem["db"]=$value;
 			//$egyelem["ar"]=numformat_convert($egyelem["ar"],$deviza);
@@ -61,7 +62,8 @@ if ($pieces>0){
 			//img
 			$img=$ShopClass->getimg($egyelem["id"]);
             $egyelem["img"]=$img;
-
+			unset($egyelem["status"]);
+			unset($egyelem["jsondatas"]);
             unset($egyelem["img"]);
             $kosarban[]=$egyelem;
 			unset($egyelem["status"]);

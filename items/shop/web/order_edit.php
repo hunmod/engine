@@ -76,7 +76,7 @@ $post_mod=$ShopClass->post_mod();
         Érték:<?php echo $orderdatas["oder_priece"];?> Ft <br />
         <strong>Összesen:<?php echo $orderdatas["oder_priece"];?> Ft</strong>
         <?php
-        if ($orderdatas['post_date']=='0000-00-00 00:00:00'){
+        if ($orderdatas['payment_date']=='0000-00-00 00:00:00'){
         ?>
                 <form method="post">
                     <?php

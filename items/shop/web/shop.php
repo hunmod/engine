@@ -61,8 +61,9 @@
             ?>
             <name itemprop="name" ><?php echo $Text_Class->htmlfromchars($pagedata["title"]); ?></name>
 
-            <topimage class="col-sm-12"><img src="<?php echo( homeurl . "/" . $img); ?>" alt="<?php echo $pagedata["title"]; ?>" title="<?php echo $pagedata["title"]; ?>" itemprop="image"/>
+            <topimage class="col-sm-12"><img src="<?php echo(  homeurl.'/'.$img); ?>" alt="<?php echo $pagedata["title"]; ?>" title="<?php echo $pagedata["title"]; ?>" itemprop="image"/>
             </topimage>
+            <meta itemprop="priceCurrency" content="huf" />
             <meta itemprop="category" content="cipőfűző" />
             <meta itemprop="brand" content="okosfuzo" />
             <meta itemprop="itemCondition" content="https://schema.org/NewCondition" />
@@ -74,29 +75,25 @@
             </hiddenbox>
             <div class="col-sm-4">
             <prices itemprop="offers" itemtype="http://schema.org/Offer" itemscope>
-                <meta itemprop="priceCurrency" content="huf" />
 
-
-                <?php if ($eurhuf > 0) { ?>
-                    (
-                    <price itemprop="price"><?php echo priece_format($pagedata["priece"] / $eurhuf, 2); ?> &#8364;</price> )<br/>
-                <?php } ?>
-
-                <!--endpriece><?php echo priece_format(($pagedata["priece"] + $elem["priece"] / 100 * $pagedata["vat"]), 0); ?>
-                    Ft
-                </endpriece-->
-
-                <?php if ($pagedata["priece_old"] > $pagedata["priece"]) { ?>
-                    <oldprice itemprop="highPrice"><?php echo priece_format($pagedata["priece_old"], 0); ?> Ft</oldprice>
-
-                    <action><?php echo percentage($pagedata["priece"], $pagedata["priece_old"], 0); ?> %</action>
-                <?php } ?>
-                <price><?php echo priece_format($pagedata["priece"], 0); ?> </price><currency>Ft</currency>
-                <meta itemprop="price" content="<?= ($pagedata["priece"]);?> " />
-                <meta itemprop="priceCurrency" content="HUF" />
-
-                <!--vat itemprop="vat">+<?php echo $Text_Class->htmlfromchars($pagedata["vat"]); ?>% ÁFA</vat><br /-->
-
+            
+            <?php if ($eurhuf>0){?>
+            (<priece><?php echo priece_format($pagedata["priece"]/$eurhuf,2);?> &#8364;</priece> )<br />
+        <?php }?>
+        <?php if ($pagedata["priece_old"]>$pagedata["priece"]){?>
+            <oldprice itemprop="highPrice"><?php echo priece_format($pagedata["priece_old"],0);?> </oldprice><currency itemprop="highPriceCurencey">Ft</currency>
+            <action itemprop="precent"><?php echo percentage($pagedata["priece"], $pagedata["priece_old"], 0);?> %</action>
+        <?php } ?>
+        <price><?php echo priece_format($pagedata["priece"],0);?> <currency itemprop="priceCurrency">Ft</currency></price>
+        <meta itemprop="price" content="<?= ($pagedata["priece"]);?> " />        
+        
+        <?php if ($pagedata["vat"]>0){?>
+        <endprice>(+ <?= $pagedata["vat"]?>% Áfa) <?php echo priece_format(($pagedata["priece"]+$pagedata["priece"]/100*$pagedata["vat"]),0);?> Ft</endprice>
+          <?  
+       }
+        /*          
+               <!--vat itemprop="vat">+<?php echo $Text_Class->htmlfromchars($pagedata["vat"]);?>% ÁFA</vat><br /-->
+ */ ?>
                 <orderinfo >
                     <?php echo $storage_satus[$pagedata["storage_status"]]["nev"]; ?>
                     <?php if ($pagedata["storage_status"] == 3 ||  $pagedata["storage"]==0 ) { ?>

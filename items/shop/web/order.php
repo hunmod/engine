@@ -102,7 +102,7 @@ if (count($kosar_db)>0){
 	        <?php echo $egyelem["title"]; ?>
         </td>
         <td>
-	        <?php echo " (".$egyelem["db"]."db) "; ?>
+	        <?php echo " (".$egyelem["db"]." ".$egyelem["measure"].") "; ?>
         </td>
         <td>
 	        <?php echo $egyelem["priece"]." Ft"; ?>

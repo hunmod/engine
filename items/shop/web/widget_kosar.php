@@ -14,9 +14,9 @@ if (count($kosar)>0){
 	$egyelem=$segyelem['datas'][0];
 	$egyelem["cim"]=$segyelem1['datas'][0]['title'];
 ?>
-<?php echo $egyelem["cim"]; ?><br />
-<?php echo " (".$value."db) "; ?>
- <?php echo (($egyelem["priece"]+$egyelem["priece"]/100*$egyelem["vat"])*$value);?> Ft
+<?= $egyelem["cim"]; ?><br />
+<?= " (".$value." ".$egyelem["measure"].")"; ?>
+ <?= (($egyelem["priece"]+$egyelem["priece"]/100*$egyelem["vat"])*$value);?> Ft
         <span class="clk" onclick="call_kosar_v1('add','<?= $egyelem["id"]?>');" >+</span>
         <span class="clk" onclick="call_kosar_v1('neg','<?= $egyelem["id"]?>');" >-</span><br>
 

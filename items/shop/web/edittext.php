@@ -29,6 +29,25 @@ $Form_Class->selectbox2("mid", $menuk, array('value' => 'id', 'name' => 'nev'), 
         <?php
         $Form_Class->selectbox2("vat", $ShopClass->vat(), array('value' => 'id', 'name' => 'nev'), $adat["vat"], lan("Áfa")); ?>
         <?php $Form_Class->kcebox("leadtext", $Text_Class->htmlfromchars($adat["leadtext"]),lan("Leiras")); ?>
+       
+        <label><?= lan("mértékegység");?></label>
+        <?php $Form_Class->textbox('measure',$adat["measure"],'db'); ?>
+        <div class="col-xs-12">
+        <label><?= lan("csomagmerete");?></label>
+        <br>
+        <div class="col-xs-4">
+        <label><?= lan("width");?></label>
+        <?php $Form_Class->textbox('width',$adat["width"],lan("width").' (cm)'); ?>
+        </div>
+        <div class="col-xs-4">
+        <label><?= lan("height");?></label>
+        <?php $Form_Class->textbox('height',$adat["height"],lan("height").' (cm)'); ?>
+        </div>
+        <div class="col-xs-4">
+        <label><?= lan("weight");?></label>
+        <?php $Form_Class->textbox('weight',$adat["weight"],lan("weight").' (g)'); ?>
+        </div>
+        </div>
         <?php 
         if ($adat["status"]<1)$adat["status"]=2;
         $Form_Class->selectboxeasy("status", $ShopClass->status(),  $adat["status"], lan("status"));?>
@@ -49,9 +68,24 @@ $Form_Class->selectbox2("mid", $menuk, array('value' => 'id', 'name' => 'nev'), 
         <?php 
         if ($adat["sorrend"]<1)$adat["sorrend"]=5;
         $Form_Class->selectboxeasy("sorrend", $ShopClass->sorrend(),  $adat["sorrend"], lan("sorrend"));?>
-
+      <label>Beszerzési (URL)</label>
+      <?php 
+   $adatx=json_decode(str_replace('\r\n','',$adat["jsondatas"]),true);
+ // arraylist($adatx);
+      $adat["buyingurl0"]=$adatx["buyingurl"][0];
+      $adat["buyingurl1"]=$adatx["buyingurl"][1];
+      $adat["buyingurl2"]=$adatx["buyingurl"][2];
+      
+      $Form_Class->textbox("buyingurl0", $adat["buyingurl0"],lan("http://")); ?>
+      <?php $Form_Class->textbox("buyingurl1", $adat["buyingurl1"],lan("http://")); ?>
+      <?php $Form_Class->textbox("buyingurl2", $adat["buyingurl2"],lan("http://")); ?>
 			<input type="submit" value="<?= lan('save')?>" class="btn btn-success">
 		</form>
+
+
+
+
+
 <?php
 if ($adat["id"]>0){
 	$getparams[2]=$adat["id"];

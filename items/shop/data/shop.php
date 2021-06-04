@@ -28,10 +28,10 @@ $page_description = "";
 $mappa = $folders["uploads"] . $getparams[0] . "/" . $pagedata["id"];
 $mimg = randomimgtofldr("uploads/" . $mappa);
 if ($mimg != "none") {
-    $img = "picture2.php?picture=" . encode("uploads/" .$mappa . "/" . $mimg) . "&y=380&c=0&ext=.jpg";
+    $img = "picture.php?picture=" . encode("uploads/" .$mappa . "/" . $mimg) . "&y=380&c=0&ext=.jpg";
     $page_ogimage = $homeurl . "/picture2.php?picture=" . encode("uploads/" .$mappa . "/" . $mimg) . "&x=600&c=0&ext=.jpg";
 } else {
-    $img = "uploads/" . $defaultimg;
+    $img =  "picture.php?picture=" . encode($defaultimg) . "&y=380&c=0&ext=.jpg"; 
 }
 
 foreach ($pagedata as $megegyname => $megegy) {
@@ -47,6 +47,47 @@ $pagedata["image"] = $homeurl . "/" . $img;
 $page_keywords = $Text_Class->tageketcsupaszit($pagedata["title"]) . "," . $Text_Class->tageketcsupaszit($pagedata["hir"]);
 $page_description = $Text_Class->levag($Text_Class->tageketcsupaszit($pagedata["hir"]), 350);
 $pagetitle = " " . $pagedata["title"];
-
-
 ?>
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "Product",
+      "name": "<?php echo $pagedata["title"] ?>",
+      "image": [
+        "<?php echo $pagedata["image"] ?>"
+       ],
+      "description": "<?php echo $Text_Class->tageketcsupaszit($pagedata["leadtext"]) ?>",
+      "sku": "<?php echo $pagedata["id"] ?>",
+      "mpn": "",
+      "brand": {
+        "@type": "Brand",
+        "name": "<?php echo oldalneve ?>"
+      },
+     /* "review": {
+        "@type": "Review",
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "4",
+          "bestRating": "5"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Fred Benson"
+        }
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.4",
+        "reviewCount": "89"
+      },*/
+      "offers": {
+        "@type": "Offer",
+        "url": "https://example.com/anvil",
+        "priceCurrency": "HUF",
+        "price": "<?php echo $pagedata["endpriece"] ?>",
+        "priceValidUntil": "<?php $datetime ?>",
+        "itemCondition": "https://schema.org/UsedCondition",
+        "availability": "https://schema.org/InStock"
+      }
+    }
+    </script>
