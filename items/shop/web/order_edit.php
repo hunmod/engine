@@ -179,6 +179,6 @@ for ($i = 0; $i < count($oder_articlesid["articles"]); $i++) {
 <a href="<?php echo $separator.$getparams[0].'/order_view/'.encode($getparams[2]);?>">Rendelés megtekintése</a>
 <a target="_blank" href="<?= $serverurl?>/includeajax.php?q=shop/print_leter/<?= $getparams[2]?>" rel="nofollow"><?= lan('print leather')?></a>
 <a target="_blank" href="<?= $serverurl?>/includeajax.php?q=shop/print_etiket/<?= $getparams[2]?>" rel="nofollow"><?= lan('print etikett')?></a>
-<a target="_blank" href="<?= $serverurl?>/includeajax.php?q=shop/szamlazzhu_invoice.php/<?= $getparams[2]?>" rel="nofollow"><?= lan('Createszamlazzhu')?></a>
+<a target="_blank" href="<?= $serverurl?>/includeajax.php?q=shop/szamlazzhu_invoice/<?= $getparams[2]?>" rel="nofollow"><?= lan('Createszamlazzhu')?></a>
 <div class="clear"></div>
 
