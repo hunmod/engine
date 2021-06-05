@@ -128,6 +128,11 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 $retcurl=curl_exec($ch);
 curl_close($ch);
 
+
+$myfile = fopen("!szamlazz/get_".$orderdatas['id'].".log", "w");
+fwrite($myfile, $retcurl);
+fclose($myfile);
+
 $resp = new SimpleXMLElement($retcurl);
 
 
