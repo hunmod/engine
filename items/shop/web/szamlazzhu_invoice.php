@@ -148,14 +148,18 @@ if ($resp->sikeres[0]){
     $savedata["id"]=$orderdatas["id"];
 
     $ShopClass->save_shop_order($savedata);
-    print "Számlázz.hu számla: ".$savedata["payment_id"]."<br>";
+    if ($savedata["payment_id"]!="")print "Számlázz.hu számla: ".$savedata["payment_id"]."<br>";
 }else{
     echo "<hr>error!!<br>";
     //print($retcurl);
 }
-}else{
-    print "hiba: ".($resp->hibauzenet[0]).($resp->hibauzenet)."<br>";
 }
-print_r($resp);
+else{
+    print "hiba: ".(string)$resp->hibauzenet."<br>";
+}
+if ($resp->sikeres[0]=='false')
+{
+    print "hiba: ".(string)$resp->hibauzenet."<br>";
 
+}
 ?>
