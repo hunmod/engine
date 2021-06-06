@@ -4,11 +4,8 @@ $the_xml='<?xml version="1.0" encoding="UTF-8"?>';
 $the_xml.='
 <xmlszamla xmlns="http://www.szamlazz.hu/xmlszamla" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.szamlazz.hu/xmlszamla https://www.szamlazz.hu/szamla/docs/xsds/agent/xmlszamla.xsd">
     <beallitasok>
-        <!-- settings -->
         <felhasznalo>'.$szmlzzhu_usr.'</felhasznalo>
-        <!-- a Számlázz.hu user -->
         <jelszo>'.$szmlzzhu_pass.'</jelszo>
-        <!-- a Számlázz.hu’s user password -->
         <szamlaagentkulcs>'.$szmlzzhu_key.'</szamlaagentkulcs>
         <eszamla>true</eszamla>
         <!-- „true” in case you need to create an e-invoice -->
@@ -20,15 +17,11 @@ $the_xml.='
                                                 it will be included in the XML with base64 coding.
                                          -->
         <aggregator></aggregator>
-        <!-- omit this tag -->
     </beallitasok>
     <fejlec>
         <keltDatum>'.date("Y-m-d").'</keltDatum>
-        <!-- creating date, in this exact format -->
-        <teljesitesDatum>'.date("Y-m-d",strtotime($orderdatas["order_date"]. ' +30 day')).'</teljesitesDatum>
-        <!-- payment date -->
+        <teljesitesDatum>'.date("Y-m-d",strtotime($orderdatas["payment_date"]. '')).'</teljesitesDatum>
         <fizetesiHataridoDatum>'.date("Y-m-d",strtotime($orderdatas["order_date"]. ' +30 day')).'</fizetesiHataridoDatum>
-        <!-- due date -->
         <fizmod>'.$orderdatas["fizmod"].'</fizmod>
         <!-- payment method, free text field, values ​​used on the interface are: átutalás, készpénz, bankkártya, csekk, utánvét, ajándékutalvány, barion, barter, csoportos beszedés, OTP Simple, kompenzáció, kupon, PayPal,PayU, SZÉP kártya, utalvány -->
         <penznem>HUF</penznem>
@@ -44,15 +37,15 @@ $the_xml.='
                                           did we use to calculate VAT -->
         <rendelesSzam>'.$orderdatas["id"].'</rendelesSzam>
         <!-- order number -->
-        <dijbekeroSzamlaszam>'.$orderdatas["dijbekeroSzamlaszam"].'</dijbekeroSzamlaszam>
+        <dijbekeroSzamlaszam>'.$orderdatas["payment_id"].'</dijbekeroSzamlaszam>
         <!-- reference to pro forma invoice number -->
-        <elolegszamla>false</elolegszamla>
+        <elolegszamla>'.$orderdatas["elolegszamla"].'</elolegszamla>
         <!-- deposit invoice -->
         <vegszamla>'.$orderdatas["vegszamla"].'</vegszamla>
         <!-- invoice (after a deposit invoice) -->
         <helyesbitoszamla>false</helyesbitoszamla>
         <!-- correction invoice -->
-        <helyesbitettSzamlaszam></helyesbitettSzamlaszam>
+        <helyesbitettSzamlaszam>'.$orderdatas["payment_id"].'</helyesbitettSzamlaszam>
         <!-- the number of the corrected invoice -->
         <dijbekero>'.$orderdatas["dijbekero"].'</dijbekero>
         <!-- proform invoice -->
@@ -112,6 +105,20 @@ $the_xml.='
             <megjegyzes></megjegyzes>
         </tetel>';
     }
+
+    $the_xml.=' 
+        <tetel>
+            <megnevezes>'.lan("posta").'</megnevezes>
+            <mennyiseg>1</mennyiseg>
+            <mennyisegiEgyseg>db</mennyisegiEgyseg>
+            <nettoEgysegar>'.$oder_articlesid["summa"]["postpriece"].'</nettoEgysegar>
+            <afakulcs>0</afakulcs>
+            <nettoErtek>'.$oder_articlesid["summa"]["postpriece"].'</nettoErtek>
+            <afaErtek>0</afaErtek>
+            <bruttoErtek>'.$oder_articlesid["summa"]["postpriece"].'</bruttoErtek>
+            <megjegyzes></megjegyzes>
+        </tetel>';
+
     $the_xml.='  </tetelek>  
 </xmlszamla>';    
 ?>

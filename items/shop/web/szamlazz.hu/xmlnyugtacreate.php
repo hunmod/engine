@@ -37,6 +37,18 @@ $the_xml.='
       <brutto>'.$article["sum"].'</brutto>                                      <!-- REQ double  --> <!-- gross total value -->
     </tetel>';
 }
+$the_xml.=' 
+<tetel>
+    <megnevezes>'.lan("posta").'</megnevezes>
+    <mennyiseg>1</mennyiseg>
+    <mennyisegiEgyseg>db</mennyisegiEgyseg>
+    <nettoEgysegar>'.$oder_articlesid["summa"]["postpriece"].'</nettoEgysegar>
+    <afakulcs>0</afakulcs>
+    <nettoErtek>'.$oder_articlesid["summa"]["postpriece"].'</nettoErtek>
+    <afaErtek>0</afaErtek>
+    <bruttoErtek>'.$oder_articlesid["summa"]["postpriece"].'</bruttoErtek>
+    <megjegyzes></megjegyzes>
+</tetel>';
 $the_xml.='
   </tetelek>
   <!--

@@ -35,7 +35,7 @@ $orderdatas["articles"]=str_replace('/r/n','',$orderdatas["articles"]);
 //$oder_articlesid=$ShopClass->jsons_from($oder_articlestext);
 $oder_articlesid=json_decode($orderdatas["articles"],true);
 
-
+$orderdatas["elolegszamla"]="false";
 $orderdatas["dijbekero"]="false";
 $orderdatas["vegszamla"]="false";
 $orderdatas["dijbekeroSzamlaszam"]="";
@@ -95,11 +95,14 @@ if ($orderdatas["pstatus"]==1) {
     $orderdatas["vegszamla"]="true";
    // $orderdatas["vegszamla"]="false";
     $orderdatas["dijbekero"]="false";
+    $orderdatas["elolegszamla"]="false";
 
 }else{
-    $orderdatas["dijbekero"]="true";
-    //$orderdatas["dijbekero"]="false";
+  //  $orderdatas["dijbekero"]="true";
+    $orderdatas["dijbekero"]="false";
     $orderdatas["vegszamla"]="false";
+    $orderdatas["elolegszamla"]="true";
+    
 }
 
 //arraylist($orderdatas);
@@ -151,8 +154,8 @@ if ($resp->sikeres[0]){
     //print($retcurl);
 }
 }else{
-    print "hiba: ".($resp->hibauzenet[0])."<br>";
+    print "hiba: ".($resp->hibauzenet[0]).($resp->hibauzenet)."<br>";
 }
-//var_dump($resp);
+print_r($resp);
 
 ?>
