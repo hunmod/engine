@@ -93,7 +93,11 @@
     <?php if($fb_ap_id){
     }
     ?>
-    
+
+
+   <?php if (isset($addsense_id) && $addsense_id != "") {     ?>
+    <script data-ad-client="<?= $addsense_id ?>" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <?php  }  ?>   
     <?php
     // Google analitics (konfig DB-ből olvassa)
     if (isset($analitics_id) && $analitics_id != "") {

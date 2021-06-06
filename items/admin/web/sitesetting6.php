@@ -6,10 +6,10 @@
     <form id="form_title" name="form_title" method="post" action="">
         <label><?= lan("analitics_id");?></label>
         <?php $form->textbox('analitics_id',page_settings("analitics_id"),'Google analitics követőkód');?>
-        <label><?= lan("fb_ap_id");?></label>
-        <?php $form->textbox('fb_ap_id',page_settings("fb_ap_id"),'facebook ap id');?>               
-        <label><?= lan("fb_ap_secret");?></label>
-        <?php $form->textbox('fb_ap_secret',page_settings("fb_ap_secret"),'facebook ap titkos kód');?>  
+        <label><?= lan("addsense_id");?></label>
+        <?php $form->textbox('addsense_id',page_settings("addsense_id"),'Google addsense követőkód');?>
+
+
         <label><?= lan("fb_page_id");?></label>
         <?php $form->textbox('fb_page_id',page_settings("fb_page_id"),'Facebook oldal azonosító');?>  
         <label><?= lan("fb_page_name");?></label>

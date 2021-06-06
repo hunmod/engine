@@ -184,6 +184,7 @@ if (page_settings("keywords_" . $_SESSION["lang"]) != "") $metakey_words = page_
 if (page_settings("description_" . $_SESSION["lang"]) != "") $meta_description = page_settings("description_" . $_SESSION["lang"]);
 if (page_settings("sitemail") != "") $sitemail = page_settings("sitemail");
 if (page_settings("analitics_id") != "") $analitics_id = page_settings("analitics_id");
+if (page_settings("addsense_id") != "") $addsense_id = page_settings("addsense_id");
 if (page_settings("googleplus_id") != "") $googleplus_id = page_settings("googleplus_id");
 if (page_settings("google_api_key") != "") {$google_api_key = page_settings("google_api_key");
     define("google_api_key", $google_api_key);
