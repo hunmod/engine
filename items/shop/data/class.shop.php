@@ -173,9 +173,9 @@ public function sorrend(){
         $n++;
         $post_mod[$n]["id"] = 1;
         $post_mod[$n]["nev"] = "Posta";
-        $n++;
-        $post_mod[$n]["id"] = 2;
-        $post_mod[$n]["nev"] = "FutáHázhozszállítás";
+      //  $n++;
+       // $post_mod[$n]["id"] = 2;
+       // $post_mod[$n]["nev"] = "Futár,Házhozszállítás";
         return $post_mod;
 
     }

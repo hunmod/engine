@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="<?= lang ?>">
 <head>
+    <title><?= $pagetitle; ?></title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="Cache-control" content="public,max-age=86400">
     <meta http-equiv="Content-language" content="<?= lang ?>">
@@ -8,7 +9,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#1c69ca"/>
 
-    <title><?php echo $pagetitle; ?></title>
     <link rel="canonical" href="<?= homeurl . '/' . $MenuClass->shorturl_get($_GET['q']); ?>"/>
     <link rel="metalink" type="application/metalink+xml" href="<?= homeurl; ?>/rssfeed.php?<?= $_SERVER["QUERY_STRING"]; ?>"/>
     <link rel="alternate" type="application/rss+xml" title="RSS" href="<?= homeurl; ?>/rssfeed.php?<?= $_SERVER["QUERY_STRING"]; ?>"/>
