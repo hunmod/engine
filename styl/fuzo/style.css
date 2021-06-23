@@ -677,6 +677,14 @@ oldprice
     .navbar ul li ul {
         position: relative;
     }
+    .animst1 .contentlayer a  {
+        padding: 1em;
+        font-size: 1.2em;
+    }
+    .animst1 .contentlayer h2 a {
+        padding: 1em;
+        font-size: 1em;;
+    }
 }
 
 @media only screen and (max-width: 480px) {
@@ -714,12 +722,5 @@ oldprice
         color: #300;
     }
 
-    .animst1 .contentlayer a  {
-        padding: 0.4em;
-        font-size: 0.8em;
-    }
-    .animst1 .contentlayer h2 a {
-        padding: 0.4em;
-        font-size: 0.8em;;
-    }
+
 }
