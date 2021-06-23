@@ -67,22 +67,11 @@ if (page_settings('blockmouse') == 2 && $auser['jog'] < 4) {
     </script>
 <?php } ?>
 
-<!-- Begin Cookie Consent plugin by Silktide - https://silktide.com/cookieconsent >
+<!-- Begin Cookie Consent plugin by Silktide - http://silktide.com/cookieconsent -->
 <script type="text/javascript">
     window.cookieconsent_options = {"message":"Weboldalainkon cookie-kat (sütiket) használunk, hogy személyre szóló szolgáltatást nyújthassunk látogatóink részére.","dismiss":"Elfogadom","learnMore":"több infó","link":"http://net.jogtar.hu/jr/gen/hjegy_doc.cgi?docid=A1100112.TV","theme":"dark-bottom"};
 </script>
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.1/cookieconsent.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.9/cookieconsent.min.js"></script>
 <!-- End Cookie Consent plugin -->
-
-<!-- Cookie Consent by https://www.CookieConsent.com -->
-<script type="text/javascript" src="//www.cookieconsent.com/releases/4.0.0/cookie-consent.js" charset="UTF-8"></script>
-<script type="text/javascript" charset="UTF-8">
-document.addEventListener('DOMContentLoaded', function () {
-cookieconsent.run({"notice_banner_type":"headline","consent_type":"express","palette":"dark","language":"hu","page_load_consent_levels":["strictly-necessary"],"notice_banner_reject_button_hide":false,"preferences_center_close_button_hide":false,"open_preferences_center_selector":"https://okosfuzo.hu/site/site/13"});
-});
-</script>
-
-<noscript>ePrivacy and GPDR Cookie Consent by <a href="https://www.CookieConsent.com/" rel="nofollow noopener">Cookie Consent</a></noscript>
-<!-- End Cookie Consent by https://www.CookieConsent.com -->
 
