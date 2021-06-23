@@ -95,7 +95,10 @@
     ?>
 
 
-
+<?php
+    // Google analitics (konfig DB-ből olvassa)
+    if (isset($analitics_id) && $analitics_id != "") {
+        ?>
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=<?= $analitics_id ?>"></script>
