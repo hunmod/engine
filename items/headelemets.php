@@ -12,9 +12,8 @@
     <link rel="canonical" href="<?= homeurl . '/' . $MenuClass->shorturl_get($_GET['q']); ?>"/>
     <link rel="metalink" type="application/metalink+xml" href="<?= homeurl; ?>/rssfeed.php?<?= $_SERVER["QUERY_STRING"]; ?>"/>
     <link rel="alternate" type="application/rss+xml" title="RSS" href="<?= homeurl; ?>/rssfeed.php?<?= $_SERVER["QUERY_STRING"]; ?>"/>
-    <!--link href="<?= homeurl; ?>/scripts/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet" as="style"-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
+    <link href="<?= homeurl; ?>/scripts/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet" as="style">
+    
     <link rel="stylesheet" as="stylesheet" type="text/css" href="<?= homeurl; ?><?= $makemin->css($stylefolder . 'style.css', $stylefolder . 'style.min.css') ?>"/>
 
     <?php if ($page_keywords != "") { ?>
