@@ -99,8 +99,8 @@
     .facebookicon35{
     }
     .actions ul{
-        padding-inline-start: 0.em;
-        font-size: 0.em;
+        padding-inline-start: 0.8em;
+        font-size: 0.8em;
     }
 </style>
 
