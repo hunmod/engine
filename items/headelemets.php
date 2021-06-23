@@ -12,7 +12,9 @@
     <link rel="canonical" href="<?= homeurl . '/' . $MenuClass->shorturl_get($_GET['q']); ?>"/>
     <link rel="metalink" type="application/metalink+xml" href="<?= homeurl; ?>/rssfeed.php?<?= $_SERVER["QUERY_STRING"]; ?>"/>
     <link rel="alternate" type="application/rss+xml" title="RSS" href="<?= homeurl; ?>/rssfeed.php?<?= $_SERVER["QUERY_STRING"]; ?>"/>
-    <link href="<?= homeurl; ?>/scripts/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet" as="style">
+    <!--link href="<?= homeurl; ?>/scripts/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet" as="style"-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
     <link rel="stylesheet" as="stylesheet" type="text/css" href="<?= homeurl; ?><?= $makemin->css($stylefolder . 'style.css', $stylefolder . 'style.min.css') ?>"/>
 
     <?php if ($page_keywords != "") { ?>
@@ -74,15 +76,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
-<!--script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
-<script>
-  window.OneSignal = window.OneSignal || [];
-  OneSignal.push(function() {
-    OneSignal.init({
-      appId: "9c5b677a-e047-4b90-9467-d50508836784",
-    });
-  });
-</script-->
+
 
     <?php
     if (is_file('.'.$file['js'])){?>
@@ -110,26 +104,6 @@
   gtag('config', '<?= $analitics_id ?>');
 </script>
 
-
-
-        <!--script>
-            (function (i, s, o, g, r, a, m) {
-                i['GoogleAnalyticsObject'] = r;
-                i[r] = i[r] || function () {
-                        (i[r].q = i[r].q || []).push(arguments)
-                    }, i[r].l = 1 * new Date();
-                a = s.createElement(o),
-                    m = s.getElementsByTagName(o)[0];
-                a.async = 1;
-                a.src = g;
-                m.parentNode.insertBefore(a, m)
-            })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-
-            ga('create', '<?php echo $analitics_id;?>', '<?php echo $_SERVER["HTTP_HOST"];?>');
-            ga('require', 'linkid', 'linkid.js');
-            ga('require', 'displayfeatures');
-            ga('send', 'pageview');
-        </script-->
     <?php }
     // Google analitics (konfig DB-ből olvassa)
     ?>
