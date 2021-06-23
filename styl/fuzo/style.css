@@ -714,10 +714,12 @@ oldprice
         color: #300;
     }
 
-    .animst1 .contentlayer  a {
-        font-size: 0.8em;;
+    .animst1 .contentlayer a  {
+        padding: 0.4em;
+        font-size: 0.8em;
     }
     .animst1 .contentlayer h2 a {
-        font-size: 1em;;
+        padding: 0.4em;
+        font-size: 0.8em;;
     }
 }
