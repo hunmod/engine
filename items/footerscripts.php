@@ -67,11 +67,11 @@ if (page_settings('blockmouse') == 2 && $auser['jog'] < 4) {
     </script>
 <?php } ?>
 
-<!-- Begin Cookie Consent plugin by Silktide - http://silktide.com/cookieconsent -->
+<!-- Begin Cookie Consent plugin by Silktide - https://silktide.com/cookieconsent -->
 <script type="text/javascript">
     window.cookieconsent_options = {"message":"Weboldalainkon cookie-kat (sütiket) használunk, hogy személyre szóló szolgáltatást nyújthassunk látogatóink részére.","dismiss":"Elfogadom","learnMore":"több infó","link":"http://net.jogtar.hu/jr/gen/hjegy_doc.cgi?docid=A1100112.TV","theme":"dark-bottom"};
 </script>
 
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.9/cookieconsent.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.1/cookieconsent.min.js"></script>
 <!-- End Cookie Consent plugin -->
 
