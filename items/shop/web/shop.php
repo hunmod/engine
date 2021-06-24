@@ -180,7 +180,7 @@
                     </ul>
                 </div>
                 <div class="countelement" id="ce1">
-                    <description itemprop="description" ><?= $Text_Class->keywordstaged( $Text_Class->htmlfromchars($Text_Class->youtoubecserel( $pagedata["leadtext"]), $metakey_words)); ?></description>
+                    <description itemprop="description" ><?= $Text_Class->youtoubecserel( $Text_Class->keywordstaged( $Text_Class->htmlfromchars($pagedata["leadtext"]), $metakey_words)); ?></description>
                 </div>
                 <div class="countelement" id="ce2">
                     <images>
