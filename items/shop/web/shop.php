@@ -1,3 +1,47 @@
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "Product",
+      "name": "<?php echo $pagedata["title"] ?>",
+      "image": [
+        "<?php echo $pagedata["image"] ?>"
+       ],
+      "description": "<?php echo $Text_Class->tageketcsupaszit($pagedata["leadtext"]) ?>",
+      "sku": "<?php echo $pagedata["id"] ?>",
+      "mpn": "",
+      "brand": {
+        "@type": "Brand",
+        "name": "<?php echo oldalneve ?>"
+      },
+     /* "review": {
+        "@type": "Review",
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "4",
+          "bestRating": "5"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Fred Benson"
+        }
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.4",
+        "reviewCount": "89"
+      },*/
+      "offers": {
+        "@type": "Offer",
+        "url": "https://example.com/anvil",
+        "priceCurrency": "HUF",
+        "price": "<?php echo $pagedata["endpriece"] ?>",
+        "priceValidUntil": "<?php $datetime ?>",
+        "itemCondition": "https://schema.org/UsedCondition",
+        "availability": "https://schema.org/InStock"
+      }
+    }
+    </script>
+
 <script>
     function count_counterelement(myclass) {
         var numItems = $('.' + myclass).length
@@ -136,7 +180,7 @@
                     </ul>
                 </div>
                 <div class="countelement" id="ce1">
-                    <description itemprop="description" ><?= $Text_Class->youtoubecserel( $Text_Class->keywordstaged( $Text_Class->htmlfromchars($pagedata["leadtext"]), $metakey_words)); ?></description>
+                    <description itemprop="description" ><?= $Text_Class->keywordstaged( $Text_Class->htmlfromchars($Text_Class->youtoubecserel( $pagedata["leadtext"]), $metakey_words)); ?></description>
                 </div>
                 <div class="countelement" id="ce2">
                     <images>
