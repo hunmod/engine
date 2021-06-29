@@ -103,7 +103,7 @@
         <shop_article itemscope itemtype="http://schema.org/Product" class="border1 bgcolor1">
             <?php
             ?>
-            <name itemprop="name" ><?php echo $Text_Class->htmlfromchars($pagedata["title"]); ?></name>
+            <h2><name itemprop="name" ><?php echo $Text_Class->htmlfromchars($pagedata["title"]); ?></name></h2>
 
             <topimage class="col-sm-12"><img src="<?php echo(  homeurl.'/'.$img); ?>" alt="<?php echo $pagedata["title"]; ?>" title="<?php echo $pagedata["title"]; ?>" itemprop="image"/>
             </topimage>
@@ -128,7 +128,7 @@
             <oldprice itemprop="highPrice"><?php echo priece_format($pagedata["priece_old"],0);?> </oldprice><currency itemprop="highPriceCurencey">Ft</currency>
             <action itemprop="precent"><?php echo percentage($pagedata["priece"], $pagedata["priece_old"], 0);?> %</action>
         <?php } ?>
-        <price><?php echo priece_format($pagedata["priece"],0);?> <currency itemprop="priceCurrency">Ft</currency></price>
+        <price><?php echo priece_format($pagedata["priece"],0);?> </price><currency itemprop="priceCurrency">Ft</currency>
         <meta itemprop="price" content="<?= ($pagedata["priece"]);?> " />        
         
         <?php if ($pagedata["vat"]>0){?>
