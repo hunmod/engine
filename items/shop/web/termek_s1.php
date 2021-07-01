@@ -20,14 +20,14 @@
             (<priece><?php echo priece_format($elem["priece"]/$eurhuf,2);?> &#8364;</priece> )<br />
         <?php }?>
         <?php if ($elem["priece_old"]>$elem["priece"]){?>
-            <oldprice itemprop="highPrice"><?php echo priece_format($elem["priece_old"],0);?> </oldprice><currency itemprop="highPriceCurencey">Ft</currency>
+            <oldpriece itemprop="highPrice"><?php echo priece_format($elem["priece_old"],0);?> </oldpriece><currency itemprop="highPriceCurencey">Ft</currency>
             <action itemprop="precent"><?php echo percentage($elem["priece"], $elem["priece_old"], 0);?> %</action>
         <?php } ?>
-        <price><?php echo priece_format($elem["priece"],0);?> <currency itemprop="priceCurrency">Ft</currency></price>
+        <priece><?php echo priece_format($elem["priece"],0);?> <currency itemprop="priceCurrency">Ft</currency></priece>
         <meta itemprop="price" content="<?= ($elem["priece"]);?> " />        
         
         <?php if ($elem["vat"]>0){?>
-        <endprice>(+ <?= $elem["vat"]?>% Áfa) <?php echo priece_format(($elem["priece"]+$elem["priece"]/100*$elem["vat"]),0);?> Ft</endprice>
+        <endpriece>(+ <?= $elem["vat"]?>% Áfa) <?php echo priece_format(($elem["priece"]+$elem["priece"]/100*$elem["vat"]),0);?> Ft</endpriece>
           <?  
        }
         /*          

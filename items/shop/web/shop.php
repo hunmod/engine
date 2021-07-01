@@ -118,21 +118,21 @@
                 <span itemprop="ratingValue">4.5</span> /<span itemprop="reviewCount">100</span>
             </hiddenbox>
             <div class="col-sm-4">
-            <prices itemprop="offers" itemtype="http://schema.org/Offer" itemscope>
+            <prieces itemprop="offers" itemtype="http://schema.org/Offer" itemscope>
 
             
             <?php if ($eurhuf>0){?>
             (<priece><?php echo priece_format($pagedata["priece"]/$eurhuf,2);?> &#8364;</priece> )<br />
         <?php }?>
         <?php if ($pagedata["priece_old"]>$pagedata["priece"]){?>
-            <oldprice itemprop="highPrice"><?php echo priece_format($pagedata["priece_old"],0);?> </oldprice><currency itemprop="highPriceCurencey">Ft</currency>
+            <oldpriece itemprop="highPrice"><?php echo priece_format($pagedata["priece_old"],0);?> </oldpriece><currency itemprop="highPriceCurencey">Ft</currency>
             <action itemprop="precent"><?php echo percentage($pagedata["priece"], $pagedata["priece_old"], 0);?> %</action>
         <?php } ?>
-        <price><?php echo priece_format($pagedata["priece"],0);?> </price><currency itemprop="priceCurrency">Ft</currency>
-        <meta itemprop="price" content="<?= ($pagedata["priece"]);?> " />        
+        <priece><?php echo priece_format($pagedata["priece"],0);?> </priece><currency itemprop="priceCurrency">Ft</currency>
+        <meta itemprop="priece" content="<?= ($pagedata["priece"]);?> " />        
         
         <?php if ($pagedata["vat"]>0){?>
-        <endprice>(+ <?= $pagedata["vat"]?>% Áfa) <?php echo priece_format(($pagedata["priece"]+$pagedata["priece"]/100*$pagedata["vat"]),0);?> Ft</endprice>
+        <endpriece>(+ <?= $pagedata["vat"]?>% Áfa) <?php echo priece_format(($pagedata["priece"]+$pagedata["priece"]/100*$pagedata["vat"]),0);?> Ft</endpriece>
           <?  
        }
         /*          
@@ -146,7 +146,7 @@
                     <?php } ?>
                 </orderinfo>
 
-            </prices>
+            </prieces>
             <div class="actions">
                 <ul>
                     <?php if ($pagedata["storage_status"] != 5) { ?>
