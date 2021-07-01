@@ -9,7 +9,9 @@
 
     <meta itemprop="name" content="<?= $Text_Class->htmlfromchars($elem["title"])?>" />
     <meta itemprop="category" content="cipőfűző" />
-    <meta itemprop="brand" content="<?=$oldalneve?>" />
+    <meta itemprop="brand" content="<?= oldalneve?>" />
+    <meta itemprop="price" content="<?= $elem["priece"] ?>" />
+    <meta itemprop="currency_code" content="HUF" />
     <meta itemprop="itemCondition" content="https://schema.org/NewCondition" />
     <hiddenbox itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
         <span itemprop="ratingValue">4.6</span> /<span itemprop="reviewCount">100</span>
@@ -20,14 +22,14 @@
             (<priece><?php echo priece_format($elem["priece"]/$eurhuf,2);?> &#8364;</priece> )<br />
         <?php }?>
         <?php if ($elem["priece_old"]>$elem["priece"]){?>
-            <oldpriece itemprop="highPrice"><?php echo priece_format($elem["priece_old"],0);?> </oldpriece><currency itemprop="highPriceCurencey">Ft</currency>
+            <oldprice itemprop="highPrice"><?php echo priece_format($elem["priece_old"],0);?> </oldprice><currency itemprop="highPriceCurencey">Ft</currency>
             <action itemprop="precent"><?php echo percentage($elem["priece"], $elem["priece_old"], 0);?> %</action>
         <?php } ?>
-        <priece><?php echo priece_format($elem["priece"],0);?> <currency itemprop="priceCurrency">Ft</currency></priece>
+        <price><?php echo priece_format($elem["priece"],0);?> <currency itemprop="priceCurrency">Ft</currency></price>
         <meta itemprop="price" content="<?= ($elem["priece"]);?> " />        
         
         <?php if ($elem["vat"]>0){?>
-        <endpriece>(+ <?= $elem["vat"]?>% Áfa) <?php echo priece_format(($elem["priece"]+$elem["priece"]/100*$elem["vat"]),0);?> Ft</endpriece>
+        <endprice>(+ <?= $elem["vat"]?>% Áfa) <?php echo priece_format(($elem["priece"]+$elem["priece"]/100*$elem["vat"]),0);?> Ft</endprice>
           <?  
        }
         /*          
