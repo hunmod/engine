@@ -29,6 +29,7 @@
     <meta name="description" content="<?php echo $pgerite; ?>"/>
     <meta property="og:description" content="<?php echo $pgerite; ?>"/>
     <meta name="twitter:description" content="<?php echo $pgerite; ?>"/>
+    <meta property="og:type" content="website"/>
 
     <?php if ($page_ogimage == "") { ?>
         <?php
@@ -37,7 +38,7 @@
 
        //$page_ogimage = homeurl . '' . $stylefolder . 'img/og.jpg';
     } ?>
-    <meta property="og:image" content="<?php echo $page_ogimage; ?>"/>
+    <meta property="og:image" content="<?php echo $page_ogimage."&x=1500"."&y=1000&ext=.jpg"; ?>"/>
     <meta name="twitter:card" content="summary_large_image"/>
     <meta name="twitter:image" content="<?php echo $page_ogimage; ?>"/>
     <?php if ($fb_page_id != "") { ?>
@@ -46,7 +47,6 @@
     <?php if ($page_ogimage != "") { ?>
     <meta property="og:image" content="<?php echo $page_ogimage; ?>"/>
     <?php } ?>
-    <meta property="og:type" content="website"/>
     <meta property="og:url" content="<?php echo homeurl . $_SERVER["REQUEST_URI"]; ?>"/>
     <meta name="rating" content="General"/>
     <?php if(page_settings('indexfollow')=='2'){ ?>
