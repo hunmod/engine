@@ -7,11 +7,11 @@
         "<?php echo $pagedata["image"] ?>"
        ],
       "description": "<?php echo $Text_Class->tageketcsupaszit($pagedata["leadtext"]) ?>",
-      "sku": "<?php echo $pagedata["id"] ?>",
+      "sku": "<?= $pagedata["id"] ?>",
       "mpn": "",
       "brand": {
         "@type": "Brand",
-        "name": "<?php echo oldalneve ?>"
+        "name": " <?= $oldalneve ?>"
       },
      /* "review": {
         "@type": "Review",
@@ -34,7 +34,7 @@
         "@type": "Offer",
         "url": "https://example.com/anvil",
         "priceCurrency": "HUF",
-        "price": "<?php echo $pagedata["endpriece"] ?>",
+        "price": "<?= $pagedata["priece"] ?>",
         "priceValidUntil": "<?php $datetime ?>",
         "itemCondition": "https://schema.org/UsedCondition",
         "availability": "https://schema.org/InStock"
