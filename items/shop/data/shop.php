@@ -44,7 +44,7 @@ $pagedata["title"] = $datasgt["datas"][0]["title"];
 //arraylist($pagedata);
 $pagedata["image"] = $homeurl . "/" . $img;
 
-$page_keywords = $Text_Class->tageketcsupaszit($pagedata["title"]) . "," . $Text_Class->tageketcsupaszit($pagedata["hir"]);
-$page_description = $Text_Class->levag($Text_Class->tageketcsupaszit($pagedata["hir"]), 350);
+$page_keywords = $Text_Class->tageketcsupaszit($pagedata["title"]) . "," . $Text_Class->tageketcsupaszit($pagedata["leadtext"]);
+$page_description = $Text_Class->levag($Text_Class->tageketcsupaszit($pagedata["leadtext"]), 350);
 $pagetitle = " " . $pagedata["title"];
 ?>
