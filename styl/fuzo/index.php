@@ -34,8 +34,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		<?php include('menu.php');?>                                
                                 <ul class="nav navbar-nav navbar-right">
 <?php if ($auser["id"]<1){?>
-                                    <!--li><a href="javascript:reg();"><span><?php echo $lan["reg"]; ?></span></a></li-->
-                                    <li><a href="javascript:login();"><span><?php echo $lan["H"]; ?></span></a></li>
+                                    <!--li><a href="javascript:reg();"><span><?= lan("reg")?></span></a></li-->
+                                    <li><a href="javascript:login();"><span><?= lan("login")?></span></a></li>
                                     
 <?php } else {?>
                                     <li class="sub-menu"><a href="<?php echo $homeurl.'/'.$separator;?>user/profil"><span><?php echo $lan["profil"]; ?></span></a>

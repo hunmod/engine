@@ -32,7 +32,7 @@ if ($_POST["pass"]!='' && $_POST["inputPasswordConfirm"]!='' && $auser["id"]>0)
 		$_SESSION["messageerror"]="The passwords do not match";			
 	}
 	else {
-		$User_Class->save(array('id'=>$auser['id'],'pass'=>$_POST["pass"]));
+		$User_Class->save(array('id'=>$auser['id'],'pass'=>md5($_POST["pass"])));
 		$mire=array($auser["unev"],$auser["nev"],$auser["email"],$_POST["pass"]);
 		$mit=array('USERNAME','REALNAME','USEREMAIL','USERPASS');	
 		$subject=str_replace($mit, $mire, page_settings("email_pass_change_subject"));
@@ -109,40 +109,40 @@ else{
                                 <br>
                                 </div>
 
-                                <div class="form-group">
+                                <div class="form-group col-sm-12">
                                     <div class="col-sm-4"><strong><?php echo $lan["email"]; ?></strong></div>  
                                     <div class="col-sm-8">
                                         <?php echo $auser["email"];?>
                                     </div>
                                 </div>   
-                                <div class="form-group">
+                                <div class="form-group col-sm-12">
                                     <label class="col-sm-4 control-label" for="nev"><?php echo $lan["uname"]; ?></label>  
                                     <div class="col-sm-8">
                                         <input id="nev" name="nev" value="<?php echo $auser["unev"];?>" class="form-control" type="text">
                                     </div>
                                 </div>
                                 
-                                <div class="form-group">
+                                <div class="form-group col-sm-12">
                                     <label class="col-sm-4 control-label" for="nev"><?php echo $lan["name"]; ?></label>  
                                     <div class="col-sm-8">
                                         <input id="nev" name="nev" value="<?php echo $auser["nev"];?>" class="form-control" type="text">
                                     </div>
                                 </div>
 
-                                <div class="form-group">
+                                <div class="form-group col-sm-12">
                                     <label class="col-sm-4 control-label" for="textinput"><?php echo $lan["pass"]; ?></label> 
                                     <div class="col-sm-8">   
                                         <input type="password" data-minlength="6" class="form-control" id="inputPassword" name="pass" placeholder="Password">
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group col-sm-12">
                                     <label class="col-sm-4 control-label" for="textinput"><?php echo $lan["pass2"]; ?></label> 
                                     <div class="col-sm-8">   
                                         <input type="password" class="form-control" id="inputPasswordConfirm" name="inputPasswordConfirm"  data-match="#inputPassword" data-match-error="A jelszavak nem egyeznek meg" placeholder="<?php echo $lan["pass2"]; ?>">
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
-                                 <div class="form-group">
+                                 <div class="form-group col-sm-12">
                                     <label class="col-sm-4 control-label" for="nev"><?php echo $lan["hirlevel"]; ?></label>  
                                     <div class="col-sm-8">
                                         
@@ -151,14 +151,14 @@ else{
                                         <label class="checkbox-inline terms" for="hirlevel"><?php echo $lan["scrubthe"]; ?></label>
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group col-sm-12">
                                     <div class="col-sm-4" style="padding-left:0; ">
-                                                                            <button class="button enterButton"><?php echo $lan["save"]; ?></button>
+                                                                            <button class="btn btn-success"><?php echo $lan["save"]; ?></button>
                                     </div>
 
                                     <div class="col-sm-4">
- <a href="<?php echo $homeurl.'/'.$separator;?>user/logout" class="button enterButton"><span><?php echo $lan["logout"]; ?></span></a><br>
- <a data-toggle="modal" data-target="#delsure" class="button enterButton" href="#"><span><?php echo $lan["user"]; ?> <?php echo $lan["delete"]; ?> </span></a>
+ <a href="<?php echo $homeurl.'/'.$separator;?>user/logout" class="btn btn-primary"><span><?php echo $lan["logout"]; ?></span></a><br>
+ <a data-toggle="modal" data-target="#delsure" class="btn btn-primary" href="#"><span><?php echo $lan["user"]; ?> <?php echo $lan["delete"]; ?> </span></a>
                                     </div>
                                 </div>
                             </fieldset>

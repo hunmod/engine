@@ -1,7 +1,7 @@
 <?php
 $tblmodul='chron';
 $tbl[$tblmodul]=$adatbazis["db1_db"].".".$prefix."system_chron";
-
+//echo $tblmodul;
 $file_structuct=array();
 $file_structuct["modules"]="chrone";
 /*

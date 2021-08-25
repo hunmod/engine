@@ -1,4 +1,5 @@
 <?php
+
 $tblmodulom='files';
 $tbl[$tblmodulom]=$adatbazis["db1_db"].".".$prefix."files";
 
@@ -67,8 +68,8 @@ function rotateImage($img1, $rec) {
 }
 
 //
-	
-function imagecreatefrombmp($p_sFile) 
+if(!function_exists("imagecreatefrombmp")) {
+	function imagecreatefrombmp($p_sFile) 
     { 
         //    Load the image into a string 
         $file    =    fopen($p_sFile,"rb"); 
@@ -160,7 +161,7 @@ function imagecreatefrombmp($p_sFile)
         //    Return image-object 
         return $image; 
     } 
-
+}
 
 function imagecreatefromx($filename){
 $kierjeztes=kierjeztes($filename);
@@ -191,7 +192,8 @@ return $image_in;
 	
 	
 	
-function kepforgat ($kepurl,$irany){
+function kepforgat ($kepurl,$irany)
+{
 //$kepurl = "imageurl";	
 //$irany = "l"(left);r(Rigth);	
 $filename = $kepurl;
@@ -649,7 +651,6 @@ DarkBox.list = ['.$dblist.'];';
 }
 //
 
-    
     
  // ------------------------------------------------------------
 

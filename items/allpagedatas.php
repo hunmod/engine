@@ -1,5 +1,4 @@
-<?php error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED & ~E_WARNING);
-
+<?php //error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED & ~E_WARNING);
 //include system classes
 
 include_once("remotedb1.php");
@@ -11,10 +10,8 @@ include_once('items/admin/data/class/form.class.php');
 include_once('items/admin/data/class/text.class.php');
 include_once('items/admin/data/class/time.class.php');
 include_once('items/admin/data/class/google.class.php');
-include_once('items/admin/data/class/location.class.php');
 include_once('items/user/class/users.class.php');
-include_once("items/admin/data//class/dc.class.php");
-
+include_once("items/admin/data/class/dc.class.php");
 //construct classes
 $Upload_Class = new file_upload();
 $Form_Class = new formobjects();
@@ -167,6 +164,7 @@ $items_mappa = dirlist($urlpre . "items/");
 foreach ($items_mappa as $onefolder) {
     $configfile = $urlpre . "items/" . $onefolder . "/data/config.php";
     if (file_exists($configfile)) {
+        //echo $configfile."<br>";
         include_once($configfile);
     }
     $inputFileName = 'items/' . $onefolder . '/lang/lang.xls';
@@ -176,6 +174,7 @@ foreach ($items_mappa as $onefolder) {
 
 
 }
+//arraylist($_SESSION);
 
 //read page settings from db
 
@@ -314,6 +313,7 @@ $fomenu = $MenuClass->get_menus_down($menustart);
 //aktuális modul adatainak betöltése
 if (isset($file['adat']))
     if (file_exists($file['adat'])) {
+        //echo $file['adat'];
         include_once($file['adat']);
     }
 

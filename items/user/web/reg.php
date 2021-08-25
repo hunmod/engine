@@ -45,35 +45,35 @@ top:-1000px;
                     <div id="unev_error" class="regerror"></div>
 					<div class="inp clr">
                     <input name="regform" type="hidden" value="2"/>
-						<input type="text" name="unev" id="unev" placeholder="<?php echo $lan["fname"]; ?>" required="required" value="<?php echo $bdata['unev']; ?>" class="form-control">
+						<?= lan("uname") ?>:<input type="text" name="unev" id="unev" placeholder="<?= lan("uname") ?>" required="required" value="<?php echo $bdata['unev']; ?>" class="form-control">
 						<i class="icon user"></i>
 					</div>
 					<div id="nev_error" class="regerror"><?php echo $regerrors['unev']; ?></div>
 					<div class="inp clr">
-						<input type="text" name="nev" id="nev" placeholder="<?php echo $lan["lname"]; ?>" required="required"  value="<?php echo $bdata['nev']; ?>" class="form-control">
+						<?= lan("name") ?>:<input type="text" name="nev" id="nev" placeholder="<?= lan("name") ?>" required="required"  value="<?php echo $bdata['nev']; ?>" class="form-control">
 						<i class="icon user"></i>
 					</div>
 
 					<div id="email_error" class="regerror"><?php echo $regerrors['nev']; ?></div>
 					<div class="inp clr">
-						<input type="email" name="email" id="email" placeholder="<?php echo $lan["email"]; ?>" required="required" value="<?php echo $bdata['email']; ?>" class="form-control">
+					<?= lan("email") ?>:<input type="email" name="email" id="email" placeholder="<?= lan("email") ?>" required="required" value="<?php echo $bdata['email']; ?>" class="form-control">
 						<i class="icon mail"></i>
 					</div>
 					<div id="pass_error" class="regerror"><?php echo $regerrors['email']; ?></div>
 					<div class="inp clr">
-						<input type="password" name="pass" id="pass" placeholder="<?php echo $lan["pass"]; ?>" required="required" value="<?php echo $bdata['pass']; ?>" class="form-control">
+					<?= lan("pass") ?>:<input type="password" name="pass" id="pass" placeholder="<?= lan("pass") ?>" required="required" value="<?php echo $bdata['pass']; ?>" class="form-control">
 						<i class="icon pwd"></i>
 					</div>
 					<div id="pass1_error" class="regerror"><?php echo $regerrors['pass1']; ?></div>
 					<div class="inp clr">
-						<input type="password" name="pass1" id="pass1" placeholder="<?php echo $lan["pass2"]; ?>" required="required" class="form-control"><i class="icon pwd"></i>
+					<?= lan("pass2") ?>:<input type="password" name="pass1" id="pass1" placeholder="<?= lan("pass2") ?>" required="required" class="form-control"><i class="icon pwd"></i>
 						<input type="text" name="captha"  placeholder="captha" class="captha">
 					</div>
                     
 					<div class="inp check clr">
 						
 							<label class="checker" ><input type="checkbox" name="aszf" id="aszf" value="1" required="required"><i id="aszfl"><i></i></i></label>
-							<?php echo $lan["acceptthe"]; ?> <strong><a href="<?php echo $server_url.$separator."aszf";?>" target="_blank"><?php echo $lan["aszf"]; ?></a></strong><?php echo $lan["et"]; ?>
+							<?php echo $lan["acceptthe"]; ?> <strong><a href="<?= $server_url."afsz"?>" target="_blank"><?php echo $lan["aszf"]; ?></a></strong><?php echo $lan["et"]; ?>
 					</div>
 					<div id="aszf_error" class="regerror"></div>
 					<div class="inp check clr">
@@ -87,10 +87,10 @@ top:-1000px;
 	if (($fb_ap_id!="")&&($fb_ap_secret!=""))
 	{
 ?>
-		<a href="#" class="button facebookButton">
+		<!--a href="#" class="button facebookButton">
 			<?php echo $lan["regfb"]; ?> Facebook<?php echo $lan["al"]; ?> <i class="fa fa-facebook"></i></a>
 
-		<!--form name="regfb"  id="regfb" method="post" action="<?php echo $homeurl.'/user/fbreg';?>"></form>
+		<form name="regfb"  id="regfb" method="post" action="<?php echo $homeurl.'/user/fbreg';?>"></form>
         <div class="fblog">
             <?php echo $lan["regfb"]; ?>
         </div>
